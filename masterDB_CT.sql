@@ -431,13 +431,7 @@ CREATE TABLE `person_events_attended` (
   `Participation_Status_Ref` int DEFAULT NULL,
   `Role` varchar(45) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
-  `End_Date` date DEFAULT NULL,
-  `Funding_Agency` varchar(255) DEFAULT NULL,
-  `No_Of_Participants` int DEFAULT NULL,
-  `Summary_File` blob,
-  `Event_Schedule` blob,
-  `Participants_Lists` blob,
-  `Budget` blob
+  `End_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
