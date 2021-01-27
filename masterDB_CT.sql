@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 24, 2021 at 08:17 AM
+-- Generation Time: Jan 27, 2021 at 11:21 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -154,8 +154,10 @@ CREATE TABLE `course_cacomp` (
   `course_code` varchar(15) NOT NULL,
   `group_ref` int NOT NULL,
   `session_ref` int NOT NULL,
-  `component` varchar(15) NOT NULL,
-  `total_marks` int NOT NULL
+  `total_marks` int NOT NULL,
+  `type` int NOT NULL,
+  `number` int NOT NULL,
+  `weightage` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -165,14 +167,15 @@ CREATE TABLE `course_cacomp` (
 --
 
 CREATE TABLE `course_evaluation` (
-  `caval_id` int NOT NULL,
-  `course_code` varchar(15) NOT NULL,
+  `ceval_id` int NOT NULL,
+  `course_code` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `group_ref` int NOT NULL,
   `session_ref` int NOT NULL,
   `type` int NOT NULL,
   `total_mark` int NOT NULL,
   `marks_obtained` int NOT NULL,
-  `reg_no` int NOT NULL
+  `reg_no` int NOT NULL,
+  `number` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -1022,7 +1025,11 @@ ALTER TABLE `course_cacomp`
 -- Indexes for table `course_evaluation`
 --
 ALTER TABLE `course_evaluation`
-  ADD PRIMARY KEY (`caval_id`);
+  ADD PRIMARY KEY (`ceval_id`),
+  ADD KEY `Group_FK` (`group_ref`),
+  ADD KEY `Session_FK` (`session_ref`),
+  ADD KEY `Reg_no_FK` (`reg_no`),
+  ADD KEY `course_code_FK0` (`course_code`);
 
 --
 -- Indexes for table `course_extcalc`
@@ -1474,7 +1481,7 @@ ALTER TABLE `course_cacomp`
 -- AUTO_INCREMENT for table `course_evaluation`
 --
 ALTER TABLE `course_evaluation`
-  MODIFY `caval_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ceval_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `course_extcalc`
@@ -1758,6 +1765,15 @@ ALTER TABLE `course_cacomp`
   ADD CONSTRAINT `code_fk10` FOREIGN KEY (`course_code`) REFERENCES `course_list` (`course_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `group_fk10` FOREIGN KEY (`group_ref`) REFERENCES `course_reference_table` (`ref_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `session_fk10` FOREIGN KEY (`session_ref`) REFERENCES `course_reference_table` (`ref_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `course_evaluation`
+--
+ALTER TABLE `course_evaluation`
+  ADD CONSTRAINT `course_code_FK0` FOREIGN KEY (`course_code`) REFERENCES `course_list` (`course_code`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `Group_FK` FOREIGN KEY (`group_ref`) REFERENCES `course_reference_table` (`ref_code`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `Reg_no_FK` FOREIGN KEY (`reg_no`) REFERENCES `student` (`Register_No`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `Session_FK` FOREIGN KEY (`session_ref`) REFERENCES `course_reference_table` (`ref_code`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `course_extcalc`
