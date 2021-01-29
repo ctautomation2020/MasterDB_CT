@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 27, 2021 at 11:21 AM
+-- Generation Time: Jan 29, 2021 at 04:05 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -154,7 +154,6 @@ CREATE TABLE `course_cacomp` (
   `course_code` varchar(15) NOT NULL,
   `group_ref` int NOT NULL,
   `session_ref` int NOT NULL,
-  `total_marks` int NOT NULL,
   `type` int NOT NULL,
   `number` int NOT NULL,
   `weightage` int NOT NULL
@@ -175,7 +174,8 @@ CREATE TABLE `course_evaluation` (
   `total_mark` int NOT NULL,
   `marks_obtained` int NOT NULL,
   `reg_no` int NOT NULL,
-  `number` int NOT NULL
+  `number` int NOT NULL,
+  `weighted_mark` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
