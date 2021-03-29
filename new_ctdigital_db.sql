@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Mar 29, 2021 at 11:11 AM
+-- Generation Time: Mar 29, 2021 at 12:46 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -723,34 +723,35 @@ CREATE TABLE `person` (
   `Address_Line4` varchar(45) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL,
   `Marital_Status_Ref` int DEFAULT NULL,
-  `Room_Num` varchar(6) DEFAULT NULL
+  `Room_Num` varchar(6) DEFAULT NULL,
+  `profilePic_path` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `person`
 --
 
-INSERT INTO `person` (`Person_ID`, `Prefix_Ref`, `First_Name`, `Last_Name`, `Gender_Ref`, `DOB`, `Designation`, `Community_Ref`, `Caste`, `Primary_MailID`, `Secondary_MailID`, `Aadhar_Card`, `PAN_Card`, `Passport_Number`, `Primary_ContactNumber`, `Secondary_ContactNumber`, `Intercom_Number`, `Alias_Name`, `Address_Line1`, `Address_Line2`, `Address_Line3`, `Address_Line4`, `Photo`, `Marital_Status_Ref`, `Room_Num`) VALUES
-(60623, 3, 'Jayashree', 'P', NULL, NULL, 41, NULL, NULL, 'pjshree@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Dr.P.Jayashree.jpg', NULL, NULL),
-(60779, 3, 'Valliyammai', 'C', NULL, NULL, 41, NULL, NULL, 'cva@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/valliyammaiC.jpg', NULL, NULL),
-(66269, 3, 'Thanasekhar', 'B', NULL, NULL, 43, NULL, NULL, 'thanasekhar@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/thanasekhar.jpg', NULL, NULL),
-(66392, 3, 'Gunasekaran', 'R', NULL, '2021-03-10', 40, NULL, NULL, 'gunasekaran@mitindia.edu', NULL, 234112303104, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/hod.jpg', NULL, NULL),
-(66449, 3, 'Ponsy R K Sathia Bhama', '', NULL, NULL, 41, NULL, NULL, 'ponsy@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/ponsy.jpg', NULL, NULL),
-(66517, 3, 'Varalakshmi', 'P', NULL, NULL, 41, NULL, NULL, 'varanip@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/DrPVaralakshmi.jpg', NULL, NULL),
-(67068, 3, 'Jayachitra', 'V.P', NULL, NULL, 44, NULL, NULL, 'jayachitravp@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/jayachitra.jpg', NULL, NULL),
-(67079, 3, 'Nancy Jane', 'Y', NULL, NULL, 44, NULL, NULL, 'nancyjaney@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/MsNancyJane.jpg', NULL, NULL),
-(67393, 3, 'Neelavathy Pari', 'S', NULL, NULL, 42, NULL, NULL, 'neela@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/neela.jpg', NULL, NULL),
-(67406, 3, 'Kathiroli', 'R', NULL, NULL, 42, NULL, NULL, 'kathiroli@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/kathir1.jpg', NULL, NULL),
-(67507, 3, 'Pabitha', 'P', NULL, NULL, 44, NULL, NULL, 'pabithap@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/pabitha.jpg', NULL, NULL),
-(69520, 3, 'Muthurajkumar', 'S', NULL, NULL, 44, NULL, NULL, 'muthuraj@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/S.Muthurajkumar.jpg', NULL, NULL),
-(701538, 4, 'Jenila Vincent', 'M', NULL, NULL, 45, NULL, NULL, 'jenilamit@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/jenila.jpg', NULL, NULL),
-(702635, 4, 'Anitha', 'S', NULL, NULL, 45, NULL, NULL, 'anithacse@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Anitha.jpg', NULL, NULL),
-(702636, 4, 'Keerthana', 'R', NULL, NULL, 45, NULL, NULL, 'rskeerthana1293@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Keerthana.jpg', NULL, NULL),
-(702637, 4, 'Nagasudha', 'C.M', NULL, NULL, 45, NULL, NULL, 'cmsudha30@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Nagasudha.jpg', NULL, NULL),
-(702638, 4, 'Dhanalaxmi', 'S', NULL, NULL, 45, NULL, NULL, 'dhanalaxmibtech@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Dhanalaxmi.jpg', NULL, NULL),
-(702639, 4, 'Rampriya', 'R.S', NULL, NULL, 45, NULL, NULL, 'mail2rampriya@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Rampriya.jpg', NULL, NULL),
-(702735, 1, 'Arumuga Arun', 'R', NULL, NULL, 45, NULL, NULL, 'arun6f.rajesh@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/arumuga-arun.jpg', NULL, NULL),
-(702750, 1, 'Yoganand', 'S', NULL, NULL, 45, NULL, NULL, 'yoganand.cse@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/yoganand.jpg', NULL, NULL);
+INSERT INTO `person` (`Person_ID`, `Prefix_Ref`, `First_Name`, `Last_Name`, `Gender_Ref`, `DOB`, `Designation`, `Community_Ref`, `Caste`, `Primary_MailID`, `Secondary_MailID`, `Aadhar_Card`, `PAN_Card`, `Passport_Number`, `Primary_ContactNumber`, `Secondary_ContactNumber`, `Intercom_Number`, `Alias_Name`, `Address_Line1`, `Address_Line2`, `Address_Line3`, `Address_Line4`, `Photo`, `Marital_Status_Ref`, `Room_Num`, `profilePic_path`) VALUES
+(60623, 3, 'Jayashree', 'P', NULL, NULL, 41, NULL, NULL, 'pjshree@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Dr.P.Jayashree.jpg', NULL, NULL, NULL),
+(60779, 3, 'Valliyammai', 'C', NULL, NULL, 41, NULL, NULL, 'cva@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/valliyammaiC.jpg', NULL, NULL, NULL),
+(66269, 3, 'Thanasekhar', 'B', NULL, NULL, 43, NULL, NULL, 'thanasekhar@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/thanasekhar.jpg', NULL, NULL, NULL),
+(66392, 3, 'Gunasekaran', 'R', NULL, '2021-03-10', 40, NULL, NULL, 'gunasekaran@mitindia.edu', NULL, 234112303104, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/hod.jpg', NULL, NULL, NULL),
+(66449, 3, 'Ponsy R K Sathia Bhama', '', NULL, NULL, 41, NULL, NULL, 'ponsy@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/ponsy.jpg', NULL, NULL, NULL),
+(66517, 3, 'Varalakshmi', 'P', NULL, NULL, 41, NULL, NULL, 'varanip@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/DrPVaralakshmi.jpg', NULL, NULL, NULL),
+(67068, 3, 'Jayachitra', 'V.P', NULL, NULL, 44, NULL, NULL, 'jayachitravp@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/jayachitra.jpg', NULL, NULL, NULL),
+(67079, 3, 'Nancy Jane', 'Y', NULL, NULL, 44, NULL, NULL, 'nancyjaney@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/MsNancyJane.jpg', NULL, NULL, NULL),
+(67393, 3, 'Neelavathy Pari', 'S', NULL, NULL, 42, NULL, NULL, 'neela@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/neela.jpg', NULL, NULL, NULL),
+(67406, 3, 'Kathiroli', 'R', NULL, NULL, 42, NULL, NULL, 'kathiroli@mitindia.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/kathir1.jpg', NULL, NULL, NULL),
+(67507, 3, 'Pabitha', 'P', NULL, NULL, 44, NULL, NULL, 'pabithap@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/pabitha.jpg', NULL, NULL, NULL),
+(69520, 3, 'Muthurajkumar', 'S', NULL, NULL, 44, NULL, NULL, 'muthuraj@annauniv.edu', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/S.Muthurajkumar.jpg', NULL, NULL, NULL),
+(701538, 4, 'Jenila Vincent', 'M', NULL, NULL, 45, NULL, NULL, 'jenilamit@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/jenila.jpg', NULL, NULL, NULL),
+(702635, 4, 'Anitha', 'S', NULL, NULL, 45, NULL, NULL, 'anithacse@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Anitha.jpg', NULL, NULL, NULL),
+(702636, 4, 'Keerthana', 'R', NULL, NULL, 45, NULL, NULL, 'rskeerthana1293@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Keerthana.jpg', NULL, NULL, NULL),
+(702637, 4, 'Nagasudha', 'C.M', NULL, NULL, 45, NULL, NULL, 'cmsudha30@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Nagasudha.jpg', NULL, NULL, NULL),
+(702638, 4, 'Dhanalaxmi', 'S', NULL, NULL, 45, NULL, NULL, 'dhanalaxmibtech@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Dhanalaxmi.jpg', NULL, NULL, NULL),
+(702639, 4, 'Rampriya', 'R.S', NULL, NULL, 45, NULL, NULL, 'mail2rampriya@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/Rampriya.jpg', NULL, NULL, NULL),
+(702735, 1, 'Arumuga Arun', 'R', NULL, NULL, 45, NULL, NULL, 'arun6f.rajesh@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/arumuga-arun.jpg', NULL, NULL, NULL),
+(702750, 1, 'Yoganand', 'S', NULL, NULL, 45, NULL, NULL, 'yoganand.cse@gmail.com', NULL, NULL, NULL, NULL, '044-22516230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'assets/img/staffs/yoganand.jpg', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2020,7 +2021,7 @@ CREATE TABLE `student_family_details` (
   `Mother_Affilation` varchar(50) DEFAULT NULL,
   `Father_Company` varchar(50) DEFAULT NULL,
   `Mother_Company` varchar(50) DEFAULT NULL,
-  `Parents_Annual_Income` int DEFAULT NULL,
+  `Parents_Annual_Income` bigint DEFAULT NULL,
   `Local_Guardian_Name` varchar(50) DEFAULT NULL,
   `Local_Guardian_Address` varchar(255) DEFAULT NULL,
   `Local_Guardian_Contact_Number` varchar(15) DEFAULT NULL
