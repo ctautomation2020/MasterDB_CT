@@ -2021,7 +2021,7 @@ CREATE TABLE `student_family_details` (
   `Mother_Affilation` varchar(50) DEFAULT NULL,
   `Father_Company` varchar(50) DEFAULT NULL,
   `Mother_Company` varchar(50) DEFAULT NULL,
-  `Parents_Annual_Income` bigint DEFAULT NULL,
+  `Parents_Annual_Income` int DEFAULT NULL,
   `Local_Guardian_Name` varchar(50) DEFAULT NULL,
   `Local_Guardian_Address` varchar(255) DEFAULT NULL,
   `Local_Guardian_Contact_Number` varchar(15) DEFAULT NULL
