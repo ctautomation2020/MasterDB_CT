@@ -2,9 +2,9 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 03, 2021 at 05:15 PM
--- Server version: 8.0.22
+-- Host: mysql
+-- Generation Time: Apr 15, 2021 at 04:47 AM
+-- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -850,17 +850,18 @@ CREATE TABLE `person_events_attended` (
   `Summary_File` blob,
   `Event_Schedule` blob,
   `Participants_Lists` blob,
-  `Budget` blob
+  `Budget` blob,
+  `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `person_events_attended`
 --
 
-INSERT INTO `person_events_attended` (`Event_ID`, `Person_ID`, `Event_Type_Ref`, `Level_Ref`, `Event_Title`, `Hosting_Organization`, `Place`, `Participation_Status_Ref`, `Role`, `Start_Date`, `End_Date`, `Funding_Agency`, `No_Of_Participants`, `Summary_File`, `Event_Schedule`, `Participants_Lists`, `Budget`) VALUES
-(1, 66392, 54, 52, 'Faculty Development Programme on Mobile Communication', 'Department of Computer Technology', 'Chennai, India', 74, NULL, '2020-09-30', '2020-10-02', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 66392, 55, 52, 'FDP on Digital Image Processing', 'Anna University', 'Chennai, India', 75, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 66392, 56, 52, 'International Conference on Recent Treads in Information Technology', 'Anna University', 'Chennai, India', 74, NULL, '2021-03-03', '2021-03-05', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `person_events_attended` (`Event_ID`, `Person_ID`, `Event_Type_Ref`, `Level_Ref`, `Event_Title`, `Hosting_Organization`, `Place`, `Participation_Status_Ref`, `Role`, `Start_Date`, `End_Date`, `Funding_Agency`, `No_Of_Participants`, `Summary_File`, `Event_Schedule`, `Participants_Lists`, `Budget`, `path`) VALUES
+(1, 66392, 54, 52, 'Faculty Development Programme on Mobile Communication', 'Department of Computer Technology', 'Chennai, India', 74, NULL, '2020-09-30', '2020-10-02', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 66392, 55, 52, 'FDP on Digital Image Processing', 'Anna University', 'Chennai, India', 75, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 66392, 56, 52, 'International Conference on Recent Treads in Information Technology', 'Anna University', 'Chennai, India', 74, NULL, '2021-03-03', '2021-03-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -938,16 +939,17 @@ CREATE TABLE `person_patents` (
   `Start_Date` date DEFAULT NULL,
   `Place` varchar(15) DEFAULT NULL,
   `Patent_Status_Ref` int DEFAULT NULL,
-  `Patent_Copy` varchar(255) DEFAULT NULL
+  `Patent_Copy` varchar(255) DEFAULT NULL,
+  `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `person_patents`
 --
 
-INSERT INTO `person_patents` (`Patent_ID`, `Person_ID`, `Title`, `Patent_Number`, `Start_Date`, `Place`, `Patent_Status_Ref`, `Patent_Copy`) VALUES
-(16, 66392, 'A Novel Algorithm for Software Development Effort Estimation', '201941002630', '2021-01-05', 'India', 66, NULL),
-(17, 66392, 'Automatic Saline Monitoring System', '201841028540', '2018-07-09', 'UK', 67, NULL);
+INSERT INTO `person_patents` (`Patent_ID`, `Person_ID`, `Title`, `Patent_Number`, `Start_Date`, `Place`, `Patent_Status_Ref`, `Patent_Copy`, `path`) VALUES
+(16, 66392, 'A Novel Algorithm for Software Development Effort Estimation', '201941002630', '2021-01-05', 'India', 66, NULL, NULL),
+(17, 66392, 'Automatic Saline Monitoring System', '201841028540', '2018-07-09', 'UK', 67, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -990,16 +992,17 @@ CREATE TABLE `person_project_proposal` (
   `Co_Institution` varchar(100) DEFAULT NULL,
   `Abstract` longtext,
   `PI_Institution` varchar(100) DEFAULT NULL,
-  `Proposal_Copy` varchar(255) DEFAULT NULL
+  `Proposal_Copy` varchar(255) DEFAULT NULL,
+  `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `person_project_proposal`
 --
 
-INSERT INTO `person_project_proposal` (`Proposal_ID`, `Person_ID`, `Title`, `Project_Type_Ref`, `PI_Name`, `COI1_Name`, `Status_Ref`, `Fund_Agency`, `TotalSanctionedAmount`, `Start_Date`, `End_Date`, `Dept`, `Co_Dept`, `Co_Institution`, `Abstract`, `PI_Institution`, `Proposal_Copy`) VALUES
-(1, 66392, 'Development of Trust Component for Secured Commercial Grid Services', 59, 'Dr. B. Thanasekhar', 'Dr. R. Gunasekaran', 64, 'DIT-MCIT, New Delhi', 46000000, '2020-11-10', '2021-01-21', 'CT', NULL, NULL, NULL, NULL, NULL),
-(2, 66392, 'Adhoc Smart Examination System for Class Room', 59, 'Dr. R. Gunasekaran', '', 64, 'CTDT , Anna University', 20000, '2020-11-10', '2021-01-21', 'CT', NULL, NULL, '', NULL, NULL);
+INSERT INTO `person_project_proposal` (`Proposal_ID`, `Person_ID`, `Title`, `Project_Type_Ref`, `PI_Name`, `COI1_Name`, `Status_Ref`, `Fund_Agency`, `TotalSanctionedAmount`, `Start_Date`, `End_Date`, `Dept`, `Co_Dept`, `Co_Institution`, `Abstract`, `PI_Institution`, `Proposal_Copy`, `path`) VALUES
+(1, 66392, 'Development of Trust Component for Secured Commercial Grid Services', 59, 'Dr. B. Thanasekhar', 'Dr. R. Gunasekaran', 64, 'DIT-MCIT, New Delhi', 46000000, '2020-11-10', '2021-01-21', 'CT', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 66392, 'Adhoc Smart Examination System for Class Room', 59, 'Dr. R. Gunasekaran', '', 64, 'CTDT , Anna University', 20000, '2020-11-10', '2021-01-21', 'CT', NULL, NULL, '', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1302,29 +1305,30 @@ CREATE TABLE `person_scholardetails` (
   `Registration_Mode_Ref` int DEFAULT NULL,
   `Fellowship_Name` varchar(45) DEFAULT NULL,
   `Fellowship_Year` date DEFAULT NULL,
-  `Year_Of_Completion` date DEFAULT NULL
+  `Year_Of_Completion` date DEFAULT NULL,
+  `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `person_scholardetails`
 --
 
-INSERT INTO `person_scholardetails` (`Scholar_ID`, `Person_ID`, `Reg_No`, `Scholar_Name`, `Title`, `Status_Ref`, `Guide_Type_Ref`, `Fellowship_Received_Ref`, `Fellowship_Agency`, `Fellowship_Amount`, `Year_Of_Registration`, `Research_Area`, `Registration_Mode_Ref`, `Fellowship_Name`, `Fellowship_Year`, `Year_Of_Completion`) VALUES
-(1, 66269, '5015789', 'R. Arun Kumar', 'Mobility support in indoor LiFi/WiFi system', 65, 62, 89, NULL, NULL, '2018-01-01', 'Networking', 91, NULL, NULL, NULL),
-(2, 69520, '5015794', 'E. Nirmala', 'Implementation of Security Aspects of the Cloud Computing Architecture for Social Remote Tracking So', 65, 62, 89, NULL, NULL, '2015-01-01', 'Medical Blockchain', 91, NULL, NULL, NULL),
-(3, 66392, '5015790', 'A. Arunkumar', 'Efficient VNF On-boarding on Cloud Native Environments', 65, 62, 90, 'xxx', 3434, '2016-01-01', 'NFV Cloud and Virtualization', 91, 'xxx', '2021-03-23', '2021-03-03'),
-(4, 66449, '5015793', 'R. Naga Priyadarsini', 'Cognitive Blockchain Technology for Predictive Healthcare Management System', 65, 62, 89, NULL, NULL, '2016-01-01', 'Medical Blockchain', 91, NULL, NULL, NULL),
-(5, 66392, '5015790', 'B. Sahaya Beni Prathiba', 'Energy-Efficient Learning Mechanism for Load Balancing in Software-Defined Next Generation Networks', 65, 62, 89, NULL, NULL, '2017-01-01', 'Internet of Vehicles', 91, NULL, NULL, NULL),
-(6, 60623, '5015791', 'V. Brindha', 'Diagnostic Support System to Detect Brain Abnormalities', 65, 62, 89, NULL, NULL, '2017-01-01', 'Medical Image Processing', 91, NULL, NULL, NULL),
-(7, 67079, '5015796', 'M. Amsa Prabhaa', 'A Spatio-Temporal Knowledge Mining Approach for Predictive Analysis', 65, 62, 89, NULL, NULL, '2018-01-01', 'Image Processing', 91, NULL, NULL, NULL),
-(8, 66517, '5015794', 'K. Narmadha', 'Privacy in Machine Learning', 65, 62, 89, NULL, NULL, '2018-01-01', 'Security and Privacy', 91, NULL, NULL, NULL),
-(9, 60623, '5015791', 'K. Laila\r\n', 'Spam Review Classification based on Social behaviour analysis', 65, 62, 89, NULL, NULL, '2018-01-01', 'Big Data', 91, NULL, NULL, NULL),
-(10, 67079, '5015796', 'J. Saranya Devi', 'Multivariate Time Series Data Classification using Temporal Data Mining Approach', 65, 62, 89, NULL, NULL, '2018-01-01', 'Data Mining', 91, NULL, NULL, NULL),
-(11, 60623, '5015791', 'P. Saranya', 'Security Enhancement Framework for Software Defined Networks', 65, 62, 89, NULL, NULL, '2019-01-01', 'Software Defined Networks', 91, NULL, NULL, NULL),
-(12, 66449, '5015793', 'A. Anantha Babu', 'To construct the Secure Public Key Cryptosystem using Post Quantum Cryptography', 65, 62, 89, NULL, NULL, '2019-01-01', 'Post Quantum Cryptography', 91, NULL, NULL, NULL),
-(13, 60779, '5015792', 'G. Puviarasi', 'Devising semantic model for Relational Database Co-operative query answering, checking and optimizat', 65, 62, 89, NULL, NULL, '2019-01-01', 'Semantic Web', 91, NULL, NULL, NULL),
-(14, 67507, '5015797', 'Anusha Jayasimhan', 'Distributed deep learning analytics using Big data', 65, 62, 89, NULL, NULL, '2020-01-01', 'Deep Learning, Big Data Analytics', 91, NULL, NULL, NULL),
-(15, 67507, '5015797', 'K. Nivitha', 'Measuring Uncertainity in Cloud Environment using Machine Learning Techniques', 65, 62, 89, NULL, NULL, '2020-01-01', 'Cloud Computing', 91, NULL, NULL, NULL);
+INSERT INTO `person_scholardetails` (`Scholar_ID`, `Person_ID`, `Reg_No`, `Scholar_Name`, `Title`, `Status_Ref`, `Guide_Type_Ref`, `Fellowship_Received_Ref`, `Fellowship_Agency`, `Fellowship_Amount`, `Year_Of_Registration`, `Research_Area`, `Registration_Mode_Ref`, `Fellowship_Name`, `Fellowship_Year`, `Year_Of_Completion`, `path`) VALUES
+(1, 66269, '5015789', 'R. Arun Kumar', 'Mobility support in indoor LiFi/WiFi system', 65, 62, 89, NULL, NULL, '2018-01-01', 'Networking', 91, NULL, NULL, NULL, NULL),
+(2, 69520, '5015794', 'E. Nirmala', 'Implementation of Security Aspects of the Cloud Computing Architecture for Social Remote Tracking So', 65, 62, 89, NULL, NULL, '2015-01-01', 'Medical Blockchain', 91, NULL, NULL, NULL, NULL),
+(3, 66392, '5015790', 'A. Arunkumar', 'Efficient VNF On-boarding on Cloud Native Environments', 65, 62, 90, 'xxx', 3434, '2016-01-01', 'NFV Cloud and Virtualization', 91, 'xxx', '2021-03-23', '2021-03-03', NULL),
+(4, 66449, '5015793', 'R. Naga Priyadarsini', 'Cognitive Blockchain Technology for Predictive Healthcare Management System', 65, 62, 89, NULL, NULL, '2016-01-01', 'Medical Blockchain', 91, NULL, NULL, NULL, NULL),
+(5, 66392, '5015790', 'B. Sahaya Beni Prathiba', 'Energy-Efficient Learning Mechanism for Load Balancing in Software-Defined Next Generation Networks', 65, 62, 89, NULL, NULL, '2017-01-01', 'Internet of Vehicles', 91, NULL, NULL, NULL, NULL),
+(6, 60623, '5015791', 'V. Brindha', 'Diagnostic Support System to Detect Brain Abnormalities', 65, 62, 89, NULL, NULL, '2017-01-01', 'Medical Image Processing', 91, NULL, NULL, NULL, NULL),
+(7, 67079, '5015796', 'M. Amsa Prabhaa', 'A Spatio-Temporal Knowledge Mining Approach for Predictive Analysis', 65, 62, 89, NULL, NULL, '2018-01-01', 'Image Processing', 91, NULL, NULL, NULL, NULL),
+(8, 66517, '5015794', 'K. Narmadha', 'Privacy in Machine Learning', 65, 62, 89, NULL, NULL, '2018-01-01', 'Security and Privacy', 91, NULL, NULL, NULL, NULL),
+(9, 60623, '5015791', 'K. Laila\r\n', 'Spam Review Classification based on Social behaviour analysis', 65, 62, 89, NULL, NULL, '2018-01-01', 'Big Data', 91, NULL, NULL, NULL, NULL),
+(10, 67079, '5015796', 'J. Saranya Devi', 'Multivariate Time Series Data Classification using Temporal Data Mining Approach', 65, 62, 89, NULL, NULL, '2018-01-01', 'Data Mining', 91, NULL, NULL, NULL, NULL),
+(11, 60623, '5015791', 'P. Saranya', 'Security Enhancement Framework for Software Defined Networks', 65, 62, 89, NULL, NULL, '2019-01-01', 'Software Defined Networks', 91, NULL, NULL, NULL, NULL),
+(12, 66449, '5015793', 'A. Anantha Babu', 'To construct the Secure Public Key Cryptosystem using Post Quantum Cryptography', 65, 62, 89, NULL, NULL, '2019-01-01', 'Post Quantum Cryptography', 91, NULL, NULL, NULL, NULL),
+(13, 60779, '5015792', 'G. Puviarasi', 'Devising semantic model for Relational Database Co-operative query answering, checking and optimizat', 65, 62, 89, NULL, NULL, '2019-01-01', 'Semantic Web', 91, NULL, NULL, NULL, NULL),
+(14, 67507, '5015797', 'Anusha Jayasimhan', 'Distributed deep learning analytics using Big data', 65, 62, 89, NULL, NULL, '2020-01-01', 'Deep Learning, Big Data Analytics', 91, NULL, NULL, NULL, NULL),
+(15, 67507, '5015797', 'K. Nivitha', 'Measuring Uncertainity in Cloud Environment using Machine Learning Techniques', 65, 62, 89, NULL, NULL, '2020-01-01', 'Cloud Computing', 91, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1382,24 +1386,25 @@ CREATE TABLE `person_supervision` (
   `Reg_No` bigint DEFAULT NULL,
   `Start_Year` year DEFAULT NULL,
   `End_Year` year DEFAULT NULL,
-  `Status_Ref` int DEFAULT NULL
+  `Status_Ref` int DEFAULT NULL,
+  `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `person_supervision`
 --
 
-INSERT INTO `person_supervision` (`Supervision_ID`, `Person_ID`, `Degree_Ref`, `Guide_Type_Ref`, `Reg_No`, `Start_Year`, `End_Year`, `Status_Ref`) VALUES
-(1, 66269, 41, 62, 5015789, 2010, NULL, 64),
-(2, 66392, NULL, 62, 5015790, 2010, NULL, 64),
-(3, 60623, NULL, 62, 5015791, 2010, NULL, 64),
-(4, 60779, NULL, 62, 5015792, 2010, NULL, 64),
-(5, 66449, NULL, 62, 5015793, 2010, NULL, 64),
-(6, 66517, NULL, 62, 5015794, 2010, NULL, 64),
-(7, 69520, NULL, 62, 5015795, 2010, NULL, 64),
-(8, 67079, NULL, 62, 5015796, 2010, NULL, 64),
-(9, 67507, NULL, 62, 5015797, 2010, NULL, 64),
-(10, 67406, NULL, 62, 5015798, 2010, NULL, 64);
+INSERT INTO `person_supervision` (`Supervision_ID`, `Person_ID`, `Degree_Ref`, `Guide_Type_Ref`, `Reg_No`, `Start_Year`, `End_Year`, `Status_Ref`, `path`) VALUES
+(1, 66269, 41, 62, 5015789, 2010, NULL, 64, NULL),
+(2, 66392, NULL, 62, 5015790, 2010, NULL, 64, NULL),
+(3, 60623, NULL, 62, 5015791, 2010, NULL, 64, NULL),
+(4, 60779, NULL, 62, 5015792, 2010, NULL, 64, NULL),
+(5, 66449, NULL, 62, 5015793, 2010, NULL, 64, NULL),
+(6, 66517, NULL, 62, 5015794, 2010, NULL, 64, NULL),
+(7, 69520, NULL, 62, 5015795, 2010, NULL, 64, NULL),
+(8, 67079, NULL, 62, 5015796, 2010, NULL, 64, NULL),
+(9, 67507, NULL, 62, 5015797, 2010, NULL, 64, NULL),
+(10, 67406, NULL, 62, 5015798, 2010, NULL, 64, NULL);
 
 -- --------------------------------------------------------
 
