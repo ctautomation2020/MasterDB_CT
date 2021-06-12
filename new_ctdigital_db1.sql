@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 11, 2021 at 08:46 PM
+-- Generation Time: Jun 12, 2021 at 12:29 PM
 -- Server version: 8.0.25-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -2149,6 +2149,25 @@ INSERT INTO `student_placement` (`Placement_ID`, `Register_No`, `Company`, `Pack
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_thesis`
+--
+
+CREATE TABLE `student_thesis` (
+  `Sthesisid` int NOT NULL,
+  `Register_No` int NOT NULL,
+  `Title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Major_Domain` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Keywords` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Team_Id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Supervisor` int NOT NULL,
+  `Abstract_Path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Thesis_Path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Status` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subjects_offered`
 --
 
@@ -2252,7 +2271,7 @@ INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status
 (2, 2017503525, NULL, NULL, '1', NULL, NULL),
 (3, 2017503537, NULL, NULL, '1', NULL, NULL),
 (4, 2017503056, NULL, NULL, '1', NULL, NULL),
-(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'YVu9SPKAAjj7SaVvS85OCUA6qYoL4JB6qk04sTFaUaNRLavtMDQRUk9rPgN2MOaPgp4km7ggaUhDIdkIpq4dzd3vcB6OFCBu5dwbp9kajGAYOXpANis0lmBYCQdelJNr'),
+(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'NxQ4c7DjIHLFz54dFTwN5COzu440MzpQErzJl44PCp8zuUExXY0beDGgcKTQvQHVSL8OFgvuZf4kRFQOHHRwoozfue4VNxX9ijWpEB2fo9Y27eHdDiEXRf7U7w9Uo1Yf'),
 (6, 2015506789, NULL, NULL, '1', NULL, NULL),
 (8, 66392, 2, '$2b$08$Cr3YMNIlY4BnRpM2FRwYNOibK3JlDkUWFARNwLQ8iv2tjP9KO.fwW', '1', NULL, 'WvnWGH6WgtNJ03avpCWUpP6QuHtLTXMZO7eCYwCsmTMcr7TIan36tSQ4R4NupNRnZt5pHSouXZW1QbKnWzloDHljciqkKLxowOLt5Pun7HZTCTILuHLcOPar4iIkgcBu'),
 (9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '', NULL, NULL),
@@ -2738,6 +2757,14 @@ ALTER TABLE `student_placement`
   ADD KEY `Placement_Type_FK_idx` (`Placement_Type_Ref`);
 
 --
+-- Indexes for table `student_thesis`
+--
+ALTER TABLE `student_thesis`
+  ADD PRIMARY KEY (`Sthesisid`),
+  ADD KEY `student_fk1` (`Register_No`),
+  ADD KEY `person_fk1` (`Supervisor`);
+
+--
 -- Indexes for table `subjects_offered`
 --
 ALTER TABLE `subjects_offered`
@@ -3012,6 +3039,12 @@ ALTER TABLE `student_internship`
 --
 ALTER TABLE `student_placement`
   MODIFY `Placement_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `student_thesis`
+--
+ALTER TABLE `student_thesis`
+  MODIFY `Sthesisid` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subjects_offered`
@@ -3358,6 +3391,13 @@ ALTER TABLE `student_internship`
 ALTER TABLE `student_placement`
   ADD CONSTRAINT `Person_ID_FK2190` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Placement_Type_FK` FOREIGN KEY (`Placement_Type_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `student_thesis`
+--
+ALTER TABLE `student_thesis`
+  ADD CONSTRAINT `person_fk1` FOREIGN KEY (`Supervisor`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_fk1` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `subjects_offered`
