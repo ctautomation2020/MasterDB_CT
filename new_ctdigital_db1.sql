@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 12, 2021 at 12:29 PM
+-- Generation Time: Jun 20, 2021 at 10:18 AM
 -- Server version: 8.0.25-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -210,7 +210,13 @@ INSERT INTO `course_assessment` (`cassess_id`, `course_code`, `group_ref`, `sess
 (66, 'CS0134', 147, 146, 2, '3b', 'What are the security laws which are implemented to secure data in a cloud?', NULL, 163, 2, 8, '2021-03-04 10:47:09', 'Part B '),
 (67, 'CS0134', 147, 146, 2, '2', 'Explain the working of cloud computing?', NULL, 163, 1, 2, '2021-03-04 10:47:09', 'Part A'),
 (68, 'CS0134', 147, 146, 2, '3a', 'Before going for cloud computing platform what are the essential things to be taken in concern by users?', NULL, 163, 2, 8, '2021-03-04 10:47:09', 'Part B '),
-(85, 'CS0134', 147, 146, 3, '1', 'Demo', NULL, 162, 1, 2, '2021-03-05 10:39:30', 'A');
+(85, 'CS0134', 147, 146, 3, '1', 'Demo', NULL, 162, 1, 2, '2021-03-05 10:39:30', 'A'),
+(86, 'CS0134', 147, 146, 0, '1', 'What is cloud computing?', NULL, 1, 1, 1, '2021-06-18 07:53:57', 'Part-A'),
+(87, 'CS0134', 147, 146, 0, '2', 'What is Hypervisor?', NULL, 1, 1, 1, '2021-06-18 07:53:57', 'Part-A'),
+(88, 'CS0134', 147, 146, 0, '1', 'What is Cloud Computing?&#160;', NULL, 1, 1, 1, '2021-06-18 07:58:25', 'Part-A'),
+(89, 'CS0134', 147, 146, 0, '1', 'What is Cloud Computing?', NULL, 1, 1, 1, '2021-06-18 08:31:16', 'PART_A'),
+(90, 'CS0134', 147, 146, 0, '1', 'What is this?', NULL, 1, 1, 1, '2021-06-18 10:16:23', 'PART_A'),
+(91, 'CS0134', 147, 146, 5, '1', 'W', NULL, 1, 2, 1, '2021-06-18 10:17:27', 'PART_A');
 
 -- --------------------------------------------------------
 
@@ -251,7 +257,12 @@ INSERT INTO `course_assigneval` (`cassigneval_id`, `course_code`, `group_ref`, `
 (55, 'CS0134', 147, 146, 1, 5, 2016503614, 2),
 (56, 'CS0134', 147, 146, 1, 4, 2016503614, 2),
 (57, 'CS0134', 147, 146, 1, 2, 2016503614, 3),
-(58, 'CS0134', 147, 146, 1, 3, 2016503614, 3);
+(58, 'CS0134', 147, 146, 1, 3, 2016503614, 3),
+(59, 'CS0134', 147, 146, 1, 2, 2018503557, 4),
+(60, 'CS0134', 147, 146, 1, 3, 2018503557, 4),
+(61, 'CS0134', 147, 146, 1, 1, 2018503557, 2),
+(62, 'CS0134', 147, 146, 1, 5, 2018503557, 5),
+(63, 'CS0134', 147, 146, 1, 4, 2018503557, 4);
 
 -- --------------------------------------------------------
 
@@ -412,7 +423,67 @@ INSERT INTO `course_attendance` (`cattend_id`, `course_code`, `group_ref`, `sess
 (294, 'CS0134', 147, 146, 2016503614, '2021-03-05', 1, 'P'),
 (295, 'CS0134', 147, 146, 2015506789, '2021-03-05', 1, 'P'),
 (296, 'CS0134', 147, 146, 2016503614, '2021-03-05', 2, 'P'),
-(297, 'CS0134', 147, 146, 2018503557, '2021-03-05', 2, 'P');
+(297, 'CS0134', 147, 146, 2018503557, '2021-03-05', 2, 'P'),
+(298, 'CS0134', 147, 146, 2016503614, '2021-06-18', 1, 'P'),
+(299, 'CS0134', 147, 146, 2015506789, '2021-06-18', 2, 'P'),
+(300, 'CS0134', 147, 146, 2018503557, '2021-06-18', 1, 'A'),
+(301, 'CS0134', 147, 146, 2018503557, '2021-06-18', 2, 'P'),
+(302, 'CS0134', 147, 146, 2015506789, '2021-06-18', 1, 'P'),
+(303, 'CS0134', 147, 146, 2015506789, '2021-06-18', 3, 'P'),
+(304, 'CS0134', 147, 146, 2016503614, '2021-06-18', 3, 'P'),
+(305, 'CS0134', 147, 146, 2016503614, '2021-06-18', 2, 'P'),
+(306, 'CS0134', 147, 146, 2018503557, '2021-06-18', 3, 'P'),
+(307, 'CS0134', 147, 146, 2015506789, '2021-06-18', 4, 'P'),
+(308, 'CS0134', 147, 146, 2016503614, '2021-06-18', 4, 'P'),
+(309, 'CS0134', 147, 146, 2018503557, '2021-06-18', 4, 'A'),
+(310, 'CS0134', 147, 146, 2018503557, '2021-06-18', 1, 'A'),
+(311, 'CS0134', 147, 146, 2016503614, '2021-06-18', 1, 'P'),
+(312, 'CS0134', 147, 146, 2015506789, '2021-06-18', 1, 'P'),
+(313, 'CS0134', 147, 146, 2015506789, '2021-06-18', 2, 'P'),
+(314, 'CS0134', 147, 146, 2016503614, '2021-06-18', 2, 'P'),
+(315, 'CS0134', 147, 146, 2016503614, '2021-06-18', 3, 'P'),
+(316, 'CS0134', 147, 146, 2015506789, '2021-06-18', 3, 'P'),
+(317, 'CS0134', 147, 146, 2018503557, '2021-06-18', 3, 'P'),
+(318, 'CS0134', 147, 146, 2015506789, '2021-06-18', 4, 'P'),
+(319, 'CS0134', 147, 146, 2016503614, '2021-06-18', 4, 'P'),
+(320, 'CS0134', 147, 146, 2018503557, '2021-06-18', 4, 'A'),
+(321, 'CS0134', 147, 146, 2018503557, '2021-06-18', 2, 'P'),
+(322, 'CS0134', 147, 146, 2015506789, '2021-06-17', 3, 'P'),
+(323, 'CS0134', 147, 146, 2015506789, '2021-06-17', 7, 'P'),
+(324, 'CS0134', 147, 146, 2018503557, '2021-06-17', 3, 'P'),
+(325, 'CS0134', 147, 146, 2018503557, '2021-06-17', 4, 'P'),
+(326, 'CS0134', 147, 146, 2015506789, '2021-06-17', 4, 'P'),
+(327, 'CS0134', 147, 146, 2016503614, '2021-06-17', 4, 'P'),
+(328, 'CS0134', 147, 146, 2016503614, '2021-06-17', 7, 'P'),
+(329, 'CS0134', 147, 146, 2016503614, '2021-06-17', 3, 'P'),
+(330, 'CS0134', 147, 146, 2018503557, '2021-06-17', 7, 'P'),
+(331, 'CS0134', 147, 146, 2015506789, '2021-06-17', 8, 'P'),
+(332, 'CS0134', 147, 146, 2016503614, '2021-06-17', 8, 'P'),
+(333, 'CS0134', 147, 146, 2018503557, '2021-06-17', 8, 'A'),
+(334, 'CS0134', 147, 146, 2015506789, '2021-06-17', 3, 'P'),
+(335, 'CS0134', 147, 146, 2018503557, '2021-06-17', 3, 'P'),
+(336, 'CS0134', 147, 146, 2016503614, '2021-06-17', 3, 'P'),
+(337, 'CS0134', 147, 146, 2015506789, '2021-06-17', 4, 'P'),
+(338, 'CS0134', 147, 146, 2018503557, '2021-06-17', 4, 'P'),
+(339, 'CS0134', 147, 146, 2018503557, '2021-06-17', 7, 'P'),
+(340, 'CS0134', 147, 146, 2016503614, '2021-06-17', 8, 'P'),
+(341, 'CS0134', 147, 146, 2016503614, '2021-06-17', 7, 'P'),
+(342, 'CS0134', 147, 146, 2015506789, '2021-06-17', 7, 'P'),
+(343, 'CS0134', 147, 146, 2015506789, '2021-06-17', 8, 'P'),
+(344, 'CS0134', 147, 146, 2018503557, '2021-06-17', 8, 'A'),
+(345, 'CS0134', 147, 146, 2016503614, '2021-06-17', 4, 'P'),
+(346, 'CS0134', 147, 146, 2015506789, '2021-06-17', 3, 'P'),
+(347, 'CS0134', 147, 146, 2016503614, '2021-06-17', 3, 'P'),
+(348, 'CS0134', 147, 146, 2016503614, '2021-06-17', 4, 'P'),
+(349, 'CS0134', 147, 146, 2018503557, '2021-06-17', 3, 'P'),
+(350, 'CS0134', 147, 146, 2015506789, '2021-06-17', 4, 'P'),
+(351, 'CS0134', 147, 146, 2016503614, '2021-06-17', 8, 'P'),
+(352, 'CS0134', 147, 146, 2018503557, '2021-06-17', 8, 'A'),
+(353, 'CS0134', 147, 146, 2015506789, '2021-06-17', 8, 'P'),
+(354, 'CS0134', 147, 146, 2016503614, '2021-06-17', 7, 'P'),
+(355, 'CS0134', 147, 146, 2015506789, '2021-06-17', 7, 'P'),
+(356, 'CS0134', 147, 146, 2018503557, '2021-06-17', 4, 'P'),
+(357, 'CS0134', 147, 146, 2018503557, '2021-06-17', 7, 'P');
 
 -- --------------------------------------------------------
 
@@ -483,7 +554,8 @@ INSERT INTO `course_evaluation` (`ceval_id`, `course_code`, `group_ref`, `sessio
 (92, 'CS0134', 147, 146, 154, 19, 14, 2015506789, 1, 73.6842),
 (93, 'CS0134', 147, 146, 154, 19, 12, 2016503614, 1, 63.1579),
 (94, 'CS0134', 147, 146, 153, 24, 16, 2018503557, 1, NULL),
-(95, 'CS0134', 147, 146, 153, 2, 2, 2018503557, 3, NULL);
+(95, 'CS0134', 147, 146, 153, 2, 2, 2018503557, 3, NULL),
+(96, 'CS0134', 147, 146, 154, 19, 19, 2018503557, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -892,7 +964,8 @@ CREATE TABLE `person_experience` (
 INSERT INTO `person_experience` (`Experience_ID`, `Person_ID`, `Designation_Ref`, `Organization`, `Department`, `Start_Date`, `End_Date`, `Emp_Category_Ref`, `Work_Nature_Ref`, `Position_Held`, `path`) VALUES
 (4, 66392, 40, 'Madras Institute of Technology', 'Department of Computer Technology', '2017-01-01', '2019-11-15', 47, 50, NULL, NULL),
 (5, 66392, 41, 'Madras Institute of Technology', 'Department of Computer Technology', '2015-01-01', '2017-01-01', 47, 50, NULL, NULL),
-(6, 66392, 43, 'Madras Institute of Technology', 'Department of Computer Technology', '2014-01-01', '2015-01-01', 47, 50, NULL, NULL);
+(6, 66392, 43, 'Madras Institute of Technology', 'Department of Computer Technology', '2014-01-01', '2015-01-01', 47, 50, NULL, NULL),
+(8, 60623, 44, 'MIT', 'Computer Technology', '2018-08-17', '2019-06-19', 47, 50, '', '');
 
 -- --------------------------------------------------------
 
@@ -1070,7 +1143,8 @@ CREATE TABLE `person_qualification` (
 INSERT INTO `person_qualification` (`Qualification_ID`, `Person_ID`, `Qualification_Level_Ref`, `Degree_Ref`, `Branch_Ref`, `Institution`, `University`, `Start_Date`, `End_Date`, `Class_Obtained_Ref`, `Thesis_Title`, `Specialization`, `Faculty_Research`, `path`) VALUES
 (4, 66392, 12, 20, 28, 'Madras Institute of Technology', 'Anna University', 2017, 2022, 37, NULL, NULL, NULL, ''),
 (5, 66392, 13, 16, 28, 'Annamalai group of Technology', 'Annamalai University', 2014, 2017, 36, NULL, NULL, NULL, ''),
-(7, 66392, NULL, NULL, NULL, 'IIiT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
+(7, 66392, NULL, NULL, NULL, 'IIiT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
+(8, 60623, 13, 20, 28, 'MIT', 'Anna University', 2016, 2018, 35, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1262,7 +1336,17 @@ INSERT INTO `person_reference_table` (`Reference_ID`, `Category`, `Ref_Name`, `D
 (169, 'Semester', 'Core', NULL),
 (170, 'Semester', 'MSE', NULL),
 (171, 'Semester', 'PSE', NULL),
-(172, 'Semester', 'PE', NULL);
+(172, 'Semester', 'PE', NULL),
+(173, 'Admission_Category', 'First Degree Holder', NULL),
+(174, 'Employment_Title', 'Private Sector', NULL),
+(175, 'Employment_Title', 'Public Sector', NULL),
+(176, 'Employment_Title', 'Government Sector', NULL),
+(177, 'Employment_Title', 'Professional', NULL),
+(178, 'Employment_Title', 'Self Employed', NULL),
+(179, 'Employment_Title', 'Retired', NULL),
+(180, 'Employment_Title', 'Housewife', NULL),
+(181, 'Employment_Title', 'Business', NULL),
+(182, 'Employment_Title', 'Not Categorised', NULL);
 
 -- --------------------------------------------------------
 
@@ -1314,7 +1398,7 @@ INSERT INTO `person_scholardetails` (`Scholar_ID`, `Person_ID`, `Reg_No`, `Schol
 (2, 69520, '5015794', 'E. Nirmala', 'Implementation of Security Aspects of the Cloud Computing Architecture for Social Remote Tracking So', 65, 62, 89, NULL, NULL, '2015-01-01', 'Medical Blockchain', 91, NULL, NULL, NULL, NULL),
 (3, 66392, '5015790', 'A. Arunkumar', 'Efficient VNF On-boarding on Cloud Native Environments', 65, 62, 90, 'xxx', 3434, '2016-01-01', 'NFV Cloud and Virtualization', 91, 'xxx', '2021-03-23', '2021-03-03', NULL),
 (4, 66449, '5015793', 'R. Naga Priyadarsini', 'Cognitive Blockchain Technology for Predictive Healthcare Management System', 65, 62, 89, NULL, NULL, '2016-01-01', 'Medical Blockchain', 91, NULL, NULL, NULL, NULL),
-(5, 66392, '5015790', 'B. Sahaya Beni Prathiba', 'Energy-Efficient Learning Mechanism for Load Balancing in Software-Defined Next Generation Networks', 65, 62, 89, NULL, NULL, '2017-01-01', 'Internet of Vehicles', 91, NULL, NULL, NULL, NULL),
+(5, 66392, '5015790', 'B. Sahaya Beni Prathiba', 'Energy-Efficient Learning Mechanism for Load Balancing in Software-Defined Next Generation Networks', 65, 62, 89, 'MIT', 1000, '2017-01-01', 'Internet of Vehicles', 91, NULL, '2020-06-09', '2020-06-09', NULL),
 (6, 60623, '5015791', 'V. Brindha', 'Diagnostic Support System to Detect Brain Abnormalities', 65, 62, 89, NULL, NULL, '2017-01-01', 'Medical Image Processing', 91, NULL, NULL, NULL, NULL),
 (7, 67079, '5015796', 'M. Amsa Prabhaa', 'A Spatio-Temporal Knowledge Mining Approach for Predictive Analysis', 65, 62, 89, NULL, NULL, '2018-01-01', 'Image Processing', 91, NULL, NULL, NULL, NULL),
 (8, 66517, '5015794', 'K. Narmadha', 'Privacy in Machine Learning', 65, 62, 89, NULL, NULL, '2018-01-01', 'Security and Privacy', 91, NULL, NULL, NULL, NULL),
@@ -1379,7 +1463,7 @@ CREATE TABLE `person_supervision` (
   `Person_ID` int NOT NULL,
   `Degree_Ref` int DEFAULT NULL,
   `Guide_Type_Ref` int DEFAULT NULL,
-  `Reg_No` bigint DEFAULT NULL,
+  `Reg_No` int DEFAULT NULL,
   `Start_Year` year DEFAULT NULL,
   `End_Year` year DEFAULT NULL,
   `Status_Ref` int DEFAULT NULL,
@@ -1392,7 +1476,6 @@ CREATE TABLE `person_supervision` (
 
 INSERT INTO `person_supervision` (`Supervision_ID`, `Person_ID`, `Degree_Ref`, `Guide_Type_Ref`, `Reg_No`, `Start_Year`, `End_Year`, `Status_Ref`, `path`) VALUES
 (1, 66269, 41, 62, 5015789, 2010, NULL, 64, NULL),
-(2, 66392, NULL, 62, 5015790, 2010, NULL, 64, NULL),
 (3, 60623, NULL, 62, 5015791, 2010, NULL, 64, NULL),
 (4, 60779, NULL, 62, 5015792, 2010, NULL, 64, NULL),
 (5, 66449, NULL, 62, 5015793, 2010, NULL, 64, NULL),
@@ -1400,7 +1483,8 @@ INSERT INTO `person_supervision` (`Supervision_ID`, `Person_ID`, `Degree_Ref`, `
 (7, 69520, NULL, 62, 5015795, 2010, NULL, 64, NULL),
 (8, 67079, NULL, 62, 5015796, 2010, NULL, 64, NULL),
 (9, 67507, NULL, 62, 5015797, 2010, NULL, 64, NULL),
-(10, 67406, NULL, 62, 5015798, 2010, NULL, 64, NULL);
+(10, 67406, NULL, 62, 5015798, 2010, NULL, 64, NULL),
+(11, 66392, 20, 62, 66392, 2021, 2021, 65, '');
 
 -- --------------------------------------------------------
 
@@ -1961,7 +2045,7 @@ CREATE TABLE `student_endsemmarks` (
   `Semester` int NOT NULL,
   `Course_Code` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Session_Ref` int DEFAULT NULL,
-  `Grade` varchar(3) NOT NULL,
+  `Grade` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `Credits` int DEFAULT NULL,
   `Entry_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -1983,7 +2067,11 @@ INSERT INTO `student_endsemmarks` (`Mark_ID`, `Register_No`, `Semester`, `Course
 (10, 2018503557, 2, 'CS6103', 142, 'C', 3, '2021-02-26'),
 (11, 2018503557, 3, 'CS6104', 143, 'O', 3, '2021-02-26'),
 (12, 2018503557, 3, 'CS6105', 143, 'B+', 2, '2021-02-26'),
-(13, 2018503557, 3, 'MA6351', 143, 'A', 2, '2021-02-26');
+(13, 2018503557, 3, 'MA6351', 143, 'A', 2, '2021-02-26'),
+(15, 2018503557, 6, 'CS6201', 146, 'A', 3, '2021-06-16'),
+(16, 2018503557, 6, 'CS6201', 146, 'A', 6, '2021-06-16'),
+(17, 2018503557, 6, 'CS6308', 146, 'A+', 4, '2021-06-16'),
+(18, 2018503557, 6, 'CS0134', 146, 'O', 4, '2021-06-16');
 
 -- --------------------------------------------------------
 
@@ -2027,17 +2115,24 @@ CREATE TABLE `student_family_details` (
   `Mother_ContactNumber` varchar(15) DEFAULT NULL,
   `Father_MailID` varchar(50) DEFAULT NULL,
   `Mother_MailID` varchar(15) DEFAULT NULL,
-  `Father_Employment_Title` int DEFAULT NULL,
-  `Mother_Employment_Title` int DEFAULT NULL,
-  `Father_Organization_Address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `Mother_Organization_Address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `Father_Organization` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `Mother_Organization` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `Father_Occupation` varchar(255) DEFAULT NULL,
+  `Mother_Occupation` varchar(255) DEFAULT NULL,
+  `Father_Affilation` varchar(50) DEFAULT NULL,
+  `Mother_Affilation` varchar(50) DEFAULT NULL,
+  `Father_Company` varchar(50) DEFAULT NULL,
+  `Mother_Company` varchar(50) DEFAULT NULL,
   `Parents_Annual_Income` int DEFAULT NULL,
   `Local_Guardian_Name` varchar(50) DEFAULT NULL,
   `Local_Guardian_Address` varchar(255) DEFAULT NULL,
   `Local_Guardian_Contact_Number` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `student_family_details`
+--
+
+INSERT INTO `student_family_details` (`Family_ID`, `Register_No`, `Father_Name`, `Mother_Name`, `Father_ContactNumber`, `Mother_ContactNumber`, `Father_MailID`, `Mother_MailID`, `Father_Occupation`, `Mother_Occupation`, `Father_Affilation`, `Mother_Affilation`, `Father_Company`, `Mother_Company`, `Parents_Annual_Income`, `Local_Guardian_Name`, `Local_Guardian_Address`, `Local_Guardian_Contact_Number`) VALUES
+(9, 2018503557, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2049,8 +2144,8 @@ CREATE TABLE `student_gpa` (
   `Gpa_ID` int NOT NULL,
   `Register_No` int NOT NULL,
   `Semester` int NOT NULL,
-  `GPA` float NOT NULL,
-  `Grade_Sheet` varchar(255) NOT NULL
+  `GPA` float DEFAULT NULL,
+  `Grade_Sheet` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2060,7 +2155,10 @@ CREATE TABLE `student_gpa` (
 INSERT INTO `student_gpa` (`Gpa_ID`, `Register_No`, `Semester`, `GPA`, `Grade_Sheet`) VALUES
 (1, 2018503557, 1, 8.76, 'student-grade-sheets\\StudentGradeSheet_2018503557_1.pdf'),
 (2, 2018503557, 2, 9.21, 'student-grade-sheets\\StudentGradeSheet_2018503557_2.pdf'),
-(3, 2018503557, 3, 9.69, 'student-grade-sheets\\StudentGradeSheet_2018503557_3.pdf');
+(3, 2018503557, 3, 9.69, 'student-grade-sheets\\StudentGradeSheet_2018503557_3.pdf'),
+(10, 2018503557, 4, NULL, NULL),
+(11, 2018503557, 5, NULL, NULL),
+(12, 2018503557, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2154,15 +2252,8 @@ INSERT INTO `student_placement` (`Placement_ID`, `Register_No`, `Company`, `Pack
 
 CREATE TABLE `student_thesis` (
   `Sthesisid` int NOT NULL,
-  `Register_No` int NOT NULL,
-  `Title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Major_Domain` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Keywords` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Team_Id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Supervisor` int NOT NULL,
-  `Abstract_Path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Thesis_Path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Status` int NOT NULL
+  `Tthesisid` int NOT NULL,
+  `Register_No` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -2190,7 +2281,8 @@ INSERT INTO `subjects_offered` (`subid`, `code`, `session`, `semester`) VALUES
 (43, 'OE6394', 146, 2),
 (44, 'PH6151', 146, 2),
 (45, 'CS6107', 146, 2),
-(46, 'CS6201', 146, 2);
+(46, 'CS6201', 146, 2),
+(48, 'CS6111', 146, 2);
 
 -- --------------------------------------------------------
 
@@ -2248,6 +2340,29 @@ INSERT INTO `subj_allot` (`sallot_id`, `staff_id`, `course_code`, `group_ref`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `team_thesis`
+--
+
+CREATE TABLE `team_thesis` (
+  `Tthesisid` int NOT NULL,
+  `Team_Id` int NOT NULL,
+  `Programme_Ref` int NOT NULL,
+  `Session_Ref` int NOT NULL,
+  `Title` varchar(50) NOT NULL,
+  `Major_Domain` varchar(50) NOT NULL,
+  `Keyword1` varchar(50) NOT NULL,
+  `Keyword2` varchar(50) NOT NULL,
+  `Keyword3` varchar(50) NOT NULL,
+  `Keyword4` varchar(50) NOT NULL,
+  `Supervisor` int NOT NULL,
+  `Abstract_Path` varchar(100) DEFAULT NULL,
+  `Thesis_Path` varchar(100) DEFAULT NULL,
+  `Status` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_info`
 --
 
@@ -2268,15 +2383,15 @@ CREATE TABLE `user_info` (
 
 INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status`, `create_time`, `refresh_token`) VALUES
 (1, 2017503048, NULL, NULL, '1', NULL, NULL),
-(2, 2017503525, NULL, NULL, '1', NULL, NULL),
+(2, 2017503525, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'ys03Tt9foh1N8zUYbampAdvqW4APX4b0rKZx8iDREO3YS84yPtjf4vu59ot8YPKrzSSPc6OsHp6lmsfMrbh25XnMKzerZ1B8LWY2gyLCXFFGQMgrXNjSvvx6BQKxFpz4'),
 (3, 2017503537, NULL, NULL, '1', NULL, NULL),
 (4, 2017503056, NULL, NULL, '1', NULL, NULL),
-(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'NxQ4c7DjIHLFz54dFTwN5COzu440MzpQErzJl44PCp8zuUExXY0beDGgcKTQvQHVSL8OFgvuZf4kRFQOHHRwoozfue4VNxX9ijWpEB2fo9Y27eHdDiEXRf7U7w9Uo1Yf'),
+(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, '0pM5uCz4HKeovG9npJmcpZOkHxDPjV4TYtRnmwixIfi9Ok6o6vsSdIvLMlg1G3MBucxXtlWbGyGLQ1Nnqbsm67sjtVLPAEdGwxxXZSL0BCNxzbDTkE0qOeVHZoktFVzR'),
 (6, 2015506789, NULL, NULL, '1', NULL, NULL),
-(8, 66392, 2, '$2b$08$Cr3YMNIlY4BnRpM2FRwYNOibK3JlDkUWFARNwLQ8iv2tjP9KO.fwW', '1', NULL, 'WvnWGH6WgtNJ03avpCWUpP6QuHtLTXMZO7eCYwCsmTMcr7TIan36tSQ4R4NupNRnZt5pHSouXZW1QbKnWzloDHljciqkKLxowOLt5Pun7HZTCTILuHLcOPar4iIkgcBu'),
+(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'mgJgadLm9MoXnHFjVAtBL7baQhgOuo291wWB9niIbcmnTSGk2tedSrZCvCSlUxx7qutXkaQjs8aUAMCbmjBDsifJ0NrXQDjFioiY55FCzqArQKZUdJ2w0Y1QA691NSuU'),
 (9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '', NULL, NULL),
-(10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Xg8JrZZctXvwo3ImGCl9QBJNe1xnfXcya6cJta8kiQxIbH6b1IVmXvdSQlR1zVm043AWWxjfGnEpnl93q2mE10If0N1j7oHfZj59cb90mc3w0h3cLfSjw5plL5cUZRko'),
-(11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'dIerbqvCZVzEOcKwFrBq1Krttr20rUzFYx1SHoepPuP6QkSQlQqtCUrLJaSjEZxDirocQqPe29cblnhgYtHPZ0Hpz3Bvrxxz8TK7yVfBWGvPKMcYE1cGxgSd1GUhuTbx'),
+(10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'yfSZkCzS7QbsGpeNWzXDvvPYGLZgXgejhfZljYPIsvGrHYGf2BtebBhR8T2QudQAYlekvhpGNP99qjt0spTwvKrPhxwtS3NNMWIJHQknBimjaTysNBhLsF5dBXiqc4cy'),
+(11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'YCi8Cey8I6S6Rsjsx6a1cdDmd03cYhorRpOvOsBJzBlZnFdjEFM5oPSjes50WaQfv2YUGlQVM7y69BMMpeCkurNsG781OOR70eltswJKC9EPzO0UT8WAhk8PYYq8OjL5'),
 (12, 60779, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, '3Nye6ny5ZuABwTFHwPQvjh2y8zvgxdP2LbgHuaqyiWP0KOjuQIMvi6qFuxgMgSDkxeR5zplciJJ2HAyd9pYkNiLr0yO4TqBVraKI0tDavj70i8P1YxMmHVW3rn04QWPx'),
 (13, 66269, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
 (14, 66449, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
@@ -2297,7 +2412,7 @@ INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status
 (29, 702750, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
 (38, 2017503001, NULL, NULL, '1', NULL, NULL),
 (43, 2017503026, 1, '$2b$08$lXvFP5bsUpiOFjwzKYDUVuEUsswfmYM7F2kYNE8kxSE4tJLUDANna', NULL, '2021-03-27 17:24:44', 'mgO9Fdr2Wnj8O9A1MEOPLplFmyrSkEYqTiSGUk5gu1zMq3sYJ1JcujXPOxe264EiKdvZaVxAHoQkqKZCOIsLzctZHppPgVLKBFnxvikzWXIEULah2EeECeNbuXhr1YPb'),
-(44, 99999, 4, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'vrs6iofniSe7wixCl9Q48UnNYBTOR5V54cirZDUA3dJlqKjRuYXbyehfm12iF9ONk1mbkgzAxz7IFcJwQV0CfUDTcc5u9vEybY01oTRnmJBYil4bVpPnjGgnRNqgdtFc'),
+(44, 99999, 4, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'eY3MwQNVp3tcn3wTsOE7XjBp27Eb66r7wiY2Hwo9N2UV97Nbq4PAB56yiJZgmSLgviFW39ZL3bGsBFw3P6E88izhZuySIpH3rlHnudJGfnjHMqO81E1nTd4HH95rWgoB'),
 (52, 1231, 2, '$2b$08$TG0CNfNzcWAg21toFucRYeH8pNmfl37HhA212FN8K3Hd5I/8TwGyK', '', '2021-04-28 19:25:24', 'iZq7HZQO5F34Sx7CeywhQZQwKkiEydVn2WDCWQFqsVGzYuITb9z3KnJga0BRYaZxhFWiaees6wBRszRsjI9gdnHfqeknLfOZ8KIN2bGDIz4mjJZVv38RKVSAT0TpjfT3'),
 (53, 1232, 2, '$2b$08$SzjVuy/AKr7ALhyCcjjih.47XplEh1uatnwedLkbjM3CFhq1TAe/.', '', '2021-04-28 19:25:24', NULL),
 (54, 123, 2, '$2b$08$yKrEqs7K7d45HmCH8xkkG./nnUackS1TqQLgupwEaX3VkxIJzHuVa', '', '2021-04-28 19:35:38', 'bDOBFgwInZjCKzIxiHT1o87CGWlcFAoyK2Z9Ka7DUhz6TbNcQdWiUq0CLcisZVydCOFoxA3scz0qHm3UD2cGOj7qVGqSNeZ10izowPYiUPwwRX32KnxoCcaKG1phWSub'),
@@ -2717,9 +2832,7 @@ ALTER TABLE `student_events_participated`
 ALTER TABLE `student_family_details`
   ADD PRIMARY KEY (`Family_ID`),
   ADD UNIQUE KEY `Family_ID_UNIQUE` (`Family_ID`),
-  ADD KEY `Register_Num_FK` (`Register_No`),
-  ADD KEY `Employment_Title_FK1` (`Father_Employment_Title`),
-  ADD KEY `Employment_Title_FK2` (`Mother_Employment_Title`);
+  ADD KEY `Register_Num_FK` (`Register_No`);
 
 --
 -- Indexes for table `student_gpa`
@@ -2761,8 +2874,8 @@ ALTER TABLE `student_placement`
 --
 ALTER TABLE `student_thesis`
   ADD PRIMARY KEY (`Sthesisid`),
-  ADD KEY `student_fk1` (`Register_No`),
-  ADD KEY `person_fk1` (`Supervisor`);
+  ADD KEY `Student_fk1` (`Register_No`),
+  ADD KEY `Thesis_fk1` (`Tthesisid`);
 
 --
 -- Indexes for table `subjects_offered`
@@ -2782,6 +2895,15 @@ ALTER TABLE `subj_allot`
   ADD KEY `course_id_fk_idx` (`course_code`),
   ADD KEY `group_fk_idx` (`group_ref`),
   ADD KEY `session_fk_idx` (`session_ref`);
+
+--
+-- Indexes for table `team_thesis`
+--
+ALTER TABLE `team_thesis`
+  ADD PRIMARY KEY (`Tthesisid`),
+  ADD KEY `person_fk1` (`Supervisor`),
+  ADD KEY `Session_fk1` (`Session_Ref`),
+  ADD KEY `Programme_fk1` (`Programme_Ref`);
 
 --
 -- Indexes for table `user_info`
@@ -2810,13 +2932,13 @@ ALTER TABLE `course_assesseval`
 -- AUTO_INCREMENT for table `course_assessment`
 --
 ALTER TABLE `course_assessment`
-  MODIFY `cassess_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `cassess_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `course_assigneval`
 --
 ALTER TABLE `course_assigneval`
-  MODIFY `cassigneval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `cassigneval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `course_assignment`
@@ -2828,7 +2950,7 @@ ALTER TABLE `course_assignment`
 -- AUTO_INCREMENT for table `course_attendance`
 --
 ALTER TABLE `course_attendance`
-  MODIFY `cattend_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
+  MODIFY `cattend_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=358;
 
 --
 -- AUTO_INCREMENT for table `course_cacomp`
@@ -2840,7 +2962,7 @@ ALTER TABLE `course_cacomp`
 -- AUTO_INCREMENT for table `course_evaluation`
 --
 ALTER TABLE `course_evaluation`
-  MODIFY `ceval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `ceval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `course_extcalc`
@@ -2912,7 +3034,7 @@ ALTER TABLE `person_events_attended`
 -- AUTO_INCREMENT for table `person_experience`
 --
 ALTER TABLE `person_experience`
-  MODIFY `Experience_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Experience_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `person_guestlecture`
@@ -2930,7 +3052,7 @@ ALTER TABLE `person_membership`
 -- AUTO_INCREMENT for table `person_patents`
 --
 ALTER TABLE `person_patents`
-  MODIFY `Patent_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Patent_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `person_project_allocation`
@@ -2954,13 +3076,13 @@ ALTER TABLE `person_publication`
 -- AUTO_INCREMENT for table `person_qualification`
 --
 ALTER TABLE `person_qualification`
-  MODIFY `Qualification_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Qualification_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `person_reference_table`
 --
 ALTER TABLE `person_reference_table`
-  MODIFY `Reference_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `Reference_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT for table `person_responsibility`
@@ -2984,7 +3106,7 @@ ALTER TABLE `person_specialization`
 -- AUTO_INCREMENT for table `person_supervision`
 --
 ALTER TABLE `person_supervision`
-  MODIFY `Supervision_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Supervision_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `person_travel_history`
@@ -3002,7 +3124,7 @@ ALTER TABLE `student_awards`
 -- AUTO_INCREMENT for table `student_endsemmarks`
 --
 ALTER TABLE `student_endsemmarks`
-  MODIFY `Mark_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Mark_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `student_events_participated`
@@ -3014,13 +3136,13 @@ ALTER TABLE `student_events_participated`
 -- AUTO_INCREMENT for table `student_family_details`
 --
 ALTER TABLE `student_family_details`
-  MODIFY `Family_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Family_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `student_gpa`
 --
 ALTER TABLE `student_gpa`
-  MODIFY `Gpa_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Gpa_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `student_higherstudies`
@@ -3044,19 +3166,25 @@ ALTER TABLE `student_placement`
 -- AUTO_INCREMENT for table `student_thesis`
 --
 ALTER TABLE `student_thesis`
-  MODIFY `Sthesisid` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Sthesisid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `subjects_offered`
 --
 ALTER TABLE `subjects_offered`
-  MODIFY `subid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `subid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `subj_allot`
 --
 ALTER TABLE `subj_allot`
   MODIFY `sallot_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `team_thesis`
+--
+ALTER TABLE `team_thesis`
+  MODIFY `Tthesisid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user_info`
@@ -3360,8 +3488,6 @@ ALTER TABLE `student_events_participated`
 -- Constraints for table `student_family_details`
 --
 ALTER TABLE `student_family_details`
-  ADD CONSTRAINT `Employment_Title_FK1` FOREIGN KEY (`Father_Employment_Title`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Employment_Title_FK2` FOREIGN KEY (`Mother_Employment_Title`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Register_Num_FK` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -3396,8 +3522,8 @@ ALTER TABLE `student_placement`
 -- Constraints for table `student_thesis`
 --
 ALTER TABLE `student_thesis`
-  ADD CONSTRAINT `person_fk1` FOREIGN KEY (`Supervisor`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_fk1` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Student_fk1` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Thesis_fk1` FOREIGN KEY (`Tthesisid`) REFERENCES `team_thesis` (`Tthesisid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `subjects_offered`
@@ -3414,6 +3540,14 @@ ALTER TABLE `subj_allot`
   ADD CONSTRAINT `subj_allot_ibfk_2` FOREIGN KEY (`session_ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `subj_allot_ibfk_3` FOREIGN KEY (`course_code`) REFERENCES `course_list` (`course_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `subj_allot_ibfk_4` FOREIGN KEY (`staff_id`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `team_thesis`
+--
+ALTER TABLE `team_thesis`
+  ADD CONSTRAINT `person_fk2` FOREIGN KEY (`Supervisor`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Programme_fk1` FOREIGN KEY (`Programme_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Session_fk1` FOREIGN KEY (`Session_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
