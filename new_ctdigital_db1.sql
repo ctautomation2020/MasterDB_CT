@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2021 at 09:32 AM
+-- Generation Time: Jul 22, 2021 at 09:42 AM
 -- Server version: 8.0.25
 -- PHP Version: 7.3.29
 
@@ -44,6 +44,60 @@ INSERT INTO `alumni` (`Register_No`, `Working_Org`, `Designation`, `Alumni_Statu
 (2017503056, 'Barclays Pvt Ltd', 'Software Engineer', 1),
 (2017503525, 'Siemens Pvt Limited', 'Software Analyst', 1),
 (2017503537, 'Accolite', 'Software Engineer', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumni_higher_studies`
+--
+
+CREATE TABLE `alumni_higher_studies` (
+  `Alumni_Hid` int NOT NULL,
+  `Alumni_Id` int NOT NULL,
+  `University` varchar(255) DEFAULT NULL,
+  `Degree` varchar(50) DEFAULT NULL,
+  `Specialization` varchar(100) DEFAULT NULL,
+  `Location` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumni_personal_info`
+--
+
+CREATE TABLE `alumni_personal_info` (
+  `Alumni_Id` int NOT NULL,
+  `First_Name` varchar(50) DEFAULT NULL,
+  `Last_Name` varchar(50) DEFAULT NULL,
+  `Contact_No` varchar(15) DEFAULT NULL,
+  `Register_No` int NOT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  `Contact_Address` varchar(255) DEFAULT NULL,
+  `Gender_Ref` int DEFAULT NULL,
+  `Blood_Group_Ref` int DEFAULT NULL,
+  `Current_Organisation` varchar(50) DEFAULT NULL,
+  `Current_Designation` varchar(50) DEFAULT NULL,
+  `Question1` text,
+  `Question2` text,
+  `Batch` int NOT NULL,
+  `Status` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumni_work_experience`
+--
+
+CREATE TABLE `alumni_work_experience` (
+  `Alumni_Wid` int NOT NULL,
+  `Alumni_Id` int NOT NULL,
+  `Organization` varchar(50) DEFAULT NULL,
+  `Location` varchar(100) DEFAULT NULL,
+  `Designation` varchar(50) DEFAULT NULL,
+  `Sector` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -2367,6 +2421,28 @@ ALTER TABLE `alumni`
   ADD PRIMARY KEY (`Register_No`);
 
 --
+-- Indexes for table `alumni_higher_studies`
+--
+ALTER TABLE `alumni_higher_studies`
+  ADD PRIMARY KEY (`Alumni_Hid`),
+  ADD KEY `alumni_fk1` (`Alumni_Id`);
+
+--
+-- Indexes for table `alumni_personal_info`
+--
+ALTER TABLE `alumni_personal_info`
+  ADD PRIMARY KEY (`Alumni_Id`),
+  ADD KEY `Gender_Reference_FKP1` (`Gender_Ref`),
+  ADD KEY `Blood_Group_FKP2` (`Blood_Group_Ref`);
+
+--
+-- Indexes for table `alumni_work_experience`
+--
+ALTER TABLE `alumni_work_experience`
+  ADD PRIMARY KEY (`Alumni_Wid`),
+  ADD KEY `alumni_fk2` (`Alumni_Id`);
+
+--
 -- Indexes for table `course_artimat`
 --
 ALTER TABLE `course_artimat`
@@ -2859,6 +2935,24 @@ ALTER TABLE `user_info`
 --
 
 --
+-- AUTO_INCREMENT for table `alumni_higher_studies`
+--
+ALTER TABLE `alumni_higher_studies`
+  MODIFY `Alumni_Hid` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `alumni_personal_info`
+--
+ALTER TABLE `alumni_personal_info`
+  MODIFY `Alumni_Id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `alumni_work_experience`
+--
+ALTER TABLE `alumni_work_experience`
+  MODIFY `Alumni_Wid` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `course_artimat`
 --
 ALTER TABLE `course_artimat`
@@ -3143,6 +3237,25 @@ ALTER TABLE `user_info`
 --
 ALTER TABLE `alumni`
   ADD CONSTRAINT `alumni_ibfk_1` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`);
+
+--
+-- Constraints for table `alumni_higher_studies`
+--
+ALTER TABLE `alumni_higher_studies`
+  ADD CONSTRAINT `alumni_fk1` FOREIGN KEY (`Alumni_Id`) REFERENCES `alumni_personal_info` (`Alumni_Id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `alumni_personal_info`
+--
+ALTER TABLE `alumni_personal_info`
+  ADD CONSTRAINT `Blood_Group_FKP2` FOREIGN KEY (`Blood_Group_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Gender_Reference_FKP1` FOREIGN KEY (`Gender_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `alumni_work_experience`
+--
+ALTER TABLE `alumni_work_experience`
+  ADD CONSTRAINT `alumni_fk2` FOREIGN KEY (`Alumni_Id`) REFERENCES `alumni_personal_info` (`Alumni_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `course_artimat`
