@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2021 at 06:03 PM
+-- Generation Time: Aug 03, 2021 at 07:33 AM
 -- Server version: 8.0.25
 -- PHP Version: 7.3.29
 
@@ -61,13 +61,6 @@ CREATE TABLE `alumni_higher_studies` (
   `Year_Of_Passing` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `alumni_higher_studies`
---
-
-INSERT INTO `alumni_higher_studies` (`Alumni_Hid`, `Alumni_Id`, `University`, `Degree`, `Specialization`, `Location`, `Year_Of_Passing`) VALUES
-(1, 105, 'afsdfaf', 'asdfas', 'asfasdfas', 'asfafa', 2024);
-
 -- --------------------------------------------------------
 
 --
@@ -104,7 +97,7 @@ CREATE TABLE `alumni_personal_info` (
 
 INSERT INTO `alumni_personal_info` (`Alumni_Id`, `First_Name`, `Last_Name`, `DOB`, `LinkedIn_URL`, `Contact_No`, `Register_No`, `Email`, `Contact_Address`, `Gender_Ref`, `Blood_Group_Ref`, `Current_Organisation`, `Current_Designation`, `Employment_Nature`, `Work_Location`, `Work_Start_Year`, `Domain`, `Question1`, `Question2`, `Batch`, `Status`) VALUES
 (105, 'Sivaganesh', 'B', NULL, NULL, '8105101571', 2010503001, 'sivaganesh1903@gmail.com', '5/604 Devi Nagar Muneeswar Nagar Down Hosur - 635109', 68, 125, 'jsaddjlajslfladsfjkl', 'lknfkasjnfkjlnk', 154, 'NewYork', 2022, 'adsadas', 'njfkdlasknfnakl', 'fkljsanfnanlk', 2010, 1),
-(106, 'ARCHANA', 'M', '2021-08-01', NULL, 'asasada', 2010503003, '123@gmail.com', 'sadasdf', 69, 124, 'asdasd', 'asdasd', 175, 'asdasd', 2010, '', 'asdasd', 'asdasd', 2010, 1),
+(106, 'ARCHANA', 'M', '2021-08-02', 'a', 'a', 2010503003, '123@gmail.com', 'a', 69, 124, 'a', 'a', 176, 'a', 2010, '', 'a', 'a', 2010, 1),
 (107, 'DEEPA.M', NULL, NULL, NULL, NULL, 2010503004, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2010, 0),
 (108, 'DHANAPRIYA.T', NULL, NULL, NULL, NULL, 2010503005, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2010, 0),
 (109, 'DHANAVANDHINI', 'K', '2021-08-01', NULL, '12344', 2010503006, 'd@gmail.com', 'dasdasd', 69, 124, 'asdasd', 'dasdasd', 176, 'sqddaweeqw', 2010, '', 'sdsdsdsd', 'sdsdsdsd', 2010, 1),
@@ -183,7 +176,8 @@ CREATE TABLE `alumni_work_experience` (
 --
 
 INSERT INTO `alumni_work_experience` (`Alumni_Wid`, `Alumni_Id`, `Organization`, `Location`, `Designation`, `Start_Year`, `End_Year`) VALUES
-(1, 105, 'dasfadsf', 'fdsfafda', 'faaaaas', 2020, 2021);
+(1, 105, 'dasfadsf', 'fdsfafda', 'faaaaas', 2020, 2021),
+(2, 106, 'a', 'a', 'a', 2015, 2020);
 
 -- --------------------------------------------------------
 
@@ -3026,6 +3020,18 @@ ALTER TABLE `user_info`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `alumni_higher_studies`
+--
+ALTER TABLE `alumni_higher_studies`
+  MODIFY `Alumni_Hid` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `alumni_work_experience`
+--
+ALTER TABLE `alumni_work_experience`
+  MODIFY `Alumni_Wid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `course_artimat`
