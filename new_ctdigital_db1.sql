@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2021 at 07:33 AM
--- Server version: 8.0.25
--- PHP Version: 7.3.29
+-- Generation Time: Aug 06, 2021 at 08:10 AM
+-- Server version: 8.0.18
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alumni` (
-  `Register_No` int NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Working_Org` varchar(255) NOT NULL,
   `Designation` varchar(255) NOT NULL,
-  `Alumni_Status` int NOT NULL
+  `Alumni_Status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -52,13 +52,13 @@ INSERT INTO `alumni` (`Register_No`, `Working_Org`, `Designation`, `Alumni_Statu
 --
 
 CREATE TABLE `alumni_higher_studies` (
-  `Alumni_Hid` int NOT NULL,
-  `Alumni_Id` int NOT NULL,
+  `Alumni_Hid` int(11) NOT NULL,
+  `Alumni_Id` int(11) NOT NULL,
   `University` varchar(255) DEFAULT NULL,
   `Degree` varchar(50) DEFAULT NULL,
   `Specialization` varchar(100) DEFAULT NULL,
   `Location` varchar(100) DEFAULT NULL,
-  `Year_Of_Passing` int DEFAULT NULL
+  `Year_Of_Passing` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -68,27 +68,27 @@ CREATE TABLE `alumni_higher_studies` (
 --
 
 CREATE TABLE `alumni_personal_info` (
-  `Alumni_Id` int NOT NULL,
+  `Alumni_Id` int(11) NOT NULL,
   `First_Name` varchar(50) DEFAULT NULL,
   `Last_Name` varchar(50) DEFAULT NULL,
   `DOB` date DEFAULT NULL,
   `LinkedIn_URL` varchar(255) DEFAULT NULL,
   `Contact_No` varchar(15) DEFAULT NULL,
-  `Register_No` int NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Email` varchar(50) DEFAULT NULL,
   `Contact_Address` varchar(255) DEFAULT NULL,
-  `Gender_Ref` int DEFAULT NULL,
-  `Blood_Group_Ref` int DEFAULT NULL,
+  `Gender_Ref` int(11) DEFAULT NULL,
+  `Blood_Group_Ref` int(11) DEFAULT NULL,
   `Current_Organisation` varchar(50) DEFAULT NULL,
   `Current_Designation` varchar(50) DEFAULT NULL,
-  `Employment_Nature` int DEFAULT NULL,
+  `Employment_Nature` int(11) DEFAULT NULL,
   `Work_Location` varchar(55) DEFAULT NULL,
-  `Work_Start_Year` int DEFAULT NULL,
+  `Work_Start_Year` int(11) DEFAULT NULL,
   `Domain` varchar(55) DEFAULT NULL,
   `Question1` text,
   `Question2` text,
-  `Batch` int NOT NULL,
-  `Status` int DEFAULT NULL
+  `Batch` int(11) NOT NULL,
+  `Status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -162,13 +162,13 @@ INSERT INTO `alumni_personal_info` (`Alumni_Id`, `First_Name`, `Last_Name`, `DOB
 --
 
 CREATE TABLE `alumni_work_experience` (
-  `Alumni_Wid` int NOT NULL,
-  `Alumni_Id` int NOT NULL,
+  `Alumni_Wid` int(11) NOT NULL,
+  `Alumni_Id` int(11) NOT NULL,
   `Organization` varchar(50) DEFAULT NULL,
   `Location` varchar(100) DEFAULT NULL,
   `Designation` varchar(50) DEFAULT NULL,
-  `Start_Year` int DEFAULT NULL,
-  `End_Year` int DEFAULT NULL
+  `Start_Year` int(11) DEFAULT NULL,
+  `End_Year` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -186,25 +186,25 @@ INSERT INTO `alumni_work_experience` (`Alumni_Wid`, `Alumni_Id`, `Organization`,
 --
 
 CREATE TABLE `course_artimat` (
-  `cartimat_id` int NOT NULL,
+  `cartimat_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `conum` int NOT NULL,
+  `conum` int(11) NOT NULL,
   `costmt` varchar(255) NOT NULL,
-  `po1` int NOT NULL,
-  `po2` int NOT NULL,
-  `po3` int NOT NULL,
-  `po4` int NOT NULL,
-  `po5` int NOT NULL,
-  `po6` int NOT NULL,
-  `po7` int NOT NULL,
-  `po8` int NOT NULL,
-  `po9` int NOT NULL,
-  `po10` int NOT NULL,
-  `po11` int NOT NULL,
-  `po12` int NOT NULL,
-  `ps1` int NOT NULL,
-  `ps2` int NOT NULL,
-  `ps3` int NOT NULL
+  `po1` int(11) NOT NULL,
+  `po2` int(11) NOT NULL,
+  `po3` int(11) NOT NULL,
+  `po4` int(11) NOT NULL,
+  `po5` int(11) NOT NULL,
+  `po6` int(11) NOT NULL,
+  `po7` int(11) NOT NULL,
+  `po8` int(11) NOT NULL,
+  `po9` int(11) NOT NULL,
+  `po10` int(11) NOT NULL,
+  `po11` int(11) NOT NULL,
+  `po12` int(11) NOT NULL,
+  `ps1` int(11) NOT NULL,
+  `ps2` int(11) NOT NULL,
+  `ps3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -225,13 +225,13 @@ INSERT INTO `course_artimat` (`cartimat_id`, `course_code`, `conum`, `costmt`, `
 --
 
 CREATE TABLE `course_assesseval` (
-  `cassesseval_id` int NOT NULL,
+  `cassesseval_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `assess_num` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `assess_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
-  `reg_no` int NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `mark` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -275,17 +275,17 @@ INSERT INTO `course_assesseval` (`cassesseval_id`, `course_code`, `group_ref`, `
 --
 
 CREATE TABLE `course_assessment` (
-  `cassess_id` int NOT NULL,
+  `cassess_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `assess_num` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `assess_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
   `question_stmt` longtext,
   `question_img` varchar(100) DEFAULT NULL,
-  `blooms_level` int NOT NULL,
-  `co_num` int NOT NULL,
-  `marks` int NOT NULL,
+  `blooms_level` int(11) NOT NULL,
+  `co_num` int(11) NOT NULL,
+  `marks` int(11) NOT NULL,
   `entry_date` datetime NOT NULL,
   `section` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -356,13 +356,13 @@ INSERT INTO `course_assessment` (`cassess_id`, `course_code`, `group_ref`, `sess
 --
 
 CREATE TABLE `course_assigneval` (
-  `cassigneval_id` int NOT NULL,
+  `cassigneval_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `assign_num` int NOT NULL,
-  `question_num` int NOT NULL,
-  `reg_no` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `assign_num` int(11) NOT NULL,
+  `question_num` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `mark` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -397,17 +397,17 @@ INSERT INTO `course_assigneval` (`cassigneval_id`, `course_code`, `group_ref`, `
 --
 
 CREATE TABLE `course_assignment` (
-  `cassign_id` int NOT NULL,
+  `cassign_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `entry_date` date NOT NULL,
-  `assign_num` int NOT NULL,
+  `assign_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
   `question_stmt` longtext,
   `question_img` varchar(100) DEFAULT NULL,
-  `co_num` int NOT NULL,
-  `marks` int NOT NULL,
+  `co_num` int(11) NOT NULL,
+  `marks` int(11) NOT NULL,
   `deadline` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -441,13 +441,13 @@ INSERT INTO `course_assignment` (`cassign_id`, `course_code`, `group_ref`, `sess
 --
 
 CREATE TABLE `course_attendance` (
-  `cattend_id` int NOT NULL,
+  `cattend_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `reg_no` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `date` date NOT NULL,
-  `period` int NOT NULL,
+  `period` int(11) NOT NULL,
   `presence` char(1) NOT NULL DEFAULT 'P'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -587,13 +587,13 @@ INSERT INTO `course_attendance` (`cattend_id`, `course_code`, `group_ref`, `sess
 --
 
 CREATE TABLE `course_cacomp` (
-  `ccacomp_id` int NOT NULL,
+  `ccacomp_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `type` int NOT NULL,
-  `number` int NOT NULL,
-  `weightage` int NOT NULL
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
+  `weightage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -619,15 +619,15 @@ INSERT INTO `course_cacomp` (`ccacomp_id`, `course_code`, `group_ref`, `session_
 --
 
 CREATE TABLE `course_evaluation` (
-  `ceval_id` int NOT NULL,
+  `ceval_id` int(11) NOT NULL,
   `course_code` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `type` int NOT NULL,
-  `total_mark` int NOT NULL,
-  `marks_obtained` int NOT NULL,
-  `reg_no` int NOT NULL,
-  `number` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `total_mark` int(11) NOT NULL,
+  `marks_obtained` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
   `weighted_mark` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -659,11 +659,11 @@ INSERT INTO `course_evaluation` (`ceval_id`, `course_code`, `group_ref`, `sessio
 --
 
 CREATE TABLE `course_extcalc` (
-  `cextcalc_id` int NOT NULL,
+  `cextcalc_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `reg_num` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `reg_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
   `marks` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -675,13 +675,13 @@ CREATE TABLE `course_extcalc` (
 --
 
 CREATE TABLE `course_extcomp` (
-  `cextcomp_id` int NOT NULL,
+  `cextcomp_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
-  `question_co` int NOT NULL,
-  `question_mark` int NOT NULL,
+  `question_co` int(11) NOT NULL,
+  `question_mark` int(11) NOT NULL,
   `question_section` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -692,11 +692,11 @@ CREATE TABLE `course_extcomp` (
 --
 
 CREATE TABLE `course_internalcalc` (
-  `cintcalc_id` int NOT NULL,
+  `cintcalc_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `reg_no` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `ca` float NOT NULL,
   `midterm` float NOT NULL,
   `total_marks` float NOT NULL
@@ -718,13 +718,13 @@ INSERT INTO `course_internalcalc` (`cintcalc_id`, `course_code`, `group_ref`, `s
 --
 
 CREATE TABLE `course_lessonplan` (
-  `clp_id` int NOT NULL,
+  `clp_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `actual_date` date NOT NULL,
-  `period` int NOT NULL,
-  `course_ctopic_id` int NOT NULL,
+  `period` int(11) NOT NULL,
+  `course_ctopic_id` int(11) NOT NULL,
   `references` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -745,18 +745,18 @@ INSERT INTO `course_lessonplan` (`clp_id`, `course_code`, `group_ref`, `session_
 
 CREATE TABLE `course_list` (
   `course_code` varchar(15) NOT NULL,
-  `stream` int NOT NULL,
-  `regulation` int NOT NULL,
-  `semester` int NOT NULL,
+  `stream` int(11) NOT NULL,
+  `regulation` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
   `title` varchar(55) NOT NULL,
-  `l` int NOT NULL,
-  `t` int NOT NULL,
-  `p` int NOT NULL,
-  `el` int NOT NULL,
-  `contact_periods` int NOT NULL,
-  `credit` int NOT NULL,
+  `l` int(11) NOT NULL,
+  `t` int(11) NOT NULL,
+  `p` int(11) NOT NULL,
+  `el` int(11) NOT NULL,
+  `contact_periods` int(11) NOT NULL,
+  `credit` int(11) NOT NULL,
   `objectives` mediumtext,
-  `type` int DEFAULT NULL
+  `type` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -856,12 +856,12 @@ INSERT INTO `course_list` (`course_code`, `stream`, `regulation`, `semester`, `t
 --
 
 CREATE TABLE `course_registered_students` (
-  `cregst_id` int NOT NULL,
+  `cregst_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `reg_no` int NOT NULL,
-  `semester` int NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL
+  `reg_no` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -907,12 +907,12 @@ INSERT INTO `course_registered_students` (`cregst_id`, `course_code`, `reg_no`, 
 --
 
 CREATE TABLE `course_topic` (
-  `ctopic_id` int NOT NULL,
+  `ctopic_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `module_num` int NOT NULL,
+  `module_num` int(11) NOT NULL,
   `topic_num` varchar(10) NOT NULL,
   `topic` varchar(100) NOT NULL,
-  `conum` int NOT NULL
+  `conum` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -932,15 +932,15 @@ INSERT INTO `course_topic` (`ctopic_id`, `course_code`, `module_num`, `topic_num
 --
 
 CREATE TABLE `person` (
-  `Person_ID` int NOT NULL,
-  `Prefix_Ref` int DEFAULT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Prefix_Ref` int(11) DEFAULT NULL,
   `First_Name` varchar(50) DEFAULT NULL,
   `Last_Name` varchar(50) DEFAULT NULL,
-  `Rank` int DEFAULT NULL,
-  `Gender_Ref` int DEFAULT NULL,
+  `Rank` int(11) DEFAULT NULL,
+  `Gender_Ref` int(11) DEFAULT NULL,
   `DOB` date DEFAULT NULL,
-  `Designation` int DEFAULT NULL,
-  `Community_Ref` int DEFAULT NULL,
+  `Designation` int(11) DEFAULT NULL,
+  `Community_Ref` int(11) DEFAULT NULL,
   `Caste` varchar(50) DEFAULT NULL,
   `Primary_MailID` varchar(50) DEFAULT NULL,
   `Secondary_MailID` varchar(50) DEFAULT NULL,
@@ -956,7 +956,7 @@ CREATE TABLE `person` (
   `Address_Line3` varchar(45) DEFAULT NULL,
   `Address_Line4` varchar(45) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL,
-  `Marital_Status_Ref` int DEFAULT NULL,
+  `Marital_Status_Ref` int(11) DEFAULT NULL,
   `Room_Num` varchar(6) DEFAULT NULL,
   `profilePic_path` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -994,16 +994,16 @@ INSERT INTO `person` (`Person_ID`, `Prefix_Ref`, `First_Name`, `Last_Name`, `Ran
 --
 
 CREATE TABLE `person_academic` (
-  `Academic_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Academic_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Course_Code` varchar(7) DEFAULT NULL,
   `Session` varchar(20) DEFAULT NULL,
-  `Semester` int DEFAULT NULL,
+  `Semester` int(11) DEFAULT NULL,
   `Group` varchar(2) DEFAULT NULL,
-  `Degree_Ref` int DEFAULT NULL,
-  `Branch_Ref` int DEFAULT NULL,
+  `Degree_Ref` int(11) DEFAULT NULL,
+  `Branch_Ref` int(11) DEFAULT NULL,
   `Class_Time` time DEFAULT NULL,
-  `Class_Type_Ref` int DEFAULT NULL
+  `Class_Type_Ref` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -1013,8 +1013,8 @@ CREATE TABLE `person_academic` (
 --
 
 CREATE TABLE `person_additional_duties` (
-  `Duty_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Duty_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Duty_Allotted` varchar(45) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL,
@@ -1029,12 +1029,12 @@ CREATE TABLE `person_additional_duties` (
 --
 
 CREATE TABLE `person_awards` (
-  `Award_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Award_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
   `Place` varchar(15) DEFAULT NULL,
-  `Start_Year` year DEFAULT NULL,
+  `Start_Year` year(4) DEFAULT NULL,
   `Details` varchar(255) DEFAULT NULL,
   `path` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -1046,11 +1046,11 @@ CREATE TABLE `person_awards` (
 --
 
 CREATE TABLE `person_course_details` (
-  `Course_ID` int NOT NULL,
+  `Course_ID` int(11) NOT NULL,
   `Course_Code` varchar(7) NOT NULL,
   `Course_Name` varchar(50) DEFAULT NULL,
-  `Regulation` year DEFAULT NULL,
-  `Credit` int DEFAULT NULL
+  `Regulation` year(4) DEFAULT NULL,
+  `Credit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -1060,19 +1060,19 @@ CREATE TABLE `person_course_details` (
 --
 
 CREATE TABLE `person_events_attended` (
-  `Event_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Event_Type_Ref` int DEFAULT NULL,
-  `Level_Ref` int DEFAULT NULL,
+  `Event_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Event_Type_Ref` int(11) DEFAULT NULL,
+  `Level_Ref` int(11) DEFAULT NULL,
   `Event_Title` varchar(100) DEFAULT NULL,
   `Hosting_Organization` varchar(100) DEFAULT NULL,
   `Place` varchar(45) DEFAULT NULL,
-  `Participation_Status_Ref` int DEFAULT NULL,
+  `Participation_Status_Ref` int(11) DEFAULT NULL,
   `Role` varchar(45) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
   `Funding_Agency` varchar(255) DEFAULT NULL,
-  `No_Of_Participants` int DEFAULT NULL,
+  `No_Of_Participants` int(11) DEFAULT NULL,
   `Summary_File` blob,
   `Event_Schedule` blob,
   `Participants_Lists` blob,
@@ -1087,15 +1087,15 @@ CREATE TABLE `person_events_attended` (
 --
 
 CREATE TABLE `person_experience` (
-  `Experience_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Designation_Ref` int DEFAULT NULL,
+  `Experience_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Designation_Ref` int(11) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
   `Department` varchar(50) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
-  `Emp_Category_Ref` int DEFAULT NULL,
-  `Work_Nature_Ref` int DEFAULT NULL,
+  `Emp_Category_Ref` int(11) DEFAULT NULL,
+  `Work_Nature_Ref` int(11) DEFAULT NULL,
   `Position_Held` varchar(45) DEFAULT NULL,
   `path` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -1107,9 +1107,9 @@ CREATE TABLE `person_experience` (
 --
 
 CREATE TABLE `person_guestlecture` (
-  `GuestLecture_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Level_Ref` int DEFAULT NULL,
+  `GuestLecture_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Level_Ref` int(11) DEFAULT NULL,
   `Topic` varchar(100) DEFAULT NULL,
   `Programme` varchar(100) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
@@ -1124,11 +1124,11 @@ CREATE TABLE `person_guestlecture` (
 --
 
 CREATE TABLE `person_membership` (
-  `Member_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Member_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Prof_Body` varchar(45) DEFAULT NULL,
   `Membership_NUM` varchar(15) DEFAULT NULL,
-  `Member_Type` int DEFAULT NULL,
+  `Member_Type` int(11) DEFAULT NULL,
   `Sart_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -1140,13 +1140,13 @@ CREATE TABLE `person_membership` (
 --
 
 CREATE TABLE `person_patents` (
-  `Patent_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Patent_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Patent_Number` varchar(15) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `Place` varchar(15) DEFAULT NULL,
-  `Patent_Status_Ref` int DEFAULT NULL,
+  `Patent_Status_Ref` int(11) DEFAULT NULL,
   `Patent_Copy` varchar(255) DEFAULT NULL,
   `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -1158,11 +1158,11 @@ CREATE TABLE `person_patents` (
 --
 
 CREATE TABLE `person_project_allocation` (
-  `Project_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Qualification_Level_Ref` int DEFAULT NULL,
+  `Project_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Qualification_Level_Ref` int(11) DEFAULT NULL,
   `Batch_ID` varchar(5) DEFAULT NULL,
-  `Reg_Num` bigint DEFAULT NULL,
+  `Reg_Num` bigint(20) DEFAULT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Project_Domain` varchar(45) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
@@ -1176,13 +1176,13 @@ CREATE TABLE `person_project_allocation` (
 --
 
 CREATE TABLE `person_project_proposal` (
-  `Proposal_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Proposal_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
-  `Project_Type_Ref` int DEFAULT NULL,
+  `Project_Type_Ref` int(11) DEFAULT NULL,
   `PI_Name` varchar(45) DEFAULT NULL,
   `COI1_Name` varchar(45) DEFAULT NULL,
-  `Status_Ref` int DEFAULT NULL,
+  `Status_Ref` int(11) DEFAULT NULL,
   `Fund_Agency` varchar(100) DEFAULT NULL,
   `TotalSanctionedAmount` double DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
@@ -1203,21 +1203,21 @@ CREATE TABLE `person_project_proposal` (
 --
 
 CREATE TABLE `person_publication` (
-  `Publication_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Publication_Type_Ref` int DEFAULT NULL,
-  `Level_Ref` int DEFAULT NULL,
+  `Publication_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Publication_Type_Ref` int(11) DEFAULT NULL,
+  `Level_Ref` int(11) DEFAULT NULL,
   `Paper_Title` varchar(255) DEFAULT NULL,
   `First_Author` varchar(50) DEFAULT NULL,
   `Second_Author` varchar(50) DEFAULT NULL,
   `Other_Authors` varchar(255) DEFAULT NULL,
   `Journal_Name` varchar(255) DEFAULT NULL,
-  `Volume` int DEFAULT NULL,
-  `Issue` int DEFAULT NULL,
+  `Volume` int(11) DEFAULT NULL,
+  `Issue` int(11) DEFAULT NULL,
   `DOI` varchar(50) DEFAULT NULL,
-  `Year_Of_Publish` year DEFAULT NULL,
-  `Start_Page_No` int DEFAULT NULL,
-  `End_Page_No` int DEFAULT NULL,
+  `Year_Of_Publish` year(4) DEFAULT NULL,
+  `Start_Page_No` int(11) DEFAULT NULL,
+  `End_Page_No` int(11) DEFAULT NULL,
   `Publisher` varchar(50) DEFAULT NULL,
   `Impact_Factor` float DEFAULT NULL,
   `path` varchar(128) DEFAULT NULL
@@ -1230,16 +1230,16 @@ CREATE TABLE `person_publication` (
 --
 
 CREATE TABLE `person_qualification` (
-  `Qualification_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Qualification_Level_Ref` int DEFAULT NULL,
-  `Degree_Ref` int DEFAULT NULL,
-  `Branch_Ref` int DEFAULT NULL,
+  `Qualification_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Qualification_Level_Ref` int(11) DEFAULT NULL,
+  `Degree_Ref` int(11) DEFAULT NULL,
+  `Branch_Ref` int(11) DEFAULT NULL,
   `Institution` varchar(100) DEFAULT NULL,
   `University` varchar(50) DEFAULT NULL,
-  `Start_Date` year DEFAULT NULL,
-  `End_Date` year DEFAULT NULL,
-  `Class_Obtained_Ref` int DEFAULT NULL,
+  `Start_Date` year(4) DEFAULT NULL,
+  `End_Date` year(4) DEFAULT NULL,
+  `Class_Obtained_Ref` int(11) DEFAULT NULL,
   `Thesis_Title` varchar(150) DEFAULT NULL,
   `Specialization` varchar(45) DEFAULT NULL,
   `Faculty_Research` varchar(50) DEFAULT NULL,
@@ -1253,7 +1253,7 @@ CREATE TABLE `person_qualification` (
 --
 
 CREATE TABLE `person_reference_table` (
-  `Reference_ID` int NOT NULL,
+  `Reference_ID` int(11) NOT NULL,
   `Category` varchar(25) DEFAULT NULL,
   `Ref_Name` varchar(100) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL
@@ -1457,9 +1457,9 @@ INSERT INTO `person_reference_table` (`Reference_ID`, `Category`, `Ref_Name`, `D
 --
 
 CREATE TABLE `person_responsibility` (
-  `Responsibility_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Responsibility_Ref` int DEFAULT NULL,
+  `Responsibility_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Responsibility_Ref` int(11) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL
@@ -1472,19 +1472,19 @@ CREATE TABLE `person_responsibility` (
 --
 
 CREATE TABLE `person_scholardetails` (
-  `Scholar_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Scholar_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Reg_No` varchar(10) DEFAULT NULL,
   `Scholar_Name` varchar(45) DEFAULT NULL,
   `Title` varchar(100) DEFAULT NULL,
-  `Status_Ref` int DEFAULT NULL,
-  `Guide_Type_Ref` int DEFAULT NULL,
-  `Fellowship_Received_Ref` int DEFAULT NULL,
+  `Status_Ref` int(11) DEFAULT NULL,
+  `Guide_Type_Ref` int(11) DEFAULT NULL,
+  `Fellowship_Received_Ref` int(11) DEFAULT NULL,
   `Fellowship_Agency` varchar(45) DEFAULT NULL,
   `Fellowship_Amount` float DEFAULT NULL,
   `Year_Of_Registration` date DEFAULT NULL,
   `Research_Area` varchar(45) DEFAULT NULL,
-  `Registration_Mode_Ref` int DEFAULT NULL,
+  `Registration_Mode_Ref` int(11) DEFAULT NULL,
   `Fellowship_Name` varchar(45) DEFAULT NULL,
   `Fellowship_Year` date DEFAULT NULL,
   `Year_Of_Completion` date DEFAULT NULL,
@@ -1498,8 +1498,8 @@ CREATE TABLE `person_scholardetails` (
 --
 
 CREATE TABLE `person_specialization` (
-  `Specialization_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Specialization_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `AOS1` varchar(45) DEFAULT NULL,
   `AOS2` varchar(45) DEFAULT NULL,
   `AOS3` varchar(45) DEFAULT NULL,
@@ -1514,14 +1514,14 @@ CREATE TABLE `person_specialization` (
 --
 
 CREATE TABLE `person_supervision` (
-  `Supervision_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Degree_Ref` int DEFAULT NULL,
-  `Guide_Type_Ref` int DEFAULT NULL,
-  `Reg_No` int DEFAULT NULL,
-  `Start_Year` year DEFAULT NULL,
-  `End_Year` year DEFAULT NULL,
-  `Status_Ref` int DEFAULT NULL,
+  `Supervision_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Degree_Ref` int(11) DEFAULT NULL,
+  `Guide_Type_Ref` int(11) DEFAULT NULL,
+  `Reg_No` int(11) DEFAULT NULL,
+  `Start_Year` year(4) DEFAULT NULL,
+  `End_Year` year(4) DEFAULT NULL,
+  `Status_Ref` int(11) DEFAULT NULL,
   `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -1532,8 +1532,8 @@ CREATE TABLE `person_supervision` (
 --
 
 CREATE TABLE `person_travel_history` (
-  `Travel_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Travel_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
@@ -1551,7 +1551,7 @@ CREATE TABLE `person_travel_history` (
 --
 
 CREATE TABLE `staff_list` (
-  `staff_id` int NOT NULL,
+  `staff_id` int(11) NOT NULL,
   `name` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -1562,13 +1562,13 @@ CREATE TABLE `staff_list` (
 --
 
 CREATE TABLE `student` (
-  `Register_No` int NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `First_Name` varchar(50) DEFAULT NULL,
   `Middle_Name` varchar(50) DEFAULT NULL,
   `Last_Name` varchar(50) DEFAULT NULL,
-  `Gender_Ref` int DEFAULT NULL,
+  `Gender_Ref` int(11) DEFAULT NULL,
   `DOB` date DEFAULT NULL,
-  `Community_Ref` int DEFAULT NULL,
+  `Community_Ref` int(11) DEFAULT NULL,
   `Caste` varchar(50) DEFAULT NULL,
   `Nationality` varchar(30) DEFAULT NULL,
   `MailID` varchar(50) DEFAULT NULL,
@@ -1581,18 +1581,18 @@ CREATE TABLE `student` (
   `Address_Line4` varchar(45) DEFAULT NULL,
   `Correspondence_Address` varchar(255) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL,
-  `Residential_Type_Ref` int DEFAULT NULL,
-  `FA` int DEFAULT NULL,
-  `Programme_Ref` int DEFAULT NULL,
-  `Branch_Ref` int DEFAULT NULL,
-  `Registration_Mode_Ref` int DEFAULT NULL,
-  `Blood_Group_Ref` int DEFAULT NULL,
+  `Residential_Type_Ref` int(11) DEFAULT NULL,
+  `FA` int(11) DEFAULT NULL,
+  `Programme_Ref` int(11) DEFAULT NULL,
+  `Branch_Ref` int(11) DEFAULT NULL,
+  `Registration_Mode_Ref` int(11) DEFAULT NULL,
+  `Blood_Group_Ref` int(11) DEFAULT NULL,
   `GATE_Cutoff_Mark` float DEFAULT NULL,
   `Admission_Date` date DEFAULT NULL,
-  `Admission_Category_Ref` int DEFAULT NULL,
-  `Scholarship_Received_Ref` int DEFAULT NULL,
+  `Admission_Category_Ref` int(11) DEFAULT NULL,
+  `Scholarship_Received_Ref` int(11) DEFAULT NULL,
   `Scholarship_Details` varchar(255) DEFAULT NULL,
-  `NSS_NSO_YRC_Volunteer_Ref` int DEFAULT NULL,
+  `NSS_NSO_YRC_Volunteer_Ref` int(11) DEFAULT NULL,
   `Hostel_Block_Room` varchar(45) DEFAULT NULL,
   `Report` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2050,12 +2050,12 @@ INSERT INTO `student` (`Register_No`, `First_Name`, `Middle_Name`, `Last_Name`, 
 --
 
 CREATE TABLE `student_awards` (
-  `Award_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Award_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Award_Name` varchar(255) DEFAULT NULL,
   `Organizer_Name` varchar(255) DEFAULT NULL,
-  `Award_Type_Ref` int DEFAULT NULL,
-  `Award_Category_Ref` int DEFAULT NULL,
+  `Award_Type_Ref` int(11) DEFAULT NULL,
+  `Award_Category_Ref` int(11) DEFAULT NULL,
   `Place_of_Event` varchar(50) DEFAULT NULL,
   `Certificate_Copy` varchar(255) DEFAULT NULL,
   `Award_Date` date DEFAULT NULL
@@ -2076,13 +2076,13 @@ INSERT INTO `student_awards` (`Award_ID`, `Register_No`, `Award_Name`, `Organize
 --
 
 CREATE TABLE `student_endsemmarks` (
-  `Mark_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
-  `Semester` int NOT NULL,
+  `Mark_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
+  `Semester` int(11) NOT NULL,
   `Course_Code` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `Session_Ref` int DEFAULT NULL,
+  `Session_Ref` int(11) DEFAULT NULL,
   `Grade` varchar(3) DEFAULT NULL,
-  `Credits` int DEFAULT NULL,
+  `Credits` int(11) DEFAULT NULL,
   `Entry_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -2168,12 +2168,12 @@ INSERT INTO `student_endsemmarks` (`Mark_ID`, `Register_No`, `Semester`, `Course
 --
 
 CREATE TABLE `student_events_participated` (
-  `Event_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Event_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Event_Name` varchar(50) DEFAULT NULL,
-  `Event_Type_Ref` int DEFAULT NULL,
-  `Participation_Type_Ref` int DEFAULT NULL,
-  `Team_Size` int DEFAULT NULL,
+  `Event_Type_Ref` int(11) DEFAULT NULL,
+  `Participation_Type_Ref` int(11) DEFAULT NULL,
+  `Team_Size` int(11) DEFAULT NULL,
   `Event_Organizer` varchar(50) DEFAULT NULL,
   `Event_Date` date DEFAULT NULL,
   `Prize_Won_Details` varchar(255) DEFAULT NULL,
@@ -2195,21 +2195,21 @@ INSERT INTO `student_events_participated` (`Event_ID`, `Register_No`, `Event_Nam
 --
 
 CREATE TABLE `student_family_details` (
-  `Family_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Family_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Father_Name` varchar(50) DEFAULT NULL,
   `Mother_Name` varchar(50) DEFAULT NULL,
   `Father_ContactNumber` varchar(15) DEFAULT NULL,
   `Mother_ContactNumber` varchar(15) DEFAULT NULL,
   `Father_MailID` varchar(50) DEFAULT NULL,
   `Mother_MailID` varchar(15) DEFAULT NULL,
-  `Father_Employment_Title` int DEFAULT NULL,
-  `Mother_Employment_Title` int DEFAULT NULL,
+  `Father_Employment_Title` int(11) DEFAULT NULL,
+  `Mother_Employment_Title` int(11) DEFAULT NULL,
   `Father_Organization_Address` varchar(50) DEFAULT NULL,
   `Mother_Organization_Address` varchar(50) DEFAULT NULL,
   `Father_Organization` varchar(50) DEFAULT NULL,
   `Mother_Organization` varchar(50) DEFAULT NULL,
-  `Parents_Annual_Income` int DEFAULT NULL,
+  `Parents_Annual_Income` int(11) DEFAULT NULL,
   `Local_Guardian_Name` varchar(50) DEFAULT NULL,
   `Local_Guardian_Address` varchar(255) DEFAULT NULL,
   `Local_Guardian_Contact_Number` varchar(15) DEFAULT NULL
@@ -2233,9 +2233,9 @@ INSERT INTO `student_family_details` (`Family_ID`, `Register_No`, `Father_Name`,
 --
 
 CREATE TABLE `student_gpa` (
-  `Gpa_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
-  `Semester` int NOT NULL,
+  `Gpa_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
+  `Semester` int(11) NOT NULL,
   `GPA` float DEFAULT NULL,
   `Grade_Sheet` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2263,12 +2263,12 @@ INSERT INTO `student_gpa` (`Gpa_ID`, `Register_No`, `Semester`, `GPA`, `Grade_Sh
 --
 
 CREATE TABLE `student_higherstudies` (
-  `HigherStudies_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `HigherStudies_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `University` varchar(255) DEFAULT NULL,
   `Degree` varchar(50) DEFAULT NULL,
   `Specialization` varchar(50) DEFAULT NULL,
-  `Admission_Mode_Ref` int DEFAULT NULL,
+  `Admission_Mode_Ref` int(11) DEFAULT NULL,
   `Score` float DEFAULT NULL,
   `Country` varchar(45) DEFAULT NULL,
   `Location` varchar(45) DEFAULT NULL,
@@ -2291,17 +2291,17 @@ INSERT INTO `student_higherstudies` (`HigherStudies_ID`, `Register_No`, `Univers
 --
 
 CREATE TABLE `student_internship` (
-  `Internship_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Internship_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Company` varchar(255) DEFAULT NULL,
   `Title` varchar(255) NOT NULL,
   `Order_Copy` varchar(255) DEFAULT NULL,
   `Address` varchar(255) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
-  `Stiphend_Option_Ref` int DEFAULT NULL,
+  `Stiphend_Option_Ref` int(11) DEFAULT NULL,
   `Stiphend_Amount` float DEFAULT NULL,
-  `Selection_Mode_Ref` int DEFAULT NULL
+  `Selection_Mode_Ref` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2319,8 +2319,8 @@ INSERT INTO `student_internship` (`Internship_ID`, `Register_No`, `Company`, `Ti
 --
 
 CREATE TABLE `student_placement` (
-  `Placement_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Placement_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Company` varchar(255) DEFAULT NULL,
   `Package` float DEFAULT NULL,
   `Appointment_Order_Copy` varchar(255) DEFAULT NULL,
@@ -2329,7 +2329,7 @@ CREATE TABLE `student_placement` (
   `Appointment_OrderNum` varchar(45) DEFAULT NULL,
   `Appointment_Letter_IssueDate` date DEFAULT NULL,
   `Joining_Date` date DEFAULT NULL,
-  `Placement_Type_Ref` int DEFAULT NULL
+  `Placement_Type_Ref` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2347,9 +2347,9 @@ INSERT INTO `student_placement` (`Placement_ID`, `Register_No`, `Company`, `Pack
 --
 
 CREATE TABLE `student_thesis` (
-  `Sthesisid` int NOT NULL,
-  `Tthesisid` int NOT NULL,
-  `Register_No` int NOT NULL
+  `Sthesisid` int(11) NOT NULL,
+  `Tthesisid` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -2359,12 +2359,12 @@ CREATE TABLE `student_thesis` (
 --
 
 CREATE TABLE `subjects_offered` (
-  `subid` int NOT NULL,
+  `subid` int(11) NOT NULL,
   `code` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `session` int DEFAULT NULL,
-  `group_ref` int DEFAULT NULL,
-  `semester` int DEFAULT NULL,
-  `person_id` int DEFAULT NULL
+  `session` int(11) DEFAULT NULL,
+  `group_ref` int(11) DEFAULT NULL,
+  `semester` int(11) DEFAULT NULL,
+  `person_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2394,17 +2394,38 @@ INSERT INTO `subjects_offered` (`subid`, `code`, `session`, `group_ref`, `semest
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subject_allocation_status`
+--
+
+CREATE TABLE `subject_allocation_status` (
+  `Status_ID` int(11) NOT NULL,
+  `Session_Ref` int(11) NOT NULL,
+  `SSelection_Status` int(11) DEFAULT '0',
+  `SAllocation_Status` int(11) DEFAULT '0',
+  `LAllocation_Status` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `subject_allocation_status`
+--
+
+INSERT INTO `subject_allocation_status` (`Status_ID`, `Session_Ref`, `SSelection_Status`, `SAllocation_Status`, `LAllocation_Status`) VALUES
+(4, 146, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subj_allot`
 --
 
 CREATE TABLE `subj_allot` (
-  `sallot_id` int NOT NULL,
-  `staff_id` int NOT NULL,
+  `sallot_id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `class_room` varchar(15) DEFAULT NULL,
-  `student_count` int DEFAULT NULL
+  `student_count` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -2414,20 +2435,20 @@ CREATE TABLE `subj_allot` (
 --
 
 CREATE TABLE `team_thesis` (
-  `Tthesisid` int NOT NULL,
-  `Team_Id` int NOT NULL,
-  `Programme_Ref` int NOT NULL,
-  `Session_Ref` int NOT NULL,
+  `Tthesisid` int(11) NOT NULL,
+  `Team_Id` int(11) NOT NULL,
+  `Programme_Ref` int(11) NOT NULL,
+  `Session_Ref` int(11) NOT NULL,
   `Title` varchar(50) NOT NULL,
   `Major_Domain` varchar(50) NOT NULL,
   `Keyword1` varchar(50) NOT NULL,
   `Keyword2` varchar(50) NOT NULL,
   `Keyword3` varchar(50) NOT NULL,
   `Keyword4` varchar(50) NOT NULL,
-  `Supervisor` int NOT NULL,
+  `Supervisor` int(11) NOT NULL,
   `Abstract_Path` varchar(100) DEFAULT NULL,
   `Thesis_Path` varchar(100) DEFAULT NULL,
-  `Status` int NOT NULL
+  `Status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -2437,9 +2458,9 @@ CREATE TABLE `team_thesis` (
 --
 
 CREATE TABLE `user_info` (
-  `user_ID` int NOT NULL,
-  `username` int NOT NULL,
-  `user_role` int DEFAULT NULL,
+  `user_ID` int(11) NOT NULL,
+  `username` int(11) NOT NULL,
+  `user_role` int(11) DEFAULT NULL,
   `password` varchar(256) DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2451,50 +2472,50 @@ CREATE TABLE `user_info` (
 -- Dumping data for table `user_info`
 --
 
-INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status`, `create_time`, `refresh_token`, `updated_time`) VALUES
-(1, 2017503048, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-20 20:00:51'),
-(2, 2017503525, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(3, 2017503537, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(4, 2017503056, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, '8i1SItZuzJPSxy9JO29tadEE5dlK6lx1IWVzKZtQVkdLUHKEliapFpQQsgG0Zxl4PkOPZ5JodLRxKMuGBTPQvQLGFX4ZndhTOWb0gb7g7f6ODYxxvXGUB92IfTUSytGO', '2021-06-23 13:05:17'),
-(6, 2015506789, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Nu9Bqw4BeXw1R282vKk1MAPKPyLzw66MKw0clOMCgCJnxCPaxAMK7EVDtSB9LL0XIvs2T1OsMmFm6om9mBcOsyXoqMPjHj5SRCm0A1zT3wJGUN25loD43AsjKfJPFVAg', '2021-07-22 08:59:36'),
-(9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Xg8JrZZctXvwo3ImGCl9QBJNe1xnfXcya6cJta8kiQxIbH6b1IVmXvdSQlR1zVm043AWWxjfGnEpnl93q2mE10If0N1j7oHfZj59cb90mc3w0h3cLfSjw5plL5cUZRko', '2021-06-12 15:30:39'),
-(11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'GP6AcUyQbGegsLe9TJzc1evJrTmxTqypqAWKJo8TSVp4opTcInKUIeJl8j0Bxm6FPLOFoHHebsFOvaGL0CB0LWlb0N8I235Bbf03LdSskYIuPASFjIanftYLMxJxHKMg', '2021-07-18 13:25:57'),
-(12, 60779, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'r8GiaQDXkTFQWMDY0wYgbH5HeBxXneeOKKVOxiBzV9KczZELln2WHaGSumaWGjBLnZhCvLBVS7LAX7nYUikOexxe7MSSjEw5nTZfdvCfagYEXM9DUH9NwB4Vfb5irWBQ', '2021-07-18 12:36:59'),
-(13, 66269, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(14, 66449, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(15, 66517, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'QeoHurT2Fyx3kUxCudPnm4aJpSAarJkOn7Q4beRHTPq69PePrDQ51fRKObNwd7obI4JZFSUCwuIwx6M5PKgSfih4MbSXzAxel4UjFyG1iDTR2IEYh97XEi0SFfBBGpC2', '2021-07-18 12:37:30'),
-(16, 67068, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(17, 67079, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(18, 67393, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(19, 67406, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(20, 67507, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(21, 69520, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(22, 701538, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(23, 702635, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(24, 702636, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(25, 702637, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(26, 702638, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(27, 702639, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(28, 702735, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(29, 702750, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ByI7PGL6LteCLU6x85tPD5cOoWbG56QrEzFOmfU9VwFqXleWZuyd2aC0J4fDM2hi3MBGqL1IuyXO2ZwNP5QWUvNZr81piEKfRIL7nOwa6uiFVcA6gX965Vx03hfQDPeV', '2021-07-18 12:39:56'),
-(38, 2017503001, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'uZ3Nfp5nvydfhfofDbLMwAHNOh1V7vbqobHU5utw9KhWOolGK7WvsFa80S60Gfzb74cbatFgQI93H4h1TxqfPFVZ8CyIoWUgoOj0hTuXfwONEOXqip6YAYURQjJCscOv', '2021-06-23 15:48:20'),
-(43, 2017503026, 1, '$2b$08$lXvFP5bsUpiOFjwzKYDUVuEUsswfmYM7F2kYNE8kxSE4tJLUDANna', NULL, '2021-03-27 17:24:44', 'mgO9Fdr2Wnj8O9A1MEOPLplFmyrSkEYqTiSGUk5gu1zMq3sYJ1JcujXPOxe264EiKdvZaVxAHoQkqKZCOIsLzctZHppPgVLKBFnxvikzWXIEULah2EeECeNbuXhr1YPb', '2021-06-12 15:30:39'),
-(44, 99999, 4, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'Txr2F3qKd3WsROg8RkPvuMMSKqh8PmBFidsTaLNfz9lg22AGDJ3HYQ1sxyXgLflVe9Y7jwCVlNiGU8uLFJbwjutplELgwpT9MFTQYLYCX7XfbjNRCIfbWf1fwYdIb653', '2021-07-22 08:59:36'),
-(52, 1231, 2, '$2b$08$TG0CNfNzcWAg21toFucRYeH8pNmfl37HhA212FN8K3Hd5I/8TwGyK', NULL, '2021-04-28 19:25:24', 'iZq7HZQO5F34Sx7CeywhQZQwKkiEydVn2WDCWQFqsVGzYuITb9z3KnJga0BRYaZxhFWiaees6wBRszRsjI9gdnHfqeknLfOZ8KIN2bGDIz4mjJZVv38RKVSAT0TpjfT3', '2021-06-19 18:01:29'),
-(53, 1232, 2, '$2b$08$SzjVuy/AKr7ALhyCcjjih.47XplEh1uatnwedLkbjM3CFhq1TAe/.', NULL, '2021-04-28 19:25:24', NULL, '2021-06-19 18:01:29'),
-(54, 123, 2, '$2b$08$yKrEqs7K7d45HmCH8xkkG./nnUackS1TqQLgupwEaX3VkxIJzHuVa', NULL, '2021-04-28 19:35:38', 'bDOBFgwInZjCKzIxiHT1o87CGWlcFAoyK2Z9Ka7DUhz6TbNcQdWiUq0CLcisZVydCOFoxA3scz0qHm3UD2cGOj7qVGqSNeZ10izowPYiUPwwRX32KnxoCcaKG1phWSub', '2021-06-19 18:01:29'),
-(55, 1234, 2, '$2b$08$24WmB6L8ua7b.6KJ0/mGFORIZP/PSNryAE79Z207mtIdLQXIHAeai', NULL, '2021-04-30 00:27:38', 'qljYdAexh25lAw9joXSa1F8yqIB7aP6aqlBBQJYdui7YYHMsGpdCr8brgekbUxiKizJwgg4SFEjQIL3R3v9LY5DNbmj9UJFqEMBu51UkYKQ1z8q2nheyn0SNBpj7XMWe', '2021-06-19 18:01:29'),
-(56, 1121, 2, '$2b$08$Wen6PPn0Bb3GsZhOs2ZUXerttfekPhvi6hhf8.SdGzUnG5tGWjXla', NULL, '2021-05-11 21:37:17', 'ZfcbTgZ6PTYBiukNADBQEHO6DDJXpuXJIAoARWHeBWvJXJCMnBO4OUzMuuFiA0aHlglOiPOz0cd22Xy5bGutN4PLJLLyZt2vc61tFfCPyC25iMVPTmkZUZ1ehmjY9pfB', '2021-06-19 18:01:29'),
-(57, 1122, 2, '$2b$08$z7eQD6hBger93kXBaqUYKuaA98PEZhohwK761ZZivvKuF9FVUIAzG', NULL, '2021-05-11 21:37:19', NULL, '2021-06-19 18:01:29'),
-(59, 601111, 2, '$2b$08$mvzkGfmQwlvPJTlUThyRIuT/bXtirYA9PyRaMnUpeMWoDVenRg3c2', NULL, '2021-06-18 06:46:59', NULL, '2021-06-19 18:01:29'),
-(60, 70000, 2, '$2b$08$TNskaIB9VfTNhE571FnMZOpxkhJQY94tyHuaW6wAf8xOoqAQqIVKe', NULL, '2021-06-18 06:48:53', NULL, '2021-06-19 18:01:29'),
-(65, 2018503501, 1, '$2b$08$bzJ2DEywJQZGqoNwfsAFyOZ/jXg28eh2TGzHz3Bvqyc5AQcppnXoa', '', '2021-06-23 00:56:56', NULL, '2021-06-23 13:20:44'),
-(66, 2021503001, 1, '$2b$08$byYr9xvWt1l0/TyoyYPaY.UPR5W/h/L1b0tfZN1eCWDNJXd1VRr1q', NULL, '2021-06-23 01:01:55', '4VZT7YNmZ2Iav1ubmuUzNYcBpeY3oCNlzmfxVDsIwx7go9yNtEnKf3du6psOsI0Ym3KetrDZkxPQgXZ5UlxhXA6v27n3Sz90rWg8cvgwgprSGXfUNQndg9ysaaLL5jVB', '2021-06-23 13:01:30'),
-(67, 2021503002, 1, '$2b$08$1DZVoS1K00s7.0azCcAw0.Dztuq0gsK/Olh5VZggnCO/i/eqkUpba', NULL, '2021-06-23 01:01:55', 'b4fcB7lnGy8EQ6kzb5Bc5v5B8ST6PgT4Zg9BWGvO7tRmYbjQqQ4BGwjO63ps5Ed3NiHflTM2tkUHZvHW6MEohDUFkD2I2jCURTBNh5xWkiWjwiZaIpXBsOgCnFs2X2yx', '2021-06-23 13:00:39'),
-(68, 2021503509, 1, '$2b$08$hjAQjVLMxBugme8XNpHg2.JWQAkClPHdyChf.HGtgCMnB53rxICnO', NULL, '2021-06-23 01:01:55', NULL, '2021-06-23 01:01:55');
+INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status`, `create_time`, `refresh_token`) VALUES
+(1, 2017503048, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(2, 2017503525, NULL, NULL, NULL, NULL, NULL),
+(3, 2017503537, NULL, NULL, NULL, NULL, NULL),
+(4, 2017503056, NULL, NULL, NULL, NULL, NULL),
+(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'zXnsjBcDlpyc2SSalV7awOSQp89aLOFISje5Qiorm0F256RSKbG9dAaWozzeIKSi5RV5AbfIMMt1IiNuZvOCONF1qN4hdxjzR2clbgAJIPBVleoFa1oN3x2Pn2fNFr79'),
+(6, 2015506789, NULL, NULL, NULL, NULL, NULL),
+(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'yHY4cDCDekH4jFPJKRZtHjSrOtD5MwfD2lgVcbnVF0YgtXBoxtUyYydP45yM0faS8ufqxhvz4roh3JS6SONEbhp0s8pstm0D7EN7JgiqUBa3wzfWxAPuVtM8HN68c5OC'),
+(9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Xg8JrZZctXvwo3ImGCl9QBJNe1xnfXcya6cJta8kiQxIbH6b1IVmXvdSQlR1zVm043AWWxjfGnEpnl93q2mE10If0N1j7oHfZj59cb90mc3w0h3cLfSjw5plL5cUZRko'),
+(11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'GP6AcUyQbGegsLe9TJzc1evJrTmxTqypqAWKJo8TSVp4opTcInKUIeJl8j0Bxm6FPLOFoHHebsFOvaGL0CB0LWlb0N8I235Bbf03LdSskYIuPASFjIanftYLMxJxHKMg'),
+(12, 60779, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'r8GiaQDXkTFQWMDY0wYgbH5HeBxXneeOKKVOxiBzV9KczZELln2WHaGSumaWGjBLnZhCvLBVS7LAX7nYUikOexxe7MSSjEw5nTZfdvCfagYEXM9DUH9NwB4Vfb5irWBQ'),
+(13, 66269, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(14, 66449, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(15, 66517, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'QeoHurT2Fyx3kUxCudPnm4aJpSAarJkOn7Q4beRHTPq69PePrDQ51fRKObNwd7obI4JZFSUCwuIwx6M5PKgSfih4MbSXzAxel4UjFyG1iDTR2IEYh97XEi0SFfBBGpC2'),
+(16, 67068, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(17, 67079, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(18, 67393, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(19, 67406, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(20, 67507, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(21, 69520, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(22, 701538, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(23, 702635, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(24, 702636, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(25, 702637, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(26, 702638, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(27, 702639, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(28, 702735, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(29, 702750, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ByI7PGL6LteCLU6x85tPD5cOoWbG56QrEzFOmfU9VwFqXleWZuyd2aC0J4fDM2hi3MBGqL1IuyXO2ZwNP5QWUvNZr81piEKfRIL7nOwa6uiFVcA6gX965Vx03hfQDPeV'),
+(38, 2017503001, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'uZ3Nfp5nvydfhfofDbLMwAHNOh1V7vbqobHU5utw9KhWOolGK7WvsFa80S60Gfzb74cbatFgQI93H4h1TxqfPFVZ8CyIoWUgoOj0hTuXfwONEOXqip6YAYURQjJCscOv'),
+(43, 2017503026, 1, '$2b$08$lXvFP5bsUpiOFjwzKYDUVuEUsswfmYM7F2kYNE8kxSE4tJLUDANna', NULL, '2021-03-27 17:24:44', 'mgO9Fdr2Wnj8O9A1MEOPLplFmyrSkEYqTiSGUk5gu1zMq3sYJ1JcujXPOxe264EiKdvZaVxAHoQkqKZCOIsLzctZHppPgVLKBFnxvikzWXIEULah2EeECeNbuXhr1YPb'),
+(44, 99999, 4, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'KwwiXyjXtfwZ3PzTS2GzsNE92oW2xTeARxgJQ92hwRJXr2ggKbND0ewdYDEeDEbIeTLikWDS3xtcBEGYNLOosY0EEy7QJA9mYvbu2DuJEJO8AGU9ruLzFePVmDykvA4A'),
+(52, 1231, 2, '$2b$08$TG0CNfNzcWAg21toFucRYeH8pNmfl37HhA212FN8K3Hd5I/8TwGyK', NULL, '2021-04-28 19:25:24', 'iZq7HZQO5F34Sx7CeywhQZQwKkiEydVn2WDCWQFqsVGzYuITb9z3KnJga0BRYaZxhFWiaees6wBRszRsjI9gdnHfqeknLfOZ8KIN2bGDIz4mjJZVv38RKVSAT0TpjfT3'),
+(53, 1232, 2, '$2b$08$SzjVuy/AKr7ALhyCcjjih.47XplEh1uatnwedLkbjM3CFhq1TAe/.', NULL, '2021-04-28 19:25:24', NULL),
+(54, 123, 2, '$2b$08$yKrEqs7K7d45HmCH8xkkG./nnUackS1TqQLgupwEaX3VkxIJzHuVa', NULL, '2021-04-28 19:35:38', 'bDOBFgwInZjCKzIxiHT1o87CGWlcFAoyK2Z9Ka7DUhz6TbNcQdWiUq0CLcisZVydCOFoxA3scz0qHm3UD2cGOj7qVGqSNeZ10izowPYiUPwwRX32KnxoCcaKG1phWSub'),
+(55, 1234, 2, '$2b$08$24WmB6L8ua7b.6KJ0/mGFORIZP/PSNryAE79Z207mtIdLQXIHAeai', NULL, '2021-04-30 00:27:38', 'qljYdAexh25lAw9joXSa1F8yqIB7aP6aqlBBQJYdui7YYHMsGpdCr8brgekbUxiKizJwgg4SFEjQIL3R3v9LY5DNbmj9UJFqEMBu51UkYKQ1z8q2nheyn0SNBpj7XMWe'),
+(56, 1121, 2, '$2b$08$Wen6PPn0Bb3GsZhOs2ZUXerttfekPhvi6hhf8.SdGzUnG5tGWjXla', NULL, '2021-05-11 21:37:17', 'ZfcbTgZ6PTYBiukNADBQEHO6DDJXpuXJIAoARWHeBWvJXJCMnBO4OUzMuuFiA0aHlglOiPOz0cd22Xy5bGutN4PLJLLyZt2vc61tFfCPyC25iMVPTmkZUZ1ehmjY9pfB'),
+(57, 1122, 2, '$2b$08$z7eQD6hBger93kXBaqUYKuaA98PEZhohwK761ZZivvKuF9FVUIAzG', NULL, '2021-05-11 21:37:19', NULL),
+(59, 601111, 2, '$2b$08$mvzkGfmQwlvPJTlUThyRIuT/bXtirYA9PyRaMnUpeMWoDVenRg3c2', NULL, '2021-06-18 06:46:59', NULL),
+(60, 70000, 2, '$2b$08$TNskaIB9VfTNhE571FnMZOpxkhJQY94tyHuaW6wAf8xOoqAQqIVKe', NULL, '2021-06-18 06:48:53', NULL),
+(65, 2018503501, 1, '$2b$08$bzJ2DEywJQZGqoNwfsAFyOZ/jXg28eh2TGzHz3Bvqyc5AQcppnXoa', '', '2021-06-23 00:56:56', NULL),
+(66, 2021503001, 1, '$2b$08$byYr9xvWt1l0/TyoyYPaY.UPR5W/h/L1b0tfZN1eCWDNJXd1VRr1q', NULL, '2021-06-23 01:01:55', '4VZT7YNmZ2Iav1ubmuUzNYcBpeY3oCNlzmfxVDsIwx7go9yNtEnKf3du6psOsI0Ym3KetrDZkxPQgXZ5UlxhXA6v27n3Sz90rWg8cvgwgprSGXfUNQndg9ysaaLL5jVB'),
+(67, 2021503002, 1, '$2b$08$1DZVoS1K00s7.0azCcAw0.Dztuq0gsK/Olh5VZggnCO/i/eqkUpba', NULL, '2021-06-23 01:01:55', 'b4fcB7lnGy8EQ6kzb5Bc5v5B8ST6PgT4Zg9BWGvO7tRmYbjQqQ4BGwjO63ps5Ed3NiHflTM2tkUHZvHW6MEohDUFkD2I2jCURTBNh5xWkiWjwiZaIpXBsOgCnFs2X2yx'),
+(68, 2021503509, 1, '$2b$08$hjAQjVLMxBugme8XNpHg2.JWQAkClPHdyChf.HGtgCMnB53rxICnO', NULL, '2021-06-23 01:01:55', NULL);
 
 --
 -- Indexes for dumped tables
@@ -2991,6 +3012,13 @@ ALTER TABLE `subjects_offered`
   ADD KEY `Person_fk` (`person_id`);
 
 --
+-- Indexes for table `subject_allocation_status`
+--
+ALTER TABLE `subject_allocation_status`
+  ADD PRIMARY KEY (`Status_ID`),
+  ADD KEY `Session_Ref` (`Session_Ref`);
+
+--
 -- Indexes for table `subj_allot`
 --
 ALTER TABLE `subj_allot`
@@ -3025,289 +3053,295 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `alumni_higher_studies`
 --
 ALTER TABLE `alumni_higher_studies`
-  MODIFY `Alumni_Hid` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Alumni_Hid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `alumni_work_experience`
 --
 ALTER TABLE `alumni_work_experience`
-  MODIFY `Alumni_Wid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Alumni_Wid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `course_artimat`
 --
 ALTER TABLE `course_artimat`
-  MODIFY `cartimat_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cartimat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `course_assesseval`
 --
 ALTER TABLE `course_assesseval`
-  MODIFY `cassesseval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `cassesseval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `course_assessment`
 --
 ALTER TABLE `course_assessment`
-  MODIFY `cassess_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `cassess_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `course_assigneval`
 --
 ALTER TABLE `course_assigneval`
-  MODIFY `cassigneval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `cassigneval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `course_assignment`
 --
 ALTER TABLE `course_assignment`
-  MODIFY `cassign_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cassign_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `course_attendance`
 --
 ALTER TABLE `course_attendance`
-  MODIFY `cattend_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
+  MODIFY `cattend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
 
 --
 -- AUTO_INCREMENT for table `course_cacomp`
 --
 ALTER TABLE `course_cacomp`
-  MODIFY `ccacomp_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `ccacomp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `course_evaluation`
 --
 ALTER TABLE `course_evaluation`
-  MODIFY `ceval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `ceval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `course_extcalc`
 --
 ALTER TABLE `course_extcalc`
-  MODIFY `cextcalc_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `cextcalc_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `course_extcomp`
 --
 ALTER TABLE `course_extcomp`
-  MODIFY `cextcomp_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `cextcomp_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `course_internalcalc`
 --
 ALTER TABLE `course_internalcalc`
-  MODIFY `cintcalc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cintcalc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `course_lessonplan`
 --
 ALTER TABLE `course_lessonplan`
-  MODIFY `clp_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `clp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `course_registered_students`
 --
 ALTER TABLE `course_registered_students`
-  MODIFY `cregst_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `cregst_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `course_topic`
 --
 ALTER TABLE `course_topic`
-  MODIFY `ctopic_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ctopic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `person_academic`
 --
 ALTER TABLE `person_academic`
-  MODIFY `Academic_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Academic_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_additional_duties`
 --
 ALTER TABLE `person_additional_duties`
-  MODIFY `Duty_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Duty_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_awards`
 --
 ALTER TABLE `person_awards`
-  MODIFY `Award_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Award_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `person_course_details`
 --
 ALTER TABLE `person_course_details`
-  MODIFY `Course_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Course_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_events_attended`
 --
 ALTER TABLE `person_events_attended`
-  MODIFY `Event_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `person_experience`
 --
 ALTER TABLE `person_experience`
-  MODIFY `Experience_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Experience_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `person_guestlecture`
 --
 ALTER TABLE `person_guestlecture`
-  MODIFY `GuestLecture_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `GuestLecture_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_membership`
 --
 ALTER TABLE `person_membership`
-  MODIFY `Member_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Member_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_patents`
 --
 ALTER TABLE `person_patents`
-  MODIFY `Patent_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Patent_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `person_project_allocation`
 --
 ALTER TABLE `person_project_allocation`
-  MODIFY `Project_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Project_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_project_proposal`
 --
 ALTER TABLE `person_project_proposal`
-  MODIFY `Proposal_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `Proposal_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `person_publication`
 --
 ALTER TABLE `person_publication`
-  MODIFY `Publication_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Publication_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `person_qualification`
 --
 ALTER TABLE `person_qualification`
-  MODIFY `Qualification_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Qualification_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `person_reference_table`
 --
 ALTER TABLE `person_reference_table`
-  MODIFY `Reference_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `Reference_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
 
 --
 -- AUTO_INCREMENT for table `person_responsibility`
 --
 ALTER TABLE `person_responsibility`
-  MODIFY `Responsibility_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Responsibility_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_scholardetails`
 --
 ALTER TABLE `person_scholardetails`
-  MODIFY `Scholar_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Scholar_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `person_specialization`
 --
 ALTER TABLE `person_specialization`
-  MODIFY `Specialization_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Specialization_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `person_supervision`
 --
 ALTER TABLE `person_supervision`
-  MODIFY `Supervision_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Supervision_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `person_travel_history`
 --
 ALTER TABLE `person_travel_history`
-  MODIFY `Travel_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Travel_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `student_awards`
 --
 ALTER TABLE `student_awards`
-  MODIFY `Award_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Award_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_endsemmarks`
 --
 ALTER TABLE `student_endsemmarks`
-  MODIFY `Mark_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `Mark_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `student_events_participated`
 --
 ALTER TABLE `student_events_participated`
-  MODIFY `Event_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_family_details`
 --
 ALTER TABLE `student_family_details`
-  MODIFY `Family_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Family_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `student_gpa`
 --
 ALTER TABLE `student_gpa`
-  MODIFY `Gpa_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Gpa_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `student_higherstudies`
 --
 ALTER TABLE `student_higherstudies`
-  MODIFY `HigherStudies_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `HigherStudies_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_internship`
 --
 ALTER TABLE `student_internship`
-  MODIFY `Internship_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Internship_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student_placement`
 --
 ALTER TABLE `student_placement`
-  MODIFY `Placement_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Placement_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_thesis`
 --
 ALTER TABLE `student_thesis`
-  MODIFY `Sthesisid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `Sthesisid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `subjects_offered`
 --
 ALTER TABLE `subjects_offered`
-  MODIFY `subid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT for table `subject_allocation_status`
+--
+ALTER TABLE `subject_allocation_status`
+  MODIFY `Status_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subj_allot`
 --
 ALTER TABLE `subj_allot`
-  MODIFY `sallot_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `sallot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `team_thesis`
 --
 ALTER TABLE `team_thesis`
-  MODIFY `Tthesisid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `Tthesisid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Constraints for dumped tables
@@ -3329,9 +3363,9 @@ ALTER TABLE `alumni_higher_studies`
 -- Constraints for table `alumni_personal_info`
 --
 ALTER TABLE `alumni_personal_info`
-  ADD CONSTRAINT `alumni_personal_info_ibfk_1` FOREIGN KEY (`Employment_Nature`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Blood_Group_FKP2` FOREIGN KEY (`Blood_Group_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Gender_Reference_FKP1` FOREIGN KEY (`Gender_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Gender_Reference_FKP1` FOREIGN KEY (`Gender_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `alumni_personal_info_ibfk_1` FOREIGN KEY (`Employment_Nature`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `alumni_work_experience`
@@ -3676,6 +3710,12 @@ ALTER TABLE `subjects_offered`
   ADD CONSTRAINT `Session_FK` FOREIGN KEY (`session`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `subject_allocation_status`
+--
+ALTER TABLE `subject_allocation_status`
+  ADD CONSTRAINT `subject_allocation_status_ibfk_1` FOREIGN KEY (`Session_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `subj_allot`
 --
 ALTER TABLE `subj_allot`
@@ -3688,9 +3728,9 @@ ALTER TABLE `subj_allot`
 -- Constraints for table `team_thesis`
 --
 ALTER TABLE `team_thesis`
-  ADD CONSTRAINT `person_fk2` FOREIGN KEY (`Supervisor`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Programme_fk1` FOREIGN KEY (`Programme_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Session_fk1` FOREIGN KEY (`Session_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Session_fk1` FOREIGN KEY (`Session_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `person_fk2` FOREIGN KEY (`Supervisor`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
