@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2021 at 01:03 PM
--- Server version: 8.0.25
--- PHP Version: 7.3.29
+-- Generation Time: Aug 06, 2021 at 08:10 AM
+-- Server version: 8.0.18
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alumni` (
-  `Register_No` int NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Working_Org` varchar(255) NOT NULL,
   `Designation` varchar(255) NOT NULL,
-  `Alumni_Status` int NOT NULL
+  `Alumni_Status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -52,13 +52,13 @@ INSERT INTO `alumni` (`Register_No`, `Working_Org`, `Designation`, `Alumni_Statu
 --
 
 CREATE TABLE `alumni_higher_studies` (
-  `Alumni_Hid` int NOT NULL,
-  `Alumni_Id` int NOT NULL,
+  `Alumni_Hid` int(11) NOT NULL,
+  `Alumni_Id` int(11) NOT NULL,
   `University` varchar(255) DEFAULT NULL,
   `Degree` varchar(50) DEFAULT NULL,
   `Specialization` varchar(100) DEFAULT NULL,
   `Location` varchar(100) DEFAULT NULL,
-  `Year_Of_Passing` int DEFAULT NULL
+  `Year_Of_Passing` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -68,27 +68,27 @@ CREATE TABLE `alumni_higher_studies` (
 --
 
 CREATE TABLE `alumni_personal_info` (
-  `Alumni_Id` int NOT NULL,
+  `Alumni_Id` int(11) NOT NULL,
   `First_Name` varchar(50) DEFAULT NULL,
   `Last_Name` varchar(50) DEFAULT NULL,
   `DOB` date DEFAULT NULL,
   `LinkedIn_URL` varchar(255) DEFAULT NULL,
   `Contact_No` varchar(15) DEFAULT NULL,
-  `Register_No` int NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Email` varchar(50) DEFAULT NULL,
   `Contact_Address` varchar(255) DEFAULT NULL,
-  `Gender_Ref` int DEFAULT NULL,
-  `Blood_Group_Ref` int DEFAULT NULL,
+  `Gender_Ref` int(11) DEFAULT NULL,
+  `Blood_Group_Ref` int(11) DEFAULT NULL,
   `Current_Organisation` varchar(50) DEFAULT NULL,
   `Current_Designation` varchar(50) DEFAULT NULL,
-  `Employment_Nature` int DEFAULT NULL,
+  `Employment_Nature` int(11) DEFAULT NULL,
   `Work_Location` varchar(55) DEFAULT NULL,
-  `Work_Start_Year` int DEFAULT NULL,
+  `Work_Start_Year` int(11) DEFAULT NULL,
   `Domain` varchar(55) DEFAULT NULL,
   `Question1` text,
   `Question2` text,
-  `Batch` int NOT NULL,
-  `Status` int DEFAULT NULL
+  `Batch` int(11) NOT NULL,
+  `Status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -162,13 +162,13 @@ INSERT INTO `alumni_personal_info` (`Alumni_Id`, `First_Name`, `Last_Name`, `DOB
 --
 
 CREATE TABLE `alumni_work_experience` (
-  `Alumni_Wid` int NOT NULL,
-  `Alumni_Id` int NOT NULL,
+  `Alumni_Wid` int(11) NOT NULL,
+  `Alumni_Id` int(11) NOT NULL,
   `Organization` varchar(50) DEFAULT NULL,
   `Location` varchar(100) DEFAULT NULL,
   `Designation` varchar(50) DEFAULT NULL,
-  `Start_Year` int DEFAULT NULL,
-  `End_Year` int DEFAULT NULL
+  `Start_Year` int(11) DEFAULT NULL,
+  `End_Year` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -182,1488 +182,29 @@ INSERT INTO `alumni_work_experience` (`Alumni_Wid`, `Alumni_Id`, `Organization`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_category`
---
-
-CREATE TABLE `book_category` (
-  `category_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `category_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `book_category`
---
-
-INSERT INTO `book_category` (`category_id`, `category_name`) VALUES
-('AC', 'Computer Algorithms'),
-('AD', 'Android Programming'),
-('AI', 'Artificial Intelligence'),
-('BC', 'Blockchain Technology'),
-('BD', 'Big Data Analytics'),
-('CA', 'Computer Architecture'),
-('CC', 'Cloud Computing'),
-('CD', 'Compiler Design'),
-('CE', 'Computer Engineering'),
-('CF', 'Computer Forensics'),
-('CG', 'Computer Graphics'),
-('CN', 'Computer Networks'),
-('CO', 'Computer Organization'),
-('CP', 'C & C++ Programming'),
-('CS', 'Computer Systems'),
-('DB', 'Database Management Systems'),
-('DC', 'Digital Communications'),
-('DD', 'Digital Designing'),
-('DI', 'Digital Image Processing'),
-('DM', 'Data Mining'),
-('DN', 'Data Communication and Networking'),
-('DP', 'Digital Signal Processing'),
-('DS', 'Data Structures'),
-('DT', 'Distributed Systems'),
-('DW', 'Data Warehousing'),
-('EC', 'Electrical & Electronics'),
-('ES', 'Embedded Systems'),
-('GC', 'Grid Computing'),
-('GE', 'General books & Gate Exam Books'),
-('IO', 'Internet of Things'),
-('IT', 'Information Technology'),
-('JV', 'Java Programming'),
-('KE', 'Knowledge Engineering'),
-('MA', 'Discrete Mathematics'),
-('MC', 'Mobile Communications'),
-('MG', 'Management Studies'),
-('ML', 'Machine Learning'),
-('MM', 'Multimedia'),
-('MN', 'Mobile Networks'),
-('MP', 'Microprocessor & Microcontrollers'),
-('MS', 'Microsoft Org. Related'),
-('NL', 'Natural Language Processing'),
-('NS', 'Network Security'),
-('OO', 'Object Oriented Programming'),
-('OR', 'Oracle'),
-('OS', 'Operating System'),
-('OT', 'Other Categories'),
-('PC', 'Parallel Programming'),
-('PP', 'Programming Paradigms'),
-('PV', 'Pervasive Computing'),
-('PY', 'Python Programming'),
-('QC', 'Quantum Computing'),
-('RT', 'Real Time Systems'),
-('SC', 'Soft Computing'),
-('SD', 'Software Designing'),
-('SE', 'Software Engineering'),
-('SN', 'Sensor Networks'),
-('SP', 'Software Project Management'),
-('ST', 'Software Testing'),
-('SY', 'Security in Computing'),
-('TC', 'Theory of Computation'),
-('UX', 'Unix Programming'),
-('WB', 'Web Technology'),
-('WC', 'Wireless Communications'),
-('WN', 'Wireless Networks');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_list`
---
-
-CREATE TABLE `book_list` (
-  `book_id` int NOT NULL,
-  `category_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `book_name` varchar(110) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `book_author` varchar(86) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `book_publish` varchar(42) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `book_year` varchar(22) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `book_copy` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '1',
-  `book_prize` int NOT NULL DEFAULT '100',
-  `book_status` int NOT NULL DEFAULT '1',
-  `book_insertion_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `book_list`
---
-
-INSERT INTO `book_list` (`book_id`, `category_id`, `book_name`, `book_author`, `book_publish`, `book_year`, `book_copy`, `book_prize`, `book_status`, `book_insertion_time`) VALUES
-(1, 'GC', 'Grid Computing', 'Joseph', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(2, 'CC', 'Cloud Computing for Dummies', 'Hurwitz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(3, 'CC', 'Cloud security A comprehensive guide to secure cloud computing', 'Ronald L.krutz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(4, 'MC', 'Mobile comm.. Design fundamental ', 'Lee William CY', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(5, 'MC', 'Mobile comm. Engineering Theory & Appl', 'Lee William CY', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(6, 'MC', 'Mobile cellular Telecommunication', 'Lee William CY', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(7, 'WN', 'Wireless broadband networks handbook ', 'vacca', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(8, 'DC', 'Wireless Digital Comm.', 'Feher', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(9, 'MC', 'Mobile & wireless design essential', 'Mallick Martyn', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(10, 'WN', 'Professional WAP', 'Alex homer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(11, 'WN', 'WAP a Beginners guide', 'Bulbrook', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(12, 'DN', 'Principles of comm.. systems', ' Taub & shelling', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(13, 'DN', 'Communication system 4 ED', 'Carlson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(14, 'DC', 'Digital Communications Systms ', 'Kolimbiris', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(15, 'EC', 'Electronic comm.. System', 'Kennedy ', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(16, 'EC', 'Communication Electronics ', 'Frenzel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(17, 'MC', 'Introduction to Telecommunications Voice ', 'Cole', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(18, 'CS', 'Telecom and the computer', 'J Martin', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(19, 'OT', 'Optical Computing an Intro ', 'Karim', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(20, 'WN', 'GSM CDMA and 3G Systems', 'Steela Lee', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(21, 'WC', 'Wireless communications Principles and Practice', 'Rappaport', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(22, 'MC', 'Modern Communication Systems Principles & Applications', 'Leon W Couch II', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(23, 'DC', 'Digital Communication', 'Proakis', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(24, 'DC', 'Digital Communication', 'Haykin', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(25, 'WN', 'Implementing 802.11', 'Olexa', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(26, 'DC', 'Digital Communications', 'Sklar', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(27, 'WN', 'RFID', 'Garfinkel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(28, 'WN', '3G Networks', 'Kasera', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(29, 'MC', 'The cdma 2000 system for mobile communications', 'Vanghi', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(30, 'PV', 'Pervasive Computing', 'Burkhardt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(31, 'WC', 'Wireless communication & Networks', 'Stallings W ', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(32, 'MN', 'Mobile ad- hoc Networks', 'Aggelou', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(33, 'PV', 'Fundamendals of mobile & pervasive com', 'Adelstein', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(34, 'MC', 'Mobile Computing', 'Talukder', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(35, 'CA', 'Advanced Computer Architecture', 'Richard Y.Kain', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(36, 'CA', 'Computer Architecture & logic design', ' Bartee TC', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(37, 'CA', 'Computer Architecture & Organ. Ed 3 ', 'Hayes', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(38, 'CS', 'Computer As Components', 'W.Wolf', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(39, 'CO', 'Computer Organisation', 'Stallings', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(40, 'DB', 'Computer database organization ', 'Martin', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(41, 'DB', 'Database System concept Ed 3', ' Silberschatz A', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(42, 'OR', 'Oracle a Beginners Guide', 'Michel abbey', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(43, 'DB', 'An Introduction to Database Systems 6th ed', 'C.J Date', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(44, 'DB', 'Database system implementation', 'Garcia', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(45, 'DM', 'Data Warehousing & Data Mining', 'Berson & smith', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(46, 'OR', 'Oracle 8i DBA Bible', 'Jonnathan Gennick', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(47, 'OR', 'Oracle/8i', 'Page et al', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(48, 'DB', 'Database System Concepts 4th ed', 'Silberschatz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(49, 'OR', 'Oracle Devloper 2000 forms', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(50, 'OR', 'Oracle Developer”s Guide', 'David McClanahan', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(51, 'DB', 'Fundamentals of database system', 'Elmasri Navathe', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(52, 'DB', 'DB Concepts', 'Kroenke', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(53, 'DM', 'Data Mining concepts & tech', ' Han', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(54, 'DB', 'Using SQL server 7.0', 'Stephen', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(55, 'DB', 'DB2 Universal Database V8.1', 'Roger', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(56, 'WB', 'A Semantic Web Primer', 'Antoniou', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(57, 'DM', 'Data Mining', 'Roiger', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(58, 'DW', 'Data Warehousing  in the Real World', 'Anahory', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(59, 'DM', 'Data Mining', 'Larose', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(60, 'OT', 'Ontological Engineering', 'Gomez-pegglz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(61, 'DB', 'DBMS', 'Leon', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(62, 'DB', 'MySQL Internals', 'Pacheu', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(63, 'PC', 'An Intro to Distributed and Parallel Comp', 'Joel Cricklow', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(64, 'DT', 'Distributed COM Appl. Development', 'Maloney', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(65, 'OT', 'Instant Corba', 'Orfalli Harkey', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(66, 'AC', 'Distributed algorithms', 'Lynch N.A', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(67, 'GC', 'Grid computing', 'Joseph', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(68, 'GC', 'Performance Analysis and Grid Computing', 'Getov Gernt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(69, 'DS', 'An Introd. To data structure with Appl', 'Tremblay', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(70, 'DS', 'Data structure using C & C++ Ed 2', 'Langsan Y', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(71, 'GE', 'Graph Theory', 'N. Deo', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(72, 'AC', 'Algorithm Design', 'Goodrich', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(73, 'PP', 'Cobol programming including ms-cobol and cobol 85', 'm.k. roy', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(74, 'DD', 'Fundamentals Of Logic Design Ed4', ' Roth,Clavles', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(75, 'EC', 'Electric drives', ' DE & Sen', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(76, 'EC', 'Electronic Engg.Materials & Devices', ' Allison.J', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(77, 'EC', 'Electronic Devices & circuits theory Ed 6', ' Boylestand R', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(78, 'DD', 'Fundamental of Digital logic with VHDL design', ' Brown.S', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(79, 'DD', 'Digital Systems', 'Hill Peterson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(80, 'EC', 'Electronic Devices and Circuits Ed.3', ' Bell.D.A', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(81, 'OT', 'Decision support sys', 'Janakiraman', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(82, 'OT', 'Enterprise Res. Planning Con 2nd ed', 'Garg', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(83, 'OT', 'Fuzzy Logic with Engg App', 'Ross', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(84, 'AI', 'Into to artificial Intelligence &exp', 'Patterson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(85, 'MG', 'Management Info sys', 'Jawadekar', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(86, 'MG', 'Management Info sys', 'Kroenke', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(87, 'IT', 'Intro to IT', ' Turban', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(88, 'AC', 'An Introduction to Genetic Algorithms', 'MelaineMitehell', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(89, 'IT', 'Management Information System ', 'James O Brien', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(90, 'SC', 'Neuro-Fuzzy and Soft Computing', 'Jang,sun', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(91, 'IT', 'Using Information Technology', 'Sawyer willam', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(92, 'AI', 'Artificial Intelligence a modern appro', 'Russel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(93, 'CP', 'Test your skills in C', 'Selvi', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(94, 'OT', 'Intro to language & the theory of comm.', 'Martin', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(95, 'RT', 'Real time systems', 'Krishna', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(96, 'OT', 'Robot Dynamics Control', 'Spong', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(97, 'OT', 'Robotic engineering an integrated appro', 'Klafter', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(98, 'PP', 'Programming language', 'Robert  sebesta', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(99, 'CS', 'Theory of comp science Ed 2.', ' Mishra KLP', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(100, 'PP', 'Prog Lang Pragmatics', 'Scott', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(101, 'CS', 'Introduction to Computers', 'C.Xavier', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(102, 'PP', 'Logic and Prolog Programming', 'SarojKaushik', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(103, 'CD', 'Compiler Design in C', 'Holub', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(104, 'CD', 'Compiler principles techniques and tools', 'Alfred Aho', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(105, 'OT', 'Enterprise Resource Planning', 'Alexis Leon', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(106, 'OT', 'ERP : Demystified', 'Alexis Leon', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(107, 'PP', 'The Complete Reference : Crystal Report 7', 'George Peck', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(108, 'IT', 'Foundations Of information Technology', 'Yadav', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(109, 'EC', 'Electronic Commerce', 'Pete Lochin', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(110, 'SD', 'E Commerce Strategy Techniques and applications', 'David Whiteley', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(111, 'EC', 'Electronic Commerce', 'Gary P Schneider', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(112, 'EC', 'Electronic Commerce Security Risk Management Control', 'Greenstein', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(113, 'PC', 'Practical Parallel Programming', 'Gregory Wilson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(114, 'CS', 'Computer Program Design', 'Elizabeth A Dickson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(115, 'AC', 'Fundamentals of Algorithms', 'Branand', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(116, 'MG', 'Total Quality Management', 'Kannan', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(117, 'OT', 'Role of Technical Education', 'Kaliappan', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(118, 'KE', 'Knowledge management', 'Awad, Ghazini', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(119, 'RT', 'Real Time Systems', 'J.W.S.Liu', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(120, 'KE', 'Knowledge Engineering', 'Schreiber', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(121, 'MA', 'Discrete Mathematical Structures', 'Tremblay', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(122, 'SY', 'Security in Computing', 'Pfleeger', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(123, 'RT', 'Real time System Design', 'Laplante', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(124, 'NL', 'Natural Language Processing', 'Akshar', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(125, 'AC', 'Computer Algorithms Intro to Design & Analysis', 'Sara Baase', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(126, 'PP', 'Computer Programming Laboratory', 'Ramesh Babu', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(127, 'OT', 'Essential Business Process Modeling', 'Havey', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(128, 'OT', 'High Performance Computing', 'Yang', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(129, 'OT', 'National Conference on Advanced Computing - Proceedings', 'NCAC’06', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(130, 'AC', 'Introduction to Algorthim (2nd edition)', 'Thomas', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(131, 'JV', 'The Java Prog Lang Ed 3', ' Arnold K', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(132, 'JV', 'Prog with Java & Corba Ed2', '  Orfali & Fiarly', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(133, 'JV', 'Java 2 and JavaScript for C an Programmers ', 'Daconta Monk', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(134, 'JV', 'Java Developers Reference', 'Dan Joshi', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(135, 'JV', 'Black Art of the Java Game Programming', 'Fan Ries', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(136, 'OT', 'JFC Unleashed', 'Micheal folly', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(137, 'JV', 'The Java Virtual Machine Specification 2 Ed.', 'Lindholm', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(138, 'JV', 'Java Servlet Programming', 'Jason Hunter', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(139, 'WB', 'Beginning Javascript', 'Paul Wilton', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(140, 'JV', 'Pure Javascript', 'Jason Gilliom', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(141, 'JV', 'Java Security', 'Scott oaks', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(142, 'JV', 'The Complete Java 2 Certification', 'Jamie Jaworker', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(143, 'JV', 'J2EE Design patterns', 'Crawford', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(144, 'JV', 'JAVA OS Operating System', 'Tan Saulpauh', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(145, 'JV', 'Programming and Deploying Java Mobile Agents', 'Danny B Lange', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(146, 'JV', 'JAVA Servlets', 'Karl Moss', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(147, 'PP', 'Rich Client Programming', 'Boudreau', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(148, 'JV', 'Java Network Programming', 'Harold', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(149, 'JV', 'Java Server Programming', 'Kogent', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(150, 'JV', 'J2EE 1.4 Bible', 'Mc Govern', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(151, 'JV', 'Developing java servlets', 'James', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(152, 'MM', 'Multimedia Comm.', 'Halsall', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(153, 'CG', 'Computer Graphics', 'Hearn M.P Baker', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(154, 'MM', 'Multimedia making it work (5thed)', 'Vaughan', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(155, 'MM', 'Multimedia making it work(3rd ed)', 'TayVaughan', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(156, 'CG', 'Computer graphics prin and practice  Ed.2', 'Foley', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(157, 'MM', 'Multimedia Systems', 'Kogoel Buford', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(158, 'OT', 'Mathematical Elements of Comp. Graphics', 'Roger Adams', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(159, 'CG', 'Principles of Interactive Comp. Graphics', 'William Neuman', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(160, 'CG', 'Computer Graphics A Prog. Appro.', 'Steve harrington', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(161, 'OT', 'Inside 3D studio Max 2 Resource Kit Vol.1', 'Steven miller', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(162, 'OT', 'The Data compression book', 'Taylor', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(163, 'MM', 'Emerging Multimedia Computer Communication Technologies', 'Judith Jeffcoate', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(164, 'MM', 'Multimedia in Practice Technology & Applications', 'TayVaughan', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(165, 'MM', 'Multimedia System Design', 'Buford', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(166, 'MM', 'Multimedia Systems', 'Sayood', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(167, 'OT', 'Introduction to data compression', 'Steinmetz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(168, 'MM', 'Multimedia Computing Communication & Application', 'Ze-Nian Drew', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(169, 'MM', 'Fundamendals of Multimedia', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(170, 'MP', 'Advance Microprocessor peripheral', ' Ray AK', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(171, 'MP', 'Microprocessor & Interfacing prg', 'Hall', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(172, 'ES', 'The 8051 Microcontroller & embedded sys', 'Mazidi', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(173, 'MP', 'The 8088 and 8086 Microprocessors.', 'Tribel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(174, 'MP', 'The Intel Microprocessor 8086/8088/8018', 'Brey', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(175, 'MP', 'Advance Microprocessors', 'Tabak', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(176, 'MP', 'An Introduction to the Intel family of Microprocessors', 'James.L.Antonakos', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(177, 'ES', 'Embedded Micro computer systems', 'Jonathan W Valvano', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(178, 'ES', 'Embedded System Design', 'Frank Vahid', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(179, 'MP', 'Microprocessor & Microcontroller', 'Godse', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(180, 'CN', 'Comp Network 4 ed', 'Tanenbaum', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(181, 'CN', 'Computer Network (3rd Edition)', 'Tanenbaum', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(182, 'CN', 'Computer Network (Eastern Economic edition)', 'Tanenbaum', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(183, 'DN', 'Data and Computer Communication (5th Edition)', 'Stallings', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(184, 'CN', 'SNMP,SNMPV2,SNMPV3&RMON 1 & 2', 'Stalling', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(185, 'CN', 'IP Network design', 'Long', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(186, 'CN', 'Networking Handbook', 'Taylor', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(187, 'CN', 'TCP/IP illustrated V3', 'Stevens', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(188, 'CN', 'Internetworking with TCP/IP (3rd ed)', 'Doughls', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(189, 'CN', 'Computer Networks and Internet', 'Doughles comer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(190, 'CN', 'Computer Networks (Black)', 'Uyless black', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(191, 'WN', 'Local Area Networks', 'Gerd kesier', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(192, 'CN', 'Network Protocol H/B', 'Naughle', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(193, 'CN', 'Networking Essentials Unleashed', 'Mark sparbec', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(194, 'MS', 'Network Programming in Windows NT', 'Sinha', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(195, 'OT', 'Special Edition Using ISDN', 'Bryce', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(196, 'OT', 'ISDN & Broadband ISDN with frame delay ATM', ' Stallings w', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(197, 'CN', 'Client/Server Computing', 'Patrick smith', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(198, 'WB', 'The Essential Client/Server', 'Harkey Edwards', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(199, 'CN', 'Client/Server Unleashed', 'Niel Jenkins', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(200, 'OT', 'Maximum Security', 'Anonymous', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(201, 'DN', 'Data Communication  and Networking- 4th ed', 'Forouzan', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(202, 'CN', 'Data Comm. and Computer Network', ' Halsall', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(203, 'SY', 'RSA Security guide to cryptography', 'Burnett', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(204, 'CN', 'Client/Server Computing', 'Dawna Travis Dewire', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(205, 'DN', 'Data Communications & Distributed Networks', 'Uyless D Black', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(206, 'CN', 'Internetworking with TCP/IP Principles Protocols & Architecture-5th ed', 'Douglas E Comer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(207, 'CN', 'Internetworking with TCP/IP Principles Protocols & Architecture-4th ed', 'Douglas E Comer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(208, 'OT', 'ISDN & Broadband ISDN with Frame Relay & ATM-4th ed', 'William Stallings', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(209, 'CN', 'Network Management Standards', 'Uyless Black', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(210, 'CN', 'TCP/IP Networking A Guide to the IBM Environment', 'David M Peterson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(211, 'SC', 'Security and Usability', 'Cranor', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(212, 'SY', 'Cryptograhy and Network Security-4th ed', 'William Stallings', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(213, 'CN', 'Network Management', 'Claise', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(214, 'UX', 'Unix Network Programming-3rd ed', 'Stevens', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(215, 'CP', 'C++ - The Complete Reference 3rd Ed', 'Schildt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(216, 'CP', 'C++ - The Complete Reference 2nd ed', 'H.Schilat', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(217, 'OO', 'Object Oriented Modeling and Design', 'Rumbaugh', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(218, 'OO', 'O/O Methods', 'james martin', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(219, 'OO', 'Object oriented analysis', 'Coad Y', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(220, 'OO', 'O/O Software Testing', 'Ahel Siegel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(221, 'OO', 'Obj. oriented programming in c++', 'barkaka', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(222, 'CP', 'C++ primer', 'Stanley lippmar', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(223, 'CP', 'Special edition using c++', 'Paul kimmel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(224, 'OO', 'Designinh obj oriented software', 'Rebbecca brock', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(225, 'OS', 'Modern OS Design & Implementation Ed 2', 'Tanenbaum', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(226, 'OS', 'Distributed OS', 'Tanenbaum A S', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(227, 'UX', 'Unix network prog', 'Stevens WR', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(228, 'UX', 'Unix network prog(Vol-1)', 'Stevens WR', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(229, 'OS', 'System programming & operating system', 'D M Dhamdhere', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(230, 'OS', 'The Design of the UNIX Operating System', 'Bach', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(231, 'OS', 'Distributed Operating Systems & Algorithms', 'Randy chow', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(232, 'UX', 'UNIX Shell Programmers', 'Christoper vickery', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(233, 'MS', 'Inside Windows NT 2 Ed', 'Solmon', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(234, 'MS', 'Deve. Professional Appl. for Win 95/NT', 'Brian lovette', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(235, 'MS', 'The Windows NT and Windows 2000 Answer', 'Savill', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(236, 'UX', 'Linux Kernel Progg.(3 ed)', 'Beck …', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(237, 'SD', 'System Software  ', 'L.Beck', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(238, 'MS', 'Programming Windows with MFC Ed2', 'Jeff Prossise', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(239, 'OS', 'Advance Concept in OS', 'Singhal M', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(240, 'UX', 'Linux the Complete Reference', 'Richard petersen', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(241, 'OS', 'Operating System', 'W.Stallings', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(242, 'PP', 'The Complete Reference Solaris 10', 'Watters', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(243, 'PP', 'Solaris Internals', 'McDougall', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(244, 'PP', 'Solaris Application Prog', 'D.Gove', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(245, 'UX', 'Unix network programming', 'Stevens', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(246, 'OS', 'Modern Operating systems (East)', 'Andrew S Tanenbaum', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(247, 'MS', 'Programming windows 95', 'Charles Petzold', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(248, 'MS', 'The visual basic for windows 95 handbook', 'Gary Cornell', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(249, 'MS', 'Windows 95 programming in C and C++', 'Herbert Schildt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(250, 'MS', 'Windows NT for programming from the Ground up', 'Herbert Schildt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(251, 'MS', 'Special edition using Windows NT workstation 3.51', 'Paul Sanna', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(252, 'UX', 'The C Odyssey UNIX', 'Meeta Gandhi', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(253, 'SD', 'UML Distilled 2nd Edition', 'Martin Fowler', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(254, 'OT', 'Managing Technical People', 'Humphery', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(255, 'SE', 'Software Engineering Concepts ', 'Richard Fairly', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(256, 'SE', 'Software Engineering A Practice (4th Edition)', 'Pressman', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(257, 'SE', 'Software Engineering A Practice', 'Pressman', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(258, 'SE', 'Fundamentals of Software Engineering', 'Ghezzijazayeri', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(259, 'SP', 'Software Project Management ', 'Royce', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(260, 'SD', 'Visual Modeling with Rational Rose & UML', 'Quatrani', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(261, 'ST', 'Effective Methods for Software Testing', 'Perry', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(262, 'IT', 'Analysis & Design of Information (senn)', 'James sen', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(263, 'SD', 'Applying UML & Patterns', 'Larman', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(264, 'OT', 'Managing the Testing Process', 'Rex Black', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(265, 'OT', 'Technical Writing process and product', 'Gerson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(266, 'SE', 'Software Engineering', 'Ian Sommerville', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(267, 'SE', 'Software Engineering', 'CTS', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(268, 'SD', 'UML 2 Toolkit', 'Erikkson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(269, 'SE', 'Component Software', 'Szyperski', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(270, 'SE', 'Software Engineering-1st ed', 'Dines', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(271, 'JV', 'Software Engineering with java', 'Stephen Schach', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(272, 'DP', 'DSP Principles algor& application Ed 4', 'Proakis John G', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(273, 'DP', 'Digital Signal Processing', 'Mitra', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(274, 'DP', 'Discrete time signal processing Ed 2', 'Oppenheim', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(275, 'DP', 'Adaptive Filter Theory', 'Haykin', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(276, 'DP', 'Digital processing of speech signals', 'Rabiner', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(277, 'NL', 'Fundamentals of Speech recognition', 'Rabiner', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(278, 'DI', 'Digital Image Pro 2 ed', 'Gonzalez', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(279, 'DI', 'Digital image processing Ed 3', 'Pratt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(280, 'DI', 'Fundamentals of Digital Image Processing', 'Jain', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(281, 'DI', 'Digital Image Processing using Matlab', 'Gonalez', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(282, 'OT', 'Code composer', 'Texas Instruments', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(283, 'DB', 'Visual Basic 6 Database Programming SQL', 'Fronckowiak', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(284, 'PP', 'Prog MS VC ++ Ed 5', ' Krugliniski DJ', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(285, 'CP', 'VC++ Programming', 'Kanetkar', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(286, 'CP', 'Visual c++ handbook', 'Chris h pappas', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(287, 'PP', 'Visual basic 5 environment programming and applications', 'Alan l eliason', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(288, 'CP', 'Sama Teach urself visual c++ in 21 days', 'Davis chapman', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(289, 'MS', 'Schildt windows 95 prog. In C & C++', 'Herbert schildt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(290, 'EC', 'Electronic Commerce A Managerial perspect.', ' Turban', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(291, 'EC', 'Frontiers of electronic commerce', ' Kalakota', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(292, 'WB', 'XML Bible Ed 2', ' Rusty', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(293, 'WB', 'VB .NET Programming', 'Hollis', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(294, 'WB', 'Introducing .Net', 'James Conard', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(295, 'OT', 'MS Exchange Server Survival Guide', 'Greg Todd', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(296, 'WB', 'ASP/MTS/ADSI Web Security', 'Harrison', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(297, 'WB', 'Introducing Microsoft .NET', 'Platt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(298, 'WB', 'Internet & world wide web how to prog', 'Deitel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(299, 'WB', 'XML step by step', 'Young', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(300, 'WB', 'Dynamic HTML', 'Rick Darnaell', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(301, 'WB', 'Internet Programming', 'Galgotia', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(302, 'PP', 'Mastering Internet Programming', 'Galgotia', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(303, 'OT', 'SE using the internet', 'Honeycutt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(304, 'JV', 'SE Using Html 4 , XML and Java1.2', 'Eric ladd', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(305, 'WB', 'ASP.Net Web Matrix', 'Mike Pope', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(306, 'PP', 'SE using ISAPI', 'Stephen', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(307, 'IT', 'SE Using Microsoft Internet Information Server', 'Victor Wolters', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(308, 'OT', 'SE Using VB Script', 'Schwartz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(309, 'OT', 'Professional Active Server Pages 3', 'Anderson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(310, 'WB', 'Developing Enterprise web services', 'Chatterjee', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(311, 'WB', 'How the Internet works', 'Presten gralla', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(312, 'OT', 'Firewalls 24 Seven', 'Strebe perkins', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(313, 'WB', 'HTML Complete', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(314, 'MS', 'Teach Yourself Microsoft Front Page 98', 'David Karlins', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(315, 'WB', 'Enterprise Web Services Security', 'Hallor', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(316, 'OT', 'Jboss at work', 'TomMarrs', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(317, 'WB', 'Introducing Microsoft .NET', 'David S Platt', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(318, 'WB', '.NET XML web services step by step', 'Freeman Jones', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(319, 'WB', 'ADO .NET step by step', 'Riordon', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(320, 'WB', 'Professional ASP .NET 1.1', 'Homer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(321, 'WB', 'HTML,CSS,Javascript,Perl,Python and Php', 'Schafer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(322, 'WB', 'The Ultimate Guide: J2EE Web Services', 'Monson-Haefel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(323, 'JV', 'Java Web Services', 'Chappell', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(324, 'OT', 'Understanding SOA', 'Newcomer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(325, 'WB', 'Web Services', 'Cerami', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(326, 'WB', 'World Wide Web Design', 'Xavier', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(327, 'JV', 'SOA using  Java Web', 'Hansen', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(328, 'WB', 'Internet & WWW', 'Deitel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(329, 'SD', 'Service Oriented Architecture', 'Eri', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(330, 'WB', 'J2EE Web Services', 'Monson', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(331, 'WB', 'XML, Web Services', 'Coyle', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(332, 'JV', 'Java Server Pages', 'Pekowsky', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(333, 'WB', 'The Complete Reference ASP .NET', 'Mac Donald', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(334, 'WB', 'J2EE Web Services', 'Haefel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(335, 'WB', 'XML,Web Services', 'Coyle', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(336, 'WB', 'XML Web Services', 'Coyle', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(337, 'WB', 'Internet and WWW', 'Deitel', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(338, 'OT', 'Understanding SOA', 'Newcomer', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(339, 'WB', 'Semantic Web Technologies-Trends and research in ontology-based systems', 'John Davies,Rudi Studer,Paul Warren', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(340, 'ML', 'Genetic Algorithms in search, Optimization and Machine Learning', 'David E.Goldberg', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(341, 'ML', 'Fundamentals of Neural Networks', 'Laurene Fausett', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(342, 'ML', 'Machine Learning', 'Tom M.Mitchell', 'McGraw Hill ', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(343, 'DM', 'DATA MINING Practical Machine Learning Tools and Techniques', 'Lan H.Witten, Eibe Frank, Mark A. Hall', 'Elsevier', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(344, 'ML', 'Introduction To Machine Learning', 'Ethem Alpaydin', 'PHI Learning', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(345, 'ML', 'Neural Networks and Learning Machines', 'Simon Haykin', 'PHI Learning', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(346, 'ML', 'Introduction to Machine Learning', 'Ethem Alpaydin', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(347, 'ML', 'Machine Learning An Algorithmic Perspective', 'Stephen Marsland', 'CRC Press', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(348, 'ML', 'Pattern Recognition and Machine Learning', 'Christopher Bishop', 'CBS', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(349, 'ML', 'Machine Learning', 'Tom Mitchell', 'TMH', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(350, 'ML', 'Pattern Recognition and Machine Learning', 'Christopher Bishop', 'CBS', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(351, 'DM', 'The Element of Statistical Learning-Data mining, Inference and Prediction', 'Trevor Hastie, Robert Tibshirani, Jerome Friedman', 'Springer', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(352, 'ML', 'Machine Learning An Algorithmic Perspective', 'Stephen Marsland', 'CRC Press', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(353, 'CN', 'Analyzing Social Networks', 'Stephen P Borgatti, Martin G Everett and Jeffrey C Johnson', 'SAGE', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(354, 'WB', 'Mining the Social Web', 'Matthew A. Russell', 'SPD', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(355, 'DM', 'Mining of Massive Datasets', 'Anand Rajaraman, Jeffery David Ullman', 'CAMBRIDGE', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(356, 'RT', 'storm bluedprints:patterns for distributed real-time computation    P.Taylor Goetz,Brain o\' neill', '', 'PACKT', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(357, 'ML', 'Learning scikit-learn:Machine learning in Python', 'Raul Garreta Guillermo Monvecchi', 'PACKT', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(358, 'ML', 'Foundation of Machine Learning', 'Mehryar Mohri,Afshin Rostamizadeh', 'Cambridge', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(359, 'IT', 'Introduction to information retrieval', 'christopher D.Manning,prabhakar Raghavan', 'Cambridge', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(360, 'DM', 'Survey of text mining Clustering , classification and retrieval', 'Micheal W.Berry', 'Springer', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(361, 'DM', 'DATA MINING AND KNOWLEGDE DISCOVERY WITH REVOLUTIONARY ALGORITHMS', 'ALEX A.FREITAS', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(362, 'DM', 'INTELLIGENT DATA MINING TECHNIQUES AND APPLICATIONS', 'Ruan .Chen Kerre Wets', 'Springer', '2005', '1', 100, 1, '2021-04-23 15:35:46'),
-(363, 'AI', 'COMPUTATIONAL INTELLIGENCE METHODS ANS TECHNIQUES', 'Lezek Rutkowski', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(364, 'PP', 'Foundations of Genetic Programming', 'William B.Langdon Riccardo Poli', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(365, 'DM', 'Data Mining Concepts and Techniques', 'Jiawei Han, Micheline Kamber and Jian Pei', 'Morgan Kaufmann', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(366, 'DM', 'Data Mining Concepts and Techniques', 'Jiawei Han, Micheline Kamber and Jian Pei', 'Morgan Kaufmann', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(367, 'ML', 'Bayesian Reasoning and Machine Learning', 'David Barber', 'Cambridge', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(368, 'AI', 'Artificial Intelligence', 'Stuart J.Russell and Peter Norvig', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(369, 'ML', 'Introduction To Machine Learning with Python', 'Andreas C.Muller & Sarah Guido', 'SPD', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(370, 'ML', 'Machine Learning', 'Tom M.Mitchell', 'McGraw Hill ', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(371, 'ML', 'Machine Learning', 'Tom M.Mitchell', 'McGraw Hill ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(372, 'DM', 'Data Mining Concepts And Techniques', ' Jiawei Han,Micheline Kamber,Jian Pei', 'MORGAN KAUFMANN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(373, 'DM', 'Data Mining Concepts And Techniques', 'Jiawei Han,Micheline Kamber,jian Pei', 'MORGAN KAUFMANN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(374, 'DM', 'Data Mining Concepts And Techniques', 'Jiawei Han,Micheline Kamber,jian Pei', 'MORGAN KAUFMANN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(375, 'ML', 'Machine Learning', 'Tom M.Mitchell', 'McGraw Hill ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(376, 'DM', 'Data Mining Concepts and Techniques', 'Jiawei Han,Micheline Kamber,jian Pei', 'Morgan Kaufmann', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(377, 'DM', 'Data Warehousing Data Mining And OLAP', 'Alex Berson,Stephen J.Smith', 'McGraw Hill ', '2004', '0', 100, 1, '2021-04-23 15:35:46'),
-(378, 'DM', 'Mining of Massive Datasets', 'Jure Leskovec,Anand Rajaraman,Jeffrey David Ullman', 'CAMBRIDGE', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(379, 'MM', 'Multimedia-Computing,Communications & Application', 'Ralf Sreinmetz, Klara Nahrstedt', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(380, 'MM', 'Fundamentals of Multimedia', 'Ze-Nian Li, Mark S.Drew', 'PHI Learning', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(381, 'MM', 'Fundamentals of Multimedia', 'Ze-Nian Li, Mark S.Drew', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(382, 'MM', 'Multimedia in Practice Technology and Applications', 'Judith Jeffcoate', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(383, 'MM', 'Multimedia Communication - Components, Techniques, Standards', 'Krishna Kumar.D.N', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(384, 'MM', 'Principles of MULTIMEDIA', 'Ranjan Parekh', 'McGraw Hill ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(385, 'MM', 'Multimedia Communication-Applications, Networks, Protocols and Standards', 'Fred Halsall', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(386, 'MM', 'Fundamentals of Multimedia', 'Ze-Nian Li, Mark S. Drew', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(387, 'CG', 'Computer Graphics Using OPENGL', 'F.S.Hill, J.R.Stephen, M.Kelly', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(388, 'MM', 'Multimedia Software Engineering', 'Chang', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(389, 'OT', 'Practical algorithm for image analysis', 'Lawrence O\'Gorman, Michael J. Sammon, Michael Seul', 'Cambridge', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(390, 'OT', 'Practical MATLAB Applications for Engineers', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(391, 'DI', 'Adaptive Image Processing - A computational Intelligence Perspective', 'Kim-Hui Yap, Ling Guan, Stuart William Perry and Hau-San Wong', 'CRC', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(392, 'DI', 'DIGITIAL IMAGE PROCESSING', 'Rafael C.Gonzalez, Richard E. Woods', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(393, 'CG', 'VECTOR ANALYSIS FOR COMPUTER GRAPHICS', 'John Vince', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(394, 'OT', 'Bioinformatics: An Introduction', 'Jeremy J.Ramsden', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(395, 'OT', 'Practical Bioinformatics', 'Janusz M.Bujnicki', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(396, 'OT', 'Bioinformatics Technologies', 'Yi-Ping Phoebe Chen', 'Springer', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(397, 'CG', 'Computer Graphics c Version', 'Donald D.Hearn and  M.Pauline Baker', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(398, 'CG', 'Computer Graphics ', 'B.K.Tripathy, Chandra Mouli.P.V.S.S.R', 'Ane Books', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(399, 'CG', 'Computer Graphics C Version', 'Donald Hearn,M.Pauline Baker', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(400, 'CG', 'Computer Graphics C Version', 'Donald Hearn,M.Pauline Baker', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(401, 'CN', 'CCIE Professional Development Routing TCP/IP', '', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(402, 'CN', 'TCP/IP - The Ultimate Protocol Guide Data Delivery and Pouting', 'Philip M.Miller', 'dreamtech PRESS', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(403, 'CN', 'TCP/IP - Design, Impelementation and Internals', 'Douglas E.Comer, David L. Stevens', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(404, 'DN', 'Data Communication and Networking', 'Behrouz A.Forouzan', 'Tata McGraw Hill', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(405, 'CN', 'Network analysis architecture and design', 'James d. mccabe', 'Elsever', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(406, 'CN', 'Computer Networking, A Top-Down Approach featuring the Internet', 'James F.Kurose', 'Pearson', '2006', '1', 100, 1, '2021-04-23 15:35:46'),
-(407, 'CN', 'Network Processor Design', 'crowleg Franklin', 'Elsever', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(408, 'CN', 'Network analysis architecture and design', 'Brandes, Erlebach', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(409, 'DT', 'Distributed Network System', 'Jia / Zheu', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(410, 'CN', 'TCP/IP Protocol Suite', 'Behrouz A.Forouzan', 'Tata McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(411, 'CN', 'Computer Networking, A Systems Approach', 'Larry L.Peterson, Bruce C.Davie', 'Morgan Kaufman', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(412, 'JV', 'An Introduction to Ntwork Programming with Java', 'Jan Graba', 'Springer', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(413, 'CN', 'High Speed Networks and Internets', 'William Stallings', 'Pearson', '2013', '0', 100, 1, '2021-04-23 15:35:46'),
-(414, 'MA', 'QUEUING THEORY AND TELECOMMUNICATIONS Networks and Applications', 'Giovanni Giambene', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(415, 'CN', 'COMPUTER NETWORKS AND SYSTEMS Queueing Theory and Performance Evalution', 'Thomas G.Robertazzi', 'Springer', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(416, 'DN', 'Communication and networking', 'John Cowley', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(417, 'PV', 'NETWORKING INFRASTRUCTURE FOR PERVASIVE COMPUTING', 'Debashis saha Amitava Mukherjee Somparkash Bandypopadhyay', 'Springer', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(418, 'DN', 'Data Communication and Networking', 'Behrouz A.Forouzan', 'McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(419, 'DN', 'Data Communication and Networking', 'Behrouz A.Forouzan', 'McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(420, 'MN', 'Ad Hoc Mobile Wireless Networks- Protocols and Syatems', 'C.K. Toh', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(421, 'WN', 'AD HOC WIRELESS NETWORKS- Architectures and Protocols ', 'Siva Ram Murthy.C, B.S.Manoj', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(422, 'MC', 'Mobile Computing -Theory and Practice', 'Kumkum Garg', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(423, 'SN', 'Protocols and Architectures - for Wireless Sensor Networks', 'Holger Karl, Andreas Willig', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(424, 'SN', 'Wireless Sensor Networks - Technology, Protocols, and Applications', 'Kazem Sohraby, Daniel Minoli, Taieb Znati', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(425, 'SN', 'Wireless Sensor Networks - An Information Processing Approach', 'Feng ZHAO, Leonidas GUIBAS', 'ELSEVIER', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(426, 'MN', 'Ad Hoc Mobile Wireless Networks- Protocols and Syatems', 'C.K. Toh', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(427, 'SN', 'Protocols and Architectures - for Wireless Sensor Networks', 'Holger Karl, Andreas Willig', 'WILEY', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(428, 'SN', 'Guide to Wireless Sensor Networks', 'Sudip Misra, Isaac Woungang, Subhas Chandra Misra', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(429, 'SN', 'Ad Hoc and Sensor Networkss - Theary and Applications', 'Carlos de Morais Cordeiro, Dharma Prakash Agrawal', 'World Scientific', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(430, 'SN', 'Building Wireless Sensor Networks', 'Robert Faludi', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(431, 'MM', 'Cross-Layer Optimized Wireless Multimedia Communication', 'Haohong Wang, Jianwei Huang, Mihaela Van Der Schaar, Dapeng Oliver Wu, and Zhu Han', 'Hindawi ublishing', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(432, 'WC', 'Wireless Communication & Networks', 'William Stallings', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(433, 'MC', 'Principles of Mobile Computing', 'Uwe Hansmann, Lothar Merk , Martin S.Nicklous and Thomas Stober', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(434, 'SN', 'PROTOCOL AND ARCHITECTURES for Wireless Sensor Networks', 'Holger karl, Andreas willig', 'WILEY', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(435, 'MN', 'Ad Hoc Mobile Wireless Networks - protocols and Systems', 'C.K. Toh', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(436, 'WN', 'Ad Hoc Wireless Networks - Architectures and Protocols', 'C.Siva rama Murthy, B.S. Manoj', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(437, 'MC', 'An Introducation to LTE,LTE-Advanced ,SAE and 4G Mobile Communication', 'Christopher Cox', 'WILEY', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(438, 'WN', 'Wireless Network Evolution 2G to 3G', 'Vijay K.Garg', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(439, 'SN', 'Wireless Sensor Networks - An Information Processing Approach', 'Feng ZHAO, Leonidas GUIBAS', 'MK', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(440, 'MN', 'Mobile Ad Hoc Networks - From Wireless LAN to 3G networks', 'George Aggelou', 'Tata McGraw Hill', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(441, 'MN', 'Ad Hoc Mobile Wireless Networks - protocols and Systems', 'C.K. Toh', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(442, 'WN', 'Ad-Hoc Networking', 'Charles.E.Perkins ', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(443, 'WN', 'Wireless Ad Hoc Networking- Personal Area, Local Area and the Sensory- Area Networks', 'Shih-Lin Wu, Yu-Chee Tseng', 'Auerbach Publication', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(444, 'PV', 'Pervasive Computing: Technology & Architecture of Mobile Internet Applications', 'Jocken Burkhand', 'Pearson', '2002', '0', 100, 1, '2021-04-23 15:35:46'),
-(445, 'MN', 'Ad Hoc Mobile Wireless Networks: Principles, Protocols and Applications', 'Subir kumar sarkar, T.G.Basavaraju', 'Auerbach Publication', '2004', '0', 100, 1, '2021-04-23 15:35:46'),
-(446, 'SE', 'Ubiquitous Computing : Smart Devices Environment & In…..', 'Stephan Poslad', 'John Wiley', '2009', '0', 100, 1, '2021-04-23 15:35:46'),
-(447, 'SN', 'Protocols and Architecture for Wireless Sensor Networks', 'Holyer Karl & ………', 'John Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(448, 'PV', 'Fundamental of Mobile and pervasive Computing', 'Frank Adelstein', 'Tata McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(449, 'SN', 'Ad Hoc and Sensor Networks: Theory and Application', 'Carlo de Morais Cordeiro', 'CUP', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(450, 'SN', 'Problem Solving for Wireless Sensor Networks', 'Ana Belen Gracia', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(451, 'NS', 'Principle of secure network system design', 'Sumit ghosh', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(452, 'WC', 'Wireless Communication', 'Andrea Goldsmith', 'Cambridge', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(453, 'WN', 'Principles of Wireless Networks', 'Kaveh Pahlavan, Prashanth Krishnamurthy', 'PEARSON', '2004', '1', 100, 1, '2021-04-23 15:35:46');
-INSERT INTO `book_list` (`book_id`, `category_id`, `book_name`, `book_author`, `book_publish`, `book_year`, `book_copy`, `book_prize`, `book_status`, `book_insertion_time`) VALUES
-(454, 'OT', 'Location-Based Services ', 'Jochen Scheiller, Agnes Voisard', 'ELSEVIER', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(455, 'MC', 'Mobile Design and Development', 'Brian Fling', 'O\'Reilly', '2012', '0', 100, 1, '2021-04-23 15:35:46'),
-(456, 'SE', 'Ubiquitous Computing : Smart Devices Environment & In…..', 'Stefan Poslad', 'WILEY', '2010', '0', 100, 1, '2021-04-23 15:35:46'),
-(457, 'SN', 'Fundamentals of Wireless Sensor Networks', 'Waltenegus Dargie,Christian Poellabauer', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(458, 'SE', 'Ubiquitous Computing : Smart Devices Environment & In…..', 'Stefan Poslad', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(459, 'MC', 'Mobile Communications', 'Jochen Schiller', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(460, 'MC', 'Mobile Computing', 'Prashant Kumar Patra and Sanjit Kumar Dash', 'SCITECH', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(461, 'SN', 'Wireless Sensor Networks - A Networking Perspective', 'Jun Zheng and Abbas Jamalipour', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(462, 'WN', 'Ad Hoc Wireless Networks - Architectures and Protocols', 'C.Siva rama Murthy, B.S. Manoj', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(463, 'SN', 'Wireless Sensor Networks - An Information Processing Approach', 'Feng ZHAO, Leonidas GUIBAS', 'Morgan Kaufmann', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(464, 'SC', 'GRAY HAT HACKING - The Ethical Hacker\'s Handbook', 'Allen Harper, Jonathan Ness , Gideon Lenkey, Shon Harris, Chris Eagle, Terron Williams', 'TATA McGRAW-HILL', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(465, 'CN', 'An Unofficial Guide to Ethical Hacking', 'AnKit Fadia', 'MACMIllAN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(466, 'NS', 'Network Security and Cryptography', 'Bernard Menezes', 'CENGAGE Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(467, 'IT', 'INFORMATION SYSTEMS SECURITY - Security Management, Metrics, Frameworks and Best Practices', 'Nina Godbole', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(468, 'NS', 'Network Security ssentials - Applications and Standards', 'William Stallings', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(469, 'NS', 'Network Security PRIVATE Commmunication in a PUBLIC World', 'Charlie Kaufman, Radia Perlman, Mike Speciner', 'PHI Learning', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(470, 'SY', 'Introduction to Cryptography with Coding Theory', 'Wade Trappe, Lawrence C. Washington', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(471, 'NS', 'Unofficial Guide to ETHICAL HACKING', 'AnKit Fadia', 'MACMIllAN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(472, 'NS', 'Wireless Security - Models, Threats and Solutions', 'Randall K.Nichols, Panos C.Lekkas', 'TATA McGRAW-HILL', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(473, 'SY', 'CRYPTOGRAPHY AND NETWORK SECURITY-Principle and Practice', 'William Stallings', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(474, 'SY', 'SECURITY IN COMPUTING', 'Charles P.Pfleeger , Shari Lawarance P.Fleeger', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(475, 'SY', 'Introduction to Cryptography with coding Theory', 'Lawerence C. Washington, Wade Trappe', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(476, 'SY', 'CRYPTOGRAPHY AND NETWORK SECURITY-Principle and Practice', 'William Stallings', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(477, 'CN', 'E-mail Haching', 'AnKit Fadia', 'Vikas Publication House Pvt Ltd', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(478, 'SY', 'Modern Cryptography - Theory & Practice', 'W.Mao', 'Pearson', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(479, 'MS', 'Windows Forensics', 'Steel', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(480, 'CF', 'Computer Foransics', 'John R.Vacca', 'Newage', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(481, 'SN', 'Security in Wireless Ad hoc & Sensor Networks', 'Cayirci', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(482, 'SY', 'Security in computing ', 'Charles P.Ptleages', 'Prentice Hall', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(483, 'SY', 'Cryptography & Network Security', 'Behrouz A.Forouzan', 'McGraw Hill', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(484, 'NS', 'Principles of Secure Network System Design', 'Sumit Ghosh', 'Springer', '2002', '1', 100, 1, '2021-04-23 15:35:46'),
-(485, 'SY', 'Elliptica Curves in Cryptography', 'Lan Blake, Gadiel Seroussi & Nigel Smart', 'Cambridge', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(486, 'OT', 'Contemporary Cryptology', 'Birkhauser', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(487, 'CN', 'A Guide to Computer Network Security', 'Joseph Migga Kizza', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(488, 'SY', 'Computer Security in the 21th Century', 'D.T.Lee, S.P.Shieh and J.D.Tygar', 'Springer', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(489, 'NS', 'Network Security PRIVATE Commmunication in a PUBLIC World', 'Charlie Kaufman, Radia Perlman, Mike Speciner', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(490, 'CF', 'Forensic computing', 'Tony Sammes Brian Jenkinson', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(491, 'IT', 'INFORMATION SECURITY FUNDAMENTALS ', 'Thomas R.peltier Justin Peltier John Belackley', 'AUERBACH', '2004', '1', 100, 1, '2021-04-23 15:35:46'),
-(492, 'NS', 'Wireless Security - Models, Threats and Solutions', 'Randall K.Nichols, Panos C.Lekkas', 'McGraw Hill', '2006', '1', 100, 1, '2021-04-23 15:35:46'),
-(493, 'CF', 'CYBER SECURITY Understanding Cyber Crimes, Computer Forensics and Legal Perspectives', 'Nina Godbole, Sunit Belapure', 'Wiley', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(494, 'SC', 'Hands-On ETHICAL HACKING and NETWORK Defense', 'Michael T.Simpson, Kent Backman and James E.Corley', 'CENGAGE Learning', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(495, 'SC', 'Soft Computing and Intelligent Systems Design', 'Fakhreddine.O.Karray', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(496, 'SC', 'Neuro fuzzy and Soft Computing-A computational Approach to learning and Machine Intelligences', 'J.S.R.Jang, C.T.Sun, E.Mizutani', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(497, 'SC', 'Principles of Soft Computing', 'S.N.Sivanandam, S.N.Deepa', 'WILEY', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(498, 'SC', 'Neuro fuzzy and Soft Computing-A computational Approach to learning and Machine Intelligences', 'J.S.R.Jang, C.T.Sun, E.Mizutani', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(499, 'SC', 'Neuro fuzzy and Soft Computing-A computational Approach to learning and Machine Intelligences', 'J.S.R.Jang, C.T.Sun, E.Mizutani', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(500, 'SC', 'Principles of SOFT COMPUTING', 'S.N.Sivanandam, S.N.Deepa', 'WILEY', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(501, 'AI', 'Artificial Intelligence and Soft Computing - Behaviour and Connitive Modeling of the Human Brain', 'Amit Konar', 'CRC Press', '2009', '0', 100, 1, '2021-04-23 15:35:46'),
-(502, 'SC', 'Soft Computing', 'L.Fortuna, G.Rizzotto, M. Lavorgna,G.Nunnari, M.G. Xibilia and R.Caponetto', 'Springer', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(503, 'OT', 'Fuzzy Logic - A spectrum of Theoretical and Practial Issues', 'Paul P.Wang, Da Ruan, Etienne E.Kerre', 'Springer', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(504, 'AI', 'Fundamentals of the New Artificial Intelligence - Neural, Evolutionary, Fuzzy ', 'Toshinori Munakata', 'Springer', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(505, 'OT', 'Fuzzy Logic - A spectrum of Theoretical and Practial Issues', 'Hung T.Naguyen Elbert A.Walker', 'CRC Press', '2006', '1', 100, 1, '2021-04-23 15:35:46'),
-(506, 'SC', 'Neuro fuzzy and Soft Computing-A computational Approach to learning and Machine Intelligences', 'J.S.R.Jang, C.T.Sun, E.Mizutani', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(507, 'AI', 'Artifical Intelligent A modern Approach', 'StuartbRussell and Peter Norvig', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(508, 'SC', 'Neuro fuzzy and Soft Computing-A computational Approach to learning and Machine Intelligences', 'J.S.R.Jang, C.T.Sun, E.Mizutani', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(509, 'SC', 'Neuro fuzzy and Soft Computing-A computational Approach to learning and Machine Intelligences', 'J.S.R.Jang, C.T.Sun, E.Mizutani', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(510, 'AC', 'Neural Networks,fuzzy Systems,and Evolutionary Algorithms Synthesis And Applications', 'S.Rajasekaran, G.A.Vijayalakshmi Pai', 'PHI Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(511, 'SC', 'Neuro-Fuzzy And Soft Computing A Computational Approach to Learning And Machine Intelligence', 'J.S.R.Jang, C.T.Sun, E.Mizutani', 'PHI Learning', '2014', '0', 100, 1, '2021-04-23 15:35:46'),
-(512, 'SC', 'Principles of Soft Computing', 'S.N.Sivanandam, S.N.Deepa', 'Wiley', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(513, 'AI', 'Artificial Intelligence A Modern Approach', 'Stuart Russell,Peter Norvig', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(514, 'AI', 'Artificial Intelligence A Modern Approach', 'Stuart Russell,Peter Norvig', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(515, 'AI', 'Artificial Intelligence A Modern Approach', 'Stuart Russell,Peter Norvig', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(516, 'PC', 'Parallel Computing - Theory and Practice', 'Michael J.Quinn', 'TATA McGRAW-HILL', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(517, 'TC', 'Introduction to Automata Theory, Languages, and Computation', 'John E.Hopcroft, Rajeev Motwani, Jeffrey D.Ullman', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(518, 'CD', 'Compilers -Princilpes, Techniques and Tools', 'Alfred V.Aho, Monica S.Lam , Ravi Sethi, Jeffrey D. Ullman', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(519, 'PC', 'Introduction to Parallel Computing', 'Ananth Grama, Anshul Gupta, George Karypis, Vipin Kumar', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(520, 'PC', 'Parallel Programming in C with MPI and OpenMP', 'Michael L.Quinn', 'Tata McGRAW-HILL', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(521, 'CA', 'Computer Architecture and Organization', 'John P.Hayes', 'Tata McGRAW-HILL', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(522, 'OS', 'Operating Systems-Internals and Design Princiloes', 'William Stallings', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(523, 'CD', 'Compiler Design', 'K.Muneeswaran', 'OXFORD', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(524, 'OT', 'Linkers & Loaders', 'John R.Levin', 'Elsevier', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(525, 'OS', 'Operating Systems: A Concept -based Approach', 'D.M.Dhandhene', 'TATA McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(526, 'CD', 'Compiler Design in C', 'Allen 1. Holub', 'Prentice Hall', '1993', '1', 100, 1, '2021-04-23 15:35:46'),
-(527, 'CD', 'Advanced Compiler Design and Implementation', 'Steven S. Muchnick', 'Kindle Edition', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(528, 'PC', 'Parallel Programmin in C with MPI and OpenMP', 'Michael J Quinn', 'TATA McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(529, 'OT', 'Engineering A Compiler, 2/e', 'Cooper', 'Elsever', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(530, 'CA', 'Parallel Computer Architecture', 'Culler', 'Elsever', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(531, 'PC', 'PARALLEL COMPUTING ARCHITECTURE', 'J Singh', 'Elsevier', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(532, 'CD', 'Optimizing Compilers for Modern Archetectures: A Dependence based approach', 'Randy Allen, Kenkemedy', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(533, 'OT', 'GPU Computing Gems', 'Wen-MEI W.HWU', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(534, 'CS', 'Theoretical Computer Science', 'Juraj Hrom Kovic', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(535, 'TC', 'Introduction to Formal Languages', 'Kirthivasan', 'PEARSON', '2011', '0', 100, 1, '2021-04-23 15:35:46'),
-(536, 'PC', 'Introduction to Parallel Computing- A practical Guide with Example in C', 'W.P.Petersen and P.Arbenz', 'OXFORD', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(537, 'CD', 'Advanced Compiler Design and Implementation', 'Steven S. Muchnick', 'Elsevier', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(538, 'CD', 'Advanced Compiler Design and Implementation', 'Steven S. Muchnick', 'Elsevier', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(539, 'PC', 'Progamming Massively Parallel Processors', 'David B.Kirk, Wen-mei W.Hwu', 'Morgan Kaufmann', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(540, 'OT', 'COMPELXITY THEORY', 'Ingo Wegener', 'Springer', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(541, 'CS', 'Introduction to Theory of Computer Science', 'E.V.Krishnamurthy', 'EWP', '1983', '1', 100, 1, '2021-04-23 15:35:46'),
-(542, 'PP', 'System Software An Introduction to Systems Programming', 'Leland L.Beck,D.Manjula', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(543, 'OS', 'Operating System Concepts', 'Abraham Silberschatz,Peter B Galvin,Gerg Gagne', 'Wiley', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(544, 'DT', 'Distributed Systems Concepts  And Design', 'George Coulouris,Jean Dollimore,Tim Kindberg,Gordon Blair', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(545, 'DT', 'Distributed Systems Principles And Paradigms', 'Andrew S.Tanenbaum,Maarten Van Steen', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(546, 'CA', 'Computer Architecture A Quantitative Approach', 'John L.Hennssy,David A.Patterson', 'MORGAN KAUFMAN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(547, 'CA', 'Computer Architecture A Quantitative Approach', 'John L.Hennssy,David A.Patterson', 'MORGAN KAUFMAN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(548, 'CA', 'Computer Architecture A Quantitative Approach', 'John L.Hennssy,David A.Patterson', 'MORGAN KAUFMAN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(549, 'CS', 'System Software  ', 'A.C.Shalini', 'SCITECH', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(550, 'OS', 'Operating System Concepts', 'Abraham Silberschatz, Peter Baer and Greg Gagne', 'Wiley', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(551, 'DB', 'DISTRIBUTED DATABASE SYSTEM', 'Chhanda Ray', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(552, 'DM', 'Data Mining - Concepts and Techniques', 'Jiawei Han, Micheline Kamber, Jian Pei', 'Morgan Kaufmann', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(553, 'DM', 'Data Mining - Introductory and Advanced Topics', 'Margarct H.Dunham', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(554, 'DM', 'Data Warehousing, Data Mining & OLAP', 'Alex Berson, Stephen J.Smith', 'Tata McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(555, 'DM', 'Data Mining - Concepts and Techniques', 'Jiawei Han, Micheline Kamber, Jian Pei', 'Morgan Kaufmann', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(556, 'DM', 'Data Mining - Concepts and Techniques', 'Jiawei Han, Micheline Kamber, Jian Pei', 'Morgan Kaufmann', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(557, 'IT', 'Information Storage and Management ', 'EMC', 'Wiley', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(558, 'DM', 'Design & Impelementation of Data Mining Tools', 'M.Awad Latitur Khan, Bharaui, Lei', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(559, 'KE', 'Knowledge Management', 'Elias M.Awad & Ahassan', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(560, 'DB', 'Database Systems - Concepts,Designs and Application', 'Shio Kumar Singh', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(561, 'DM', 'Data Warehousing and Data Mining', 'V.R.Kavitha', 'Sree Magnus Publication', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(562, 'DB', 'Database Development and Management', 'LEE CHAO', 'Auerbach Publication', '2005', '1', 100, 1, '2021-04-23 15:35:46'),
-(563, 'BD', 'Learning SPARK', 'Holden Karau, Andy Konwinski, Patrick Wendell & Matei Zaharia', 'SPD', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(564, 'DB', 'Database Security and Auditing- Protecting data integrity and Accessibility', 'Hassan A.Afyouni', 'cengage Learning', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(565, 'IT', 'Introduction to Information Retrieval', 'Christopher D.Manning, Prabhakar Raghavan and Hinrich Schutze', 'Cambridge', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(566, 'DB', 'Database Management Systems', 'Raghu Ramakrishnan,Johannes Gehrke', 'McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(567, 'DB', 'Database Management Systems', 'Raghu Ramakrishnan,Johannes Gehrke', 'McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(568, 'OR', 'Oracle Database The Concepts Reference', 'Kevin Loney', 'McGraw Hill', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(569, 'GE', 'A Document Preparation System -LATEX -User\'s Guide and Reference Manual', 'Leslie Lamport', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(570, 'AC', '9 Algorithms that changed the future - The Ingenious ideas that drive today\'s Computer', 'John MacCormick', 'Princeton', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(571, 'DM', 'The Rough Guide to - SOCIAL MEDIA for beginners', 'Sean Mahoney', 'rough guide', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(572, 'CS', 'Computer Fundamental', 'Pradeep K.Sinha', 'BPB', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(573, 'OT', 'Engineering Ethics concepts & Cases', 'Charles E.Harris, Michael S.Pritchard, Michile J.Rabins', 'CENGAGE Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(574, 'OT', 'Ethics in Engineering', 'Mike W.Martin, Roland Schinzinger', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(575, 'GE', 'General Studies for Civil Service Preliminary Examination-2015', '', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(576, 'GE', 'CS & IT for GATE - 2015', '', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(577, 'GE', 'MADE EASY CS & IT for GATE - 2015', '', 'Made easy', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(578, 'OT', 'Research Methodology and Scientific Writing', 'C.George Thomas', 'Ane Books', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(579, 'GE', 'Intriduction to the CONSTITUTION of INDIA', 'Dr.DURGA DAS BASU', 'LEXIXNEXIS', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(580, 'GE', 'Indian Polity for Civil Service Examination', 'M.Laxmikanth', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(581, 'GE', 'How to Prepare for QUANTITATIVE APPTITUDE for the CAT', 'Arun Sharma', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(582, 'GE', 'General Studies for Civil Service Preliminary Examination-2015', '', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(583, 'GE', 'Gate Mentor 2015', 'Ajay Mittal .Naveen Aggarwal', 'CENGAGE Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(584, 'GE', 'How to Prepare for QUANTITATIVE APPTITUDE for the CAT', 'Arun Sharma', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(585, 'GE', 'GATE Tutor 2016', 'Er.Shanti Kirupani, Prachi Jain and Amrita Mishra', 'arihant', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(586, 'GE', 'GATE 2016 Solved Paper 2000-2015', '', 'GKP\'s', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(587, 'GE', 'GATE Tutor 2017', 'Er.Shanti Kirupani, Prachi Jain and Amrita Mishra', 'arihant', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(588, 'GE', 'Quantitative Aptitude for the CAT', 'Arun Sharma', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(589, 'DB', 'Foundation Program(Relational Database Management System and Operating System)', 'Campus Connect', 'Infosys', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(590, 'SE', 'Foundation Program (Design and Analysis of Algorithm, Software Engineering and Introduction to Web Technology)', 'Campus Connect', 'Infosys', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(591, 'OS', 'Foundation Program( Introduction to Computer System, Operating System Concepts , Programming and Testing)', 'Campus Connect', 'Infosys', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(592, 'GE', '101 speed tests GATE', '', 'disha', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(593, 'GE', '101 speed tests GATE', '', 'disha', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(594, 'CS', 'UGC NET/SET Computer Science & Applications', 'Authentic and Dependable', 'TRUEMAN\'s', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(595, 'GE', 'GATE 2018 CS&IT 26 years Chapter Wise', '', 'GKP\'s', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(596, 'GE', 'GATE 2018 Computer Science &IT ', '', '', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(597, 'GE', 'Q & A VII Semester B.E.(CSE)', '', 'SELVA Publication', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(598, 'JV', 'Core Java -Volume II-Advanced Features', 'Cay S.Horstmann, Gary Cornell', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(599, 'JV', 'Java Web Service Architecture', 'James McGovern, Sameer Tyagi, Michael Stevens, Sunil Mathew', 'Morgan Kaufmann', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(600, 'WB', 'Universial Design for WEB Application', 'Wendy Chisholm, Matt May', 'O\'REILLY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(601, 'WB', 'Programming the Semantic Web', 'Toby Segaran, Colin Evans & Jamie Taylir', 'O\'REILLY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(602, 'WB', 'Semantic Web Services, Processes & Application', 'Jorge cardeso & Amit P.Sheth', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(603, 'PP', 'SEMANTICS a course book', 'James R.Hurford, Brendan Heasley, and Michael B.Smith', 'CAMBRIDGE', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(604, 'WB', 'Semantic Web Technologies', 'John Davies, Rudi Studer, Paul Warren', 'WILEY-INDIA', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(605, 'WB', 'Information Sharing on the Semantic Web', 'Heiner Stuckenschmidt, Frank Van Harmelen', 'Springer', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(606, 'WB', 'Progressive Concepts for Semantics Web Evolution - Application and Development', 'Miltiadis Lytras & Amit Sheth', 'INFORMATION SCIENCE REFERENCE', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(607, 'WB', 'Programming the World Wide Web', 'Addison - Wesley', 'Addison Wesley', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(608, 'AD', 'Professional Android 2 Application Development', 'Reto Meier', 'Elsever', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(609, 'WB', 'Web Application Architecture: Principles, Protocols and Practice', 'Leon Shklar and Rich Rosen', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(610, 'WB', 'Web Technologies', 'Uttam K.Roy', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(611, 'PP', 'Semantics with Applications', 'Hanne rus Nielson Flemming Nielson', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(612, 'GC', 'Senantic Grid', 'Zhaohui wu huajien, Chen', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(613, 'OT', 'Ontological Engineering', 'Gomez-Perez, Fernandez_Lopez', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(614, 'WB', 'Web Technology - Theory and Practices', 'M.Srinivasan', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(615, 'WB', 'Semantic Web - concepts, Technologies and Applications', 'Karin K.Breitman', 'Springer', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(616, 'PP', 'The Complete Reference Struts ', 'James Holmes', 'Tata McGRAW-HILL', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(617, 'WB', 'Web Technologies A Computer Science Perspective ', 'Jeffrey C.Jackson ', 'PEARSON', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(618, 'CC', 'Mastering Cloud Computing', 'Rajkumar Buyya, Christian Vecchiola, S.Thamarai Selvi', 'McGraw Hill ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(619, 'CC', 'Cloud Computing Bible  ', 'Barrie Sosinsky', 'WILEY', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(620, 'WB', 'Understanding SOA with Web Services', 'Eric Newcomer, Greg Lomow', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(621, 'CC', 'Cloud Security - A comprehensive guide to secure cloud computing', 'Ronald L.Krutz and Russell Dean Vines', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(622, 'CC', 'CLOUD COMPUTING - Principles and Paradigms', 'Rajkumar Buyya, James Broberg, Andrzej Goscinski', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(623, 'MS', 'Cloud Computing - with Windows Azure Platform', 'Roger Jennings', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(624, 'SC', 'Securing the Virtual Environment - How to Defend the Enterprise Against Attack', 'Davi Ottenheimer, Matthew Wallace', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(625, 'CC', 'CLOUD COMPUTING - Insight into new Era Infrastructure', 'Dr.Kumar Saurabh', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(626, 'GC', 'A Networking Approach - to GRID COMPUING', 'Deniel Minoli', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(627, 'CC', 'Cloud Security and Privacy- An Enterprise Perspective on Riskd and Compliance', 'Tim Mather, Subra Kumaraswamy, Shahed Latif', 'O\'REILLY', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(628, 'MS', 'Cloud Computing - with the Window Azure Platform', 'Roger Jennings', 'WILEY-INDIA', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(629, 'CC', 'Cloud Application Architectures - Building Applications and Infracture in the Cloud', 'George Reese', 'O\'REILLY', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(630, 'CC', 'Code in the Cloud - Programming Google App Engine', 'Mark C.Chu-Carroll', 'Shroff Publishers & Distributors PVT. LTD.', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(631, 'CC', 'Cloud Computing - Principles, Systems and Applications', 'Nick Antonopoulos, Lee Gillam, ', 'Springer', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(632, 'GC', 'GRID COMPUTING - Techniques and Applications', 'Barry Wilkinson', 'CRC Press', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(633, 'GC', 'Desktop Grid Computing', 'Christophe Cerin, Gilles Fedak', 'CRC Press', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(634, 'CS', 'Virtual Machines', 'James E Smith & Ravi Nair', 'Elsever', '2005', '0', 100, 1, '2021-04-23 15:35:46'),
-(635, 'CS', 'Virtualization: From the Desktop to the Enterprise ', 'Chris Wolf, Erick M.Halter', 'Apress', '2005', '1', 100, 1, '2021-04-23 15:35:46'),
-(636, 'CC', 'Cloud Computing, Implementation Management & Strategy', 'John Ritting Louse James Ransons', 'CRC Press', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(637, 'CC', 'Distributed and Cloud Computing', 'Hwang', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(638, 'MS', 'Microsoft Application virtualization advanced Guide', 'Alvarez', 'PACT', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(639, 'CS', 'Virtualization Security: Protecting Virtualized Environments', 'Dave Shackleford', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(640, 'GC', 'The GRID CORE TECHNOLOGIES', 'Maozhen li mark baker', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(641, 'MS', 'ADVANCED SERVER VIRTUALIZATION-Vmware and Microsoft Platform in the Virtual Data Center', 'David Marshall, Wade A.Reynolds, Dave Mc Crory', 'Auerbach Publication', '2006', '1', 100, 1, '2021-04-23 15:35:46'),
-(642, 'CC', 'Cloud Application Architectures-Building Applications and Infracture in the Cloud', 'George Reese', 'O\'Reilly', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(643, 'CN', 'SDN- Software Defined Networks', 'Thomas D.Nadeau & Ken Gray', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(644, 'CC', 'Mastering Cloud Computing', 'Rajkumar Buyya, Christian Vecchiola, S.Thamarai Selvi', 'McGraw Hill ', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(645, 'CC', 'Mastering Cloud Computing', 'Rajkumar Buyya, Christian Vecchiola, S.Thamarai Selvi', 'McGraw Hill ', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(646, 'CC', 'Mastering Cloud Computing', 'Rajkumar Buyya, Christian Vecchiola, S.Thamarai Selvi', 'McGraw Hill ', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(647, 'CC', 'Mastering Cloud Computing', 'Rajkumar Buyya, Christian Vecchiola, S.Thamarai Selvi', 'McGraw Hill ', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(648, 'CC', 'Mastering Cloud Computing', 'Rajkumar Buyya, Christian Vecchiola, S.Thamarai Selvi', 'McGraw Hill ', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(649, 'CC', 'Distributed and Cloud Computing-from parallel processing to the IOT', 'Kai Hwang, Geoffrey C.Fox, Jack J.Dongarra', 'Morgan Kaufmann', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(650, 'CC', 'Cloud Computing - Data Intensive Computing and Scheduling', 'Frederic Magoules, Jie Pan and Fei Teng', 'CRC Press', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(651, 'CC', 'opennebula 3 cloud computing', 'Giovanni Toraldo', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(652, 'CS', 'virtualization Essentials', 'Matthew Portnoy', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(653, 'GC', 'GRID RESOURCE MANAGEMENT ', 'Magoules Neguyen and Yu', 'CRC Press', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(654, 'CC', 'Distributed and Cloud Computing from Parallel Processing to the Inernet of Things', 'Kai Hwang, Geoffrey C.Fox, Jack J.Dongarra', 'Morgan Kaufmann', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(655, 'CC', 'Cloud Computing A Pratical Approach', 'AnthonyT.Velte, Toby J.Velte and Robert ElsenPeter', 'McGraw Hill ', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(656, 'CC', 'Cloud Computing – A Practical Approach', 'AnthonyT.Velte, Toby J.Velte and Robert ElsenPeter', 'McGraw Hill ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(657, 'IO', 'The Internet  of Things key Applications and Protocols', 'Oliver Hersent, David Boswarthick and Omar Elloumi', 'Wiley', ' ', '1', 100, 1, '2021-04-23 15:35:46'),
-(658, 'SD', 'Service-Oriented Architecture Concepts,Technology,And Design ', 'Thomas Erl', 'PEARSON', '2014', '0', 100, 1, '2021-04-23 15:35:46'),
-(659, 'CC', 'Distributed and Cloud Computing from parallel processing to the IoT', 'Kai Hwang, Geoffery C.Fox and Jack J.Dongarra', 'Margan Kaufmann', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(660, 'CC', 'CLOUD COMPUTING web-Based Applications That Change the way you work and Collaborate online', 'Michael Miller', 'Pearson', '2014', '0', 100, 1, '2021-04-23 15:35:46'),
-(661, 'CC', 'Moving to The Cloud developing app in the new world of cloud computing', 'Dinkar Sitaram and Geetha Manjunathh', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(662, 'CC', 'Cloud Computing For Dummies ', 'Judith Hurwitz,Robin Bloor,Marcia Kaufman,Fern Halper', 'Wiley', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(663, 'CC', 'Cloud Computing A Practical Approach', 'AnthonyT.Velte,Toby J.Velte,Robert Elsenpeter', 'McGraw Hill ', '2015', '0', 100, 1, '2021-04-23 15:35:46'),
-(664, 'CC', 'Cloud Computing Principles And Paradigms', 'Rajkumar Buyya,James Broberg,Andrzej Goscinski', 'Wiley', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(665, 'BD', 'Understanding Big Data - Analytics for Enterprise Class Hadoop and Streaming Data', 'Chris Eaton, Tom Deutsch, Drick Deroos, George Lapis, Paul ZikoPoulas', 'McGraw Hill ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(666, 'BD', 'Hadoop - The definitive Guide', 'Tom White', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(667, 'BD', 'Hadoop - The definitive Guide', 'Tom White', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(668, 'WB', 'Universal Design', 'Wendy Chisholm & Matt May', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(669, 'BD', 'Hadoop - The definitive Guide', 'Tom White', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(670, 'BD', 'Big Data, Big Analysis Emerging Business intelligence & Analytic', 'Micheal Minelli, Michelle Chambers', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(671, 'BD', 'Big Data for Dummies', 'Judith Hurwitz, Alen Nugent, Fern Halper and Marcia Kaufman', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(672, 'BD', 'Hadoop MapReduce Cookbook', 'Srinath Perera, Thilina Gunarathne', 'SPD', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(673, 'BD', 'Taming The BIG DATA Tidal Wave- Finding Opportunities in Huge Data Streams', 'Bill Franks', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(674, 'BD', 'Fast Data Processing with Spark', 'Holden Karau', 'SPD', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(675, 'OT', 'Harnessing Hibernate', 'James Elliott, Tim O\'Brien & Ryan Fowler', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(676, 'RT', 'Srorm Real-time Processing Cookbook', 'Quinton Anderson', 'SPD', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(677, 'BD', 'Big Data Glossary', 'Pete Warden', 'O\'Reilly', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(678, 'PP', 'Learning Storm', 'Ankit Jain, Anand Nalya', 'SPD', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(679, 'RT', 'REAL-TIME ANALYTICS- Technique to analysis and visualize streaming data', 'Byron Ellis', 'Wiley', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(680, 'BD', 'BIG DATA ANALYTICS BEYOND HADOOP', 'VIJAY SRINIVAS AGNEESWARAN', 'PEARSON', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(681, 'DM', 'social media mininng and social network analysis', 'Guandong Xu & Lin Li', 'Information science', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(682, 'BD', 'Apache Hadoop Yarn', 'Arun C.Murthy', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(683, 'OT', 'Mahout in action', 'Sean owen ,robin anil,ted dunning', 'MANNING', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(684, 'BD', 'Hadoop - The definitive Guide', 'Tom White', 'O\'Reilly', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(685, 'AI', 'Doing Data Science', 'Rachel Schutt, Cathy O\'Neil', 'O\'Reilly', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(686, 'BD', 'Hadoop in ACTION', 'Chuck Lam', 'dreamtech', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(687, 'BD', 'Data Analytics', 'Rdha Shankarmani, M.Vijalakshmi', 'Wiley', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(688, 'PY', 'Python for Data Analysis', 'Wes McKinney', 'O\'Reilly', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(689, 'BD', 'Taming The BIG DATA Tidal Wave- Finding Opportunities in Huge Data Streams', 'Bill Franks', 'Wiley', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(690, 'BD', 'Data Analytics', 'Rdha Shankarmani, M.Vijalakshmi', 'Wiley', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(691, 'AC', 'Randomized Algorithms', 'Rajeev Mofwani and Prabhakar Raghavan', 'Cambridge University Press', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(692, 'AC', 'Computer Algorithms/C++', 'Ellis Horowitz, Sartaj Sahni, Sanguthevar Rajasekaran', 'Universities Press', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(693, 'WB', 'Professional C# 2005 with .NET 3.0', 'Christian Nagel, Bill Evjen, Jay Glynn, Karli Watson, Morgan Skinner', 'WILEY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(694, 'DS', 'Fundamentals of DATA STRUCTURES IN C++', 'Ellis Horowitz, Sartaj Sahni,Dinesh Mehta', 'GALGOTIA', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(695, 'AC', 'Fundamental of Computer Algorithms', 'Ellis Horowitz', 'UP', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(696, 'AC', 'Fundamental of Computer Algorithms', 'Ellis Horowitz', 'UP', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(697, 'AC', 'Fundamental of Computer Algorithms', 'Ellis Horowitz', 'UP', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(698, 'AC', 'Introduction to Algorithms', 'Thomas H.Cormen, Charles E.Leiserson', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(699, 'DS', 'Data Structures and Algorithms Made Easy', 'Narasimha Karumanchi', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(700, 'AC', 'Introduction to Algorithms', 'Thomas H.Cormen, Charles E.Leiserson', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(701, 'DS', 'Data Structures and Program Design using C', 'Amiya kumar Rath and Alok kumar Jagadev', 'SCITECH', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(702, 'DS', 'Data Structures and Program Design using C and C++', 'Amiya kumar Rath and Alok kumar Jagadev', 'SCITECH', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(703, 'DS', 'Data Structures And Algorithms Analysis in C', 'Mark Allen Weiss', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(704, 'DS', 'Data Structures A Pseudocoe Approach with C++', 'Richard F.Gillberg,Behrouz A.Forouzan', 'THOMSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(705, 'DS', 'Data Structures, Algorithms, and Applications in C++', 'Sartaj Sahni', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(706, 'GE', 'GRAPH THEORY with Applications to engineering and Computer Science', 'Narsingh Deo', 'PHI', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(707, 'MA', 'Discrete Mathematical Structures with Application to Computer Science', 'J.P.Trembley & R.Manohar', 'Tata McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(708, 'GE', 'Graph Theory: With Applications to Engineering & Computer Science', 'Narsingh Deo', 'Prentice Hall', '2003', '1', 100, 1, '2021-04-23 15:35:46'),
-(709, 'MA', 'Discrete & Combinational Mathematics: An Applied Introduction', 'Grimaldi R.P.', 'Addison Wesley', '1994', '1', 100, 1, '2021-04-23 15:35:46'),
-(710, 'OT', 'Numerical Methods for Engineers and Scientists', 'Joe D.Hoffman', 'CRC', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(711, 'QC', 'Nano, Quantum and Molecular Computing - Implications to High Level Design and Validation', 'Sandeep K.Shukla', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(712, 'MA', 'Discrete Mathematical Structures with Application to Computer Science', 'J.P.Trembley & R.Manohar', 'Tata McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(713, 'GE', 'Discrete Mathematics and its Applications with Combinatorics and Graph Theory', 'Kenneth H Rosen', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(714, 'IT', 'Quantum Computation and Quantum Information', 'Michael A.Nielsen and Issac L.Chuang', 'Cambridge', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(715, 'SE', 'SOFTWARE ENGINEERING - principles and Practice', 'Waman S Jawadekar', 'McGraw-Hill', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(716, 'SE', 'Testing Techniques in Software Engineering', 'Paulo Borba, Ana Cavalcanti, Augusto Sampaio, Jim Woodcock', 'Springer', '2010', '0', 100, 1, '2021-04-23 15:35:46'),
-(717, 'ST', 'Software Testing Techniques', 'Boris Beizer', 'dreamtech ', '2011', '0', 100, 1, '2021-04-23 15:35:46'),
-(718, 'ST', 'Effective Methods for Software Testing', 'William E.Perry', 'WILEY-INDIA', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(719, 'SE', 'Essentials of Software Engineering', 'S.Thangasamy', 'WILEY-INDIA', '2012', '0', 100, 1, '2021-04-23 15:35:46'),
-(720, 'ST', 'Software Testing ', 'Yogesh Singh', 'CAMBRIDGE', '2012', '0', 100, 1, '2021-04-23 15:35:46'),
-(721, 'ST', 'SOFTWARE TESTING - A Craftman\'s Approach', 'Paul C.Jorgensen', 'Auerbach Publications', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(722, 'SE', 'A Concise Introduction to Software Engineering', 'Pankaj Jalote', 'Springer', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(723, 'ST', 'Pratical software Testing', 'llene Bwastein ', 'Springer', '2013', '0', 100, 1, '2021-04-23 15:35:46'),
-(724, 'ST', 'Software Testing Principles and Practices', 'Srinivasan Desikan, Gopalaswamy Ramesh', 'PEARSON', '2012', '0', 100, 1, '2021-04-23 15:35:46'),
-(725, 'SE', 'Agile Software Engineering', 'Orit Hazzan, Yael Dubinsky', 'Springer', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(726, 'SE', 'Software Engineering', 'Chandramouli Subramanian, Saikat Dutt, Chandramouli Seetharaman, B.G.Geetha', 'PEARSON', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(727, 'SE', 'Software Engineering - A Practitioner\'s Approach', 'Roger S.Pressman', 'McGraw-Hill', '2005', '1', 100, 1, '2021-04-23 15:35:46'),
-(728, 'ST', 'Software Quality Theory and Managemant', 'Alan C Gillies', 'CENGAGE Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(729, 'SD', 'e-Learning - Design, Development and Delivery', 'Madhuri Dubey', 'Universities Press', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(730, 'OO', 'Object Oriented Software Engineering using UML, patterns & Java', 'Bernd Bruegge, Allen H.Dutoit', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(731, 'CP', 'C++ How to Program', 'Deitel & Deitel', 'Prentice Hall', '2008', '1', 100, 1, '2021-04-23 15:35:46'),
-(732, 'CP', 'The Complete Reference in C++', 'Herbert Schildt', 'Tata Mc Hill', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(733, 'OO', 'Object Oriented Programming in C++', 'Robert Lafore', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(734, 'WB', 'Professional C# 2005 with .NET 3.0', 'Christian Nagel', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(735, 'OO', 'Object Oriented Software Engineering using UML, patterns & Java', 'Bernd Bruegge, Allen H.Dutoit', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(736, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(737, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(738, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(739, 'SD', 'Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(740, 'SD', 'Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(741, 'SD', 'Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(742, 'JV', 'Programming with JAVA', 'E.Balagurusamy', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(743, 'JV', 'Programming with JAVA', 'E.Balagurusamy', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(744, 'JV', 'Programming with JAVA', 'E.Balagurusamy', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(745, 'JV', 'Programming with JAVA', 'E.Balagurusamy', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(746, 'JV', 'Programming with JAVA', 'E.Balagurusamy', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(747, 'OO', 'Object Oriented Programming with C++', 'E.Balagurusamy', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(748, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(749, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(750, 'OO', 'DEV475 Mastering Object Oriented Analysis & Design with UML 2.0 Vol-1', 'Manual', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(751, 'OT', 'REQ370 Essentials of Rational Requiste pro', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(752, 'MS', 'SCM275 Essentials of Rational clear case UCM for Windows v7.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(753, 'OT', 'Fundamentals of Rational Rose  ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(754, 'WB', 'DEV395 Essentials of Rational Application Developer for Websphere software', 'Manual', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(755, 'SD', 'TST277 Essential of functional testing with IBM Rational Robot', 'Manual', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(756, 'SD', 'DEV275 Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(757, 'SD', 'DEV275 Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(758, 'SD', 'DEV275 Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(759, 'SD', 'DEV275 Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(760, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(761, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(762, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(763, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(764, 'SD', 'Essentials of IBM Rational Software Architect v7.0 ', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(765, 'SD', 'DEV275 Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(766, 'SD', 'DEV275 Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(767, 'SD', 'DEV275 Essential of Visual Modeling with UML 2.0', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(768, 'OO', 'DEV475 Mastering Object Oriented Analysis & Design with UML 2.0 Vol-1', 'Student Guide', 'IBM', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(769, 'OO', 'Object Oriented Programming with C++', 'E.Balagurusamy', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(770, 'OO', 'Object-Oriented Programming Using C++', 'Ira Pohl', 'Pearson', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(771, 'JV', 'The Complete Reference JAVA', 'Herbert Schildt', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(772, 'PP', 'Programming in Prolog', 'William F.Clocksin, Christopher S.Mellish', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(773, 'CE', 'Basic Computer Engineering', 'Sanjay Silakari, Rajesh K. Shukla ', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(774, 'CE', 'Basic Computer Engineering', 'Sanjay Silakari, Rajesh K. Shukla ', 'Wiley', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(775, 'PP', 'programming Language', 'Allen b.Tucker robert E.Noonan', 'McGrawHill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(776, 'PC', 'parallel programming in openmp', 'Rohit chandra,Leonardo Dagum', 'MORGAN KAUFMANN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(777, 'PY', 'Python for Data Analysis', 'Wes McKinney', 'O\'Reilly', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(778, 'CS', 'Computer Primer ', 'Dharma Rajaraman and V.Rajaraman', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(779, 'CS', 'Computer Science with FAQs', 'S.Manikandan', 'Premier', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(780, 'MS', 'Working MICROSOFT OFFICE', 'Ron Mansfield', 'Tata McGRAW-HILL', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(781, 'OR', 'ORACLE VISUAL BASIC Handbook', '', 'SSI Press', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(782, 'CP', 'The C Programming Language', 'Brian W.Kernighan,Dennis M.Ritchie', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(783, 'PP', 'MATLAB Programming For Engineers', 'Stephen J.Chapman', 'CENGAGE Learning', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(784, 'OT', 'SPSS', 'A.Rajathi,P.Chandran', 'mjppublishers', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(785, 'PY', 'Python For Data Science For Dummies', 'John Paul Mueller,Luca Massaron', 'Wiley', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(786, 'DD', 'Fundamentals of Logic Design', 'Charles H.Roth', 'Jaico Publication', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(787, 'OT', 'Fault Tolerant System', 'Koren', 'Elsever', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(788, 'EC', 'Electronic Devices & Circuit', 'David A.Bell', 'OXFORD', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(789, 'EC', 'Electronic Digitial System', 'Dale Patrick, Stephen Farots', 'Special Indian Wucation', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(790, 'CS', 'Microcomputer  System', 'Yu-Cheng liu, ', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(791, 'MP', 'Advance Microprocessor ', 'KM Bhurchardi, AK Ray', 'McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(792, 'MP', 'Microprocessor Architecture', 'Ramesh Gaonkar', 'Penram Publication', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(793, 'DD', 'Digital Principle and Applications', '                             Donald P Leach, Albert Paul Malvino and Goutham Saha', 'McGraw Hill ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(794, 'ES', 'EMBEDDED SYSTEM', 'Jack Ganssle', 'Elsever', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(795, 'DD', 'Digital Design with an Introduction to the Verilog HDL', 'M.Morris Mano, Michael D.Ciletti', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(796, 'DD', 'Digital Design ', 'M.Morris Mano, Michael D.Ciletti', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(797, 'MP', 'Microprocessor Architecture, Programming, and Applications with the 8085', '', 'Penram Publication', '2013`', '1', 100, 1, '2021-04-23 15:35:46'),
-(798, 'CA', 'Computer Architecture A Quantitative Approach', 'John L.Hennessy, David A.Patterson', 'Morgan Kaufmann', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(799, 'ES', 'EMBEDDED MULTIPROCESSOR SCHEDULING AND SYNCHRONIZATION', 'Sundarajan Sriram Shuvra S. Bhattacharyya', 'crc Press', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(800, 'DD', 'Digitial Principles and System Design', 'P.Kannan and M.Saraswathi', 'Sree Kamalamani Publications', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(801, 'ES', 'The 8051 Microcontroller and Embedded Systems using Assembly and C', 'Muhammad Ali Mazidi, Janice Gillispie Mazidi and Rolin D.McKinlay', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(802, 'MP', 'Microprocessor and Peripherals', 'S.P.Chowdhury and Sunetra Chowdhury', 'SCITECH', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(803, 'SD', 'IBM PC and CLONES Hardware, Troubleshooting and Maintenance', 'B.Govindarajalu', 'Tata McGRAWHILL', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(804, 'NL', 'Speech And Language Processing', 'Daniel Jurafsky,James H.Martin', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(805, 'DI', 'Digital Image Processing ', 'Rafael C.Gonzalez,Richard E.Woods', 'PEARSON', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(806, 'KE', 'Knowledge Management-Concepts and Best Practices', 'Kai Mertins, Peter Heisig, Jens Vorbeck', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(807, 'OT', 'Six Sigma Manual for small and Medium Businesses', 'Craig W.Baird', 'yesdee', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(808, 'KE', 'An Introduction to Knowledge Engineering', 'Simon Kendal Malcolm Creen', 'Springer', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(809, 'MG', 'Total Quality Management', 'Dale H. Besterfield, Mary Besterfield-Sacre, Carol Besterfield-Michna', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(810, 'AD', 'Android Hacker\'s Handbook', 'Joshua J.Drake, Pau Oliva For a, Zach Lanier', 'O\'Reilly', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(811, 'AD', 'Android Hacker\'s Handbook', 'Joshua J.Drake, Pau Oliva For a, Zach Lanier', 'Wiley', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(812, 'AD', 'Android Application Development for Dummies', 'Michael Burton, Donn Felker', 'Wiley', '2014', '1', 100, 1, '2021-04-23 15:35:46');
-INSERT INTO `book_list` (`book_id`, `category_id`, `book_name`, `book_author`, `book_publish`, `book_year`, `book_copy`, `book_prize`, `book_status`, `book_insertion_time`) VALUES
-(813, 'AD', 'Android Application Development for Dummies', 'Michael Burton, Donn Felker', 'Wiley', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(814, 'AD', 'Android Cookbook', 'Ian F.Darwin', 'O\'Reilly', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(815, 'AD', 'Android Cookbook', 'Ian F.Darwin', 'O\'Reilly', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(816, 'AD', 'Sams Teach Yourself Android Application Development in 24 Hours', 'Carmen Delessio', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(817, 'OS', 'Advanced Concepts in OPERATING SYSTEMS - Distributed, Database and Multiprocessor operating Systems', 'Mukesh Singhal, Niranjan G.Shivaratri', 'Mc Graw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(818, 'OS', 'Advanced Concepts in OPERATING SYSTEMS - Distributed, Database and Multiprocessor operating Systems', 'Mukesh Singhal, Niranjan G.Shivaratri', 'Mc Graw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(819, 'OS', 'Advanced Concepts in OPERATING SYSTEMS - Distributed, Database and Multiprocessor operating Systems', 'Mukesh Singhal, Niranjan G.Shivaratri', 'Mc Graw Hill', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(820, 'OS', 'Mac OS X and iOS Internals to the Apple\'s Core', 'Jonathan Levin', 'WROX', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(821, 'OS', 'Mac OS X and iOS Internals to the Apple\'s Core', 'Jonathan Levin', 'WROX', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(822, 'RT', 'Real-Time Systems Theory and Practice', 'Rajib Mall', 'PEARSON', '2007', '0', 100, 1, '2021-04-23 15:35:46'),
-(823, 'RT', 'Real-Time Systems Theory and Practice', 'Rajib Mall', 'PEARSON', '2007', '1', 100, 1, '2021-04-23 15:35:46'),
-(824, 'RT', 'Real-Time Systems Theory and Practice', 'Rajib Mall', 'PEARSON', '2007', '1', 100, 1, '2021-04-23 15:35:46'),
-(825, 'OS', 'Operating System Concepts', 'Abraham Silberschatz, Peter B.Galvin and Greg Gagne', 'Wiley', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(826, 'CN', 'SDN( Software Defined Networks)', 'Thomas D.Nadeau & Ken Gray', 'O\'REILLY', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(827, 'CN', 'Software Defined Networking with open flow', 'siamak Azodolmolky', 'PACKT', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(828, 'CN', 'Software Defined Networks', 'Paul Goransson and Chuck Black', 'MORGAN KAUFMANN', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(829, 'DI', 'Digital Image Processing For Medical Applications', 'Geoff Doughtery', 'Cambridge', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(830, 'CG', 'Computer Graphics - Principles and Practices In C - 2ND EDITION', 'James D. Foley, Andries van Dam, Stevan K. Feiner, F.Hughes John', 'Pearson', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(831, 'CC', 'Cloud Computing - Concepts, Technology and Architecture', 'Thomas Erl, Zaigham Mahmood, Ricardo Puttini', 'Pearson', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(832, 'CC', 'Cloud Computing - Concepts, Technology and Architecture', 'Thomas Erl, Zaigham Mahmood, Ricardo Puttini', 'Pearson', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(833, 'IO', 'Distributed and Cloud computing from parallel processing to the Internet of Things', 'Kai Hwang, Geoffrey C. Fox, Jck J. Dongarra', 'Elseivar', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(834, 'CO', 'Computer Organization and Design', 'David A. Patterson, John L. Hennessy', 'MORGAN ', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(835, 'DD', 'Digital Design with an introduction to the Verilog HDL', 'M. Morris Mano, Michael D. Ciletti', 'Pearson', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(836, 'CD', 'Compilers Principles, techniques and tools - 2nd Edition', 'Alfred V. Aho, Monica A. Lam, Ravi Sethi, Jeffrey D. Ullman', 'Pearson', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(837, 'ML', 'Building Machine Learning systems with python', 'Willi Richert, Luis Pedro Coelho', 'PACKT', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(838, 'ML', 'Introduction to Machine Learning with python', 'Andreas C. Muller and Sarah Guido', 'O\'REILLY', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(839, 'ML', 'Machine Learning with python', 'Abhishek Vijayvargia', 'BPB', '2018', '1', 100, 1, '2021-04-23 15:35:46'),
-(840, 'SC', 'Neuro Fuzzy and Soft Computing', 'Jang, Sun, Mizutani', 'PHI', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(841, 'ML', 'Deep Learning with Keras', 'Antonio Gulli, Sujit Pal', 'Packt', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(842, 'ML', 'Introduction to Machine Learning with python', 'Andreas C. Muller and Sarah Guido', 'O\'REILLY', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(843, 'ML', 'Machine Learning ', 'Ryan Roberts', '', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(844, 'ML', 'Machine Learning with Tensor Flow 1.x', 'Quan Hua, Shams Ul Azeem, Saif Ahmed', 'PACKT', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(845, 'SE', 'Softwatre Engineering - A practitioner\'s Guide- 6th edition', 'Roger S. Pressman', 'Pressman', '2005', '1', 100, 1, '2021-04-23 15:35:46'),
-(846, 'SE', 'Softwatre Engineering - A practitioner\'s Guide- 6th edition', 'Roger S. Pressman', 'Pressman', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(847, 'SP', 'Software Project Management A unified framework', 'Barry Boehm', 'Pearson', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(848, 'OT', 'Genome Analysis and Bio Informatics', 'T.R. Sharma', 'TR', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(849, 'OT', 'Genome Analysis and Bio Informatics', 'T.R. Sharma', 'TR', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(850, 'IO', 'The Internet of Things Key applications and protocols', 'Olivier Hersent, David Boswarthick, Omar Elloumi', 'Willey', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(851, 'CN', 'Software Define Networking with openflow', 'Siamak Azodolmolky', 'PACKT', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(852, 'CN', 'SDN', 'Thomas D. Nadeau and Ken Gray', 'O\'REILLY', '2018', '1', 100, 1, '2021-04-23 15:35:46'),
-(853, 'CF', 'Guide to Computer Forensics and investigations - 4th Edition', 'Nelson, Philips, Steuart', 'CENAGE', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(854, 'WN', 'Principles of wireless networks - A unified approach', 'Kavesh Pahlavan, Prashant Krishnamurthy', 'Pearson', '2008', '1', 100, 1, '2021-04-23 15:35:46'),
-(855, 'CN', 'Computer Networks - A TOP DOWN APPROACH - 6th edition', 'James F. Kurose, Keith W. Ross', 'Pearson', '2018', '1', 100, 1, '2021-04-23 15:35:46'),
-(856, 'SY', 'Cryptography and network security - principles and practices - 7th edition', 'William Stallings', 'Pearson', '2018', '1', 100, 1, '2021-04-23 15:35:46'),
-(857, 'CN', 'Computer Networks - A SYSTEMS APPROACH - 5th edition', 'Peterson, Davie', 'MK', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(858, 'CN', 'Computer Networks - A SYSTEMS APPROACH - 5th edition', 'Peterson, Davie', 'MK', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(859, 'CN', 'TCP IP protocol suite - 4th edition', 'Behrouz A. Forouzan', 'McGraw Hill', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(860, 'CN', 'Computer Networks - A SYSTEMS APPROACH - 5th edition', 'Peterson, Davie', 'MK', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(861, 'CN', 'Computer Networks', 'V.S. Bagad, I.A. Dhotre', 'Technical Publication', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(862, 'AC', 'Information Retreival Algorithms and Heuristics - 2nd edition', 'David A.Grossman, Ophir Frieder', 'Springer', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(863, 'DS', 'Data Structures and algorithm analysis in C - 2ND EDITION', 'Mark Allen Weiss', 'Pearson', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(864, 'AC', 'Fundamentals of Computer Algorithms - 2nd edition', 'Ellis Horrowitz, Sataj Sahni, Sanguthevar Rajasekaran', 'University Press', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(865, 'AC', 'Introduction to algorithms - 3rd edition', 'Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rives, Clifford Stein', 'MIT PRESS', '2009', '0', 100, 1, '2021-04-23 15:35:46'),
-(866, 'JV', 'Java - The Complete reference ', 'Herbert Schildt', 'McGraw Hill', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(867, 'PP', 'Programming Languages - principles and paradigms - 2nd edition', 'Allen B.Tucker, Robert E. Noonan', 'McGraw Hill', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(868, 'OR', 'Oracle forms Developers Handbook', 'Albert Lulushi', 'Pearson', '2003', '1', 100, 1, '2021-04-23 15:35:46'),
-(869, 'PP', 'Fundamentals of computing and programming - 2nd edition', 'E. Balagurusamy', 'McGraw Hill', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(870, 'OO', 'Object oriented programming with C++', 'E. Balagurusamy', 'McGraw Hill', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(871, 'WB', 'The complete reference HTML &CSS - 5TH edition', 'Thomas A. Powell', 'McGraw Hill', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(872, 'PP', 'Learning Perl - 4th edition', 'Randal L. Schwartz, Tom Phonix, Brian d foy ', 'O\'REILLY', '2005', '1', 100, 1, '2021-04-23 15:35:46'),
-(873, 'PP', 'Programming Languages - principles and paradigms - 2nd edition', 'Allen B.Tucker, Robert E. Noonan', 'McGraw Hill', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(874, 'OO', 'Object oriented programming with C++', 'E. Balagurusamy', 'McGraw Hill', '2009', '1', 100, 1, '2021-04-23 15:35:46'),
-(875, 'PP', 'Fundamentals of computing and programming in C', 'Pradip Dey, Manas Ghosh', 'OXFORD', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(876, 'OS', 'Operating system concepts - 8th edition', 'Abraham Silberschatz, Peter B. Galvin, Greg Gagne', 'Wiley', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(877, 'OS', 'Operating system concepts - 9th edition', 'Abraham Silberschatz, Peter B. Galvin, Greg Gagne', 'Wiley', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(878, 'OS', 'Operating system concepts - 9th edition', 'Abraham Silberschatz, Peter B. Galvin, Greg Gagne', 'Wiley', '2016', '1', 100, 1, '2021-04-23 15:35:46'),
-(879, 'NL', 'Multilingual Natural Language processing and applications', 'Daniel M. Bikel, Imed Zitouni', 'Pearson', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(880, 'DB', 'Database systems - 6th edition', 'Ramez Elmasri, Shamkant B. Navathe', 'Pearson', '2014', '0', 100, 1, '2021-04-23 15:35:46'),
-(881, 'DW', 'Data Warehousing in real world', 'Sam Anahory, Dennis Murray', 'Pearson', '2015', '0', 100, 1, '2021-04-23 15:35:46'),
-(882, 'DM', 'Data Mining concepts and techniques - 2nd edition', 'Jiawei Han and Micheline Kamber', 'Elseivar', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(883, 'BD', 'Big Data Black Book', 'Dream Tech editorial services', 'DT', '2017', '1', 100, 1, '2021-04-23 15:35:46'),
-(884, 'DB', 'Database Management systems - 2nd edition', 'Raghu Ramakrishnan, Johannes Gehrke', 'McGraw Hill', '2000', '1', 100, 1, '2021-04-23 15:35:46'),
-(885, 'BD', 'Big data and analytics', 'Seema Acharya, Subhashini Chellappan', 'Wiley', '2018', '1', 100, 1, '2021-04-23 15:35:46'),
-(886, 'WN', 'Wireless Networking Complete', 'Zeng, Zhao, Tipper et. Al', 'Morgan Kaufman ', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(887, 'CC', 'Cloud Computing Design Patterns', 'Thomas Erl, Robert Cope and Amin Maserpour', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(888, 'CN', 'Computer Networking Top Down Approach', 'James F. Kurose, Keith W. Ross', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(889, 'SY', 'Cryptography and network security ', 'Behrouz A. Forouzan, Debdeep Mukhopadhyay', 'McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(890, 'ML', 'Real World Machine Learning', 'Henrik Brink, Joseph W. Richards and Mark  Fetherolf', 'Dreamtech', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(891, 'CS', 'Computers as Components', 'Marilyn Wolf', 'Morgan Kaufman ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(892, 'DM', 'Data warehousing Data Mining & OLAP', 'Alex Berson, Stephen J. Smith', 'McGraw Hill', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(893, 'ML', 'TensorFlow for Deep Learning', 'Bharat Ramsundar and Reza Bosagh Zadeh', 'O\'REILLY', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(894, 'BD', 'Bigdata Analytics', 'Parag Kulkarni, Sarang Joshi and Meta S. Brown', 'PHI Learning Private Limited', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(895, 'CC', 'Cloud Computing Concepts Technology and Architectures', 'Thomas Erl, Zaigham Mahmood, Ricardo Puttini', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(896, 'CN', 'Computer Networking Top Down Approach', 'James F. Kurose, Keith W. Ross', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(897, 'CD', 'Advanced Compiler Design Implementation', 'Steven Muchnick', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(898, 'CD', 'Advanced Compiler Design Implementation', 'Steven Muchnick', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(899, 'CD', 'Advanced Compiler Design Implementation', 'Steven Muchnick', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(900, 'SY', 'Applied Cryptography Protocols Algorithms and Source code in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(901, 'ML', 'Applied Deep Learning with Python', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(902, 'QC', 'Approaching Quantum Computing', 'Dan, Gabriela', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(903, 'PP', 'Beginning R: The statistical programming Language', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(904, 'CC', 'Cloud Security : A comprehensive guide to Secure cloud Computing', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(905, 'CA', 'Computer Architecture Quantitative Approach', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(906, 'CA', 'Computer Architecture Quantitative Approach', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(907, 'CA', 'Computer Architecture Quantitative Approach', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(908, 'DS', 'Data Structures and Algorithm Analysis in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(909, 'DS', 'Data Structures and Algorithm Analysis in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(910, 'DS', 'Data Structures and Algorithm Analysis in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(911, 'DS', 'Data Structures and Algorithm Analysis in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(912, 'DS', 'Data Structures and Algorithm Analysis in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(913, 'DB', 'Database System Concepts', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(914, 'DB', 'Database System Concepts', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(915, 'DB', 'Database System Concepts', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(916, 'DB', 'Database System Concepts', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(917, 'DB', 'Database System Concepts', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(918, 'ML', 'Deep Learning Essentials ', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(919, 'ML', 'Deeep Learning with Tensor Flow explore Neural Networks', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(920, 'ML', 'Deeep Learning with Tensor Flow explore Neural Networks', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(921, 'ML', 'Deeep Learning with Tensor Flow explore Neural Networks', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(922, 'IO', 'Designing the Internet of Things', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(923, 'DI', 'Digital Image Processing', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(924, 'DI', 'Digital Image Processing', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(925, 'DI', 'Digital Image Processing', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(926, 'DI', 'Digital Image Processing', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(927, 'DI', 'Digital Image Processing', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(928, 'PP', 'Domain Specific Languages in R Advanced Statistical Programming', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(929, 'PP', 'Domain Specific Languages in R Advanced Statistical Programming', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(930, 'GC', 'Grid Computing A research Monograph', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(931, 'GC', 'Grid Computing A research Monograph', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(932, 'AC', 'Introduction to Algorithms', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(933, 'AC', 'Introduction to Algorithms', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(934, 'AC', 'Introduction to Algorithms', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(935, 'NS', 'Learn Ethical Hacking from Scratch', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(936, 'BD', 'Learning Apache Spark', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(937, 'ML', 'TensorFlow Machine Learning Cook Book', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(938, 'ML', 'TensorFlow Machine Learning Cook Book', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(939, 'ML', 'TensorFlow Machine Learning Cook Book', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(940, 'WB', 'Web Programming & Internet Technologies', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(941, 'WB', 'Web Programming & Internet Technologies', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(942, 'AC', 'Algorithms', 'Berman, Paul', 'Cengage', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(943, 'AC', 'Algorithms', 'Berman, Paul', 'Cengage', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(944, 'DS', 'C++ Data Structures and Algorithms Learn How to write Efficient code and Scalable and Robust', 'Wisnu Anggoro', 'Packt', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(945, 'PY', 'Core Python Programming', 'R. Nageswara Rao', 'Dreamtech', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(946, 'IO', 'Internet of Things with Python', 'Gaston C. Hillar', 'Packt', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(947, 'DM', 'Machine Learning and Data Mining in Pattern Recognition', 'G. Goos, J. Hartmanis and van Leeuwen', 'Springer', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(948, 'IO', 'Practical Industrial Internet of Things Security', 'Sravani Bhattacharjee', 'Packt', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(949, 'SE', 'Software Engineering', 'Stephen Schach', 'SIE', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(950, 'DS', 'Fundamentals of Data Structures in C', 'Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed', 'Second Edition, University Press', '2008', '1', 100, 1, '2021-04-23 15:35:46'),
-(951, 'DS', 'Fundamentals of Data Structures in C', 'Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed', 'Second Edition, University Press', '2008', '1', 100, 1, '2021-04-23 15:35:46'),
-(952, 'AC', 'Fundamentals of  Algorithmics  ', 'Gilles Brassard, Paul Bratley, ', 'Prentice Hall,', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(953, 'AC', 'Fundamentals of  Algorithmics  ', 'Gilles Brassard, Paul Bratley, ', 'Prentice Hall,', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(954, 'AC', 'Computational Geometry   Algorithms and Applications', 'Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars, ', '3rd Edition Springer', '2008', '1', 100, 1, '2021-04-23 15:35:46'),
-(955, 'CD', 'Advanced Compiler Design and Implementation', 'Steven Muchnick,', 'Morgan Kaufman Publishers', '1997', '1', 100, 1, '2021-04-23 15:35:46'),
-(956, 'CA', 'Computer Architecture – A Quantitative Approach', 'John L. Hennessey and David A. Patterson', '5th ed. Morgan Kaufmann / Elsevier', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(957, 'CA', 'Computer Architecture – A Quantitative Approach', 'John L. Hennessey and David A. Patterson', '5th ed. Morgan Kaufmann / Elsevier', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(958, 'CA', 'Computer Architecture – A Quantitative Approach', 'John L. Hennessey and David A. Patterson', '5th ed. Morgan Kaufmann / Elsevier', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(959, 'DD', 'Digital Design  ', 'M. Morris Mano and Michael D. Ciletti, ', 'V Edition, Pearson Education,', '2013', '0', 100, 1, '2021-04-23 15:35:46'),
-(960, 'DD', 'Digital Design  ', 'M. Morris Mano and Michael D. Ciletti, ', 'V Edition, Pearson Education,', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(961, 'DD', 'Digital Design  ', 'M. Morris Mano and Michael D. Ciletti, ', 'V Edition, Pearson Education,', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(962, 'DD', 'Digital Design  ', 'M. Morris Mano and Michael D. Ciletti, ', 'V Edition, Pearson Education,', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(963, 'OS', 'Advanced Concepts in Operating Systems ', 'Mukesh Singhal and Niranjan G. Shivaratri, ', 'Tata McGraw-Hill  ', '2001', '1', 100, 1, '2021-04-23 15:35:46'),
-(964, 'CA', 'Computer Architecture and Organization', 'J.S. Leena Jasmine, S. Lakshmi kantham', 'shree magnus publications', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(965, 'CN', 'High Speed Networks and Internets: Performance and Quality of Service', 'William Stallings', '2nd ed. Prentice Hall', '2002', '1', 100, 1, '2021-04-23 15:35:46'),
-(966, 'CN', 'High Speed Networks and Internets: Performance and Quality of Service', 'William Stallings', '2nd ed. Prentice Hall', '2002', '1', 100, 1, '2021-04-23 15:35:46'),
-(967, 'CN', 'High Speed Networks and Internets: Performance and Quality of Service', 'William Stallings', '2nd ed. Prentice Hall', '2002', '1', 100, 1, '2021-04-23 15:35:46'),
-(968, 'ML', 'Pattern Recognition and Machine Learning ', 'Christopher Bishop,', 'Springer', '2007', '1', 100, 1, '2021-04-23 15:35:46'),
-(969, 'DB', 'Database System Concepts', 'Abraham Silberschatz', '6th ed.  McGraw Hill', '2019', '1', 100, 1, '2021-04-23 15:35:46'),
-(970, 'DM', 'Data Warehousing, Data Mining & OLAP ', ' Alex Berson, Stephen J. Smith', 'Mc Graw Hill ', '2019', '1', 100, 1, '2021-04-23 15:35:46'),
-(971, 'DM', 'Data Mining Concepts and Techniques', 'Jiawei Han, MichelineKamber, Jian Pei, ', '3r ed. Morgan Kaufman ', '2012', '0', 100, 1, '2021-04-23 15:35:46'),
-(972, 'DM', 'Data Mining Concepts and Techniques', 'Jiawei Han, MichelineKamber, Jian Pei, ', '3r ed. Morgan Kaufman ', '2012', '1', 100, 1, '2021-04-23 15:35:46'),
-(973, 'DD', 'Fundamentals of Logic Design ', 'Charles H. Roth Jr,', '6th ed. Jaico Publishing House', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(974, 'DD', 'Fundamentals of Logic Design ', 'Charles H. Roth Jr,', '6th ed. Jaico Publishing House', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(975, 'DD', 'Fundamentals of Logic Design ', 'Charles H. Roth Jr,', '5th ed. Jaico Publishing House', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(976, 'DD', 'Fundamentals of Logic Design ', 'Charles H. Roth Jr,', '5th ed. Jaico Publishing House', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(977, 'DS', 'An Introduction to Data Structures with Applications  ', 'Jean-Paul Tremblay and Paul G Sorenson, ', '2nd ed. Tata McGraw Hill', '1991', '1', 100, 1, '2021-04-23 15:35:46'),
-(978, 'DS', 'An Introduction to Data Structures with Applications  ', 'Jean-Paul Tremblay and Paul G Sorenson, ', '2nd ed. Tata McGraw Hill', '1991', '1', 100, 1, '2021-04-23 15:35:46'),
-(979, 'DS', 'An Introduction to Data Structures with Applications  ', 'Jean-Paul Tremblay and Paul G Sorenson, ', '2nd ed. Tata McGraw Hill', '1991', '1', 100, 1, '2021-04-23 15:35:46'),
-(980, 'AC', 'Fundamental of Computer Algorithms', 'Ellis Horowitz and Sartaj Sahni, ', '2nd ed. Galgotia,', '1985', '1', 100, 1, '2021-04-23 15:35:46'),
-(981, 'AC', 'Fundamental of Computer Algorithms', 'Ellis Horowitz and Sartaj Sahni, ', '2nd ed. Galgotia,', '1985', '1', 100, 1, '2021-04-23 15:35:46'),
-(982, 'EC', 'Electrical Machines ', 'J Nagarath and Kothari DP ', 'Tata McGraw Hill', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(983, 'EC', 'Electrical Machines ', 'J Nagarath and Kothari DP ', 'Tata McGraw Hill', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(984, 'EC', 'Electronic Circuit Analysis and Design 2010 ', 'Donald .A. Neamen, ', '3rd ed. Tata McGraw Hill, ', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(985, 'EC', 'Electronic Circuit Analysis and Design 2010 ', 'Donald .A. Neamen, ', '3rd ed. Tata McGraw Hill, ', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(986, 'SN', 'Wireless Sensor Networks Technology, Protocols, And Applications ', 'KazemSohraby, Daniel Minoli, &TaiebZnati', 'John Wiley, ', '2015', '1', 100, 1, '2021-04-23 15:35:46'),
-(987, 'CN', 'Software Defined Networks an Authoritative Review of Network Programmability Technologies', 'Thomas Nadeau, Ken Gray', 'O\'Reilly Media', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(988, 'OT', 'Designing Storage Area Networks', 'Tom Clark', '1st ed. Addison-Wesley Professional', '1999', '1', 100, 1, '2021-04-23 15:35:46'),
-(989, 'BC', 'Mastering Blockchain  ', 'Imran Bashir', '2nd ed.   Packt Publishing', '2018', '1', 100, 1, '2021-04-23 15:35:46'),
-(990, 'BC', 'Mastering Bitcoin ', 'Andreas Antonopoulos, Satoshi Nakamoto', 'O’Reilly Publishing ', '2014', '1', 100, 1, '2021-04-23 15:35:46'),
-(991, 'ML', 'Machine Learning  ', 'Tom M. Mitchel', 'Mc Graw Hill ', '2013', '1', 100, 1, '2021-04-23 15:35:46'),
-(992, 'BC', 'Block Chain-From Concept to Execution   ', 'Debajani Mohanty', 'BPB Publications ', '2018', '1', 100, 1, '2021-04-23 15:35:46'),
-(993, 'CN', 'Computer Networks ', 'Paterson, Davie', '5th ed. Morgan Kaufmann', '2011', '1', 100, 1, '2021-04-23 15:35:46'),
-(994, 'WN', 'Wireless Networking Complete', 'Zeng, Zhao, Tipper et. Al', 'Morgan Kaufman ', '2010', '1', 100, 1, '2021-04-23 15:35:46'),
-(995, 'WN', 'Advanced Wireless Networks 4G Technologies', 'Savo G Glisic', 'Wiley', '2006', '1', 100, 1, '2021-04-23 15:35:46'),
-(996, 'WN', 'Protocols and Architectures for Wireless Sensor Nwtworks', 'Holger Karl,  Andreas Willig', 'Wiley', '2005', '1', 100, 1, '2021-04-23 15:35:46'),
-(997, 'CF', 'A Practical Guide to Computer Forensics Investigations', 'Dr. Darren R. Hayes', 'Pearson', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(998, 'SY', 'Cryptography Theory and Practice', 'Douglas R. Stinson', 'CRC Press Indian Edition', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(999, 'SY', 'Cryptography Theory and Practice', 'Douglas R. Stinson', 'CRC Press Indian Edition', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1000, 'SY', 'Cryptography Theory and Practice', 'Douglas R. Stinson', 'CRC Press Indian Edition', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1001, 'SY', 'Cryptography Theory and Practice', 'Douglas R. Stinson', 'CRC Press Indian Edition', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1002, 'OT', 'Foundation of Security What Every Programmer Need to Know', 'Neil Daswani, Christoph Kern and Anita Kesavan', 'Apress', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1003, 'DS', 'Fundamentals of Data Structures', 'Horowitz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1004, 'IO', 'The Internet of Things - Key Applications and Protocols', 'Hersent', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1005, 'IO', 'The Internet of Things    ', 'Miller', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1006, 'IO', 'Internet of Things A hand on Approach', 'Bahga', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1007, 'ML', 'Machine Learning', 'Mitchell', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1008, 'DB', 'Fundamental of Database Systems', 'Elmasri', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1009, 'IO', 'Internet of Things A hand on Approach', 'Bahga', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1010, 'IO', 'Internet of Things A hand on Approach', 'Bahga', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1011, 'IO', 'Internet of Things', 'Miller', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1012, 'DB', 'Database System Concepts', 'Silberschatz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1013, 'DS', 'An introduction to Data Strucutres with Applications', 'Tremblay', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1014, 'DB', 'An Introduction to Database Systems', 'Date', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1015, 'TC', 'Introduction to Automata Theory Languages and Computations', 'Hopcroft', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1016, 'PY', 'Think Phthon: How to Think like A Computer Scientist', 'Downey', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1017, 'AC', 'Fundamentals of Computer Algorithms', 'Horowitz', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1018, 'CC', 'Cloud Computing Concept, Technology & Architecture', 'Erl', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1019, 'DS', 'Data Structures and Algorithm Analysis in  C', 'Weiss', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1020, 'DS', 'Data Structures and Algorithm Analysis in  C++', 'Weiss', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1021, 'DD', 'Digital Design', 'Morris Mono', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1022, 'DD', 'Digital Principles and Design', 'Wakerly', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1023, 'DD', 'Digital Principles and Design', 'Givone', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1024, 'IO', 'IOT Fundamentals', 'Hanes', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1025, 'IO', 'IOT Fundamentals', 'Hanes', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1026, 'IO', 'IOT Fundamentals', 'Hanes', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1027, 'WN', 'Fundamentals of Wimax', 'Jeffrey,Rias', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1028, 'WN', 'Wimax Fundamentals', 'Steve', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1029, 'WN', '3G Wireless Networks', 'Clint Smith,P.E', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1030, 'CO', 'Computer Organisation', 'Carl Hamacher', 'McGraw Hill', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1031, 'GC', 'Grid Computing', 'Ahmar Abbas', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1032, 'AI', 'Artificial Intelligence', 'Rich & Knight', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1033, 'DP', 'Digital Signal Processing', 'Proakis', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1034, 'IT', 'Principles of Information Security', 'Michael Whitman', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1035, 'SP', 'Software Project Management', 'Bob Hughes', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1036, 'DW', 'Data Warehousing Fundamentals', 'Paulraj Ponniah', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1037, 'AD', 'Android Wireless Application Development', 'Lauren Darcey', '', '', '0', 100, 1, '2021-04-23 15:35:46'),
-(1061, 'ML', 'Machine learning', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1062, 'IO', 'The Internet of Things-Key Applications and  Protocols', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1063, 'IO', 'The Internet of Things', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1064, 'IO', 'Internet of Things A hand on Approach', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1065, 'DS', 'Fundamentals of Data Structures', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1066, 'DS', 'Fundamentals of Data Structures', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1067, 'DS', 'An Introduction to Data Structures with Applications', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1068, 'DD', 'Digital Design', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1069, 'DD', 'Digital Design Principle and Practices', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1070, 'DD', 'Digital Principles and Designs', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1071, 'DB', 'Database System Concepts', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1072, 'DB', 'Database System Concepts', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1073, 'DB', 'Fundamentals of Database Systems', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1074, 'DB', 'Fundamentals of Database Systems', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1075, 'DB', 'An Introduction to Database Systems', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1076, 'TC', 'Introduction to Automata Theory Languages and Computations', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1077, 'TC', 'Introduction to Automata Theory Languages and Computations', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1078, 'PY', 'Think Python:How to Think like a Computer Scientist', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1079, 'AC', 'Fundamentals of Computer Algorithms', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1080, 'CC', 'Cloud Computing Concept,Technology & Architecture', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1081, 'DS', 'Data Structures and Algorithm Analysis in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1082, 'DS', 'Data Structures and Algorithm Analysis in C', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1083, 'DS', 'Data Structures and Algorithm Analysis in C++', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1084, 'DS', 'Data Structures and Algorithm Analysis in C++', '', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1085, 'IO', 'Internet of Things A Hand on Approach', 'Bahga', 'Univ', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1086, 'IO', 'IOT Fundamentals', 'Hanes', 'Cisco', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1087, 'IO', 'IOT Fundamentals', 'Hanes', 'Cisco', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1088, 'IO', 'IOT Fundamentals', 'Hanes', 'Cisco', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1089, 'IO', 'IOT Fundamentals', 'Hanes', 'Cisco', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1090, 'IO', 'IOT Fundamentals', 'Hanes', 'Cisco', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1091, 'IO', 'IOT Fundamentals', 'Hanes', 'Cisco', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1092, 'GE', 'GATE 2020:Computer Science and Engineering & Information Technology', 'G K', 'G K', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1093, 'MG', 'Disaster Science Management', 'Bhattacharya', 'Tmh', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1094, 'CO', 'COMPUTER ORGANISATION AND DESIGN 5/ED-THE HARDWARE/SOFTWARE INTERFACE', 'PATTERSON', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1095, 'CO', 'COMPUTER ORGANISATION AND EMBEDDED SYSTEMS 6/ED', 'HAMACHER', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1096, 'CO', 'COMPUTER ORGANISATION AND ARCHITECTURE 10ED', 'STALLINGS', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1097, 'CA', 'COMPUTER ARCHITECTURE AND ORGANISATION 3ED', 'HAYES', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1098, 'DB', 'DATABASE MANAGEMENT SYSTEMS 3ED', 'RAMAKRISHNAN', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1099, 'DB', 'DATABASE SYSTEMS CONCEPTS 6/ED', 'SILBERSCHITZ', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1100, 'DB', 'FUNDAMENTALS OF DATABASE SYSTEMS 7/ED', 'ELMASRI', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1101, 'DB', 'AN INTRODUCTION TO DATABASE SYSTEMS,8ED', 'DATE/KANNA', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1102, 'OS', 'MODERN OPERATING SYSTEM 4ED', 'TANENBAUM', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1103, 'OS', 'OPERATING SYSTEMS:INTERNALS AND DESIGN PRINCIPLES 7ED', 'STALLINGS', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1104, 'CD', 'COMPILER:PRINCIPLES,TECHNIQUES AND TOOLS', 'AHO', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1105, 'CD', 'COMPILER DESIGN IN C', 'HOLUB', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1123, 'OT', 'Test Book Complete Reference', 'Steve Smith', 'Test Inc', '2020', '0', 100, 1, '2021-04-23 15:35:46'),
-(1125, 'DC', 'Wireless Digital Comm.', 'Feher', '', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1127, 'GE', 'Sample Text Conference', 'Ellon musk, Bill Gates', 'Tesla Corp', '2020', '0', 100, 1, '2021-04-23 15:35:46'),
-(1128, 'ML', 'Genetic Algorithms in search, Optimization and Machine Learning', 'David E.Goldberg', 'PEARSON', '', '1', 100, 1, '2021-04-23 15:35:46'),
-(1131, 'OT', 'Sample Text conference', 'Ellon musk, Bill Gates', 'Tesla', '2020', '1', 100, 1, '2021-04-23 15:35:46'),
-(1172, 'QC', 'Sample Book', 'Star Lord', 'Alibaba', '2019', '0', 150, 1, '2021-04-23 15:35:46'),
-(1177, 'DS', 'Sample Text Book', 'Sam Curran', 'Chennai Super Kings', '2020', '0', 100, 1, '2021-04-23 15:35:46'),
-(1184, 'OT', 'Sample Book', 'Star Lord', 'Alibaba', '2019', '0', 100, 1, '2021-04-23 15:35:46'),
-(1186, 'AC', 'Sample Book Edited', 'Star Lord', 'Alibaba', '2019', '1', 100, 2, '2021-04-23 15:35:46'),
-(1188, 'QC', 'Sample Book', 'Star Lord', 'Alibaba', '2019', '0', 100, 1, '2021-04-23 15:35:46'),
-(1189, 'QC', 'Sample Book', 'Star Lord', 'Alibaba', '2019', '0', 100, 1, '2021-04-23 15:35:46'),
-(1191, 'DS', 'Demo testing New Entry', 'Ben Stokes', 'CSK Publications', '2021', '1', 100, 1, '2021-04-23 15:35:46'),
-(1192, 'BC', 'New Sample Editing', 'Sample Author', 'ABCD', '2020', '1', 1000, 2, '2021-04-23 15:35:46'),
-(1199, 'DB', 'Sample', 'Sample', 'Sample', '2020', '0', 100, 0, '2021-05-07 19:44:08'),
-(1200, 'CO', 'Sample Book Testing', 'Sample', 'Sample Publications', '2015', '1', 245, 0, '2021-05-07 20:05:07'),
-(1201, 'CF', 'New Book Entry', 'New Author', 'New Publications', '2021', '0', 1250, 1, '2021-07-22 14:56:19');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_reference`
---
-
-CREATE TABLE `book_reference` (
-  `config_id` int NOT NULL,
-  `config_name` varchar(50) NOT NULL,
-  `config_value` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `book_reference`
---
-
-INSERT INTO `book_reference` (`config_id`, `config_name`, `config_value`) VALUES
-(1, 'Maximum_books', '10'),
-(2, 'Maximum_month', '6'),
-(3, 'Add_Book', '3'),
-(4, 'Update_Book', '4'),
-(5, 'Delete_Book', '5'),
-(6, 'Add_Category', '6'),
-(7, 'Update_Category', '7'),
-(8, 'Delete_Category', '8'),
-(9, 'Issue_Book', '9'),
-(10, 'Renew_Book', '10'),
-(11, 'Return_Book', '11'),
-(12, 'Maximum_Request', '10'),
-(13, 'Lost_Found_Book', '13'),
-(14, 'Student_Request', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_request`
---
-
-CREATE TABLE `book_request` (
-  `request_id` int NOT NULL,
-  `person_id` int NOT NULL,
-  `book_id` int DEFAULT NULL,
-  `request_type` int NOT NULL,
-  `request_status` int NOT NULL,
-  `request_time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `book_request`
---
-
-INSERT INTO `book_request` (`request_id`, `person_id`, `book_id`, `request_type`, `request_status`, `request_time`) VALUES
-(40, 2017503048, 1184, 0, 1, '2021-03-17 18:08:50'),
-(41, 2017503037, 1184, 0, 1, '2021-03-17 18:14:44'),
-(42, 2017503037, 1185, 0, 1, '2021-03-17 19:00:35'),
-(43, 2017503037, 963, 0, 1, '2021-03-17 19:05:06'),
-(45, 2017503048, 963, 0, 1, '2021-03-17 19:05:55'),
-(46, 2017503048, 229, 0, 1, '2021-03-17 19:12:47'),
-(47, 2017503048, 876, 0, 1, '2021-03-17 19:47:37'),
-(48, 2017503037, NULL, 1, 1, '2021-03-17 21:00:35'),
-(58, 2017503037, NULL, 1, 0, '2021-03-20 19:22:00'),
-(59, 2017503037, NULL, 1, 0, '2021-03-20 19:34:15'),
-(67, 2017503048, 1184, 0, 1, '2021-03-22 18:59:41'),
-(68, 2017503048, 1184, 0, 1, '2021-03-22 19:00:34'),
-(72, 2017503037, 1131, 0, 0, '2021-03-23 23:22:40'),
-(73, 2017503048, 817, 0, 0, '2021-04-22 20:00:24'),
-(76, 2017503037, 817, 0, 0, '2021-04-22 20:11:23'),
-(83, 2017503048, 818, 0, 0, '2021-04-23 08:02:10'),
-(84, 2017503048, 589, 0, 0, '2021-04-23 08:05:13'),
-(85, 2017503048, NULL, 1, 0, '2021-04-23 08:20:16'),
-(87, 2017503048, NULL, 1, 0, '2021-04-23 08:56:03'),
-(88, 2017503048, 963, 0, 0, '2021-04-23 09:29:10'),
-(90, 2018503557, 1131, 0, 0, '2021-05-05 10:45:42'),
-(92, 2018503557, NULL, 1, 0, '2021-05-05 10:49:45'),
-(98, 2017503037, 1192, 0, 0, '2021-05-12 21:36:16'),
-(99, 2017503048, 1186, 0, 1, '2021-05-14 12:53:24'),
-(100, 2017503037, 1186, 0, 1, '2021-05-14 12:53:42'),
-(101, 2018503557, 1186, 0, 1, '2021-05-14 12:54:02'),
-(102, 2017503048, 1189, 0, 1, '2021-05-15 16:02:13'),
-(103, 2017503048, 231, 0, 1, '2021-05-24 15:09:49'),
-(104, 2017503048, 241, 0, 1, '2021-05-24 15:10:13'),
-(105, 2017503048, 1199, 0, 1, '2021-05-24 15:11:38'),
-(106, 2017503048, 1199, 0, 1, '2021-05-24 15:13:15'),
-(107, 2017503048, 1199, 0, 1, '2021-05-24 15:15:06'),
-(108, 66392, 1199, 0, 1, '2021-05-24 15:17:27'),
-(109, 2018503557, 1199, 0, 1, '2021-05-24 15:18:59'),
-(110, 66392, 1199, 0, 1, '2021-05-24 15:19:43'),
-(111, 2017503048, 1131, 0, 0, '2021-07-22 14:49:23'),
-(112, 2017503048, NULL, 1, 0, '2021-07-22 14:52:24');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `borrow_list`
---
-
-CREATE TABLE `borrow_list` (
-  `person_id` int NOT NULL,
-  `book_id` int NOT NULL,
-  `borrow_time` datetime NOT NULL,
-  `renewal_time` datetime NOT NULL,
-  `renewal_count` int NOT NULL DEFAULT '1',
-  `book_fine` double NOT NULL DEFAULT '0',
-  `book_fine_status` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `borrow_list`
---
-
-INSERT INTO `borrow_list` (`person_id`, `book_id`, `borrow_time`, `renewal_time`, `renewal_count`, `book_fine`, `book_fine_status`) VALUES
-(60623, 88, '2020-03-20 17:19:08', '2020-09-20 17:19:08', 1, 0, 1),
-(60623, 153, '2020-03-20 17:21:30', '2021-11-12 14:19:51', 1, 0, 1),
-(60623, 280, '2020-03-20 17:09:21', '2020-09-20 17:09:21', 1, 0, 1),
-(60623, 340, '2020-03-20 17:17:49', '2020-09-20 17:17:49', 1, 0, 1),
-(60623, 342, '2020-03-20 17:13:08', '2020-09-20 17:13:08', 1, 0, 1),
-(60623, 472, '2020-03-20 17:12:46', '2020-03-18 17:12:46', 1, 0, 1),
-(60623, 478, '2020-03-20 17:10:52', '2020-09-20 17:10:52', 1, 0, 1),
-(60623, 497, '2020-03-20 17:16:27', '2020-09-20 17:16:27', 1, 0, 1),
-(60623, 501, '2020-03-20 17:18:53', '2020-09-20 17:18:53', 1, 0, 1),
-(60623, 511, '2020-03-20 17:19:35', '2020-09-20 17:19:35', 1, 0, 1),
-(60623, 519, '2020-03-20 17:20:12', '2020-09-20 17:20:12', 1, 0, 1),
-(60623, 699, '2020-03-20 17:14:24', '2020-09-20 17:14:24', 1, 0, 1),
-(60623, 706, '2020-03-20 17:12:07', '2020-09-20 17:12:07', 1, 0, 1),
-(60623, 714, '2020-03-20 17:10:16', '2020-09-20 17:10:16', 1, 0, 1),
-(60623, 805, '2020-03-20 17:08:22', '2020-09-20 17:08:22', 1, 0, 1),
-(60623, 902, '2020-03-20 17:04:19', '2020-09-20 17:04:19', 1, 0, 1),
-(60623, 1027, '2020-03-20 17:27:39', '2021-10-21 13:00:36', 1, 0, 1),
-(66269, 344, '2020-03-23 22:15:37', '2020-09-23 22:15:37', 1, 0, 1),
-(66269, 527, '2020-08-27 15:32:58', '2021-09-20 15:35:04', 1, 0, 1),
-(66269, 535, '2020-03-20 18:12:45', '2020-09-20 18:12:45', 1, 0, 1),
-(66269, 537, '2020-03-20 18:11:46', '2020-09-20 18:11:46', 1, 0, 1),
-(66392, 1, '2020-03-20 17:59:09', '2021-07-23 11:08:45', 1, 0, 1),
-(66392, 256, '2020-03-20 17:50:27', '2020-09-20 17:50:27', 1, 0, 1),
-(66392, 370, '2020-03-23 19:21:36', '2020-09-24 17:44:20', 1, 0, 1),
-(66392, 404, '2020-03-20 17:51:01', '2020-09-20 17:51:01', 1, 0, 1),
-(66392, 437, '2020-03-20 17:51:55', '2020-09-20 17:51:55', 1, 0, 1),
-(66392, 513, '2020-03-20 17:56:42', '2020-09-20 17:56:42', 1, 0, 1),
-(66392, 660, '2020-03-20 17:58:02', '2020-09-20 17:58:02', 1, 0, 1),
-(66392, 663, '2020-03-20 17:58:52', '2020-09-20 17:58:52', 1, 0, 1),
-(66392, 732, '2020-03-20 17:54:07', '2021-07-23 12:41:06', 1, 0, 1),
-(66392, 770, '2020-03-20 17:56:10', '2020-09-20 17:56:10', 1, 0, 1),
-(66392, 865, '2020-03-20 17:53:31', '2020-09-20 17:53:31', 1, 0, 1),
-(66392, 1028, '2020-04-01 17:45:26', '2021-07-23 12:41:24', 1, 0, 1),
-(66392, 1029, '2020-03-20 17:49:14', '2020-09-20 17:49:14', 1, 0, 1),
-(66449, 230, '2020-03-20 18:27:56', '2020-09-20 18:27:56', 1, 0, 1),
-(66449, 237, '2020-03-20 18:14:25', '2020-09-20 18:14:25', 1, 0, 1),
-(66449, 255, '2020-03-20 20:30:05', '2020-09-20 20:30:05', 1, 0, 1),
-(66449, 267, '2020-03-20 20:32:19', '2020-09-20 20:32:19', 1, 0, 1),
-(66449, 500, '2020-03-20 18:26:19', '2020-09-20 18:26:19', 1, 0, 1),
-(66449, 516, '2020-03-20 18:26:49', '2020-09-20 18:26:49', 1, 0, 1),
-(66449, 521, '2020-03-20 18:25:45', '2020-09-20 18:25:45', 1, 0, 1),
-(66449, 550, '2020-03-20 18:27:10', '2020-09-20 18:27:10', 1, 0, 1),
-(66449, 619, '2020-03-20 20:32:54', '2020-09-20 20:32:54', 1, 0, 1),
-(66449, 658, '2020-03-20 20:37:12', '2020-09-20 20:37:12', 1, 0, 1),
-(66449, 716, '2020-03-21 12:25:23', '2020-09-21 12:25:23', 1, 0, 1),
-(66449, 719, '2020-03-20 20:26:43', '2020-09-20 20:26:43', 1, 0, 1),
-(66449, 720, '2020-03-20 20:29:39', '2020-09-20 20:29:39', 1, 0, 1),
-(66449, 1030, '2020-03-20 18:25:19', '2020-09-20 18:25:19', 1, 0, 1),
-(66449, 1031, '2020-03-20 20:36:37', '2020-09-20 20:36:37', 1, 0, 1),
-(66517, 365, '2020-03-20 18:04:46', '2020-09-20 18:04:46', 1, 0, 1),
-(66517, 483, '2020-03-20 18:01:58', '2020-09-20 18:01:58', 1, 0, 1),
-(66517, 518, '2020-03-20 18:06:26', '2020-09-20 18:06:26', 1, 0, 1),
-(66517, 543, '2020-03-20 18:09:50', '2020-09-20 18:09:50', 1, 0, 1),
-(66517, 655, '2020-03-21 12:28:27', '2020-09-21 12:28:27', 1, 0, 1),
-(66517, 881, '2020-03-20 18:08:39', '2020-09-20 18:08:39', 1, 0, 1),
-(66517, 1008, '2020-03-20 18:03:24', '2020-09-20 18:03:24', 1, 0, 1),
-(67068, 41, '2020-03-21 12:23:13', '2020-09-21 12:23:13', 1, 0, 1),
-(67068, 43, '2020-03-21 12:24:10', '2020-09-21 12:24:10', 1, 0, 1),
-(67068, 78, '2020-03-21 12:21:44', '2020-09-21 12:21:44', 1, 0, 1),
-(67068, 435, '2020-03-21 12:19:50', '2020-09-21 12:19:50', 1, 0, 1),
-(67068, 557, '2020-03-21 12:22:15', '2020-09-21 12:22:15', 1, 0, 1),
-(67068, 565, '2020-03-21 12:20:15', '2020-09-21 12:20:15', 1, 0, 1),
-(67068, 880, '2020-03-21 12:24:02', '2020-09-21 12:24:02', 1, 0, 1),
-(67068, 959, '2020-03-21 12:20:43', '2020-09-21 12:20:43', 1, 0, 1),
-(67079, 39, '2020-03-21 09:38:43', '2020-09-21 09:38:43', 1, 0, 1),
-(67079, 51, '2020-03-21 09:33:36', '2020-09-21 09:33:36', 1, 0, 1),
-(67079, 53, '2020-03-21 09:34:41', '2020-09-21 09:34:41', 1, 0, 1),
-(67079, 83, '2020-03-21 09:39:32', '2020-09-21 09:39:32', 1, 0, 1),
-(67079, 90, '2020-03-21 09:36:47', '2020-09-21 09:36:47', 1, 0, 1),
-(67079, 341, '2020-03-21 10:21:43', '2021-07-23 14:45:53', 1, 0, 1),
-(67079, 345, '2020-03-21 10:21:19', '2020-09-21 10:21:19', 1, 0, 1),
-(67079, 351, '2020-03-21 09:41:23', '2020-09-21 09:41:23', 1, 0, 1),
-(67079, 473, '2020-03-21 09:37:19', '2020-09-21 09:37:19', 1, 0, 1),
-(67079, 512, '2020-03-21 09:36:30', '2020-09-21 09:36:30', 1, 0, 1),
-(67079, 710, '2020-03-21 09:39:02', '2020-09-21 09:39:02', 1, 0, 1),
-(67079, 971, '2020-03-21 09:34:33', '2020-09-21 09:34:33', 1, 0, 1),
-(67079, 1034, '2020-03-21 10:20:54', '2020-09-21 10:20:54', 1, 0, 1),
-(67393, 21, '2020-03-21 09:13:55', '2020-09-21 09:13:55', 1, 0, 1),
-(67393, 179, '2020-03-21 09:23:04', '2020-09-21 09:23:04', 1, 0, 1),
-(67393, 225, '2020-03-21 09:25:43', '2020-09-21 09:25:43', 1, 0, 1),
-(67393, 273, '2020-03-21 09:27:00', '2020-09-21 09:27:00', 1, 0, 1),
-(67393, 380, '2020-03-21 09:26:39', '2020-09-21 09:26:39', 1, 0, 1),
-(67393, 426, '2020-03-21 09:13:04', '2020-09-21 09:13:04', 1, 0, 1),
-(67393, 432, '2020-03-21 09:13:41', '2020-09-21 09:13:41', 1, 0, 1),
-(67393, 449, '2020-03-21 09:14:41', '2020-09-21 09:14:41', 1, 0, 1),
-(67393, 455, '2020-03-21 09:24:47', '2020-09-21 09:24:47', 1, 0, 1),
-(67393, 456, '2020-03-21 09:23:34', '2020-09-21 09:23:34', 1, 0, 1),
-(67393, 494, '2020-03-21 09:29:43', '2020-09-21 09:29:43', 1, 0, 1),
-(67393, 544, '2020-03-21 09:25:20', '2020-09-21 09:25:20', 1, 0, 1),
-(67393, 792, '2020-03-21 09:22:04', '2020-09-21 09:22:04', 1, 0, 1),
-(67393, 1032, '2020-03-21 09:21:38', '2020-09-21 09:21:38', 1, 0, 1),
-(67393, 1033, '2020-03-21 09:29:25', '2020-09-21 09:29:25', 1, 0, 1),
-(67406, 57, '2020-03-21 10:27:31', '2020-09-21 10:27:31', 1, 0, 1),
-(67406, 59, '2020-03-21 10:27:41', '2020-09-21 10:27:41', 1, 0, 1),
-(67406, 183, '2020-03-21 10:39:17', '2020-09-21 10:39:17', 1, 0, 1),
-(67406, 246, '2020-03-21 12:01:10', '2020-09-21 12:01:10', 1, 0, 1),
-(67406, 264, '2020-03-21 12:04:15', '2020-09-21 12:04:15', 1, 0, 1),
-(67406, 366, '2020-03-21 10:28:36', '2020-09-21 10:28:36', 1, 0, 1),
-(67406, 377, '2020-03-21 10:26:48', '2020-09-21 10:26:48', 1, 0, 1),
-(67406, 401, '2020-03-21 10:39:00', '2020-09-21 10:39:00', 1, 0, 1),
-(67406, 411, '2020-03-21 10:32:36', '2020-09-21 10:32:36', 1, 0, 1),
-(67406, 413, '2020-03-21 11:48:18', '2020-09-21 11:48:18', 1, 0, 1),
-(67406, 420, '2020-03-21 11:04:21', '2020-09-21 11:04:21', 1, 0, 1),
-(67406, 421, '2020-03-21 11:03:26', '2020-09-21 11:03:26', 1, 0, 1),
-(67406, 422, '2020-03-21 10:39:38', '2020-09-21 10:39:38', 1, 0, 1),
-(67406, 427, '2020-03-21 11:05:02', '2020-09-21 11:05:02', 1, 0, 1),
-(67406, 429, '2020-03-21 10:40:27', '2020-09-21 10:40:27', 1, 0, 1),
-(67406, 434, '2020-03-21 12:03:56', '2020-09-21 12:03:56', 1, 0, 1),
-(67406, 440, '2020-03-21 11:42:23', '2020-09-21 11:42:23', 1, 0, 1),
-(67406, 444, '2020-03-21 11:52:53', '2020-09-21 11:52:53', 1, 0, 1),
-(67406, 445, '2020-03-21 11:38:55', '2020-09-21 11:38:55', 1, 0, 1),
-(67406, 446, '2020-03-21 11:50:53', '2020-09-21 11:50:53', 1, 0, 1),
-(67406, 459, '2020-03-21 11:49:40', '2020-09-21 11:49:40', 1, 0, 1),
-(67406, 463, '2020-03-21 11:07:24', '2020-09-21 11:07:24', 1, 0, 1),
-(67406, 469, '2020-03-21 10:58:39', '2020-09-21 10:58:39', 1, 0, 1),
-(67406, 717, '2020-03-21 10:42:13', '2020-09-21 10:42:13', 1, 0, 1),
-(67406, 718, '2020-03-21 12:04:30', '2020-09-21 12:04:30', 1, 0, 1),
-(67406, 723, '2020-03-21 10:41:42', '2020-09-21 10:41:42', 1, 0, 1),
-(67406, 724, '2020-03-21 11:02:11', '2020-09-21 11:02:11', 1, 0, 1),
-(67406, 819, '2020-03-21 12:02:16', '2020-09-21 12:02:16', 1, 0, 1),
-(67406, 820, '2020-03-21 11:59:46', '2020-09-21 11:59:46', 1, 0, 1),
-(67406, 822, '2020-03-21 11:57:51', '2020-09-21 11:57:51', 1, 0, 1),
-(67406, 825, '2020-03-21 12:03:19', '2020-09-21 12:03:19', 1, 0, 1),
-(67406, 1035, '2020-03-21 10:26:10', '2020-09-21 10:26:10', 1, 0, 1),
-(67406, 1036, '2020-03-21 10:32:20', '2020-09-21 10:32:20', 1, 0, 1),
-(67406, 1037, '2020-03-21 12:13:53', '2021-09-20 16:06:31', 1, 0, 1),
-(67507, 141, '2020-03-24 06:45:25', '2020-09-24 06:45:25', 1, 0, 1),
-(67507, 368, '2020-03-21 12:17:03', '2020-09-21 12:17:03', 1, 0, 1),
-(67507, 634, '2020-03-21 12:17:56', '2020-09-21 12:17:56', 1, 0, 1),
-(67507, 636, '2020-03-21 12:17:34', '2020-09-21 12:17:34', 1, 0, 1),
-(702636, 212, '2020-08-29 14:42:40', '2021-07-23 22:27:06', 1, 0, 1),
-(702636, 1184, '2021-03-22 22:00:35', '2021-09-22 22:00:35', 1, 0, 1),
-(2017503037, 1127, '2021-02-06 18:29:32', '2021-09-23 23:20:07', 1, 0, 1),
-(2017503037, 1188, '2021-03-24 12:18:11', '2021-09-24 12:18:11', 1, 0, 1),
-(2017503048, 1172, '2021-02-22 12:28:58', '2021-10-22 14:30:36', 1, 0, 1),
-(2017503048, 1177, '2021-03-15 13:36:41', '2021-11-12 14:18:26', 1, 0, 1),
-(2017503048, 1189, '2021-07-22 15:02:17', '2022-01-22 15:02:17', 1, 0, 1),
-(2017503048, 1199, '2021-07-22 14:32:41', '2022-01-22 14:35:12', 1, 120, 2),
-(2017503048, 1200, '2021-05-07 21:24:05', '2021-11-07 21:24:05', 1, 367.5, 2),
-(2017503048, 1201, '2021-07-22 15:01:56', '2022-01-22 15:01:56', 1, 0, 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `course_artimat`
 --
 
 CREATE TABLE `course_artimat` (
-  `cartimat_id` int NOT NULL,
+  `cartimat_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `conum` int NOT NULL,
+  `conum` int(11) NOT NULL,
   `costmt` varchar(255) NOT NULL,
-  `po1` int NOT NULL,
-  `po2` int NOT NULL,
-  `po3` int NOT NULL,
-  `po4` int NOT NULL,
-  `po5` int NOT NULL,
-  `po6` int NOT NULL,
-  `po7` int NOT NULL,
-  `po8` int NOT NULL,
-  `po9` int NOT NULL,
-  `po10` int NOT NULL,
-  `po11` int NOT NULL,
-  `po12` int NOT NULL,
-  `ps1` int NOT NULL,
-  `ps2` int NOT NULL,
-  `ps3` int NOT NULL
+  `po1` int(11) NOT NULL,
+  `po2` int(11) NOT NULL,
+  `po3` int(11) NOT NULL,
+  `po4` int(11) NOT NULL,
+  `po5` int(11) NOT NULL,
+  `po6` int(11) NOT NULL,
+  `po7` int(11) NOT NULL,
+  `po8` int(11) NOT NULL,
+  `po9` int(11) NOT NULL,
+  `po10` int(11) NOT NULL,
+  `po11` int(11) NOT NULL,
+  `po12` int(11) NOT NULL,
+  `ps1` int(11) NOT NULL,
+  `ps2` int(11) NOT NULL,
+  `ps3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -1684,13 +225,13 @@ INSERT INTO `course_artimat` (`cartimat_id`, `course_code`, `conum`, `costmt`, `
 --
 
 CREATE TABLE `course_assesseval` (
-  `cassesseval_id` int NOT NULL,
+  `cassesseval_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `assess_num` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `assess_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
-  `reg_no` int NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `mark` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -1734,17 +275,17 @@ INSERT INTO `course_assesseval` (`cassesseval_id`, `course_code`, `group_ref`, `
 --
 
 CREATE TABLE `course_assessment` (
-  `cassess_id` int NOT NULL,
+  `cassess_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `assess_num` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `assess_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
   `question_stmt` longtext,
   `question_img` varchar(100) DEFAULT NULL,
-  `blooms_level` int NOT NULL,
-  `co_num` int NOT NULL,
-  `marks` int NOT NULL,
+  `blooms_level` int(11) NOT NULL,
+  `co_num` int(11) NOT NULL,
+  `marks` int(11) NOT NULL,
   `entry_date` datetime NOT NULL,
   `section` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -1815,13 +356,13 @@ INSERT INTO `course_assessment` (`cassess_id`, `course_code`, `group_ref`, `sess
 --
 
 CREATE TABLE `course_assigneval` (
-  `cassigneval_id` int NOT NULL,
+  `cassigneval_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `assign_num` int NOT NULL,
-  `question_num` int NOT NULL,
-  `reg_no` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `assign_num` int(11) NOT NULL,
+  `question_num` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `mark` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -1856,17 +397,17 @@ INSERT INTO `course_assigneval` (`cassigneval_id`, `course_code`, `group_ref`, `
 --
 
 CREATE TABLE `course_assignment` (
-  `cassign_id` int NOT NULL,
+  `cassign_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `entry_date` date NOT NULL,
-  `assign_num` int NOT NULL,
+  `assign_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
   `question_stmt` longtext,
   `question_img` varchar(100) DEFAULT NULL,
-  `co_num` int NOT NULL,
-  `marks` int NOT NULL,
+  `co_num` int(11) NOT NULL,
+  `marks` int(11) NOT NULL,
   `deadline` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -1900,13 +441,13 @@ INSERT INTO `course_assignment` (`cassign_id`, `course_code`, `group_ref`, `sess
 --
 
 CREATE TABLE `course_attendance` (
-  `cattend_id` int NOT NULL,
+  `cattend_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `reg_no` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `date` date NOT NULL,
-  `period` int NOT NULL,
+  `period` int(11) NOT NULL,
   `presence` char(1) NOT NULL DEFAULT 'P'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -2046,13 +587,13 @@ INSERT INTO `course_attendance` (`cattend_id`, `course_code`, `group_ref`, `sess
 --
 
 CREATE TABLE `course_cacomp` (
-  `ccacomp_id` int NOT NULL,
+  `ccacomp_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `type` int NOT NULL,
-  `number` int NOT NULL,
-  `weightage` int NOT NULL
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
+  `weightage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2078,15 +619,15 @@ INSERT INTO `course_cacomp` (`ccacomp_id`, `course_code`, `group_ref`, `session_
 --
 
 CREATE TABLE `course_evaluation` (
-  `ceval_id` int NOT NULL,
+  `ceval_id` int(11) NOT NULL,
   `course_code` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `type` int NOT NULL,
-  `total_mark` int NOT NULL,
-  `marks_obtained` int NOT NULL,
-  `reg_no` int NOT NULL,
-  `number` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `total_mark` int(11) NOT NULL,
+  `marks_obtained` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
   `weighted_mark` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -2118,11 +659,11 @@ INSERT INTO `course_evaluation` (`ceval_id`, `course_code`, `group_ref`, `sessio
 --
 
 CREATE TABLE `course_extcalc` (
-  `cextcalc_id` int NOT NULL,
+  `cextcalc_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `reg_num` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `reg_num` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
   `marks` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2134,13 +675,13 @@ CREATE TABLE `course_extcalc` (
 --
 
 CREATE TABLE `course_extcomp` (
-  `cextcomp_id` int NOT NULL,
+  `cextcomp_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `question_num` varchar(10) NOT NULL,
-  `question_co` int NOT NULL,
-  `question_mark` int NOT NULL,
+  `question_co` int(11) NOT NULL,
+  `question_mark` int(11) NOT NULL,
   `question_section` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -2151,11 +692,11 @@ CREATE TABLE `course_extcomp` (
 --
 
 CREATE TABLE `course_internalcalc` (
-  `cintcalc_id` int NOT NULL,
+  `cintcalc_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
-  `reg_no` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
+  `reg_no` int(11) NOT NULL,
   `ca` float NOT NULL,
   `midterm` float NOT NULL,
   `total_marks` float NOT NULL
@@ -2177,13 +718,13 @@ INSERT INTO `course_internalcalc` (`cintcalc_id`, `course_code`, `group_ref`, `s
 --
 
 CREATE TABLE `course_lessonplan` (
-  `clp_id` int NOT NULL,
+  `clp_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `actual_date` date NOT NULL,
-  `period` int NOT NULL,
-  `course_ctopic_id` int NOT NULL,
+  `period` int(11) NOT NULL,
+  `course_ctopic_id` int(11) NOT NULL,
   `references` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -2204,18 +745,18 @@ INSERT INTO `course_lessonplan` (`clp_id`, `course_code`, `group_ref`, `session_
 
 CREATE TABLE `course_list` (
   `course_code` varchar(15) NOT NULL,
-  `stream` int NOT NULL,
-  `regulation` int NOT NULL,
-  `semester` int NOT NULL,
+  `stream` int(11) NOT NULL,
+  `regulation` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
   `title` varchar(55) NOT NULL,
-  `l` int NOT NULL,
-  `t` int NOT NULL,
-  `p` int NOT NULL,
-  `el` int NOT NULL,
-  `contact_periods` int NOT NULL,
-  `credit` int NOT NULL,
+  `l` int(11) NOT NULL,
+  `t` int(11) NOT NULL,
+  `p` int(11) NOT NULL,
+  `el` int(11) NOT NULL,
+  `contact_periods` int(11) NOT NULL,
+  `credit` int(11) NOT NULL,
   `objectives` mediumtext,
-  `type` int DEFAULT NULL
+  `type` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2315,12 +856,12 @@ INSERT INTO `course_list` (`course_code`, `stream`, `regulation`, `semester`, `t
 --
 
 CREATE TABLE `course_registered_students` (
-  `cregst_id` int NOT NULL,
+  `cregst_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `reg_no` int NOT NULL,
-  `semester` int NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL
+  `reg_no` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2366,12 +907,12 @@ INSERT INTO `course_registered_students` (`cregst_id`, `course_code`, `reg_no`, 
 --
 
 CREATE TABLE `course_topic` (
-  `ctopic_id` int NOT NULL,
+  `ctopic_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `module_num` int NOT NULL,
+  `module_num` int(11) NOT NULL,
   `topic_num` varchar(10) NOT NULL,
   `topic` varchar(100) NOT NULL,
-  `conum` int NOT NULL
+  `conum` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -2387,85 +928,19 @@ INSERT INTO `course_topic` (`ctopic_id`, `course_code`, `module_num`, `topic_num
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log_records`
---
-
-CREATE TABLE `log_records` (
-  `log_id` int NOT NULL,
-  `person_id` int NOT NULL,
-  `type_ref` int NOT NULL,
-  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `log_time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `log_records`
---
-
-INSERT INTO `log_records` (`log_id`, `person_id`, `type_ref`, `content`, `log_time`) VALUES
-(320, 2017503048, 10, '{\"message\":\"Book has been renewed for user\",\"person\":2017503048,\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\"}', '2021-05-07 20:58:06'),
-(321, 2017503048, 9, '{\"message\":\"Book has been issued to user\",\"person\":2017503048,\"title\":\"Sample Book Testing\",\"sub_title\":\"Sample\",\"id\":1200,\"categ\":\"CO\"}', '2021-05-07 21:24:05'),
-(327, 2017503048, 14, '{\"message\":\"Book has been marked as Lost\",\"person\":2017503048,\"title\":\"Sample Book Testing\",\"sub_title\":\"Sample\",\"id\":1200,\"categ\":\"CO\"}', '2021-05-09 20:12:11'),
-(330, 2017503048, 14, '{\"message\":\"Book has been marked as Lost\",\"person\":2017503048,\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\"}', '2021-05-11 20:43:22'),
-(331, 2017503048, 14, '{\"message\":\"Book has been marked as Lost\",\"person\":2017503048,\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\"}', '2021-05-12 12:14:16'),
-(332, 2017503037, 11, '{\"message\":\"Book has been returned from user\",\"person\":2017503037,\"title\":\"Foundation Program( Introduction to Computer System, Operating System Concepts , Programming and Testing)\",\"sub_title\":\"Campus Connect\",\"id\":591,\"categ\":\"OS\"}', '2021-05-12 12:29:15'),
-(333, 2017503048, 10, '{\"message\":\"Book has been renewed for user\",\"person\":2017503048,\"title\":\"Sample Text Book\",\"sub_title\":\"Sam Curran\",\"id\":1177,\"categ\":\"DS\"}', '2021-05-12 14:18:26'),
-(334, 60623, 10, '{\"message\":\"Book has been renewed for user\",\"person\":\"60623\",\"title\":\"Computer Graphics\",\"sub_title\":\"Hearn M.P Baker\",\"id\":153,\"categ\":\"CG\"}', '2021-05-12 14:19:51'),
-(335, 0, 5, '{\"message\":\"Book has been removed\",\"title\":\"New Sample Editing\",\"sub_title\":\"Sample Author\",\"id\":1192,\"categ\":\"BC\",\"count\":1}', '2021-05-12 21:40:38'),
-(336, 2017503048, 9, '{\"message\":\"Book has been issued to user\",\"person\":2017503048,\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\"}', '2021-05-14 13:01:28'),
-(337, 2017503048, 14, '{\"message\":\"Book has been marked as Lost\",\"person\":2017503048,\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\"}', '2021-05-14 13:01:54'),
-(338, 2017503048, 9, '{\"message\":\"Book has been issued to user\",\"person\":2017503048,\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\"}', '2021-05-14 13:04:53'),
-(339, 0, 5, '{\"message\":\"Book has been removed\",\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\",\"count\":1}', '2021-05-14 13:06:54'),
-(340, 0, 5, '{\"message\":\"Book has been removed\",\"title\":\"Sample Book Edited\",\"sub_title\":\"Star Lord\",\"id\":1186,\"categ\":\"AC\",\"count\":1}', '2021-05-14 14:59:10'),
-(341, 2017503048, 9, '{\"message\":\"Book has been issued to user\",\"person\":2017503048,\"title\":\"Sample\",\"sub_title\":\"Sample\",\"id\":1199,\"categ\":\"DB\"}', '2021-07-22 14:32:41'),
-(342, 2017503048, 10, '{\"message\":\"Book has been renewed for user\",\"person\":2017503048,\"title\":\"Sample\",\"sub_title\":\"Sample\",\"id\":1199,\"categ\":\"DB\"}', '2021-07-22 14:35:06'),
-(343, 2017503048, 10, '{\"message\":\"Book has been renewed for user\",\"person\":2017503048,\"title\":\"Sample\",\"sub_title\":\"Sample\",\"id\":1199,\"categ\":\"DB\"}', '2021-07-22 14:35:12'),
-(344, 0, 3, '{\"message\":\"Book has been inserted\",\"title\":\"New Book Entry\",\"sub_title\":\"New Author\",\"count\":\"1\",\"categ\":\"CF\",\"id\":1201}', '2021-07-22 14:56:19'),
-(345, 0, 4, '{\"message\":\"Book has been updated\",\"title\":\"New Book Entry\",\"sub_title\":\"New Author\",\"id\":1201,\"categ\":\"CF\",\"count\":1}', '2021-07-22 14:56:39'),
-(346, 2017503048, 14, '{\"message\":\"Book has been marked as Lost\",\"person\":2017503048,\"title\":\"Sample\",\"sub_title\":\"Sample\",\"id\":1199,\"categ\":\"DB\"}', '2021-07-22 14:58:49'),
-(347, 2017503048, 9, '{\"message\":\"Book has been issued to user\",\"person\":2017503048,\"title\":\"New Book Entry\",\"sub_title\":\"New Author\",\"id\":1201,\"categ\":\"CF\"}', '2021-07-22 15:01:56'),
-(348, 2017503048, 9, '{\"message\":\"Book has been issued to user\",\"person\":2017503048,\"title\":\"Sample Book\",\"sub_title\":\"Star Lord\",\"id\":1189,\"categ\":\"QC\"}', '2021-07-22 15:02:17');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `new_book_request`
---
-
-CREATE TABLE `new_book_request` (
-  `request_id` int NOT NULL,
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `response` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `new_book_request`
---
-
-INSERT INTO `new_book_request` (`request_id`, `content`, `response`) VALUES
-(48, '{\"book_name\":\"Sample New Request\",\"book_author\":\"Zack Synder\",\"book_publish\":\"Marvel Studios\"}', 1),
-(58, '{\"book_name\":\"New Book Request\",\"book_author\":\"New Author\",\"book_publish\":\"ABS\",\"book_year\":\"2015\"}', 1),
-(59, '{\"book_name\":\"New Book File\",\"book_author\":\"Falcon and the winter soldier\",\"book_publish\":\"APVS\",\"book_year\":\"2015\"}', 2),
-(85, '{\"book_name\":\"HTML to React\",\"book_author\":\"Ironman\",\"book_publish\":\"Avengers Publications\",\"book_year\":\"2020\"}', 3),
-(87, '{\"book_name\":\"Conference\",\"book_author\":\"Sample Author\",\"book_publish\":\"\",\"book_year\":\"\"}', 1),
-(112, '{\"book_name\":\"New Book Request\",\"book_author\":\"Sample Author\",\"book_publish\":\"Sample\",\"book_year\":\"2021\"}', 2);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `person`
 --
 
 CREATE TABLE `person` (
-  `Person_ID` int NOT NULL,
-  `Prefix_Ref` int DEFAULT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Prefix_Ref` int(11) DEFAULT NULL,
   `First_Name` varchar(50) DEFAULT NULL,
   `Last_Name` varchar(50) DEFAULT NULL,
-  `Rank` int DEFAULT NULL,
-  `Gender_Ref` int DEFAULT NULL,
+  `Rank` int(11) DEFAULT NULL,
+  `Gender_Ref` int(11) DEFAULT NULL,
   `DOB` date DEFAULT NULL,
-  `Designation` int DEFAULT NULL,
-  `Community_Ref` int DEFAULT NULL,
+  `Designation` int(11) DEFAULT NULL,
+  `Community_Ref` int(11) DEFAULT NULL,
   `Caste` varchar(50) DEFAULT NULL,
   `Primary_MailID` varchar(50) DEFAULT NULL,
   `Secondary_MailID` varchar(50) DEFAULT NULL,
@@ -2481,7 +956,7 @@ CREATE TABLE `person` (
   `Address_Line3` varchar(45) DEFAULT NULL,
   `Address_Line4` varchar(45) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL,
-  `Marital_Status_Ref` int DEFAULT NULL,
+  `Marital_Status_Ref` int(11) DEFAULT NULL,
   `Room_Num` varchar(6) DEFAULT NULL,
   `profilePic_path` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2519,16 +994,16 @@ INSERT INTO `person` (`Person_ID`, `Prefix_Ref`, `First_Name`, `Last_Name`, `Ran
 --
 
 CREATE TABLE `person_academic` (
-  `Academic_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Academic_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Course_Code` varchar(7) DEFAULT NULL,
   `Session` varchar(20) DEFAULT NULL,
-  `Semester` int DEFAULT NULL,
+  `Semester` int(11) DEFAULT NULL,
   `Group` varchar(2) DEFAULT NULL,
-  `Degree_Ref` int DEFAULT NULL,
-  `Branch_Ref` int DEFAULT NULL,
+  `Degree_Ref` int(11) DEFAULT NULL,
+  `Branch_Ref` int(11) DEFAULT NULL,
   `Class_Time` time DEFAULT NULL,
-  `Class_Type_Ref` int DEFAULT NULL
+  `Class_Type_Ref` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -2538,8 +1013,8 @@ CREATE TABLE `person_academic` (
 --
 
 CREATE TABLE `person_additional_duties` (
-  `Duty_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Duty_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Duty_Allotted` varchar(45) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL,
@@ -2554,12 +1029,12 @@ CREATE TABLE `person_additional_duties` (
 --
 
 CREATE TABLE `person_awards` (
-  `Award_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Award_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
   `Place` varchar(15) DEFAULT NULL,
-  `Start_Year` year DEFAULT NULL,
+  `Start_Year` year(4) DEFAULT NULL,
   `Details` varchar(255) DEFAULT NULL,
   `path` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2571,11 +1046,11 @@ CREATE TABLE `person_awards` (
 --
 
 CREATE TABLE `person_course_details` (
-  `Course_ID` int NOT NULL,
+  `Course_ID` int(11) NOT NULL,
   `Course_Code` varchar(7) NOT NULL,
   `Course_Name` varchar(50) DEFAULT NULL,
-  `Regulation` year DEFAULT NULL,
-  `Credit` int DEFAULT NULL
+  `Regulation` year(4) DEFAULT NULL,
+  `Credit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -2585,19 +1060,19 @@ CREATE TABLE `person_course_details` (
 --
 
 CREATE TABLE `person_events_attended` (
-  `Event_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Event_Type_Ref` int DEFAULT NULL,
-  `Level_Ref` int DEFAULT NULL,
+  `Event_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Event_Type_Ref` int(11) DEFAULT NULL,
+  `Level_Ref` int(11) DEFAULT NULL,
   `Event_Title` varchar(100) DEFAULT NULL,
   `Hosting_Organization` varchar(100) DEFAULT NULL,
   `Place` varchar(45) DEFAULT NULL,
-  `Participation_Status_Ref` int DEFAULT NULL,
+  `Participation_Status_Ref` int(11) DEFAULT NULL,
   `Role` varchar(45) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
   `Funding_Agency` varchar(255) DEFAULT NULL,
-  `No_Of_Participants` int DEFAULT NULL,
+  `No_Of_Participants` int(11) DEFAULT NULL,
   `Summary_File` blob,
   `Event_Schedule` blob,
   `Participants_Lists` blob,
@@ -2612,15 +1087,15 @@ CREATE TABLE `person_events_attended` (
 --
 
 CREATE TABLE `person_experience` (
-  `Experience_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Designation_Ref` int DEFAULT NULL,
+  `Experience_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Designation_Ref` int(11) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
   `Department` varchar(50) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
-  `Emp_Category_Ref` int DEFAULT NULL,
-  `Work_Nature_Ref` int DEFAULT NULL,
+  `Emp_Category_Ref` int(11) DEFAULT NULL,
+  `Work_Nature_Ref` int(11) DEFAULT NULL,
   `Position_Held` varchar(45) DEFAULT NULL,
   `path` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2632,9 +1107,9 @@ CREATE TABLE `person_experience` (
 --
 
 CREATE TABLE `person_guestlecture` (
-  `GuestLecture_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Level_Ref` int DEFAULT NULL,
+  `GuestLecture_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Level_Ref` int(11) DEFAULT NULL,
   `Topic` varchar(100) DEFAULT NULL,
   `Programme` varchar(100) DEFAULT NULL,
   `Organization` varchar(100) DEFAULT NULL,
@@ -2649,11 +1124,11 @@ CREATE TABLE `person_guestlecture` (
 --
 
 CREATE TABLE `person_membership` (
-  `Member_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Member_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Prof_Body` varchar(45) DEFAULT NULL,
   `Membership_NUM` varchar(15) DEFAULT NULL,
-  `Member_Type` int DEFAULT NULL,
+  `Member_Type` int(11) DEFAULT NULL,
   `Sart_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2665,13 +1140,13 @@ CREATE TABLE `person_membership` (
 --
 
 CREATE TABLE `person_patents` (
-  `Patent_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Patent_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Patent_Number` varchar(15) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `Place` varchar(15) DEFAULT NULL,
-  `Patent_Status_Ref` int DEFAULT NULL,
+  `Patent_Status_Ref` int(11) DEFAULT NULL,
   `Patent_Copy` varchar(255) DEFAULT NULL,
   `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2683,11 +1158,11 @@ CREATE TABLE `person_patents` (
 --
 
 CREATE TABLE `person_project_allocation` (
-  `Project_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Qualification_Level_Ref` int DEFAULT NULL,
+  `Project_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Qualification_Level_Ref` int(11) DEFAULT NULL,
   `Batch_ID` varchar(5) DEFAULT NULL,
-  `Reg_Num` bigint DEFAULT NULL,
+  `Reg_Num` bigint(20) DEFAULT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Project_Domain` varchar(45) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
@@ -2701,13 +1176,13 @@ CREATE TABLE `person_project_allocation` (
 --
 
 CREATE TABLE `person_project_proposal` (
-  `Proposal_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Proposal_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
-  `Project_Type_Ref` int DEFAULT NULL,
+  `Project_Type_Ref` int(11) DEFAULT NULL,
   `PI_Name` varchar(45) DEFAULT NULL,
   `COI1_Name` varchar(45) DEFAULT NULL,
-  `Status_Ref` int DEFAULT NULL,
+  `Status_Ref` int(11) DEFAULT NULL,
   `Fund_Agency` varchar(100) DEFAULT NULL,
   `TotalSanctionedAmount` double DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
@@ -2728,21 +1203,21 @@ CREATE TABLE `person_project_proposal` (
 --
 
 CREATE TABLE `person_publication` (
-  `Publication_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Publication_Type_Ref` int DEFAULT NULL,
-  `Level_Ref` int DEFAULT NULL,
+  `Publication_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Publication_Type_Ref` int(11) DEFAULT NULL,
+  `Level_Ref` int(11) DEFAULT NULL,
   `Paper_Title` varchar(255) DEFAULT NULL,
   `First_Author` varchar(50) DEFAULT NULL,
   `Second_Author` varchar(50) DEFAULT NULL,
   `Other_Authors` varchar(255) DEFAULT NULL,
   `Journal_Name` varchar(255) DEFAULT NULL,
-  `Volume` int DEFAULT NULL,
-  `Issue` int DEFAULT NULL,
+  `Volume` int(11) DEFAULT NULL,
+  `Issue` int(11) DEFAULT NULL,
   `DOI` varchar(50) DEFAULT NULL,
-  `Year_Of_Publish` year DEFAULT NULL,
-  `Start_Page_No` int DEFAULT NULL,
-  `End_Page_No` int DEFAULT NULL,
+  `Year_Of_Publish` year(4) DEFAULT NULL,
+  `Start_Page_No` int(11) DEFAULT NULL,
+  `End_Page_No` int(11) DEFAULT NULL,
   `Publisher` varchar(50) DEFAULT NULL,
   `Impact_Factor` float DEFAULT NULL,
   `path` varchar(128) DEFAULT NULL
@@ -2755,16 +1230,16 @@ CREATE TABLE `person_publication` (
 --
 
 CREATE TABLE `person_qualification` (
-  `Qualification_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Qualification_Level_Ref` int DEFAULT NULL,
-  `Degree_Ref` int DEFAULT NULL,
-  `Branch_Ref` int DEFAULT NULL,
+  `Qualification_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Qualification_Level_Ref` int(11) DEFAULT NULL,
+  `Degree_Ref` int(11) DEFAULT NULL,
+  `Branch_Ref` int(11) DEFAULT NULL,
   `Institution` varchar(100) DEFAULT NULL,
   `University` varchar(50) DEFAULT NULL,
-  `Start_Date` year DEFAULT NULL,
-  `End_Date` year DEFAULT NULL,
-  `Class_Obtained_Ref` int DEFAULT NULL,
+  `Start_Date` year(4) DEFAULT NULL,
+  `End_Date` year(4) DEFAULT NULL,
+  `Class_Obtained_Ref` int(11) DEFAULT NULL,
   `Thesis_Title` varchar(150) DEFAULT NULL,
   `Specialization` varchar(45) DEFAULT NULL,
   `Faculty_Research` varchar(50) DEFAULT NULL,
@@ -2778,7 +1253,7 @@ CREATE TABLE `person_qualification` (
 --
 
 CREATE TABLE `person_reference_table` (
-  `Reference_ID` int NOT NULL,
+  `Reference_ID` int(11) NOT NULL,
   `Category` varchar(25) DEFAULT NULL,
   `Ref_Name` varchar(100) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL
@@ -2973,8 +1448,7 @@ INSERT INTO `person_reference_table` (`Reference_ID`, `Category`, `Ref_Name`, `D
 (182, 'Employment_Title', 'Not Categorised', NULL),
 (183, 'Semester', 'LAB', NULL),
 (184, 'Semester', 'PG-E', NULL),
-(185, 'Semester', 'OE', NULL),
-(197, 'Session', '21N', 'August 2021 - November 2021');
+(185, 'Semester', 'OE', NULL);
 
 -- --------------------------------------------------------
 
@@ -2983,9 +1457,9 @@ INSERT INTO `person_reference_table` (`Reference_ID`, `Category`, `Ref_Name`, `D
 --
 
 CREATE TABLE `person_responsibility` (
-  `Responsibility_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Responsibility_Ref` int DEFAULT NULL,
+  `Responsibility_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Responsibility_Ref` int(11) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL
@@ -2998,19 +1472,19 @@ CREATE TABLE `person_responsibility` (
 --
 
 CREATE TABLE `person_scholardetails` (
-  `Scholar_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Scholar_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Reg_No` varchar(10) DEFAULT NULL,
   `Scholar_Name` varchar(45) DEFAULT NULL,
   `Title` varchar(100) DEFAULT NULL,
-  `Status_Ref` int DEFAULT NULL,
-  `Guide_Type_Ref` int DEFAULT NULL,
-  `Fellowship_Received_Ref` int DEFAULT NULL,
+  `Status_Ref` int(11) DEFAULT NULL,
+  `Guide_Type_Ref` int(11) DEFAULT NULL,
+  `Fellowship_Received_Ref` int(11) DEFAULT NULL,
   `Fellowship_Agency` varchar(45) DEFAULT NULL,
   `Fellowship_Amount` float DEFAULT NULL,
   `Year_Of_Registration` date DEFAULT NULL,
   `Research_Area` varchar(45) DEFAULT NULL,
-  `Registration_Mode_Ref` int DEFAULT NULL,
+  `Registration_Mode_Ref` int(11) DEFAULT NULL,
   `Fellowship_Name` varchar(45) DEFAULT NULL,
   `Fellowship_Year` date DEFAULT NULL,
   `Year_Of_Completion` date DEFAULT NULL,
@@ -3024,8 +1498,8 @@ CREATE TABLE `person_scholardetails` (
 --
 
 CREATE TABLE `person_specialization` (
-  `Specialization_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Specialization_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `AOS1` varchar(45) DEFAULT NULL,
   `AOS2` varchar(45) DEFAULT NULL,
   `AOS3` varchar(45) DEFAULT NULL,
@@ -3040,14 +1514,14 @@ CREATE TABLE `person_specialization` (
 --
 
 CREATE TABLE `person_supervision` (
-  `Supervision_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
-  `Degree_Ref` int DEFAULT NULL,
-  `Guide_Type_Ref` int DEFAULT NULL,
-  `Reg_No` int DEFAULT NULL,
-  `Start_Year` year DEFAULT NULL,
-  `End_Year` year DEFAULT NULL,
-  `Status_Ref` int DEFAULT NULL,
+  `Supervision_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
+  `Degree_Ref` int(11) DEFAULT NULL,
+  `Guide_Type_Ref` int(11) DEFAULT NULL,
+  `Reg_No` int(11) DEFAULT NULL,
+  `Start_Year` year(4) DEFAULT NULL,
+  `End_Year` year(4) DEFAULT NULL,
+  `Status_Ref` int(11) DEFAULT NULL,
   `path` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -3058,8 +1532,8 @@ CREATE TABLE `person_supervision` (
 --
 
 CREATE TABLE `person_travel_history` (
-  `Travel_ID` int NOT NULL,
-  `Person_ID` int NOT NULL,
+  `Travel_ID` int(11) NOT NULL,
+  `Person_ID` int(11) NOT NULL,
   `Title` varchar(100) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
@@ -3077,7 +1551,7 @@ CREATE TABLE `person_travel_history` (
 --
 
 CREATE TABLE `staff_list` (
-  `staff_id` int NOT NULL,
+  `staff_id` int(11) NOT NULL,
   `name` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -3088,13 +1562,13 @@ CREATE TABLE `staff_list` (
 --
 
 CREATE TABLE `student` (
-  `Register_No` int NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `First_Name` varchar(50) DEFAULT NULL,
   `Middle_Name` varchar(50) DEFAULT NULL,
   `Last_Name` varchar(50) DEFAULT NULL,
-  `Gender_Ref` int DEFAULT NULL,
+  `Gender_Ref` int(11) DEFAULT NULL,
   `DOB` date DEFAULT NULL,
-  `Community_Ref` int DEFAULT NULL,
+  `Community_Ref` int(11) DEFAULT NULL,
   `Caste` varchar(50) DEFAULT NULL,
   `Nationality` varchar(30) DEFAULT NULL,
   `MailID` varchar(50) DEFAULT NULL,
@@ -3107,18 +1581,18 @@ CREATE TABLE `student` (
   `Address_Line4` varchar(45) DEFAULT NULL,
   `Correspondence_Address` varchar(255) DEFAULT NULL,
   `Photo` varchar(255) DEFAULT NULL,
-  `Residential_Type_Ref` int DEFAULT NULL,
-  `FA` int DEFAULT NULL,
-  `Programme_Ref` int DEFAULT NULL,
-  `Branch_Ref` int DEFAULT NULL,
-  `Registration_Mode_Ref` int DEFAULT NULL,
-  `Blood_Group_Ref` int DEFAULT NULL,
+  `Residential_Type_Ref` int(11) DEFAULT NULL,
+  `FA` int(11) DEFAULT NULL,
+  `Programme_Ref` int(11) DEFAULT NULL,
+  `Branch_Ref` int(11) DEFAULT NULL,
+  `Registration_Mode_Ref` int(11) DEFAULT NULL,
+  `Blood_Group_Ref` int(11) DEFAULT NULL,
   `GATE_Cutoff_Mark` float DEFAULT NULL,
   `Admission_Date` date DEFAULT NULL,
-  `Admission_Category_Ref` int DEFAULT NULL,
-  `Scholarship_Received_Ref` int DEFAULT NULL,
+  `Admission_Category_Ref` int(11) DEFAULT NULL,
+  `Scholarship_Received_Ref` int(11) DEFAULT NULL,
   `Scholarship_Details` varchar(255) DEFAULT NULL,
-  `NSS_NSO_YRC_Volunteer_Ref` int DEFAULT NULL,
+  `NSS_NSO_YRC_Volunteer_Ref` int(11) DEFAULT NULL,
   `Hostel_Block_Room` varchar(45) DEFAULT NULL,
   `Report` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -3576,12 +2050,12 @@ INSERT INTO `student` (`Register_No`, `First_Name`, `Middle_Name`, `Last_Name`, 
 --
 
 CREATE TABLE `student_awards` (
-  `Award_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Award_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Award_Name` varchar(255) DEFAULT NULL,
   `Organizer_Name` varchar(255) DEFAULT NULL,
-  `Award_Type_Ref` int DEFAULT NULL,
-  `Award_Category_Ref` int DEFAULT NULL,
+  `Award_Type_Ref` int(11) DEFAULT NULL,
+  `Award_Category_Ref` int(11) DEFAULT NULL,
   `Place_of_Event` varchar(50) DEFAULT NULL,
   `Certificate_Copy` varchar(255) DEFAULT NULL,
   `Award_Date` date DEFAULT NULL
@@ -3602,13 +2076,13 @@ INSERT INTO `student_awards` (`Award_ID`, `Register_No`, `Award_Name`, `Organize
 --
 
 CREATE TABLE `student_endsemmarks` (
-  `Mark_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
-  `Semester` int NOT NULL,
+  `Mark_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
+  `Semester` int(11) NOT NULL,
   `Course_Code` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `Session_Ref` int DEFAULT NULL,
+  `Session_Ref` int(11) DEFAULT NULL,
   `Grade` varchar(3) DEFAULT NULL,
-  `Credits` int DEFAULT NULL,
+  `Credits` int(11) DEFAULT NULL,
   `Entry_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -3694,12 +2168,12 @@ INSERT INTO `student_endsemmarks` (`Mark_ID`, `Register_No`, `Semester`, `Course
 --
 
 CREATE TABLE `student_events_participated` (
-  `Event_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Event_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Event_Name` varchar(50) DEFAULT NULL,
-  `Event_Type_Ref` int DEFAULT NULL,
-  `Participation_Type_Ref` int DEFAULT NULL,
-  `Team_Size` int DEFAULT NULL,
+  `Event_Type_Ref` int(11) DEFAULT NULL,
+  `Participation_Type_Ref` int(11) DEFAULT NULL,
+  `Team_Size` int(11) DEFAULT NULL,
   `Event_Organizer` varchar(50) DEFAULT NULL,
   `Event_Date` date DEFAULT NULL,
   `Prize_Won_Details` varchar(255) DEFAULT NULL,
@@ -3721,21 +2195,21 @@ INSERT INTO `student_events_participated` (`Event_ID`, `Register_No`, `Event_Nam
 --
 
 CREATE TABLE `student_family_details` (
-  `Family_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Family_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Father_Name` varchar(50) DEFAULT NULL,
   `Mother_Name` varchar(50) DEFAULT NULL,
   `Father_ContactNumber` varchar(15) DEFAULT NULL,
   `Mother_ContactNumber` varchar(15) DEFAULT NULL,
   `Father_MailID` varchar(50) DEFAULT NULL,
   `Mother_MailID` varchar(15) DEFAULT NULL,
-  `Father_Employment_Title` int DEFAULT NULL,
-  `Mother_Employment_Title` int DEFAULT NULL,
+  `Father_Employment_Title` int(11) DEFAULT NULL,
+  `Mother_Employment_Title` int(11) DEFAULT NULL,
   `Father_Organization_Address` varchar(50) DEFAULT NULL,
   `Mother_Organization_Address` varchar(50) DEFAULT NULL,
   `Father_Organization` varchar(50) DEFAULT NULL,
   `Mother_Organization` varchar(50) DEFAULT NULL,
-  `Parents_Annual_Income` int DEFAULT NULL,
+  `Parents_Annual_Income` int(11) DEFAULT NULL,
   `Local_Guardian_Name` varchar(50) DEFAULT NULL,
   `Local_Guardian_Address` varchar(255) DEFAULT NULL,
   `Local_Guardian_Contact_Number` varchar(15) DEFAULT NULL
@@ -3759,9 +2233,9 @@ INSERT INTO `student_family_details` (`Family_ID`, `Register_No`, `Father_Name`,
 --
 
 CREATE TABLE `student_gpa` (
-  `Gpa_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
-  `Semester` int NOT NULL,
+  `Gpa_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
+  `Semester` int(11) NOT NULL,
   `GPA` float DEFAULT NULL,
   `Grade_Sheet` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -3789,12 +2263,12 @@ INSERT INTO `student_gpa` (`Gpa_ID`, `Register_No`, `Semester`, `GPA`, `Grade_Sh
 --
 
 CREATE TABLE `student_higherstudies` (
-  `HigherStudies_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `HigherStudies_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `University` varchar(255) DEFAULT NULL,
   `Degree` varchar(50) DEFAULT NULL,
   `Specialization` varchar(50) DEFAULT NULL,
-  `Admission_Mode_Ref` int DEFAULT NULL,
+  `Admission_Mode_Ref` int(11) DEFAULT NULL,
   `Score` float DEFAULT NULL,
   `Country` varchar(45) DEFAULT NULL,
   `Location` varchar(45) DEFAULT NULL,
@@ -3817,17 +2291,17 @@ INSERT INTO `student_higherstudies` (`HigherStudies_ID`, `Register_No`, `Univers
 --
 
 CREATE TABLE `student_internship` (
-  `Internship_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Internship_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Company` varchar(255) DEFAULT NULL,
   `Title` varchar(255) NOT NULL,
   `Order_Copy` varchar(255) DEFAULT NULL,
   `Address` varchar(255) DEFAULT NULL,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
-  `Stiphend_Option_Ref` int DEFAULT NULL,
+  `Stiphend_Option_Ref` int(11) DEFAULT NULL,
   `Stiphend_Amount` float DEFAULT NULL,
-  `Selection_Mode_Ref` int DEFAULT NULL
+  `Selection_Mode_Ref` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -3845,8 +2319,8 @@ INSERT INTO `student_internship` (`Internship_ID`, `Register_No`, `Company`, `Ti
 --
 
 CREATE TABLE `student_placement` (
-  `Placement_ID` int NOT NULL,
-  `Register_No` int NOT NULL,
+  `Placement_ID` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL,
   `Company` varchar(255) DEFAULT NULL,
   `Package` float DEFAULT NULL,
   `Appointment_Order_Copy` varchar(255) DEFAULT NULL,
@@ -3855,7 +2329,7 @@ CREATE TABLE `student_placement` (
   `Appointment_OrderNum` varchar(45) DEFAULT NULL,
   `Appointment_Letter_IssueDate` date DEFAULT NULL,
   `Joining_Date` date DEFAULT NULL,
-  `Placement_Type_Ref` int DEFAULT NULL
+  `Placement_Type_Ref` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -3873,9 +2347,9 @@ INSERT INTO `student_placement` (`Placement_ID`, `Register_No`, `Company`, `Pack
 --
 
 CREATE TABLE `student_thesis` (
-  `Sthesisid` int NOT NULL,
-  `Tthesisid` int NOT NULL,
-  `Register_No` int NOT NULL
+  `Sthesisid` int(11) NOT NULL,
+  `Tthesisid` int(11) NOT NULL,
+  `Register_No` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -3885,12 +2359,12 @@ CREATE TABLE `student_thesis` (
 --
 
 CREATE TABLE `subjects_offered` (
-  `subid` int NOT NULL,
+  `subid` int(11) NOT NULL,
   `code` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `session` int DEFAULT NULL,
-  `group_ref` int DEFAULT NULL,
-  `semester` int DEFAULT NULL,
-  `person_id` int DEFAULT NULL
+  `session` int(11) DEFAULT NULL,
+  `group_ref` int(11) DEFAULT NULL,
+  `semester` int(11) DEFAULT NULL,
+  `person_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -3906,24 +2380,16 @@ INSERT INTO `subjects_offered` (`subid`, `code`, `session`, `group_ref`, `semest
 (9, 'CS6811', 146, 150, 8, NULL),
 (10, 'CS6811', 146, 151, 8, NULL),
 (33, 'CS6002', 146, 150, 8, NULL),
-(69, 'CS6003', 146, 150, 6, NULL),
-(70, 'CS6003', 146, 151, 6, NULL),
-(71, 'CS6301L', 146, 150, 2, NULL),
-(72, 'CS6301L', 146, 150, 2, NULL),
-(73, 'CS6305L', 146, 150, 2, NULL),
-(74, 'CS6306L', 146, 150, 2, NULL),
-(75, 'CS6301L', 146, 151, 2, NULL),
-(76, 'CS6301L', 146, 151, 2, 60623),
-(77, 'CS6103', 146, 150, 2, NULL),
-(78, 'CS6103', 146, 151, 2, NULL),
-(79, 'CY6251', 146, 150, 2, NULL),
-(80, 'CY6251', 146, 151, 2, NULL),
-(81, 'GE6251', 146, 150, 2, NULL),
-(82, 'GE6251', 146, 151, 2, NULL),
-(83, 'HS6251', 146, 150, 2, NULL),
-(84, 'HS6251', 146, 151, 2, NULL),
-(85, 'MA6251', 146, 150, 2, NULL),
-(86, 'MA6251', 146, 151, 2, NULL);
+(57, 'CY6251', 146, 150, 2, NULL),
+(58, 'CY6251', 146, 151, 2, NULL),
+(59, 'GE6251', 146, 150, 2, NULL),
+(60, 'GE6251', 146, 151, 2, NULL),
+(61, 'HS6251', 146, 150, 2, NULL),
+(62, 'HS6251', 146, 151, 2, NULL),
+(63, 'MA6251', 146, 150, 2, NULL),
+(64, 'MA6251', 146, 151, 2, NULL),
+(67, 'CS6103', 146, 150, 2, 67068),
+(68, 'CS6103', 146, 151, 2, 67507);
 
 -- --------------------------------------------------------
 
@@ -3932,11 +2398,11 @@ INSERT INTO `subjects_offered` (`subid`, `code`, `session`, `group_ref`, `semest
 --
 
 CREATE TABLE `subject_allocation_status` (
-  `Status_ID` int NOT NULL,
-  `Session_Ref` int NOT NULL,
-  `SSelection_Status` int DEFAULT '0',
-  `SAllocation_Status` int DEFAULT '0',
-  `LAllocation_Status` int DEFAULT '0'
+  `Status_ID` int(11) NOT NULL,
+  `Session_Ref` int(11) NOT NULL,
+  `SSelection_Status` int(11) DEFAULT '0',
+  `SAllocation_Status` int(11) DEFAULT '0',
+  `LAllocation_Status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -3944,8 +2410,7 @@ CREATE TABLE `subject_allocation_status` (
 --
 
 INSERT INTO `subject_allocation_status` (`Status_ID`, `Session_Ref`, `SSelection_Status`, `SAllocation_Status`, `LAllocation_Status`) VALUES
-(4, 146, 1, 0, 1),
-(5, 197, 0, 0, 0);
+(4, 146, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3954,13 +2419,13 @@ INSERT INTO `subject_allocation_status` (`Status_ID`, `Session_Ref`, `SSelection
 --
 
 CREATE TABLE `subj_allot` (
-  `sallot_id` int NOT NULL,
-  `staff_id` int NOT NULL,
+  `sallot_id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
   `course_code` varchar(15) NOT NULL,
-  `group_ref` int NOT NULL,
-  `session_ref` int NOT NULL,
+  `group_ref` int(11) NOT NULL,
+  `session_ref` int(11) NOT NULL,
   `class_room` varchar(15) DEFAULT NULL,
-  `student_count` int DEFAULT NULL
+  `student_count` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -3970,20 +2435,20 @@ CREATE TABLE `subj_allot` (
 --
 
 CREATE TABLE `team_thesis` (
-  `Tthesisid` int NOT NULL,
-  `Team_Id` int NOT NULL,
-  `Programme_Ref` int NOT NULL,
-  `Session_Ref` int NOT NULL,
+  `Tthesisid` int(11) NOT NULL,
+  `Team_Id` int(11) NOT NULL,
+  `Programme_Ref` int(11) NOT NULL,
+  `Session_Ref` int(11) NOT NULL,
   `Title` varchar(50) NOT NULL,
   `Major_Domain` varchar(50) NOT NULL,
   `Keyword1` varchar(50) NOT NULL,
   `Keyword2` varchar(50) NOT NULL,
   `Keyword3` varchar(50) NOT NULL,
   `Keyword4` varchar(50) NOT NULL,
-  `Supervisor` int NOT NULL,
+  `Supervisor` int(11) NOT NULL,
   `Abstract_Path` varchar(100) DEFAULT NULL,
   `Thesis_Path` varchar(100) DEFAULT NULL,
-  `Status` int NOT NULL
+  `Status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -3993,9 +2458,9 @@ CREATE TABLE `team_thesis` (
 --
 
 CREATE TABLE `user_info` (
-  `user_ID` int NOT NULL,
-  `username` int NOT NULL,
-  `user_role` int DEFAULT NULL,
+  `user_ID` int(11) NOT NULL,
+  `username` int(11) NOT NULL,
+  `user_role` int(11) DEFAULT NULL,
   `password` varchar(256) DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -4007,50 +2472,50 @@ CREATE TABLE `user_info` (
 -- Dumping data for table `user_info`
 --
 
-INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status`, `create_time`, `refresh_token`, `updated_time`) VALUES
-(1, 2017503048, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-20 20:00:51'),
-(2, 2017503525, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(3, 2017503537, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(4, 2017503056, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, '8i1SItZuzJPSxy9JO29tadEE5dlK6lx1IWVzKZtQVkdLUHKEliapFpQQsgG0Zxl4PkOPZ5JodLRxKMuGBTPQvQLGFX4ZndhTOWb0gb7g7f6ODYxxvXGUB92IfTUSytGO', '2021-06-23 13:05:17'),
-(6, 2015506789, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ro7SLRJHvmR4ce2MZg6MTD42qeAiQMUhft2AK7GdEFaT2JupiSGc7mI3rEwkSmQVrukMF4fNKmbBU6tP42zaUwKi87NAsuO8ICpAOyqeV56yXsM0NYvmlrnPEkJhnMjD', '2021-08-08 04:22:51'),
-(9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Xg8JrZZctXvwo3ImGCl9QBJNe1xnfXcya6cJta8kiQxIbH6b1IVmXvdSQlR1zVm043AWWxjfGnEpnl93q2mE10If0N1j7oHfZj59cb90mc3w0h3cLfSjw5plL5cUZRko', '2021-06-12 15:30:39'),
-(11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'GP6AcUyQbGegsLe9TJzc1evJrTmxTqypqAWKJo8TSVp4opTcInKUIeJl8j0Bxm6FPLOFoHHebsFOvaGL0CB0LWlb0N8I235Bbf03LdSskYIuPASFjIanftYLMxJxHKMg', '2021-07-18 13:25:57'),
-(12, 60779, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'r8GiaQDXkTFQWMDY0wYgbH5HeBxXneeOKKVOxiBzV9KczZELln2WHaGSumaWGjBLnZhCvLBVS7LAX7nYUikOexxe7MSSjEw5nTZfdvCfagYEXM9DUH9NwB4Vfb5irWBQ', '2021-07-18 12:36:59'),
-(13, 66269, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(14, 66449, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(15, 66517, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'QeoHurT2Fyx3kUxCudPnm4aJpSAarJkOn7Q4beRHTPq69PePrDQ51fRKObNwd7obI4JZFSUCwuIwx6M5PKgSfih4MbSXzAxel4UjFyG1iDTR2IEYh97XEi0SFfBBGpC2', '2021-07-18 12:37:30'),
-(16, 67068, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(17, 67079, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(18, 67393, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(19, 67406, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(20, 67507, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(21, 69520, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(22, 701538, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(23, 702635, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(24, 702636, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(25, 702637, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(26, 702638, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(27, 702639, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(28, 702735, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(29, 702750, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ByI7PGL6LteCLU6x85tPD5cOoWbG56QrEzFOmfU9VwFqXleWZuyd2aC0J4fDM2hi3MBGqL1IuyXO2ZwNP5QWUvNZr81piEKfRIL7nOwa6uiFVcA6gX965Vx03hfQDPeV', '2021-07-18 12:39:56'),
-(38, 2017503001, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'uZ3Nfp5nvydfhfofDbLMwAHNOh1V7vbqobHU5utw9KhWOolGK7WvsFa80S60Gfzb74cbatFgQI93H4h1TxqfPFVZ8CyIoWUgoOj0hTuXfwONEOXqip6YAYURQjJCscOv', '2021-06-23 15:48:20'),
-(43, 2017503026, 1, '$2b$08$lXvFP5bsUpiOFjwzKYDUVuEUsswfmYM7F2kYNE8kxSE4tJLUDANna', NULL, '2021-03-27 17:24:44', 'mgO9Fdr2Wnj8O9A1MEOPLplFmyrSkEYqTiSGUk5gu1zMq3sYJ1JcujXPOxe264EiKdvZaVxAHoQkqKZCOIsLzctZHppPgVLKBFnxvikzWXIEULah2EeECeNbuXhr1YPb', '2021-06-12 15:30:39'),
-(44, 99999, 4, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'FHONGF43adgPVGI7ZyhDY70rkc4qa50OxE2WbGdiU6DHYZF4xbPf1fKpuMfgXGLru9MhrOE48ZSvN80lJhh5kLtvfZm5qZgmkLUUa2GVyJ2MiFwVGp3pUFyR28mbilJF', '2021-08-08 07:06:00'),
-(52, 1231, 2, '$2b$08$TG0CNfNzcWAg21toFucRYeH8pNmfl37HhA212FN8K3Hd5I/8TwGyK', NULL, '2021-04-28 19:25:24', 'iZq7HZQO5F34Sx7CeywhQZQwKkiEydVn2WDCWQFqsVGzYuITb9z3KnJga0BRYaZxhFWiaees6wBRszRsjI9gdnHfqeknLfOZ8KIN2bGDIz4mjJZVv38RKVSAT0TpjfT3', '2021-06-19 18:01:29'),
-(53, 1232, 2, '$2b$08$SzjVuy/AKr7ALhyCcjjih.47XplEh1uatnwedLkbjM3CFhq1TAe/.', NULL, '2021-04-28 19:25:24', NULL, '2021-06-19 18:01:29'),
-(54, 123, 2, '$2b$08$yKrEqs7K7d45HmCH8xkkG./nnUackS1TqQLgupwEaX3VkxIJzHuVa', NULL, '2021-04-28 19:35:38', 'bDOBFgwInZjCKzIxiHT1o87CGWlcFAoyK2Z9Ka7DUhz6TbNcQdWiUq0CLcisZVydCOFoxA3scz0qHm3UD2cGOj7qVGqSNeZ10izowPYiUPwwRX32KnxoCcaKG1phWSub', '2021-06-19 18:01:29'),
-(55, 1234, 2, '$2b$08$24WmB6L8ua7b.6KJ0/mGFORIZP/PSNryAE79Z207mtIdLQXIHAeai', NULL, '2021-04-30 00:27:38', 'qljYdAexh25lAw9joXSa1F8yqIB7aP6aqlBBQJYdui7YYHMsGpdCr8brgekbUxiKizJwgg4SFEjQIL3R3v9LY5DNbmj9UJFqEMBu51UkYKQ1z8q2nheyn0SNBpj7XMWe', '2021-06-19 18:01:29'),
-(56, 1121, 2, '$2b$08$Wen6PPn0Bb3GsZhOs2ZUXerttfekPhvi6hhf8.SdGzUnG5tGWjXla', NULL, '2021-05-11 21:37:17', 'ZfcbTgZ6PTYBiukNADBQEHO6DDJXpuXJIAoARWHeBWvJXJCMnBO4OUzMuuFiA0aHlglOiPOz0cd22Xy5bGutN4PLJLLyZt2vc61tFfCPyC25iMVPTmkZUZ1ehmjY9pfB', '2021-06-19 18:01:29'),
-(57, 1122, 2, '$2b$08$z7eQD6hBger93kXBaqUYKuaA98PEZhohwK761ZZivvKuF9FVUIAzG', NULL, '2021-05-11 21:37:19', NULL, '2021-06-19 18:01:29'),
-(59, 601111, 2, '$2b$08$mvzkGfmQwlvPJTlUThyRIuT/bXtirYA9PyRaMnUpeMWoDVenRg3c2', NULL, '2021-06-18 06:46:59', NULL, '2021-06-19 18:01:29'),
-(60, 70000, 2, '$2b$08$TNskaIB9VfTNhE571FnMZOpxkhJQY94tyHuaW6wAf8xOoqAQqIVKe', NULL, '2021-06-18 06:48:53', NULL, '2021-06-19 18:01:29'),
-(65, 2018503501, 1, '$2b$08$bzJ2DEywJQZGqoNwfsAFyOZ/jXg28eh2TGzHz3Bvqyc5AQcppnXoa', '', '2021-06-23 00:56:56', NULL, '2021-06-23 13:20:44'),
-(66, 2021503001, 1, '$2b$08$byYr9xvWt1l0/TyoyYPaY.UPR5W/h/L1b0tfZN1eCWDNJXd1VRr1q', NULL, '2021-06-23 01:01:55', '4VZT7YNmZ2Iav1ubmuUzNYcBpeY3oCNlzmfxVDsIwx7go9yNtEnKf3du6psOsI0Ym3KetrDZkxPQgXZ5UlxhXA6v27n3Sz90rWg8cvgwgprSGXfUNQndg9ysaaLL5jVB', '2021-06-23 13:01:30'),
-(67, 2021503002, 1, '$2b$08$1DZVoS1K00s7.0azCcAw0.Dztuq0gsK/Olh5VZggnCO/i/eqkUpba', NULL, '2021-06-23 01:01:55', 'b4fcB7lnGy8EQ6kzb5Bc5v5B8ST6PgT4Zg9BWGvO7tRmYbjQqQ4BGwjO63ps5Ed3NiHflTM2tkUHZvHW6MEohDUFkD2I2jCURTBNh5xWkiWjwiZaIpXBsOgCnFs2X2yx', '2021-06-23 13:00:39'),
-(68, 2021503509, 1, '$2b$08$hjAQjVLMxBugme8XNpHg2.JWQAkClPHdyChf.HGtgCMnB53rxICnO', NULL, '2021-06-23 01:01:55', NULL, '2021-06-23 01:01:55');
+INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status`, `create_time`, `refresh_token`) VALUES
+(1, 2017503048, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(2, 2017503525, NULL, NULL, NULL, NULL, NULL),
+(3, 2017503537, NULL, NULL, NULL, NULL, NULL),
+(4, 2017503056, NULL, NULL, NULL, NULL, NULL),
+(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'zXnsjBcDlpyc2SSalV7awOSQp89aLOFISje5Qiorm0F256RSKbG9dAaWozzeIKSi5RV5AbfIMMt1IiNuZvOCONF1qN4hdxjzR2clbgAJIPBVleoFa1oN3x2Pn2fNFr79'),
+(6, 2015506789, NULL, NULL, NULL, NULL, NULL),
+(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'yHY4cDCDekH4jFPJKRZtHjSrOtD5MwfD2lgVcbnVF0YgtXBoxtUyYydP45yM0faS8ufqxhvz4roh3JS6SONEbhp0s8pstm0D7EN7JgiqUBa3wzfWxAPuVtM8HN68c5OC'),
+(9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Xg8JrZZctXvwo3ImGCl9QBJNe1xnfXcya6cJta8kiQxIbH6b1IVmXvdSQlR1zVm043AWWxjfGnEpnl93q2mE10If0N1j7oHfZj59cb90mc3w0h3cLfSjw5plL5cUZRko'),
+(11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'GP6AcUyQbGegsLe9TJzc1evJrTmxTqypqAWKJo8TSVp4opTcInKUIeJl8j0Bxm6FPLOFoHHebsFOvaGL0CB0LWlb0N8I235Bbf03LdSskYIuPASFjIanftYLMxJxHKMg'),
+(12, 60779, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'r8GiaQDXkTFQWMDY0wYgbH5HeBxXneeOKKVOxiBzV9KczZELln2WHaGSumaWGjBLnZhCvLBVS7LAX7nYUikOexxe7MSSjEw5nTZfdvCfagYEXM9DUH9NwB4Vfb5irWBQ'),
+(13, 66269, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(14, 66449, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(15, 66517, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'QeoHurT2Fyx3kUxCudPnm4aJpSAarJkOn7Q4beRHTPq69PePrDQ51fRKObNwd7obI4JZFSUCwuIwx6M5PKgSfih4MbSXzAxel4UjFyG1iDTR2IEYh97XEi0SFfBBGpC2'),
+(16, 67068, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(17, 67079, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(18, 67393, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(19, 67406, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(20, 67507, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(21, 69520, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(22, 701538, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(23, 702635, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(24, 702636, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(25, 702637, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(26, 702638, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(27, 702639, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(28, 702735, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL),
+(29, 702750, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ByI7PGL6LteCLU6x85tPD5cOoWbG56QrEzFOmfU9VwFqXleWZuyd2aC0J4fDM2hi3MBGqL1IuyXO2ZwNP5QWUvNZr81piEKfRIL7nOwa6uiFVcA6gX965Vx03hfQDPeV'),
+(38, 2017503001, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'uZ3Nfp5nvydfhfofDbLMwAHNOh1V7vbqobHU5utw9KhWOolGK7WvsFa80S60Gfzb74cbatFgQI93H4h1TxqfPFVZ8CyIoWUgoOj0hTuXfwONEOXqip6YAYURQjJCscOv'),
+(43, 2017503026, 1, '$2b$08$lXvFP5bsUpiOFjwzKYDUVuEUsswfmYM7F2kYNE8kxSE4tJLUDANna', NULL, '2021-03-27 17:24:44', 'mgO9Fdr2Wnj8O9A1MEOPLplFmyrSkEYqTiSGUk5gu1zMq3sYJ1JcujXPOxe264EiKdvZaVxAHoQkqKZCOIsLzctZHppPgVLKBFnxvikzWXIEULah2EeECeNbuXhr1YPb'),
+(44, 99999, 4, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'KwwiXyjXtfwZ3PzTS2GzsNE92oW2xTeARxgJQ92hwRJXr2ggKbND0ewdYDEeDEbIeTLikWDS3xtcBEGYNLOosY0EEy7QJA9mYvbu2DuJEJO8AGU9ruLzFePVmDykvA4A'),
+(52, 1231, 2, '$2b$08$TG0CNfNzcWAg21toFucRYeH8pNmfl37HhA212FN8K3Hd5I/8TwGyK', NULL, '2021-04-28 19:25:24', 'iZq7HZQO5F34Sx7CeywhQZQwKkiEydVn2WDCWQFqsVGzYuITb9z3KnJga0BRYaZxhFWiaees6wBRszRsjI9gdnHfqeknLfOZ8KIN2bGDIz4mjJZVv38RKVSAT0TpjfT3'),
+(53, 1232, 2, '$2b$08$SzjVuy/AKr7ALhyCcjjih.47XplEh1uatnwedLkbjM3CFhq1TAe/.', NULL, '2021-04-28 19:25:24', NULL),
+(54, 123, 2, '$2b$08$yKrEqs7K7d45HmCH8xkkG./nnUackS1TqQLgupwEaX3VkxIJzHuVa', NULL, '2021-04-28 19:35:38', 'bDOBFgwInZjCKzIxiHT1o87CGWlcFAoyK2Z9Ka7DUhz6TbNcQdWiUq0CLcisZVydCOFoxA3scz0qHm3UD2cGOj7qVGqSNeZ10izowPYiUPwwRX32KnxoCcaKG1phWSub'),
+(55, 1234, 2, '$2b$08$24WmB6L8ua7b.6KJ0/mGFORIZP/PSNryAE79Z207mtIdLQXIHAeai', NULL, '2021-04-30 00:27:38', 'qljYdAexh25lAw9joXSa1F8yqIB7aP6aqlBBQJYdui7YYHMsGpdCr8brgekbUxiKizJwgg4SFEjQIL3R3v9LY5DNbmj9UJFqEMBu51UkYKQ1z8q2nheyn0SNBpj7XMWe'),
+(56, 1121, 2, '$2b$08$Wen6PPn0Bb3GsZhOs2ZUXerttfekPhvi6hhf8.SdGzUnG5tGWjXla', NULL, '2021-05-11 21:37:17', 'ZfcbTgZ6PTYBiukNADBQEHO6DDJXpuXJIAoARWHeBWvJXJCMnBO4OUzMuuFiA0aHlglOiPOz0cd22Xy5bGutN4PLJLLyZt2vc61tFfCPyC25iMVPTmkZUZ1ehmjY9pfB'),
+(57, 1122, 2, '$2b$08$z7eQD6hBger93kXBaqUYKuaA98PEZhohwK761ZZivvKuF9FVUIAzG', NULL, '2021-05-11 21:37:19', NULL),
+(59, 601111, 2, '$2b$08$mvzkGfmQwlvPJTlUThyRIuT/bXtirYA9PyRaMnUpeMWoDVenRg3c2', NULL, '2021-06-18 06:46:59', NULL),
+(60, 70000, 2, '$2b$08$TNskaIB9VfTNhE571FnMZOpxkhJQY94tyHuaW6wAf8xOoqAQqIVKe', NULL, '2021-06-18 06:48:53', NULL),
+(65, 2018503501, 1, '$2b$08$bzJ2DEywJQZGqoNwfsAFyOZ/jXg28eh2TGzHz3Bvqyc5AQcppnXoa', '', '2021-06-23 00:56:56', NULL),
+(66, 2021503001, 1, '$2b$08$byYr9xvWt1l0/TyoyYPaY.UPR5W/h/L1b0tfZN1eCWDNJXd1VRr1q', NULL, '2021-06-23 01:01:55', '4VZT7YNmZ2Iav1ubmuUzNYcBpeY3oCNlzmfxVDsIwx7go9yNtEnKf3du6psOsI0Ym3KetrDZkxPQgXZ5UlxhXA6v27n3Sz90rWg8cvgwgprSGXfUNQndg9ysaaLL5jVB'),
+(67, 2021503002, 1, '$2b$08$1DZVoS1K00s7.0azCcAw0.Dztuq0gsK/Olh5VZggnCO/i/eqkUpba', NULL, '2021-06-23 01:01:55', 'b4fcB7lnGy8EQ6kzb5Bc5v5B8ST6PgT4Zg9BWGvO7tRmYbjQqQ4BGwjO63ps5Ed3NiHflTM2tkUHZvHW6MEohDUFkD2I2jCURTBNh5xWkiWjwiZaIpXBsOgCnFs2X2yx'),
+(68, 2021503509, 1, '$2b$08$hjAQjVLMxBugme8XNpHg2.JWQAkClPHdyChf.HGtgCMnB53rxICnO', NULL, '2021-06-23 01:01:55', NULL);
 
 --
 -- Indexes for dumped tables
@@ -4084,39 +2549,6 @@ ALTER TABLE `alumni_personal_info`
 ALTER TABLE `alumni_work_experience`
   ADD PRIMARY KEY (`Alumni_Wid`),
   ADD KEY `alumni_fk2` (`Alumni_Id`);
-
---
--- Indexes for table `book_category`
---
-ALTER TABLE `book_category`
-  ADD PRIMARY KEY (`category_id`);
-
---
--- Indexes for table `book_list`
---
-ALTER TABLE `book_list`
-  ADD PRIMARY KEY (`book_id`),
-  ADD KEY `cID` (`category_id`);
-
---
--- Indexes for table `book_reference`
---
-ALTER TABLE `book_reference`
-  ADD PRIMARY KEY (`config_id`);
-
---
--- Indexes for table `book_request`
---
-ALTER TABLE `book_request`
-  ADD PRIMARY KEY (`request_id`),
-  ADD KEY `ID` (`person_id`);
-
---
--- Indexes for table `borrow_list`
---
-ALTER TABLE `borrow_list`
-  ADD PRIMARY KEY (`person_id`,`book_id`),
-  ADD KEY `bID` (`book_id`);
 
 --
 -- Indexes for table `course_artimat`
@@ -4268,18 +2700,6 @@ ALTER TABLE `course_topic`
   ADD PRIMARY KEY (`ctopic_id`),
   ADD UNIQUE KEY `ctopic_id_UNIQUE` (`ctopic_id`),
   ADD KEY `code_fk_idx` (`course_code`);
-
---
--- Indexes for table `log_records`
---
-ALTER TABLE `log_records`
-  ADD PRIMARY KEY (`log_id`);
-
---
--- Indexes for table `new_book_request`
---
-ALTER TABLE `new_book_request`
-  ADD PRIMARY KEY (`request_id`);
 
 --
 -- Indexes for table `person`
@@ -4633,313 +3053,295 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `alumni_higher_studies`
 --
 ALTER TABLE `alumni_higher_studies`
-  MODIFY `Alumni_Hid` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Alumni_Hid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `alumni_work_experience`
 --
 ALTER TABLE `alumni_work_experience`
-  MODIFY `Alumni_Wid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `book_list`
---
-ALTER TABLE `book_list`
-  MODIFY `book_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1202;
-
---
--- AUTO_INCREMENT for table `book_request`
---
-ALTER TABLE `book_request`
-  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `Alumni_Wid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `course_artimat`
 --
 ALTER TABLE `course_artimat`
-  MODIFY `cartimat_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cartimat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `course_assesseval`
 --
 ALTER TABLE `course_assesseval`
-  MODIFY `cassesseval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `cassesseval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `course_assessment`
 --
 ALTER TABLE `course_assessment`
-  MODIFY `cassess_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `cassess_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `course_assigneval`
 --
 ALTER TABLE `course_assigneval`
-  MODIFY `cassigneval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `cassigneval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `course_assignment`
 --
 ALTER TABLE `course_assignment`
-  MODIFY `cassign_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cassign_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `course_attendance`
 --
 ALTER TABLE `course_attendance`
-  MODIFY `cattend_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
+  MODIFY `cattend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
 
 --
 -- AUTO_INCREMENT for table `course_cacomp`
 --
 ALTER TABLE `course_cacomp`
-  MODIFY `ccacomp_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `ccacomp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `course_evaluation`
 --
 ALTER TABLE `course_evaluation`
-  MODIFY `ceval_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `ceval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `course_extcalc`
 --
 ALTER TABLE `course_extcalc`
-  MODIFY `cextcalc_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `cextcalc_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `course_extcomp`
 --
 ALTER TABLE `course_extcomp`
-  MODIFY `cextcomp_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `cextcomp_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `course_internalcalc`
 --
 ALTER TABLE `course_internalcalc`
-  MODIFY `cintcalc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cintcalc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `course_lessonplan`
 --
 ALTER TABLE `course_lessonplan`
-  MODIFY `clp_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `clp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `course_registered_students`
 --
 ALTER TABLE `course_registered_students`
-  MODIFY `cregst_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `cregst_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `course_topic`
 --
 ALTER TABLE `course_topic`
-  MODIFY `ctopic_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `log_records`
---
-ALTER TABLE `log_records`
-  MODIFY `log_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
+  MODIFY `ctopic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `person_academic`
 --
 ALTER TABLE `person_academic`
-  MODIFY `Academic_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Academic_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_additional_duties`
 --
 ALTER TABLE `person_additional_duties`
-  MODIFY `Duty_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Duty_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_awards`
 --
 ALTER TABLE `person_awards`
-  MODIFY `Award_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Award_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `person_course_details`
 --
 ALTER TABLE `person_course_details`
-  MODIFY `Course_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Course_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_events_attended`
 --
 ALTER TABLE `person_events_attended`
-  MODIFY `Event_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `person_experience`
 --
 ALTER TABLE `person_experience`
-  MODIFY `Experience_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Experience_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `person_guestlecture`
 --
 ALTER TABLE `person_guestlecture`
-  MODIFY `GuestLecture_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `GuestLecture_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_membership`
 --
 ALTER TABLE `person_membership`
-  MODIFY `Member_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Member_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_patents`
 --
 ALTER TABLE `person_patents`
-  MODIFY `Patent_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Patent_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `person_project_allocation`
 --
 ALTER TABLE `person_project_allocation`
-  MODIFY `Project_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Project_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_project_proposal`
 --
 ALTER TABLE `person_project_proposal`
-  MODIFY `Proposal_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `Proposal_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `person_publication`
 --
 ALTER TABLE `person_publication`
-  MODIFY `Publication_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Publication_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `person_qualification`
 --
 ALTER TABLE `person_qualification`
-  MODIFY `Qualification_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Qualification_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `person_reference_table`
 --
 ALTER TABLE `person_reference_table`
-  MODIFY `Reference_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `Reference_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
 
 --
 -- AUTO_INCREMENT for table `person_responsibility`
 --
 ALTER TABLE `person_responsibility`
-  MODIFY `Responsibility_ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `Responsibility_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `person_scholardetails`
 --
 ALTER TABLE `person_scholardetails`
-  MODIFY `Scholar_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Scholar_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `person_specialization`
 --
 ALTER TABLE `person_specialization`
-  MODIFY `Specialization_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Specialization_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `person_supervision`
 --
 ALTER TABLE `person_supervision`
-  MODIFY `Supervision_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Supervision_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `person_travel_history`
 --
 ALTER TABLE `person_travel_history`
-  MODIFY `Travel_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Travel_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `student_awards`
 --
 ALTER TABLE `student_awards`
-  MODIFY `Award_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Award_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_endsemmarks`
 --
 ALTER TABLE `student_endsemmarks`
-  MODIFY `Mark_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `Mark_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `student_events_participated`
 --
 ALTER TABLE `student_events_participated`
-  MODIFY `Event_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_family_details`
 --
 ALTER TABLE `student_family_details`
-  MODIFY `Family_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Family_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `student_gpa`
 --
 ALTER TABLE `student_gpa`
-  MODIFY `Gpa_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Gpa_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `student_higherstudies`
 --
 ALTER TABLE `student_higherstudies`
-  MODIFY `HigherStudies_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `HigherStudies_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_internship`
 --
 ALTER TABLE `student_internship`
-  MODIFY `Internship_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Internship_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student_placement`
 --
 ALTER TABLE `student_placement`
-  MODIFY `Placement_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Placement_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_thesis`
 --
 ALTER TABLE `student_thesis`
-  MODIFY `Sthesisid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `Sthesisid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `subjects_offered`
 --
 ALTER TABLE `subjects_offered`
-  MODIFY `subid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `subject_allocation_status`
 --
 ALTER TABLE `subject_allocation_status`
-  MODIFY `Status_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Status_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subj_allot`
 --
 ALTER TABLE `subj_allot`
-  MODIFY `sallot_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `sallot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `team_thesis`
 --
 ALTER TABLE `team_thesis`
-  MODIFY `Tthesisid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `Tthesisid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Constraints for dumped tables
@@ -4961,28 +3363,15 @@ ALTER TABLE `alumni_higher_studies`
 -- Constraints for table `alumni_personal_info`
 --
 ALTER TABLE `alumni_personal_info`
-  ADD CONSTRAINT `alumni_personal_info_ibfk_1` FOREIGN KEY (`Employment_Nature`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Blood_Group_FKP2` FOREIGN KEY (`Blood_Group_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Gender_Reference_FKP1` FOREIGN KEY (`Gender_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Gender_Reference_FKP1` FOREIGN KEY (`Gender_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `alumni_personal_info_ibfk_1` FOREIGN KEY (`Employment_Nature`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `alumni_work_experience`
 --
 ALTER TABLE `alumni_work_experience`
   ADD CONSTRAINT `alumni_fk2` FOREIGN KEY (`Alumni_Id`) REFERENCES `alumni_personal_info` (`Alumni_Id`) ON DELETE CASCADE;
-
---
--- Constraints for table `book_list`
---
-ALTER TABLE `book_list`
-  ADD CONSTRAINT `book_list_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `book_category` (`category_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
---
--- Constraints for table `borrow_list`
---
-ALTER TABLE `borrow_list`
-  ADD CONSTRAINT `borrow_list_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `user_info` (`username`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `borrow_list_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `book_list` (`book_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `course_artimat`
@@ -5085,12 +3474,6 @@ ALTER TABLE `course_registered_students`
   ADD CONSTRAINT `course_registered_students_ibfk_2` FOREIGN KEY (`reg_no`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `course_registered_students_ibfk_3` FOREIGN KEY (`group_ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `course_registered_students_ibfk_4` FOREIGN KEY (`session_ref`) REFERENCES `person_reference_table` (`Reference_ID`);
-
---
--- Constraints for table `new_book_request`
---
-ALTER TABLE `new_book_request`
-  ADD CONSTRAINT `new_book_request_ibfk_1` FOREIGN KEY (`request_id`) REFERENCES `book_request` (`request_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `person`
@@ -5345,9 +3728,9 @@ ALTER TABLE `subj_allot`
 -- Constraints for table `team_thesis`
 --
 ALTER TABLE `team_thesis`
-  ADD CONSTRAINT `person_fk2` FOREIGN KEY (`Supervisor`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Programme_fk1` FOREIGN KEY (`Programme_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Session_fk1` FOREIGN KEY (`Session_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Session_fk1` FOREIGN KEY (`Session_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `person_fk2` FOREIGN KEY (`Supervisor`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
