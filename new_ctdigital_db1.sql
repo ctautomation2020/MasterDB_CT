@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2021 at 02:41 PM
+-- Generation Time: Aug 28, 2021 at 08:24 AM
 -- Server version: 8.0.25
 -- PHP Version: 7.3.29
 
@@ -3941,6 +3941,51 @@ CREATE TABLE `person_patents` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `person_professional_activities`
+--
+
+CREATE TABLE `person_professional_activities` (
+  `PActivitiy_ID` int NOT NULL,
+  `Person_ID` int NOT NULL,
+  `Conference` int NOT NULL DEFAULT '1',
+  `Seminar` int NOT NULL DEFAULT '1',
+  `Workshop` int NOT NULL DEFAULT '1',
+  `Guest_Lecture` int NOT NULL DEFAULT '1',
+  `Short_Course` int NOT NULL DEFAULT '1',
+  `STTP` int DEFAULT '1',
+  `FDP` int NOT NULL DEFAULT '1',
+  `Achievements` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `person_professional_activities`
+--
+
+INSERT INTO `person_professional_activities` (`PActivitiy_ID`, `Person_ID`, `Conference`, `Seminar`, `Workshop`, `Guest_Lecture`, `Short_Course`, `STTP`, `FDP`, `Achievements`) VALUES
+(1, 60623, 1, 1, 1, 1, 1, 1, 1, NULL),
+(2, 60779, 1, 1, 1, 1, 1, 1, 1, NULL),
+(3, 66269, 1, 1, 1, 1, 1, 1, 1, NULL),
+(4, 66392, 1, 1, 1, 1, 1, 0, 1, '<b>This is the achievement</b>'),
+(5, 66449, 1, 1, 1, 1, 1, 1, 1, NULL),
+(6, 66517, 1, 1, 1, 1, 1, 1, 1, NULL),
+(7, 67068, 1, 1, 1, 1, 1, 1, 1, NULL),
+(8, 67079, 1, 1, 1, 1, 1, 1, 1, NULL),
+(9, 67393, 1, 1, 1, 1, 1, 1, 1, NULL),
+(10, 67406, 1, 1, 1, 1, 1, 1, 1, NULL),
+(11, 67507, 1, 1, 1, 1, 1, 1, 1, NULL),
+(12, 69520, 1, 1, 1, 1, 1, 1, 1, NULL),
+(13, 701538, 1, 1, 1, 1, 1, 1, 1, NULL),
+(14, 702635, 1, 1, 1, 1, 1, 1, 1, NULL),
+(15, 702636, 1, 1, 1, 1, 1, 1, 1, NULL),
+(16, 702637, 1, 1, 1, 1, 1, 1, 1, NULL),
+(17, 702638, 1, 1, 1, 1, 1, 1, 1, NULL),
+(18, 702639, 1, 1, 1, 1, 1, 1, 1, NULL),
+(19, 702735, 1, 1, 1, 1, 1, 1, 1, NULL),
+(20, 702750, 1, 1, 1, 1, 1, 1, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `person_project_allocation`
 --
 
@@ -4236,7 +4281,9 @@ INSERT INTO `person_reference_table` (`Reference_ID`, `Category`, `Ref_Name`, `D
 (183, 'Semester', 'LAB', NULL),
 (184, 'Semester', 'PG-E', NULL),
 (185, 'Semester', 'OE', NULL),
-(197, 'Session', '21N', 'August 2021 - November 2021');
+(197, 'Session', '21N', 'August 2021 - November 2021'),
+(198, 'Event_Type', 'FDP', NULL),
+(199, 'Event_Type', 'STTP', NULL);
 
 -- --------------------------------------------------------
 
@@ -5254,7 +5301,7 @@ INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status
 (4, 2017503056, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
 (5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'rxmjVfNZuknLuTYZPF1dSz788tKb1TWBoCEcSUZdVWdl57MhdPGgcHRQO641cHAkxXISVsQiOi9Xqr8k2iBBneSUrZcaxm9ALcaEDOZANeZRexP2Uo6aOoERPmSRnoAP', '2021-08-12 12:23:36'),
 (6, 2015506789, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ro7SLRJHvmR4ce2MZg6MTD42qeAiQMUhft2AK7GdEFaT2JupiSGc7mI3rEwkSmQVrukMF4fNKmbBU6tP42zaUwKi87NAsuO8ICpAOyqeV56yXsM0NYvmlrnPEkJhnMjD', '2021-08-08 04:22:51'),
+(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'XRPz8GJ1TTXusO6jK4CV8peeRdQ6rkckkA3TSUmX5UpXzRZPBVc4yp5nGIW6lo1BlrcxRqtjCVsYPKNJIOJewHkHaeBndY6LwO6rrDLvhiZYpMyWDDG6EC6IdegXc8qQ', '2021-08-28 06:07:29'),
 (9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-19 18:01:29'),
 (10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Xg8JrZZctXvwo3ImGCl9QBJNe1xnfXcya6cJta8kiQxIbH6b1IVmXvdSQlR1zVm043AWWxjfGnEpnl93q2mE10If0N1j7oHfZj59cb90mc3w0h3cLfSjw5plL5cUZRko', '2021-06-12 15:30:39'),
 (11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'GP6AcUyQbGegsLe9TJzc1evJrTmxTqypqAWKJo8TSVp4opTcInKUIeJl8j0Bxm6FPLOFoHHebsFOvaGL0CB0LWlb0N8I235Bbf03LdSskYIuPASFjIanftYLMxJxHKMg', '2021-07-18 13:25:57'),
@@ -5608,6 +5655,13 @@ ALTER TABLE `person_patents`
   ADD UNIQUE KEY `Patent_ID_UNIQUE` (`Patent_ID`),
   ADD KEY `Patent_Status_idx` (`Patent_Status_Ref`),
   ADD KEY `Person_ID_FK217` (`Person_ID`);
+
+--
+-- Indexes for table `person_professional_activities`
+--
+ALTER TABLE `person_professional_activities`
+  ADD PRIMARY KEY (`PActivitiy_ID`),
+  ADD KEY `Person_ID` (`Person_ID`);
 
 --
 -- Indexes for table `person_project_allocation`
@@ -6024,6 +6078,12 @@ ALTER TABLE `person_patents`
   MODIFY `Patent_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `person_professional_activities`
+--
+ALTER TABLE `person_professional_activities`
+  MODIFY `PActivitiy_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `person_project_allocation`
 --
 ALTER TABLE `person_project_allocation`
@@ -6051,7 +6111,7 @@ ALTER TABLE `person_qualification`
 -- AUTO_INCREMENT for table `person_reference_table`
 --
 ALTER TABLE `person_reference_table`
-  MODIFY `Reference_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `Reference_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `person_responsibility`
@@ -6377,6 +6437,12 @@ ALTER TABLE `person_membership`
 ALTER TABLE `person_patents`
   ADD CONSTRAINT `Patent_Status_FK33` FOREIGN KEY (`Patent_Status_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Person_ID_FK33` FOREIGN KEY (`Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `person_professional_activities`
+--
+ALTER TABLE `person_professional_activities`
+  ADD CONSTRAINT `person_professional_activities_ibfk_1` FOREIGN KEY (`Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `person_project_allocation`
