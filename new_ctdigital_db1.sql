@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2021 at 08:24 AM
+-- Generation Time: Oct 17, 2021 at 06:15 PM
 -- Server version: 8.0.25
 -- PHP Version: 7.3.29
 
@@ -3573,6 +3573,25 @@ INSERT INTO `course_list` (`course_code`, `stream`, `regulation`, `semester`, `t
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `course_material`
+--
+
+CREATE TABLE `course_material` (
+  `cmat_id` int NOT NULL,
+  `course_code` varchar(15) NOT NULL,
+  `group_ref` int NOT NULL,
+  `session_ref` int NOT NULL,
+  `person_id` int NOT NULL,
+  `lecture` varchar(10) NOT NULL,
+  `topic` varchar(50) NOT NULL,
+  `material` varchar(255) DEFAULT NULL,
+  `reference` longtext,
+  `upload_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `course_registered_students`
 --
 
@@ -4382,6 +4401,157 @@ CREATE TABLE `person_travel_history` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `scholar`
+--
+
+CREATE TABLE `scholar` (
+  `Register_No` int NOT NULL,
+  `First_Name` varchar(50) DEFAULT NULL,
+  `Middle_Name` varchar(50) DEFAULT NULL,
+  `Last_Name` varchar(50) DEFAULT NULL,
+  `Gender_Ref` int DEFAULT NULL,
+  `DOB` date DEFAULT NULL,
+  `Caste` varchar(50) DEFAULT NULL,
+  `Nationality` varchar(30) DEFAULT NULL,
+  `MailID` varchar(50) DEFAULT NULL,
+  `Aadhar_Card` varchar(15) DEFAULT NULL,
+  `Primary_ContactNumber` varchar(15) DEFAULT NULL,
+  `Secondary_ContactNumber` varchar(15) DEFAULT NULL,
+  `Address_Line1` varchar(250) DEFAULT NULL,
+  `Address_Line2` varchar(250) DEFAULT NULL,
+  `Address_Line3` varchar(45) DEFAULT NULL,
+  `Address_Line4` varchar(45) DEFAULT NULL,
+  `Correspondence_Address` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  `Residential_Type_Ref` int DEFAULT NULL,
+  `Programme_Ref` int DEFAULT NULL,
+  `Prefix_Ref` int DEFAULT NULL,
+  `Branch_Ref` int DEFAULT NULL,
+  `Registration_Mode_Ref` int DEFAULT NULL,
+  `Blood_Group_Ref` int DEFAULT NULL,
+  `Admission_Date` date DEFAULT NULL,
+  `Scholarship_Received_Ref` int DEFAULT NULL,
+  `Scholarship_Details` varchar(255) DEFAULT NULL,
+  `Hostel_Block_Room` varchar(45) DEFAULT NULL,
+  `Report` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `scholar`
+--
+
+INSERT INTO `scholar` (`Register_No`, `First_Name`, `Middle_Name`, `Last_Name`, `Gender_Ref`, `DOB`, `Caste`, `Nationality`, `MailID`, `Aadhar_Card`, `Primary_ContactNumber`, `Secondary_ContactNumber`, `Address_Line1`, `Address_Line2`, `Address_Line3`, `Address_Line4`, `Correspondence_Address`, `Photo`, `Residential_Type_Ref`, `Programme_Ref`, `Prefix_Ref`, `Branch_Ref`, `Registration_Mode_Ref`, `Blood_Group_Ref`, `Admission_Date`, `Scholarship_Received_Ref`, `Scholarship_Details`, `Hostel_Block_Room`, `Report`) VALUES
+(2021, 'Naruto', NULL, 'Uzumaki', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2017503528, NULL, NULL, NULL, 45, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2018503525, 'ANTO SUHANA.L', NULL, NULL, 54, '2021-10-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scholar_details`
+--
+
+CREATE TABLE `scholar_details` (
+  `Scholar_ID` int NOT NULL,
+  `Person_ID` int NOT NULL,
+  `Register_No` int DEFAULT NULL,
+  `Title` varchar(60) DEFAULT NULL,
+  `Status_Ref` int DEFAULT NULL,
+  `Guide_Type_Ref` int DEFAULT NULL,
+  `Fellowship_Received_Ref` int DEFAULT NULL,
+  `Fellowship_Agency` varchar(45) DEFAULT NULL,
+  `Fellowship_Amount` float DEFAULT NULL,
+  `Year_Of_Registration` date DEFAULT NULL,
+  `Research_Area` varchar(45) DEFAULT NULL,
+  `Registration_Mode_Ref` int DEFAULT NULL,
+  `Part_Time_Ref` int DEFAULT NULL,
+  `Organization_Name` varchar(60) DEFAULT NULL,
+  `Organization_Location` varchar(30) DEFAULT NULL,
+  `Organization_Designation` varchar(30) DEFAULT NULL,
+  `Fellowship_Name` varchar(45) DEFAULT NULL,
+  `Fellowship_Year` date DEFAULT NULL,
+  `Year_Of_Completion` date DEFAULT NULL,
+  `path` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `scholar_details`
+--
+
+INSERT INTO `scholar_details` (`Scholar_ID`, `Person_ID`, `Register_No`, `Title`, `Status_Ref`, `Guide_Type_Ref`, `Fellowship_Received_Ref`, `Fellowship_Agency`, `Fellowship_Amount`, `Year_Of_Registration`, `Research_Area`, `Registration_Mode_Ref`, `Part_Time_Ref`, `Organization_Name`, `Organization_Location`, `Organization_Designation`, `Fellowship_Name`, `Fellowship_Year`, `Year_Of_Completion`, `path`) VALUES
+(1, 60623, 2018503525, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scholar_events_attended`
+--
+
+CREATE TABLE `scholar_events_attended` (
+  `Event_ID` int NOT NULL,
+  `Register_No` int NOT NULL,
+  `Event_Type_Ref` int DEFAULT NULL,
+  `Level_Ref` int DEFAULT NULL,
+  `Event_Title` varchar(100) DEFAULT NULL,
+  `Hosting_Organization` varchar(100) DEFAULT NULL,
+  `Place` varchar(45) DEFAULT NULL,
+  `Participation_Status_Ref` int DEFAULT NULL,
+  `Role` varchar(45) DEFAULT NULL,
+  `Start_Date` date DEFAULT NULL,
+  `End_Date` date DEFAULT NULL,
+  `Funding_Agency` varchar(255) DEFAULT NULL,
+  `No_Of_Participants` int DEFAULT NULL,
+  `Summary_File` blob,
+  `Event_Schedule` blob,
+  `Participants_Lists` blob,
+  `Budget` blob,
+  `path` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `scholar_events_attended`
+--
+
+INSERT INTO `scholar_events_attended` (`Event_ID`, `Register_No`, `Event_Type_Ref`, `Level_Ref`, `Event_Title`, `Hosting_Organization`, `Place`, `Participation_Status_Ref`, `Role`, `Start_Date`, `End_Date`, `Funding_Agency`, `No_Of_Participants`, `Summary_File`, `Event_Schedule`, `Participants_Lists`, `Budget`, `path`) VALUES
+(1, 2021, 54, 52, 'Math Olympiad', 'World Math Organization', 'Chennai', 75, NULL, '2021-10-11', '2021-10-13', NULL, 3, NULL, NULL, NULL, NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scholar_publication`
+--
+
+CREATE TABLE `scholar_publication` (
+  `Publication_ID` int NOT NULL,
+  `Register_No` int NOT NULL,
+  `Publication_Type_Ref` int DEFAULT NULL,
+  `Level_Ref` int DEFAULT NULL,
+  `Paper_Title` varchar(255) DEFAULT NULL,
+  `First_Author` varchar(50) DEFAULT NULL,
+  `Second_Author` varchar(50) DEFAULT NULL,
+  `Other_Authors` varchar(255) DEFAULT NULL,
+  `Journal_Name` varchar(255) DEFAULT NULL,
+  `Volume` int DEFAULT NULL,
+  `Issue` int DEFAULT NULL,
+  `DOI` varchar(50) DEFAULT NULL,
+  `Year_Of_Publish` year DEFAULT NULL,
+  `Start_Page_No` int DEFAULT NULL,
+  `End_Page_No` int DEFAULT NULL,
+  `Publisher` varchar(50) DEFAULT NULL,
+  `Impact_Factor` float DEFAULT NULL,
+  `path` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `scholar_publication`
+--
+
+INSERT INTO `scholar_publication` (`Publication_ID`, `Register_No`, `Publication_Type_Ref`, `Level_Ref`, `Paper_Title`, `First_Author`, `Second_Author`, `Other_Authors`, `Journal_Name`, `Volume`, `Issue`, `DOI`, `Year_Of_Publish`, `Start_Page_No`, `End_Page_No`, `Publisher`, `Impact_Factor`, `path`) VALUES
+(1, 2021, 77, 52, 'Dynamic Website Generator', 'Jitiendran', 'Aanandan', NULL, NULL, 12, 2, '12345', 2022, 1, 5, 'Jitiendran ', 0.2, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staff_list`
 --
 
@@ -5172,18 +5342,6 @@ INSERT INTO `student_placement` (`Placement_ID`, `Register_No`, `Company`, `Pack
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student_thesis`
---
-
-CREATE TABLE `student_thesis` (
-  `Sthesisid` int NOT NULL,
-  `Tthesisid` int NOT NULL,
-  `Register_No` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `subjects_offered`
 --
 
@@ -5201,13 +5359,13 @@ CREATE TABLE `subjects_offered` (
 --
 
 INSERT INTO `subjects_offered` (`subid`, `code`, `session`, `group_ref`, `semester`, `person_id`) VALUES
-(3, 'HS6251', 146, 152, 4, NULL),
-(5, 'CS6611', 146, 150, 6, NULL),
+(3, 'HS6251', 146, 152, 4, 66392),
+(5, 'CS6611', 146, 150, 6, 66392),
 (6, 'CS6611', 146, 151, 6, NULL),
 (7, 'CS6304', 146, 150, 6, NULL),
 (8, 'CS6304', 146, 151, 6, NULL),
 (9, 'CS6811', 146, 150, 8, NULL),
-(10, 'CS6811', 146, 151, 8, NULL),
+(10, 'CS6811', 146, 151, 8, 66392),
 (33, 'CS6002', 146, 150, 8, NULL),
 (69, 'CS6003', 146, 150, 6, NULL),
 (70, 'CS6003', 146, 151, 6, NULL),
@@ -5299,42 +5457,43 @@ INSERT INTO `user_info` (`user_ID`, `username`, `user_role`, `password`, `status
 (2, 2017503525, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
 (3, 2017503537, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
 (4, 2017503056, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'rxmjVfNZuknLuTYZPF1dSz788tKb1TWBoCEcSUZdVWdl57MhdPGgcHRQO641cHAkxXISVsQiOi9Xqr8k2iBBneSUrZcaxm9ALcaEDOZANeZRexP2Uo6aOoERPmSRnoAP', '2021-08-12 12:23:36'),
+(5, 2018503557, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'vRAA9KArk7bBGfZOYo5ZlWzQft99eY3W5W7Nm1LIpAUxy4VcTTw5JDhfYVgVzqrPJfsAGxYqITrvtfQG3nSOKYjV3GFzg2iCbJKK4fdHUGQGUaQfAIdCUsQU8r5n44fr', '2021-10-17 13:15:00'),
 (6, 2015506789, NULL, NULL, NULL, NULL, NULL, '2021-06-19 18:01:29'),
-(8, 66392, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'XRPz8GJ1TTXusO6jK4CV8peeRdQ6rkckkA3TSUmX5UpXzRZPBVc4yp5nGIW6lo1BlrcxRqtjCVsYPKNJIOJewHkHaeBndY6LwO6rrDLvhiZYpMyWDDG6EC6IdegXc8qQ', '2021-08-28 06:07:29'),
+(8, 66392, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'z52tRSjTkwzytUVL5n5kAbe5UVB47ajbfCl9JOpJPcYCgJ9l88k2YP4HCkpNZcF32YIcZ5NxHPNUkSxKTdJo0ilZZiaiaHbfLDjfE4CLuSnEHAResxRxoOOTuXbBJGrL', '2021-10-17 08:43:31'),
 (9, 2016503614, NULL, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-19 18:01:29'),
 (10, 2018503558, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Xg8JrZZctXvwo3ImGCl9QBJNe1xnfXcya6cJta8kiQxIbH6b1IVmXvdSQlR1zVm043AWWxjfGnEpnl93q2mE10If0N1j7oHfZj59cb90mc3w0h3cLfSjw5plL5cUZRko', '2021-06-12 15:30:39'),
-(11, 60623, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'GP6AcUyQbGegsLe9TJzc1evJrTmxTqypqAWKJo8TSVp4opTcInKUIeJl8j0Bxm6FPLOFoHHebsFOvaGL0CB0LWlb0N8I235Bbf03LdSskYIuPASFjIanftYLMxJxHKMg', '2021-07-18 13:25:57'),
-(12, 60779, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'r8GiaQDXkTFQWMDY0wYgbH5HeBxXneeOKKVOxiBzV9KczZELln2WHaGSumaWGjBLnZhCvLBVS7LAX7nYUikOexxe7MSSjEw5nTZfdvCfagYEXM9DUH9NwB4Vfb5irWBQ', '2021-07-18 12:36:59'),
-(13, 66269, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(14, 66449, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(15, 66517, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'QeoHurT2Fyx3kUxCudPnm4aJpSAarJkOn7Q4beRHTPq69PePrDQ51fRKObNwd7obI4JZFSUCwuIwx6M5PKgSfih4MbSXzAxel4UjFyG1iDTR2IEYh97XEi0SFfBBGpC2', '2021-07-18 12:37:30'),
-(16, 67068, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(17, 67079, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(18, 67393, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(19, 67406, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(20, 67507, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(21, 69520, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(22, 701538, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(23, 702635, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(24, 702636, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(25, 702637, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(26, 702638, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(27, 702639, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(28, 702735, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-06-12 15:30:39'),
-(29, 702750, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ByI7PGL6LteCLU6x85tPD5cOoWbG56QrEzFOmfU9VwFqXleWZuyd2aC0J4fDM2hi3MBGqL1IuyXO2ZwNP5QWUvNZr81piEKfRIL7nOwa6uiFVcA6gX965Vx03hfQDPeV', '2021-07-18 12:39:56'),
+(11, 60623, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'GP6AcUyQbGegsLe9TJzc1evJrTmxTqypqAWKJo8TSVp4opTcInKUIeJl8j0Bxm6FPLOFoHHebsFOvaGL0CB0LWlb0N8I235Bbf03LdSskYIuPASFjIanftYLMxJxHKMg', '2021-10-17 07:42:14'),
+(12, 60779, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'r8GiaQDXkTFQWMDY0wYgbH5HeBxXneeOKKVOxiBzV9KczZELln2WHaGSumaWGjBLnZhCvLBVS7LAX7nYUikOexxe7MSSjEw5nTZfdvCfagYEXM9DUH9NwB4Vfb5irWBQ', '2021-10-17 07:42:14'),
+(13, 66269, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(14, 66449, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(15, 66517, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'QeoHurT2Fyx3kUxCudPnm4aJpSAarJkOn7Q4beRHTPq69PePrDQ51fRKObNwd7obI4JZFSUCwuIwx6M5PKgSfih4MbSXzAxel4UjFyG1iDTR2IEYh97XEi0SFfBBGpC2', '2021-10-17 07:42:14'),
+(16, 67068, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(17, 67079, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'Cz3Fgo4O2z8I164ioRicbzcC0Y13UKeRSN5oCIEV2svLSsWnrd65eGMY2HnKMOaq56EzktDyMZUNA88fL1LtG0UjojZ737XLENRpTXLiUqulicy2S4u4aQdjuv9cv6Lq', '2021-10-17 07:42:14'),
+(18, 67393, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(19, 67406, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(20, 67507, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(21, 69520, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(22, 701538, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(23, 702635, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ZbGAy5ikHhWzCogoPCL8M9XQTih9G1dAycc484wCiCSopMe7CGU5u9COIWFJjypVITp2WowwTjcCLsGNuXANatm5X7NSv2RtgzdNMgzD3m2OlmghjhXCEZXxGhL10Grh', '2021-10-17 07:42:14'),
+(24, 702636, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(25, 702637, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(26, 702638, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(27, 702639, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(28, 702735, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, NULL, '2021-10-17 07:42:14'),
+(29, 702750, 5, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, NULL, 'ByI7PGL6LteCLU6x85tPD5cOoWbG56QrEzFOmfU9VwFqXleWZuyd2aC0J4fDM2hi3MBGqL1IuyXO2ZwNP5QWUvNZr81piEKfRIL7nOwa6uiFVcA6gX965Vx03hfQDPeV', '2021-10-17 07:42:14'),
 (38, 2017503001, 1, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', '1', NULL, 'uZ3Nfp5nvydfhfofDbLMwAHNOh1V7vbqobHU5utw9KhWOolGK7WvsFa80S60Gfzb74cbatFgQI93H4h1TxqfPFVZ8CyIoWUgoOj0hTuXfwONEOXqip6YAYURQjJCscOv', '2021-06-23 15:48:20'),
 (43, 2017503026, 1, '$2b$08$lXvFP5bsUpiOFjwzKYDUVuEUsswfmYM7F2kYNE8kxSE4tJLUDANna', NULL, '2021-03-27 17:24:44', 'mgO9Fdr2Wnj8O9A1MEOPLplFmyrSkEYqTiSGUk5gu1zMq3sYJ1JcujXPOxe264EiKdvZaVxAHoQkqKZCOIsLzctZHppPgVLKBFnxvikzWXIEULah2EeECeNbuXhr1YPb', '2021-06-12 15:30:39'),
-(44, 99999, 4, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'FHONGF43adgPVGI7ZyhDY70rkc4qa50OxE2WbGdiU6DHYZF4xbPf1fKpuMfgXGLru9MhrOE48ZSvN80lJhh5kLtvfZm5qZgmkLUUa2GVyJ2MiFwVGp3pUFyR28mbilJF', '2021-08-08 07:06:00'),
-(52, 1231, 2, '$2b$08$TG0CNfNzcWAg21toFucRYeH8pNmfl37HhA212FN8K3Hd5I/8TwGyK', NULL, '2021-04-28 19:25:24', 'iZq7HZQO5F34Sx7CeywhQZQwKkiEydVn2WDCWQFqsVGzYuITb9z3KnJga0BRYaZxhFWiaees6wBRszRsjI9gdnHfqeknLfOZ8KIN2bGDIz4mjJZVv38RKVSAT0TpjfT3', '2021-06-19 18:01:29'),
-(53, 1232, 2, '$2b$08$SzjVuy/AKr7ALhyCcjjih.47XplEh1uatnwedLkbjM3CFhq1TAe/.', NULL, '2021-04-28 19:25:24', NULL, '2021-06-19 18:01:29'),
-(54, 123, 2, '$2b$08$yKrEqs7K7d45HmCH8xkkG./nnUackS1TqQLgupwEaX3VkxIJzHuVa', NULL, '2021-04-28 19:35:38', 'bDOBFgwInZjCKzIxiHT1o87CGWlcFAoyK2Z9Ka7DUhz6TbNcQdWiUq0CLcisZVydCOFoxA3scz0qHm3UD2cGOj7qVGqSNeZ10izowPYiUPwwRX32KnxoCcaKG1phWSub', '2021-06-19 18:01:29'),
-(55, 1234, 2, '$2b$08$24WmB6L8ua7b.6KJ0/mGFORIZP/PSNryAE79Z207mtIdLQXIHAeai', NULL, '2021-04-30 00:27:38', 'qljYdAexh25lAw9joXSa1F8yqIB7aP6aqlBBQJYdui7YYHMsGpdCr8brgekbUxiKizJwgg4SFEjQIL3R3v9LY5DNbmj9UJFqEMBu51UkYKQ1z8q2nheyn0SNBpj7XMWe', '2021-06-19 18:01:29'),
-(56, 1121, 2, '$2b$08$Wen6PPn0Bb3GsZhOs2ZUXerttfekPhvi6hhf8.SdGzUnG5tGWjXla', NULL, '2021-05-11 21:37:17', 'ZfcbTgZ6PTYBiukNADBQEHO6DDJXpuXJIAoARWHeBWvJXJCMnBO4OUzMuuFiA0aHlglOiPOz0cd22Xy5bGutN4PLJLLyZt2vc61tFfCPyC25iMVPTmkZUZ1ehmjY9pfB', '2021-06-19 18:01:29'),
-(57, 1122, 2, '$2b$08$z7eQD6hBger93kXBaqUYKuaA98PEZhohwK761ZZivvKuF9FVUIAzG', NULL, '2021-05-11 21:37:19', NULL, '2021-06-19 18:01:29'),
-(59, 601111, 2, '$2b$08$mvzkGfmQwlvPJTlUThyRIuT/bXtirYA9PyRaMnUpeMWoDVenRg3c2', NULL, '2021-06-18 06:46:59', NULL, '2021-06-19 18:01:29'),
-(60, 70000, 2, '$2b$08$TNskaIB9VfTNhE571FnMZOpxkhJQY94tyHuaW6wAf8xOoqAQqIVKe', NULL, '2021-06-18 06:48:53', NULL, '2021-06-19 18:01:29'),
-(65, 2018503501, 1, '$2b$08$bzJ2DEywJQZGqoNwfsAFyOZ/jXg28eh2TGzHz3Bvqyc5AQcppnXoa', '', '2021-06-23 00:56:56', NULL, '2021-06-23 13:20:44');
+(44, 99999, 10, '$2b$08$wgcafiA2Ur/fcvjvFix2euNwZ7dgALnarEBFYFg83c.1wrbUoQigW', NULL, '2021-04-28 14:12:43', 'FHONGF43adgPVGI7ZyhDY70rkc4qa50OxE2WbGdiU6DHYZF4xbPf1fKpuMfgXGLru9MhrOE48ZSvN80lJhh5kLtvfZm5qZgmkLUUa2GVyJ2MiFwVGp3pUFyR28mbilJF', '2021-10-17 07:43:10'),
+(52, 1231, 5, '$2b$08$TG0CNfNzcWAg21toFucRYeH8pNmfl37HhA212FN8K3Hd5I/8TwGyK', NULL, '2021-04-28 19:25:24', 'iZq7HZQO5F34Sx7CeywhQZQwKkiEydVn2WDCWQFqsVGzYuITb9z3KnJga0BRYaZxhFWiaees6wBRszRsjI9gdnHfqeknLfOZ8KIN2bGDIz4mjJZVv38RKVSAT0TpjfT3', '2021-10-17 07:42:14'),
+(53, 1232, 5, '$2b$08$SzjVuy/AKr7ALhyCcjjih.47XplEh1uatnwedLkbjM3CFhq1TAe/.', NULL, '2021-04-28 19:25:24', NULL, '2021-10-17 07:42:14'),
+(54, 123, 5, '$2b$08$yKrEqs7K7d45HmCH8xkkG./nnUackS1TqQLgupwEaX3VkxIJzHuVa', NULL, '2021-04-28 19:35:38', 'bDOBFgwInZjCKzIxiHT1o87CGWlcFAoyK2Z9Ka7DUhz6TbNcQdWiUq0CLcisZVydCOFoxA3scz0qHm3UD2cGOj7qVGqSNeZ10izowPYiUPwwRX32KnxoCcaKG1phWSub', '2021-10-17 07:42:14'),
+(55, 1234, 5, '$2b$08$24WmB6L8ua7b.6KJ0/mGFORIZP/PSNryAE79Z207mtIdLQXIHAeai', NULL, '2021-04-30 00:27:38', 'qljYdAexh25lAw9joXSa1F8yqIB7aP6aqlBBQJYdui7YYHMsGpdCr8brgekbUxiKizJwgg4SFEjQIL3R3v9LY5DNbmj9UJFqEMBu51UkYKQ1z8q2nheyn0SNBpj7XMWe', '2021-10-17 07:42:14'),
+(56, 1121, 5, '$2b$08$Wen6PPn0Bb3GsZhOs2ZUXerttfekPhvi6hhf8.SdGzUnG5tGWjXla', NULL, '2021-05-11 21:37:17', 'ZfcbTgZ6PTYBiukNADBQEHO6DDJXpuXJIAoARWHeBWvJXJCMnBO4OUzMuuFiA0aHlglOiPOz0cd22Xy5bGutN4PLJLLyZt2vc61tFfCPyC25iMVPTmkZUZ1ehmjY9pfB', '2021-10-17 07:42:14'),
+(57, 1122, 5, '$2b$08$z7eQD6hBger93kXBaqUYKuaA98PEZhohwK761ZZivvKuF9FVUIAzG', NULL, '2021-05-11 21:37:19', NULL, '2021-10-17 07:42:14'),
+(59, 601111, 5, '$2b$08$mvzkGfmQwlvPJTlUThyRIuT/bXtirYA9PyRaMnUpeMWoDVenRg3c2', NULL, '2021-06-18 06:46:59', NULL, '2021-10-17 07:42:14'),
+(60, 70000, 5, '$2b$08$TNskaIB9VfTNhE571FnMZOpxkhJQY94tyHuaW6wAf8xOoqAQqIVKe', NULL, '2021-06-18 06:48:53', NULL, '2021-10-17 07:42:14'),
+(65, 2018503501, 1, '$2b$08$bzJ2DEywJQZGqoNwfsAFyOZ/jXg28eh2TGzHz3Bvqyc5AQcppnXoa', '', '2021-06-23 00:56:56', NULL, '2021-06-23 13:20:44'),
+(69, 2021, 2, '$2b$08$kzEprXz2mbtu2VLWHCCBDeaTi4ArJy6DTJ.yle2dK5CcopFS.pDQC', NULL, '2021-10-17 07:45:43', 'NZFUAnfC3JB9S7UFDDz8OJWRmiQMWX5IrKW4Pcykqf1EuRNQZsa7V27ZdkK2kPBYnIFbGLhedwPevLJJ9ZAcNMTjezAIOlS2hN5rrNw5TWTyCNd5hYDkeZdQq1FMZpgi', '2021-10-17 16:03:46');
 
 --
 -- Indexes for dumped tables
@@ -5527,6 +5686,16 @@ ALTER TABLE `course_list`
   ADD KEY `type_fk1` (`type`),
   ADD KEY `stream_fk1` (`stream`),
   ADD KEY `regulation_fk1` (`regulation`);
+
+--
+-- Indexes for table `course_material`
+--
+ALTER TABLE `course_material`
+  ADD PRIMARY KEY (`cmat_id`),
+  ADD KEY `course_code` (`course_code`),
+  ADD KEY `group_ref` (`group_ref`),
+  ADD KEY `session_ref` (`session_ref`),
+  ADD KEY `person_id` (`person_id`);
 
 --
 -- Indexes for table `course_registered_students`
@@ -5759,6 +5928,56 @@ ALTER TABLE `person_travel_history`
   ADD KEY `Person_ID_FK216` (`Person_ID`);
 
 --
+-- Indexes for table `scholar`
+--
+ALTER TABLE `scholar`
+  ADD PRIMARY KEY (`Register_No`),
+  ADD UNIQUE KEY `Person_ID_UNIQUE` (`Register_No`),
+  ADD KEY `Gender_Reference_ID_FK_idx` (`Gender_Ref`),
+  ADD KEY `Resedential_Reference_ID_FK_idx` (`Residential_Type_Ref`),
+  ADD KEY `Programme_Reference_ID_FK_idx` (`Programme_Ref`),
+  ADD KEY `Branch_Reference_ID_FK_idx` (`Branch_Ref`),
+  ADD KEY `Registration_Mode_FK_idx` (`Registration_Mode_Ref`),
+  ADD KEY `Blood_Group_FK_idx` (`Blood_Group_Ref`),
+  ADD KEY `Scholarship_FK_idx` (`Scholarship_Received_Ref`),
+  ADD KEY `Prefix_Ref_FK_idx` (`Prefix_Ref`) USING BTREE;
+
+--
+-- Indexes for table `scholar_details`
+--
+ALTER TABLE `scholar_details`
+  ADD PRIMARY KEY (`Scholar_ID`),
+  ADD UNIQUE KEY `Scholar_ID_UNIQUE` (`Scholar_ID`),
+  ADD KEY `Status_Reference_ID_FK_idx` (`Status_Ref`),
+  ADD KEY `Guide_Type_Reference_ID_FK_idx` (`Guide_Type_Ref`),
+  ADD KEY `Person_ID_FK214` (`Person_ID`),
+  ADD KEY `Fellowship_Received_Ref_FK_idx` (`Fellowship_Received_Ref`),
+  ADD KEY `Registration_Mode_Ref_FK_idx` (`Registration_Mode_Ref`),
+  ADD KEY `scholar_details_ibfk_1` (`Register_No`),
+  ADD KEY `Part_Time_Ref` (`Part_Time_Ref`);
+
+--
+-- Indexes for table `scholar_events_attended`
+--
+ALTER TABLE `scholar_events_attended`
+  ADD PRIMARY KEY (`Event_ID`),
+  ADD UNIQUE KEY `Event_ID_UNIQUE` (`Event_ID`),
+  ADD KEY `Event_Type_Reference_ID_FK_idx` (`Event_Type_Ref`),
+  ADD KEY `Participation_Status_Reference_ID_FK_idx` (`Participation_Status_Ref`),
+  ADD KEY `Status_Reference_ID_FK_idx` (`Level_Ref`),
+  ADD KEY `Person_ID_FK2110` (`Register_No`);
+
+--
+-- Indexes for table `scholar_publication`
+--
+ALTER TABLE `scholar_publication`
+  ADD PRIMARY KEY (`Publication_ID`),
+  ADD UNIQUE KEY `Journal_ID_UNIQUE` (`Publication_ID`),
+  ADD KEY `Level_Reference_ID_FK_idx` (`Level_Ref`),
+  ADD KEY `Person_ID_FK20` (`Register_No`),
+  ADD KEY `Type_Reference_ID_FK1_idx` (`Publication_Type_Ref`);
+
+--
 -- Indexes for table `staff_list`
 --
 ALTER TABLE `staff_list`
@@ -5857,14 +6076,6 @@ ALTER TABLE `student_placement`
   ADD UNIQUE KEY `Academic_ID_UNIQUE` (`Placement_ID`),
   ADD KEY `Person_ID_FK219` (`Register_No`),
   ADD KEY `Placement_Type_FK_idx` (`Placement_Type_Ref`);
-
---
--- Indexes for table `student_thesis`
---
-ALTER TABLE `student_thesis`
-  ADD PRIMARY KEY (`Sthesisid`),
-  ADD KEY `Student_fk1` (`Register_No`),
-  ADD KEY `Thesis_fk1` (`Tthesisid`);
 
 --
 -- Indexes for table `subjects_offered`
@@ -6006,6 +6217,12 @@ ALTER TABLE `course_lessonplan`
   MODIFY `clp_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `course_material`
+--
+ALTER TABLE `course_material`
+  MODIFY `cmat_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `course_registered_students`
 --
 ALTER TABLE `course_registered_students`
@@ -6144,6 +6361,24 @@ ALTER TABLE `person_travel_history`
   MODIFY `Travel_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `scholar_details`
+--
+ALTER TABLE `scholar_details`
+  MODIFY `Scholar_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `scholar_events_attended`
+--
+ALTER TABLE `scholar_events_attended`
+  MODIFY `Event_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `scholar_publication`
+--
+ALTER TABLE `scholar_publication`
+  MODIFY `Publication_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `student_awards`
 --
 ALTER TABLE `student_awards`
@@ -6192,12 +6427,6 @@ ALTER TABLE `student_placement`
   MODIFY `Placement_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `student_thesis`
---
-ALTER TABLE `student_thesis`
-  MODIFY `Sthesisid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
---
 -- AUTO_INCREMENT for table `subjects_offered`
 --
 ALTER TABLE `subjects_offered`
@@ -6219,7 +6448,7 @@ ALTER TABLE `team_thesis`
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `user_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Constraints for dumped tables
@@ -6350,6 +6579,15 @@ ALTER TABLE `course_list`
   ADD CONSTRAINT `regulation_fk1` FOREIGN KEY (`regulation`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `stream_fk1` FOREIGN KEY (`stream`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `type_fk1` FOREIGN KEY (`type`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `course_material`
+--
+ALTER TABLE `course_material`
+  ADD CONSTRAINT `course_material_ibfk_1` FOREIGN KEY (`course_code`) REFERENCES `course_list` (`course_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `course_material_ibfk_2` FOREIGN KEY (`group_ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `course_material_ibfk_3` FOREIGN KEY (`session_ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `course_material_ibfk_4` FOREIGN KEY (`person_id`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `course_registered_students`
@@ -6515,6 +6753,48 @@ ALTER TABLE `person_travel_history`
   ADD CONSTRAINT `Person_ID_FK216` FOREIGN KEY (`Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `scholar`
+--
+ALTER TABLE `scholar`
+  ADD CONSTRAINT `scholar_ibfk_1` FOREIGN KEY (`Gender_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_ibfk_2` FOREIGN KEY (`Residential_Type_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_ibfk_3` FOREIGN KEY (`Programme_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_ibfk_4` FOREIGN KEY (`Branch_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_ibfk_5` FOREIGN KEY (`Registration_Mode_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_ibfk_6` FOREIGN KEY (`Blood_Group_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_ibfk_7` FOREIGN KEY (`Scholarship_Received_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_ibfk_8` FOREIGN KEY (`Prefix_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `scholar_details`
+--
+ALTER TABLE `scholar_details`
+  ADD CONSTRAINT `scholar_details_ibfk_1` FOREIGN KEY (`Register_No`) REFERENCES `scholar` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_details_ibfk_2` FOREIGN KEY (`Part_Time_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_details_ibfk_3` FOREIGN KEY (`Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_details_ibfk_4` FOREIGN KEY (`Status_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_details_ibfk_5` FOREIGN KEY (`Guide_Type_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_details_ibfk_6` FOREIGN KEY (`Fellowship_Received_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_details_ibfk_7` FOREIGN KEY (`Registration_Mode_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_details_ibfk_8` FOREIGN KEY (`Part_Time_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `scholar_events_attended`
+--
+ALTER TABLE `scholar_events_attended`
+  ADD CONSTRAINT `scholar_events_attended_ibfk_1` FOREIGN KEY (`Event_Type_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_events_attended_ibfk_2` FOREIGN KEY (`Participation_Status_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_events_attended_ibfk_3` FOREIGN KEY (`Level_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `scholar_publication`
+--
+ALTER TABLE `scholar_publication`
+  ADD CONSTRAINT `scholar_publication_ibfk_1` FOREIGN KEY (`Publication_Type_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_publication_ibfk_2` FOREIGN KEY (`Register_No`) REFERENCES `scholar` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scholar_publication_ibfk_3` FOREIGN KEY (`Level_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `student`
 --
 ALTER TABLE `student`
@@ -6589,13 +6869,6 @@ ALTER TABLE `student_internship`
 ALTER TABLE `student_placement`
   ADD CONSTRAINT `Person_ID_FK2190` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Placement_Type_FK` FOREIGN KEY (`Placement_Type_Ref`) REFERENCES `person_reference_table` (`Reference_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `student_thesis`
---
-ALTER TABLE `student_thesis`
-  ADD CONSTRAINT `Student_fk1` FOREIGN KEY (`Register_No`) REFERENCES `student` (`Register_No`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Thesis_fk1` FOREIGN KEY (`Tthesisid`) REFERENCES `team_thesis` (`Tthesisid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `subjects_offered`
